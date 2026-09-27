@@ -36,21 +36,21 @@
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-YC3ERJSBST"></script>
 
 <script>
-    window.dataLayer = window.dataLayer || [];
+window.dataLayer = window.dataLayer || [];
 
-    function gtag(){
-        dataLayer.push(arguments);
-    }
+function gtag() {
+    dataLayer.push(arguments);
+}
 
-    gtag('js', new Date());
-    gtag('config', 'G-YC3ERJSBST');
+gtag('js', new Date());
+gtag('config', 'G-YC3ERJSBST');
 </script>
 
 <!-- Google AdSense -->
 
 <script async
-    src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2285244517360573"
-    crossorigin="anonymous">
+src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2285244517360573"
+crossorigin="anonymous">
 </script>
 
 <link rel="stylesheet" href="style.css">
@@ -62,62 +62,62 @@
 <header class="site-header">
 
 <button
-    class="menu-toggle"
-    id="menu-toggle"
-    type="button"
-    aria-label="Open navigation"
-    aria-expanded="false"
-    aria-controls="site-menu">
+class="menu-toggle"
+id="menu-toggle"
+type="button"
+aria-label="Open navigation"
+aria-expanded="false"
+aria-controls="site-menu">
 
-    <span></span>
-    <span></span>
-    <span></span>
+<span></span>
+<span></span>
+<span></span>
 
 </button>
 
 <div class="site-title">
-    APOCALYPSE QUIZZES
+APOCALYPSE QUIZZES
 </div>
 
 </header>
 
 <nav
-    class="site-menu"
-    id="site-menu"
-    aria-label="Main navigation"
-    hidden>
+class="site-menu"
+id="site-menu"
+aria-label="Main navigation"
+hidden>
 
 <div class="menu-links">
 
-    <a href="/">
-        🏠 Home
-    </a>
+<a href="/">
+    🏠 Home
+</a>
 
-    <a href="/search/">
-        🔎 Search Quizzes
-    </a>
+<a href="/search/">
+    🔎 Search Quizzes
+</a>
 
-    <a href="/categories/">
-        📂 Categories
-    </a>
+<a href="/categories/">
+    📂 Categories
+</a>
 
-    <div class="menu-divider"></div>
+<div class="menu-divider"></div>
 
-    <a href="/about.html">
-        About
-    </a>
+<a href="/about.html">
+    About
+</a>
 
-    <a href="/privacy.html">
-        Privacy Policy
-    </a>
+<a href="/privacy.html">
+    Privacy Policy
+</a>
 
-    <a href="/disclaimer.html">
-        Disclaimer
-    </a>
+<a href="/disclaimer.html">
+    Disclaimer
+</a>
 
-    <a href="/contact.html">
-        Contact
-    </a>
+<a href="/contact.html">
+    Contact
+</a>
 
 </div>
 
@@ -126,159 +126,143 @@
 <main class="container">
 
 <!-- =====================================================
-     START SCREEN
-     ===================================================== -->
+START SCREEN
+===================================================== -->
 
 <section id="start-screen">
 
 <div class="intro-card">
 
-    <img
-        src="../images/maze2.png"
-        class="quiz-start-image"
-    >
+<img
+src="../images/maze2.png"
+class="quiz-start-image"
+alt="The Maze Runner: The Scorch Trials Quiz">
 
+<div class="quiz-category">
+    SCIENCE FICTION • SURVIVAL MOVIE TRIVIA
+</div>
 
-    <div class="quiz-category">
-        SCIENCE FICTION • SURVIVAL MOVIE TRIVIA
-    </div>
+<h1>
+    The Maze Runner: The Scorch Trials Quiz
+</h1>
 
+<p class="subtitle">
+    Think you can survive the Scorch?
+    Test your knowledge of Thomas, the Gladers,
+    WCKD, the Cranks, the Right Arm and the major
+    events that unfold in The Maze Runner:
+    The Scorch Trials.
+</p>
 
-    <h1>
-        The Maze Runner: The Scorch Trials Quiz
-    </h1>
+<div class="info">
 
+<span>
+    25 Questions
+</span>
 
-    <p class="subtitle">
-        Think you can survive the Scorch?
-        Test your knowledge of Thomas, the Gladers,
-        WCKD, the Cranks, the Right Arm and the major
-        events that unfold in The Maze Runner:
-        The Scorch Trials.
-    </p>
+<span>•</span>
 
+<span>
+    ~5 Minutes
+</span>
 
-    <!-- QUIZ STATS -->
+<span>•</span>
 
-    <div class="info">
+<span>
+    4 Choices
+</span>
 
-        <span>
-            25 Questions
-        </span>
+</div>
 
-        <span>•</span>
+<p class="start-note">
+    Ready? See how much you remember about
+    Thomas, the Scorch and the fight against WCKD.
+</p>
 
-        <span>
-            ~5 Minutes
-        </span>
+<button id="start-btn" type="button">
+    START QUIZ
+</button>
 
-        <span>•</span>
+<div class="spoiler-warning start-spoiler">
 
-        <span>
-            4 Choices
-        </span>
+<p>
+    This quiz contains spoilers for
+    <em>The Maze Runner: The Scorch Trials</em>.
+</p>
 
-    </div>
-
-
-    <p class="start-note">
-        Ready? See how much you remember about
-        Thomas, the Scorch and the fight against WCKD.
-    </p>
-
-
-    <!-- START BUTTON -->
-
-    <button id="start-btn" type="button">
-        START QUIZ
-    </button>
-
-
-    <div class="spoiler-warning start-spoiler">
-
-        <p>
-            This quiz contains spoilers for
-            <em>The Maze Runner: The Scorch Trials</em>.
-        </p>
-
-    </div>
+</div>
 
 </div>
 
 </section>
 
 <!-- =====================================================
-     QUIZ SCREEN
-     ===================================================== -->
+QUIZ SCREEN
+===================================================== -->
 
 <section id="quiz-screen" class="screen hidden">
 
 <div class="quiz-header">
 
-    <span id="question-number">
-        Question 1 of 25
-    </span>
+<span id="question-number">
+    Question 1 of 25
+</span>
 
-    <span id="score-display">
-        Maze Runner Trivia
-    </span>
+<span id="score-display">
+    Maze Runner Trivia
+</span>
 
 </div>
-
 
 <div class="progress">
 
-    <div id="progress-bar"></div>
+<div id="progress-bar"></div>
 
 </div>
-
 
 <h2 id="question"></h2>
 
 <div id="answers"></div>
 
-
 <div class="quiz-navigation">
 
-    <button
-        id="back-btn"
-        class="nav-btn"
-        type="button"
-        disabled>
+<button
+id="back-btn"
+class="nav-btn"
+type="button"
+disabled>
 
-        ← Back
+← Back
 
-    </button>
+</button>
 
+<button
+id="next-btn"
+class="nav-btn"
+type="button"
+disabled>
 
-    <button
-        id="next-btn"
-        class="nav-btn"
-        type="button"
-        disabled>
+Next →
 
-        Next →
+</button>
 
-    </button>
+<button
+id="submit-btn"
+class="nav-btn submit-btn hidden"
+type="button"
+disabled>
 
+Answer All Questions
 
-    <button
-        id="submit-btn"
-        class="nav-btn submit-btn hidden"
-        type="button"
-        disabled>
-
-        Answer All Questions
-
-    </button>
+</button>
 
 </div>
 
 </section>
 
 <!-- =====================================================
-     RESULT SCREEN
-     ===================================================== -->
+RESULT SCREEN
+===================================================== -->
 
 <section id="result-screen" class="screen hidden">
 
@@ -286,659 +270,570 @@
     YOUR RESULT
 </p>
 
+<div id="result-icon" class="result-icon"></div>
 
 <h1 id="result-title"></h1>
 
-
-<!-- MAIN SCORE -->
-
 <div class="result-score">
 
-    <span id="final-score"></span>
+<span id="final-score"></span>
 
 </div>
-
 
 <p class="result-description" id="result-description"></p>
 
-
-<!-- KNOWLEDGE LEVEL -->
-
 <div class="survival-box">
 
-    <strong>
-        The Scorch Trials Movie Knowledge
-    </strong>
+<strong>
+    The Scorch Trials Movie Knowledge
+</strong>
 
-    <span id="knowledge-level"></span>
+<span id="knowledge-level"></span>
 
 </div>
-
-
-<!-- RESULT BREAKDOWN -->
 
 <div class="result-breakdown">
 
-    <div class="result-stat">
+<div class="result-stat">
 
-        <span class="result-stat-label">
-            Correct
-        </span>
+<span class="result-stat-label">
+    Correct
+</span>
 
-        <strong id="correct-count">
-            —
-        </strong>
-
-    </div>
-
-
-    <div class="result-stat">
-
-        <span class="result-stat-label">
-            Incorrect
-        </span>
-
-        <strong id="incorrect-count">
-            —
-        </strong>
-
-    </div>
-
-
-    <div class="result-stat">
-
-        <span class="result-stat-label">
-            Total
-        </span>
-
-        <strong id="total-count">
-            25
-        </strong>
-
-    </div>
-
-
-    <div class="result-stat">
-
-        <span class="result-stat-label">
-            Accuracy
-        </span>
-
-        <strong id="accuracy-percent">
-            —
-        </strong>
-
-    </div>
+<strong id="correct-count">
+    —
+</strong>
 
 </div>
 
+<div class="result-stat">
 
-<!-- RESULT ACTIONS -->
+<span class="result-stat-label">
+    Incorrect
+</span>
+
+<strong id="incorrect-count">
+    —
+</strong>
+
+</div>
+
+<div class="result-stat">
+
+<span class="result-stat-label">
+    Total
+</span>
+
+<strong id="total-count">
+    25
+</strong>
+
+</div>
+
+<div class="result-stat">
+
+<span class="result-stat-label">
+    Accuracy
+</span>
+
+<strong id="accuracy-percent">
+    —
+</strong>
+
+</div>
+
+</div>
 
 <div class="result-actions">
 
-    <button id="restart-btn" type="button">
-        TRY AGAIN
-    </button>
+<button id="restart-btn" type="button">
+    TRY AGAIN
+</button>
 
+<button id="share-btn" type="button">
+    📤 SHARE MY RESULT
+</button>
 
-    <button id="share-btn" type="button">
-        📤 SHARE MY RESULT
-    </button>
-
-
-    <button id="challenge-btn" type="button">
-        🔥 CHALLENGE YOUR FRIENDS
-    </button>
+<button id="challenge-btn" type="button">
+    🔥 CHALLENGE YOUR FRIENDS
+</button>
 
 </div>
 
 </section>
 
 <!-- =====================================================
-     SUGGESTED QUIZZES CARD
-     ===================================================== -->
+SUGGESTED QUIZZES CARD
+===================================================== -->
 
 <section id="suggestions-card" class="suggestions-card hidden">
 
 <div class="suggested-quizzes">
 
-    <h2>
-        Suggested Quizzes
-    </h2>
+<h2>
+    Suggested Quizzes
+</h2>
 
-    <p class="suggested-subtitle">
-        Survived the Scorch? Try another apocalypse quiz.
-    </p>
+<p class="suggested-subtitle">
+    Survived the Scorch? Try another apocalypse quiz.
+</p>
 
+<div class="suggested-grid">
 
-    <div class="suggested-grid">
+<!-- MAZE RUNNER: THE DEATH CURE QUIZ-->
+        <a href="/maze-runner-the-scorch-trials-quiz/" class="suggested-card">
+                        <img
+                            src="../images/maze3.png "
+                            alt="Maze Runner: The Death Cure Quiz"
+                            class="suggested-image"
+                        >
+                        <span class="suggested-title">
+                            Maze Runner: The Death Cure Quiz
+          </span>
+                        <span class="suggested-description">
+                            How well you know about the journey of Thomas and gang to find death cure? Test your knowledge with 20 questions.
+                        </span>
+                    </a>
 
+<!—THE HUNGER GAMES QUIZ-->
+        <a href="/the-hunger-games-quiz/" class="suggested-card">
+                        <img
+                            src="../images/hunger1.png "
+                            alt="The Hunger Games Quiz"
+                            class="suggested-image"
+                        >
+                        <span class="suggested-title">
+                            The Hunger Games Quiz
+          </span>
+                        <span class="suggested-description">
+                            Can you survive the hunger games and became victor? Check your knowledge of movie The hunger games
+                        </span>
+                    </a>
 
-        <!-- ALICE IN BORDERLAND SEASON 1 QUIZ -->
-
-        <a
-            href="/alice-in-borderland-season-1-quiz/"
-            class="suggested-card">
-
-            <img
-                src="../images/alice-s1.png"
-                alt="Alice in Borderland Season 1 Quiz"
-                class="suggested-image"
+<!-- LOVE AND MONSTERS QUIZ -->
+        <a href="/love-and-monsters-quiz/" class="suggested-card">
+                        <img
+                            src="../images/love-and-monsters-quiz.png"
+                            alt="Love and Monsters Quiz"
+                            class="suggested-image"
             >
-
             <span class="suggested-title">
-                Alice in Borderland Season 1 Quiz
+                Love and Monsters Quiz
             </span>
-
             <span class="suggested-description">
-                How well do you remember the games,
-                characters and survival challenges?
+          Test your knowledge of Love and Monsters 
             </span>
-
         </a>
-
-
-        <!-- THE HUNGER GAMES QUIZ -->
-
-        <a
-            href="/the-hunger-games-quiz/"
-            class="suggested-card">
-
-            <img
-                src="../images/hunger1.png"
-                alt="The Hunger Games Quiz"
-                class="suggested-image"
-            >
-
-            <span class="suggested-title">
-                The Hunger Games Quiz
-            </span>
-
-            <span class="suggested-description">
-                Can you survive the Hunger Games and
-                become a victor? Test your knowledge of
-                the first Hunger Games movie.
-            </span>
-
-        </a>
-
-
-        <!-- THE MAZE RUNNER QUIZ -->
-
-        <a
-            href="/the-maze-runner-quiz/"
-            class="suggested-card">
-
-            <img
-                src="../images/maze.png"
-                alt="The Maze Runner Quiz"
-                class="suggested-image"
-            >
-
-            <span class="suggested-title">
-                The Maze Runner Quiz
-            </span>
-
-            <span class="suggested-description">
-                How well do you remember Thomas, the
-                Glade, the Maze, the Grievers and WCKD?
-            </span>
-
-        </a>
-
-    </div>
 
 </div>
 
+</div>
 
-<!-- =====================================================
-     EXPLORE MORE QUIZZES
-     ===================================================== -->
+<!-- MORE QUIZZES CTA -->
 
 <div class="more-quizzes-section">
 
-    <h3>
-        Explore More Quizzes
-    </h3>
+<h3>
+    Explore More Quizzes
+</h3>
 
-    <p>
-        Discover more apocalypse, zombie, survival,
-        science-fiction and disaster movie quizzes.
-    </p>
+<p>
+    Discover more apocalypse, zombie, survival,
+    science-fiction and disaster movie quizzes.
+</p>
 
-    <a
-        href="/"
-        class="more-quizzes-btn">
+<a
+href="/"
+class="more-quizzes-btn">
 
-        🧟 APOCALYPSE QUIZZES
+🧟 APOCALYPSE QUIZZES
 
-    </a>
+</a>
 
 </div>
 
 </section>
 
 <!-- =====================================================
-     INFORMATION BELOW THE QUIZ
-     ===================================================== -->
+INFORMATION BELOW THE QUIZ
+===================================================== -->
 
 <div id="home-info">
 
-<!-- ABOUT THE QUIZ -->
-
 <section class="home-info">
 
-    <h2>
-        About The Quiz
-    </h2>
+<h2>
+    About The Quiz
+</h2>
 
-    <p>
-        The Maze Runner: The Scorch Trials Movie Quiz is a
-        25-question trivia challenge based on the
-        science-fiction survival movie
-        <em>The Maze Runner: The Scorch Trials</em>.
-        The story follows Thomas and the other Gladers after
-        they escape the Maze and enter the dangerous Scorch.
-    </p>
+<p>
+    The Maze Runner: The Scorch Trials Movie Quiz is a
+    25-question trivia challenge based on the
+    science-fiction survival movie
+    <em>The Maze Runner: The Scorch Trials</em>.
+    The story follows Thomas and the other Gladers after
+    they escape the Maze and enter the dangerous Scorch.
+</p>
 
-    <p>
-        The movie expands the story beyond the Maze as Thomas,
-        Newt, Minho, Teresa and the other survivors discover
-        more about WCKD and the Flare. Their journey takes them
-        through abandoned cities, dangerous settlements and
-        areas controlled by people trying to survive the
-        outbreak.
-    </p>
+<p>
+    The movie expands the story beyond the Maze as Thomas,
+    Newt, Minho, Teresa and the other survivors discover
+    more about WCKD and the Flare. Their journey takes them
+    through abandoned cities, dangerous settlements and
+    areas controlled by people trying to survive the
+    outbreak.
+</p>
 
-    <p>
-        This quiz focuses on characters, locations,
-        organizations, Cranks, the Right Arm and major events
-        shown throughout <em>The Scorch Trials</em>.
-        Some questions test major plot points while others
-        focus on smaller details that can be easy to forget.
-    </p>
+<p>
+    This quiz focuses on characters, locations,
+    organizations, Cranks, the Right Arm and major events
+    shown throughout <em>The Scorch Trials</em>.
+    Some questions test major plot points while others
+    focus on smaller details that can be easy to forget.
+</p>
 
 </section>
 
-
-<!-- MOVIE DETAILS -->
-
 <section class="home-info">
 
-    <h2>
-        Movie Details
-    </h2>
+<h2>
+    Movie Details
+</h2>
 
-    <p>
-        <strong>Release year:</strong> 2015
-    </p>
+<p>
+    <strong>Release year:</strong> 2015
+</p>
 
-    <p>
-        <strong>Director:</strong> Wes Ball
-    </p>
+<p>
+    <strong>Director:</strong> Wes Ball
+</p>
 
-    <p>
-        <strong>Genre:</strong> Science fiction, action,
-        thriller and dystopian survival
-    </p>
+<p>
+    <strong>Genre:</strong> Science fiction, action,
+    thriller and dystopian survival
+</p>
 
-    <p>
-        <strong>Main setting:</strong> The Scorch, an
-        abandoned and dangerous region affected by the Flare
-    </p>
+<p>
+    <strong>Main setting:</strong> The Scorch, an
+    abandoned and dangerous region affected by the Flare
+</p>
 
-    <p>
-        <strong>Main character:</strong> Thomas,
-        played by Dylan O'Brien
-    </p>
+<p>
+    <strong>Main character:</strong> Thomas,
+    played by Dylan O'Brien
+</p>
 
-    <p>
-        <strong>Main organization:</strong> WCKD,
-        the organization investigating and exploiting
-        immunity to the Flare
-    </p>
+<p>
+    <strong>Main organization:</strong> WCKD,
+    the organization investigating and exploiting
+    immunity to the Flare
+</p>
 
-    <p>
-        <strong>Major threat:</strong> The Cranks and the
-        dangers created by the Flare
-    </p>
+<p>
+    <strong>Major threat:</strong> The Cranks and the
+    dangers created by the Flare
+</p>
 
 </section>
 
-
-<!-- WHAT THIS QUIZ COVERS -->
-
 <section class="home-info">
 
-    <h2>
-        What This Quiz Covers
-    </h2>
+<h2>
+    What This Quiz Covers
+</h2>
 
-    <p>
-        The questions are based on details shown or
-        established in <em>The Maze Runner: The Scorch Trials</em>.
-        Some questions focus on characters and their
-        relationships, while others test your memory of
-        specific locations, organizations and major events.
-    </p>
+<p>
+    The questions are based on details shown or
+    established in <em>The Maze Runner: The Scorch Trials</em>.
+    Some questions focus on characters and their
+    relationships, while others test your memory of
+    specific locations, organizations and major events.
+</p>
 
+<h3>
+    Characters
+</h3>
 
-    <h3>
-        Characters
-    </h3>
+<p>
+    Questions may cover Thomas, Teresa, Newt,
+    Minho, Frypan, Winston, Aris, Brenda, Jorge,
+    Janson, Mary Cooper and other characters who play
+    important roles in the story.
+</p>
 
-    <p>
-        Questions may cover Thomas, Teresa, Newt, Minho,
-        Frypan, Winston, Aris, Brenda, Jorge, Janson,
-        Mary Cooper and other characters who play important
-        roles in the story.
-    </p>
+<h3>
+    WCKD
+</h3>
 
+<p>
+    WCKD remains central to the story after the Gladers
+    escape the Maze. The quiz includes questions about
+    WCKD facilities, personnel, experiments and its
+    pursuit of the immune survivors.
+</p>
 
-    <h3>
-        WCKD
-    </h3>
+<h3>
+    The Scorch
+</h3>
 
-    <p>
-        WCKD remains central to the story after the Gladers
-        escape the Maze. The quiz includes questions about
-        WCKD facilities, personnel, experiments and its
-        pursuit of the immune survivors.
-    </p>
+<p>
+    The Scorch is the dangerous environment through which
+    Thomas and the other survivors travel. Questions may
+    test your memory of the abandoned cities, ruined
+    buildings, settlements and other locations encountered
+    during their journey.
+</p>
 
+<h3>
+    The Cranks
+</h3>
 
-    <h3>
-        The Scorch
-    </h3>
+<p>
+    The Cranks are people affected by the Flare and are
+    one of the major dangers faced by the survivors.
+    The quiz includes questions about their behavior,
+    appearances and encounters throughout the movie.
+</p>
 
-    <p>
-        The Scorch is the dangerous environment through which
-        Thomas and the other survivors travel. Questions may
-        test your memory of the abandoned cities, ruined
-        buildings, settlements and other locations encountered
-        during their journey.
-    </p>
+<h3>
+    The Right Arm
+</h3>
 
+<p>
+    The Right Arm is a resistance organization opposing
+    WCKD. Questions may cover its members, activities,
+    leadership and role in the events of the movie.
+</p>
 
-    <h3>
-        The Cranks
-    </h3>
+<h3>
+    Major Story Events
+</h3>
 
-    <p>
-        The Cranks are people affected by the Flare and are
-        one of the major dangers faced by the survivors.
-        The quiz includes questions about their behavior,
-        appearances and encounters throughout the movie.
-    </p>
-
-
-    <h3>
-        The Right Arm
-    </h3>
-
-    <p>
-        The Right Arm is a resistance organization opposing
-        WCKD. Questions may cover its members, activities,
-        leadership and role in the events of the movie.
-    </p>
-
-
-    <h3>
-        Major Story Events
-    </h3>
-
-    <p>
-        The quiz covers important events from the Gladers'
-        escape from WCKD through their journey across the
-        Scorch and their encounters with the Cranks,
-        survivors, resistance members and WCKD.
-    </p>
+<p>
+    The quiz covers important events from the Gladers'
+    escape from WCKD through their journey across the
+    Scorch and their encounters with the Cranks,
+    survivors, resistance members and WCKD.
+</p>
 
 </section>
 
-
-<!-- HOW THE QUIZ WORKS -->
-
 <section class="home-info">
 
-    <h2>
-        How The Quiz Works
-    </h2>
+<h2>
+    How The Quiz Works
+</h2>
 
-    <p>
-        The quiz contains 25 questions. Every question
-        has four possible choices, but only one answer
-        is correct. Read each question carefully and
-        select the answer you believe is correct.
-    </p>
+<p>
+    The quiz contains 25 questions. Every question
+    has four possible choices, but only one answer
+    is correct. Read each question carefully and
+    select the answer you believe is correct.
+</p>
 
-    <p>
-        Each correct answer gives you 1 point, while an
-        incorrect answer gives you 0 points. With
-        25 questions in total, your correct answers are
-        converted into a final percentage.
-    </p>
+<p>
+    Each correct answer gives you 1 point, while an
+    incorrect answer gives you 0 points. With
+    25 questions in total, your correct answers are
+    converted into a final percentage.
+</p>
 
-    <p>
-        Your final result represents how many questions
-        you answered correctly. The result categories are
-        based on your performance across the 25 questions.
-    </p>
+<p>
+    Your final result represents how many questions
+    you answered correctly. The result categories are
+    based on your performance across the 25 questions.
+</p>
 
 </section>
 
-
-<!-- QUIZ NAVIGATION -->
-
 <section class="home-info">
 
-    <h2>
-        Quiz Navigation
-    </h2>
+<h2>
+    Quiz Navigation
+</h2>
 
+<h3>
+    Starting the Quiz
+</h3>
 
-    <h3>
-        Starting the Quiz
-    </h3>
+<p>
+    Select START QUIZ on the opening screen to begin.
+    The first question will appear with four possible
+    answers.
+</p>
 
-    <p>
-        Select START QUIZ on the opening screen to begin.
-        The first question will appear with four possible
-        answers.
-    </p>
+<h3>
+    Selecting an Answer
+</h3>
 
+<p>
+    Read the question and all four choices before
+    making your selection. Once you choose an answer,
+    continue to the next question.
+</p>
 
-    <h3>
-        Selecting an Answer
-    </h3>
+<h3>
+    Next and Back Buttons
+</h3>
 
-    <p>
-        Read the question and all four choices before
-        making your selection. Once you choose an answer,
-        continue to the next question.
-    </p>
+<p>
+    Use Next to move forward through the questions.
+    The Back button allows you to return to an earlier
+    question and review or change your selection.
+    Your question number and progress are displayed
+    as you move through the quiz.
+</p>
 
+<h3>
+    Finishing the Quiz
+</h3>
 
-    <h3>
-        Next and Back Buttons
-    </h3>
+<p>
+    Continue until all 25 questions have been
+    answered. When you reach the end, submit your
+    answers to finish the quiz and view your final
+    score and knowledge result.
+</p>
 
-    <p>
-        Use Next to move forward through the questions.
-        The Back button allows you to return to an earlier
-        question and review or change your selection.
-        Your question number and progress are displayed
-        as you move through the quiz.
-    </p>
+<h3>
+    Try Again and Challenge Friends
+</h3>
 
-
-    <h3>
-        Finishing the Quiz
-    </h3>
-
-    <p>
-        Continue until all 25 questions have been
-        answered. When you reach the end, submit your
-        answers to finish the quiz and view your final
-        score and knowledge result.
-    </p>
-
-
-    <h3>
-        Try Again and Challenge Friends
-    </h3>
-
-    <p>
-        After viewing your result, select TRY AGAIN to
-        replay the quiz and attempt a higher score.
-        You can also use SHARE MY RESULT or CHALLENGE
-        YOUR FRIENDS to share your result.
-    </p>
+<p>
+    After viewing your result, select TRY AGAIN to
+    replay the quiz and attempt a higher score.
+    You can also use SHARE MY RESULT or CHALLENGE
+    YOUR FRIENDS to share your result.
+</p>
 
 </section>
 
-
-<!-- FAQ -->
-
 <section class="home-info">
 
-    <h2>
-        FAQ
-    </h2>
+<h2>
+    FAQ
+</h2>
 
+<h3>
+    How many questions are in the quiz?
+</h3>
 
-    <h3>
-        How many questions are in the quiz?
-    </h3>
+<p>
+    There are 25 questions in total, and every
+    question has four possible choices.
+</p>
 
-    <p>
-        There are 25 questions in total, and every
-        question has four possible choices.
-    </p>
+<h3>
+    What is the maximum score?
+</h3>
 
+<p>
+    The maximum result is 100%. Each correct answer
+    contributes 1 point before the score is converted
+    into a percentage.
+</p>
 
-    <h3>
-        What is the maximum score?
-    </h3>
+<h3>
+    What topics are covered?
+</h3>
 
-    <p>
-        The maximum result is 100%. Each correct answer
-        contributes 1 point before the score is converted
-        into a percentage.
-    </p>
+<p>
+    The quiz covers
+    <em>The Maze Runner: The Scorch Trials</em>,
+    including Thomas, Teresa, Newt, Minho, Aris,
+    Brenda, Jorge, Janson, WCKD, the Scorch,
+    Cranks, the Right Arm, the Flare and major
+    story events.
+</p>
 
+<h3>
+    Is this quiz only about the characters?
+</h3>
 
-    <h3>
-        What topics are covered?
-    </h3>
+<p>
+    No. Character questions are only part of the
+    quiz. Other questions cover WCKD, the Scorch,
+    Cranks, the Right Arm, locations, the Flare
+    and important plot details.
+</p>
 
-    <p>
-        The quiz covers
-        <em>The Maze Runner: The Scorch Trials</em>,
-        including Thomas, Teresa, Newt, Minho, Aris,
-        Brenda, Jorge, Janson, WCKD, the Scorch,
-        Cranks, the Right Arm, the Flare and major
-        story events.
-    </p>
+<h3>
+    Which movie does this quiz cover?
+</h3>
 
+<p>
+    This quiz focuses on
+    <em>The Maze Runner: The Scorch Trials</em>,
+    the second film in
+    <em>The Maze Runner</em> movie series.
+</p>
 
-    <h3>
-        Is this quiz only about the characters?
-    </h3>
+<h3>
+    Do I need to watch the movie before taking the quiz?
+</h3>
 
-    <p>
-        No. Character questions are only part of the
-        quiz. Other questions cover WCKD, the Scorch,
-        Cranks, the Right Arm, locations, the Flare
-        and important plot details.
-    </p>
+<p>
+    It is recommended. The questions are based on
+    events, characters and details from the movie,
+    including information that may be difficult to
+    answer without having watched it.
+</p>
 
+<h3>
+    What does my score mean?
+</h3>
 
-    <h3>
-        Which movie does this quiz cover?
-    </h3>
+<p>
+    Your percentage shows how many of the 25
+    questions you answered correctly. A higher
+    percentage means you correctly remembered more
+    of the movie's details.
+</p>
 
-    <p>
-        This quiz focuses on
-        <em>The Maze Runner: The Scorch Trials</em>,
-        the second film in
-        <em>The Maze Runner</em> movie series.
-    </p>
+<h3>
+    Can I take the quiz again?
+</h3>
 
+<p>
+    Yes. Select TRY AGAIN after completing the quiz
+    to start another attempt and try to improve
+    your score.
+</p>
 
-    <h3>
-        Do I need to watch the movie before taking the quiz?
-    </h3>
+<h3>
+    Can I challenge my friends?
+</h3>
 
-    <p>
-        It is recommended. The questions are based on
-        events, characters and details from the movie,
-        including information that may be difficult to
-        answer without having watched it.
-    </p>
-
-
-    <h3>
-        What does my score mean?
-    </h3>
-
-    <p>
-        Your percentage shows how many of the 25
-        questions you answered correctly. A higher
-        percentage means you correctly remembered more
-        of the movie's details.
-    </p>
-
-
-    <h3>
-        Can I take the quiz again?
-    </h3>
-
-    <p>
-        Yes. Select TRY AGAIN after completing the quiz
-        to start another attempt and try to improve
-        your score.
-    </p>
-
-
-    <h3>
-        Can I challenge my friends?
-    </h3>
-
-    <p>
-        Yes. Select CHALLENGE YOUR FRIENDS after
-        completing the quiz to share the challenge
-        and see whether your friends can beat your score.
-    </p>
+<p>
+    Yes. Select CHALLENGE YOUR FRIENDS after
+    completing the quiz to share the challenge
+    and see whether your friends can beat your score.
+</p>
 
 </section>
-
-
-<!-- SPOILER WARNING -->
 
 <section class="home-info spoiler-warning">
 
-    <h2>
-        Spoiler Warning
-    </h2>
+<h2>
+    Spoiler Warning
+</h2>
 
-    <p>
-        This quiz contains spoilers for
-        <em>The Maze Runner: The Scorch Trials</em>.
-        Questions may reveal important details about
-        Thomas, the Gladers, WCKD, the Scorch, Cranks,
-        the Right Arm, Teresa's actions and other major
-        events from the movie.
-    </p>
+<p>
+    This quiz contains spoilers for
+    <em>The Maze Runner: The Scorch Trials</em>.
+    Questions may reveal important details about
+    Thomas, the Gladers, WCKD, the Scorch, Cranks,
+    the Right Arm, Teresa's actions and other major
+    events from the movie.
+</p>
 
-    <p>
-        If you have not watched
-        <em>The Maze Runner: The Scorch Trials</em>,
-        consider watching the movie before taking the
-        quiz to avoid having important story details
-        revealed.
-    </p>
+<p>
+    If you have not watched
+    <em>The Maze Runner: The Scorch Trials</em>,
+    consider watching the movie before taking the
+    quiz to avoid having important story details
+    revealed.
+</p>
 
 </section>
 
@@ -946,49 +841,1048 @@
 
 </main>
 
-<!-- =====================================================
-     FOOTER
-     ===================================================== -->
-
 <footer class="site-footer">
 
 <div class="footer-inner">
 
-    <div class="footer-brand">
-        APOCALYPSE QUIZZES
-    </div>
+<div class="footer-brand">
+    APOCALYPSE QUIZZES
+</div>
 
+<div class="footer-links">
 
-    <div class="footer-links">
+<a href="/about.html">
+    About
+</a>
 
-        <a href="/about.html">
-            About
-        </a>
+<a href="/privacy.html">
+    Privacy Policy
+</a>
 
-        <a href="/privacy.html">
-            Privacy Policy
-        </a>
+<a href="/disclaimer.html">
+    Disclaimer
+</a>
 
-        <a href="/disclaimer.html">
-            Disclaimer
-        </a>
+<a href="/contact.html">
+    Contact
+</a>
 
-        <a href="/contact.html">
-            Contact
-        </a>
+</div>
 
-    </div>
-
-
-    <div class="copyright">
-        © 2026 Apocalypse Quizzes
-    </div>
+<div class="copyright">
+    © 2026 Apocalypse Quizzes
+</div>
 
 </div>
 
 </footer>
 
-<script src="script.js"></script>
+<script>
+/* =========================================================
+   QUESTIONS
+   ========================================================= */
+
+const questions = [
+
+    {
+        question: "What does WCKD stand for?",
+        answers: [
+            ["World Crisis Knowledge Department", 0],
+            ["Worldwide Catastrophe Kill Division", 0],
+            ["World In Catastrophe: Killzone Department", 1],
+            ["World Coalition for Killzone Defense", 0]
+        ]
+    },
+
+    {
+        question: "Who runs the facility where Thomas and the other Gladers are taken?",
+        answers: [
+            ["Janson", 1],
+            ["Vince", 0],
+            ["Jorge", 0],
+            ["Marcus", 0]
+        ]
+    },
+
+    {
+        question: "What does Janson initially claim the facility is?",
+        answers: [
+            ["A WCKD laboratory", 0],
+            ["A military training center", 0],
+            ["The headquarters of the Right Arm", 0],
+            ["A safe haven for survivors", 1]
+        ]
+    },
+
+    {
+        question: "What are people infected by the Flare commonly called?",
+        answers: [
+            ["Cranks", 1],
+            ["Runners", 0],
+            ["Grievers", 0],
+            ["Burners", 0]
+        ]
+    },
+
+    {
+        question: "Who joins Thomas in investigating what is happening inside the facility?",
+        answers: [
+            ["Frypan", 0],
+            ["Vince", 0],
+            ["Aris", 1],
+            ["Jorge", 0]
+        ]
+    },
+
+    {
+        question: "What does WCKD harvest from the bodies of Immunes?",
+        answers: [
+            ["Blood", 0],
+            ["Memories", 0],
+            ["Bone marrow", 0],
+            ["Enzymes", 1]
+        ]
+    },
+
+    {
+        question: "What are “Swipes” in The Scorch Trials?",
+        answers: [
+            ["Devices used to erase the Flare from infected people", 0],
+            ["Weapons used by the Right Arm", 0],
+            ["Drugs used to control the Cranks", 0],
+            ["Tracking implants", 1]
+        ]
+    },
+
+    {
+        question: "What is the Scorch in the movie?",
+        answers: [
+            ["A WCKD training area", 0],
+            ["The Right Arm's underground headquarters", 0],
+            ["A devastated region outside the facility", 1],
+            ["The original Maze", 0]
+        ]
+    },
+
+    {
+        question: "Where does the group encounter the Cranks after entering the Scorch?",
+        answers: [
+            ["A military base", 0],
+            ["An abandoned shopping mall", 1],
+            ["A train station", 0],
+            ["A WCKD laboratory", 0]
+        ]
+    },
+
+    {
+        question: "Who is infected with the Flare during the attack at the abandoned mall?",
+        answers: [
+            ["Winston", 1],
+            ["Chuck", 0],
+            ["Alby", 0],
+            ["Gally", 0]
+        ]
+    },
+
+    {
+        question: "Who gets struck by lightning during the storm in the Scorch?",
+        answers: [
+            ["Thomas", 0],
+            ["Aris", 0],
+            ["Newt", 0],
+            ["Minho", 1]
+        ]
+    },
+
+    {
+        question: "Who was the WCKD collaborator at Jorge's settlement?",
+        answers: [
+            ["Marcus", 1],
+            ["Jorge", 0],
+            ["Vince", 0],
+            ["Janson", 0]
+        ]
+    },
+
+    {
+        question: "What does Thomas show Brenda when he tells her about Chuck?",
+        answers: [
+            ["A photograph", 0],
+            ["A wooden figurine", 1],
+            ["A WCKD badge", 0],
+            ["A necklace", 0]
+        ]
+    },
+
+    {
+        question: "Who tells Brenda, “That’s one sharp knife. Makes me like you more”?",
+        answers: [
+            ["Thomas", 0],
+            ["Minho", 1],
+            ["Newt", 0],
+            ["Jorge", 0]
+        ]
+    },
+
+    {
+        question: "Which two Right Arm members recognize Aris as being from the same Maze group?",
+        answers: [
+            ["Harriet and Sonya", 1],
+            ["Brenda and Mary", 0],
+            ["Harriet and Brenda", 0],
+            ["Sonya and Mary", 0]
+        ]
+    },
+
+    {
+        question: "Which character is played by Nathalie Emmanuel in The Scorch Trials?",
+        answers: [
+            ["Harriet", 1],
+            ["Sonya", 0],
+            ["Brenda", 0],
+            ["Teresa", 0]
+        ]
+    },
+
+    {
+        question: "Who leads the Right Arm?",
+        answers: [
+            ["Jorge", 0],
+            ["Vince", 1],
+            ["Janson", 0],
+            ["Marcus", 0]
+        ]
+    },
+
+    {
+        question: "Which former WCKD doctor helps the Right Arm?",
+        answers: [
+            ["Ava Paige", 0],
+            ["Teresa Agnes", 0],
+            ["Mary Cooper", 1],
+            ["Brenda", 0]
+        ]
+    },
+
+    {
+        question: "Which character eventually reveals information about Thomas's former role with WCKD?",
+        answers: [
+            ["Mary", 1],
+            ["Janson", 0],
+            ["Teresa", 0],
+            ["Vince", 0]
+        ]
+    },
+
+    {
+        question: "What role had Thomas secretly played in helping the Right Arm?",
+        answers: [
+            ["He had helped them disrupt WCKD operations", 1],
+            ["He had betrayed them to WCKD", 0],
+            ["He had founded the Right Arm", 0],
+            ["He had never heard of the Right Arm", 0]
+        ]
+    },
+
+    {
+        question: "According to Mary, why can't the enzyme needed for the cure simply be manufactured?",
+        answers: [
+            ["It only comes from Cranks", 0],
+            ["It becomes useless outside the Maze", 0],
+            ["WCKD destroyed the equipment needed to make it", 0],
+            ["It must be harvested from an Immune", 1]
+        ]
+    },
+
+    {
+        question: "What does Teresa believe WCKD is ultimately trying to accomplish?",
+        answers: [
+            ["Control the entire world", 0],
+            ["Develop a cure for the Flare", 1],
+            ["Develop a vaccine", 0],
+            ["Destroy the Immunes", 0]
+        ]
+    },
+
+    {
+        question: "Who shoots Mary Cooper during the attack?",
+        answers: [
+            ["Thomas", 0],
+            ["Vince", 0],
+            ["Janson", 1],
+            ["Teresa", 0]
+        ]
+    },
+
+    {
+        question: "Which three major characters are captured by WCKD after Teresa reveals the Right Arm's location?",
+        answers: [
+            ["Thomas, Newt and Brenda", 0],
+            ["Jorge, Vince and Harriet", 0],
+            ["Minho, Aris and Sonya", 1],
+            ["Newt, Frypan and Winston", 0]
+        ]
+    },
+
+    {
+        question: "What does Janson claim happens to the people who are sent away from the facility?",
+        answers: [
+            ["They are sent to another Maze", 0],
+            ["They are returned to their families", 0],
+            ["They are sent to the Right Arm", 0],
+            ["They are taken to a safe haven outside the Scorch", 1]
+        ]
+    }
+
+];
+
+let currentQuestion = 0;
+
+let selectedAnswers =
+    new Array(questions.length).fill(null);
+
+
+/* =========================================================
+   DOM ELEMENTS
+   ========================================================= */
+
+const startScreen =
+    document.getElementById("start-screen");
+
+const quizScreen =
+    document.getElementById("quiz-screen");
+
+const resultScreen =
+    document.getElementById("result-screen");
+
+const suggestionsCard =
+    document.getElementById("suggestions-card");
+
+const homeInfo =
+    document.getElementById("home-info");
+
+const startButton =
+    document.getElementById("start-btn");
+
+const restartButton =
+    document.getElementById("restart-btn");
+
+const shareButton =
+    document.getElementById("share-btn");
+
+const challengeButton =
+    document.getElementById("challenge-btn");
+
+const backButton =
+    document.getElementById("back-btn");
+
+const nextButton =
+    document.getElementById("next-btn");
+
+const submitButton =
+    document.getElementById("submit-btn");
+
+const questionNumber =
+    document.getElementById("question-number");
+
+const questionText =
+    document.getElementById("question");
+
+const answersContainer =
+    document.getElementById("answers");
+
+const progressBar =
+    document.getElementById("progress-bar");
+
+
+/* =========================================================
+   EVENT LISTENERS
+   ========================================================= */
+
+startButton.addEventListener("click", startQuiz);
+
+restartButton.addEventListener("click", restartQuiz);
+
+shareButton.addEventListener("click", shareResult);
+
+challengeButton.addEventListener("click", shareResult);
+
+backButton.addEventListener("click", goBack);
+
+nextButton.addEventListener("click", goNext);
+
+submitButton.addEventListener("click", showResult);
+
+
+/* =========================================================
+   START QUIZ
+   ========================================================= */
+
+function startQuiz() {
+
+    currentQuestion = 0;
+
+    selectedAnswers =
+        new Array(questions.length).fill(null);
+
+    startScreen.classList.add("hidden");
+
+    quizScreen.classList.remove("hidden");
+
+    resultScreen.classList.add("hidden");
+
+    suggestionsCard.classList.add("hidden");
+
+    homeInfo.classList.add("hidden");
+
+    progressBar.style.width = "0%";
+
+    showQuestion();
+}
+
+
+/* =========================================================
+   SHOW QUESTION
+   ========================================================= */
+
+function showQuestion() {
+
+    const current =
+        questions[currentQuestion];
+
+    questionNumber.textContent =
+        `Question ${currentQuestion + 1} of ${questions.length}`;
+
+    questionText.textContent =
+        current.question;
+
+    answersContainer.innerHTML = "";
+
+    const progress =
+        ((currentQuestion + 1) / questions.length) * 100;
+
+    progressBar.style.width =
+        `${progress}%`;
+
+    current.answers.forEach(
+        (answer, index) => {
+
+            const button =
+                document.createElement("button");
+
+            button.className =
+                "answer";
+
+            button.type =
+                "button";
+
+            button.textContent =
+                answer[0];
+
+            if (
+                selectedAnswers[currentQuestion] === index
+            ) {
+                button.classList.add("selected");
+            }
+
+            button.addEventListener(
+                "click",
+                () => {
+                    selectAnswer(index);
+                }
+            );
+
+            answersContainer.appendChild(button);
+        }
+    );
+
+    updateNavigation();
+}
+
+
+/* =========================================================
+   SELECT ANSWER
+   ========================================================= */
+
+function selectAnswer(answerIndex) {
+
+    selectedAnswers[currentQuestion] =
+        answerIndex;
+
+    const buttons =
+        answersContainer.querySelectorAll(".answer");
+
+    buttons.forEach(
+        (button, index) => {
+
+            button.classList.toggle(
+                "selected",
+                index === answerIndex
+            );
+
+        }
+    );
+
+    updateNavigation();
+
+    const questionAtSelection =
+        currentQuestion;
+
+    setTimeout(
+        () => {
+
+            if (
+                currentQuestion === questionAtSelection &&
+                selectedAnswers[questionAtSelection] === answerIndex &&
+                currentQuestion < questions.length - 1
+            ) {
+
+                currentQuestion++;
+
+                showQuestion();
+            }
+
+        },
+        180
+    );
+}
+
+
+/* =========================================================
+   NEXT
+   ========================================================= */
+
+function goNext() {
+
+    if (
+        selectedAnswers[currentQuestion] === null
+    ) {
+        return;
+    }
+
+    if (
+        currentQuestion === questions.length - 1
+    ) {
+
+        if (
+            selectedAnswers.every(
+                answer => answer !== null
+            )
+        ) {
+            showResult();
+        }
+
+        return;
+    }
+
+    currentQuestion++;
+
+    showQuestion();
+}
+
+
+/* =========================================================
+   BACK
+   ========================================================= */
+
+function goBack() {
+
+    if (currentQuestion > 0) {
+
+        currentQuestion--;
+
+        showQuestion();
+    }
+}
+
+
+/* =========================================================
+   NAVIGATION STATE
+   ========================================================= */
+
+function updateNavigation() {
+
+    const isFirst =
+        currentQuestion === 0;
+
+    const isLast =
+        currentQuestion === questions.length - 1;
+
+    const currentAnswered =
+        selectedAnswers[currentQuestion] !== null;
+
+    const allAnswered =
+        selectedAnswers.every(
+            answer => answer !== null
+        );
+
+    backButton.disabled =
+        isFirst;
+
+    if (isLast) {
+
+        nextButton.classList.add("hidden");
+
+        submitButton.classList.remove("hidden");
+
+        submitButton.disabled =
+            !allAnswered;
+
+        submitButton.textContent =
+            allAnswered
+                ? "SUBMIT"
+                : "Answer All Questions";
+
+    } else {
+
+        submitButton.classList.add("hidden");
+
+        nextButton.classList.remove("hidden");
+
+        nextButton.textContent =
+            "Next →";
+
+        nextButton.disabled =
+            !currentAnswered;
+    }
+}
+
+
+/* =========================================================
+   CALCULATE SCORE
+   ========================================================= */
+
+function calculateScore() {
+
+    let score = 0;
+
+    selectedAnswers.forEach(
+        (answerIndex, questionIndex) => {
+
+            if (answerIndex !== null) {
+
+                score +=
+                    questions[questionIndex]
+                        .answers[answerIndex][1];
+            }
+        }
+    );
+
+    return score;
+}
+
+
+/* =========================================================
+   SHOW RESULT
+   ========================================================= */
+
+function showResult() {
+
+    const correctAnswers =
+        calculateScore();
+
+    const totalQuestions =
+        questions.length;
+
+    const incorrectAnswers =
+        totalQuestions - correctAnswers;
+
+    const score =
+        Math.round(
+            (correctAnswers / totalQuestions) * 100
+        );
+
+    const accuracy =
+        score;
+
+    quizScreen.classList.add("hidden");
+
+    resultScreen.classList.remove("hidden");
+
+    homeInfo.classList.remove("hidden");
+
+    suggestionsCard.classList.remove("hidden");
+
+
+    document.getElementById(
+        "final-score"
+    ).textContent =
+        `${score}%`;
+
+    document.getElementById(
+        "correct-count"
+    ).textContent =
+        correctAnswers;
+
+    document.getElementById(
+        "incorrect-count"
+    ).textContent =
+        incorrectAnswers;
+
+    document.getElementById(
+        "total-count"
+    ).textContent =
+        totalQuestions;
+
+    document.getElementById(
+        "accuracy-percent"
+    ).textContent =
+        `${accuracy}%`;
+
+
+    let title;
+    let description;
+    let knowledge;
+    let icon;
+
+
+    if (score <= 20) {
+
+        title =
+            "🧱 Maze Newcomer";
+
+        description =
+            "The Scorch, WCKD and the Right Arm are still a little hazy. It may be time to revisit The Scorch Trials and try again.";
+
+        knowledge =
+            "Casual Viewer";
+
+        icon =
+            "🧱";
+
+    } else if (score <= 40) {
+
+        title =
+            "🏃 Scorch Survivor";
+
+        description =
+            "You remember some of the major events and characters, but several details about WCKD, the Scorch and the Right Arm slipped through the cracks.";
+
+        knowledge =
+            "Casual Fan";
+
+        icon =
+            "🏃";
+
+    } else if (score <= 60) {
+
+        title =
+            "🔥 Scorch Runner";
+
+        description =
+            "Not bad! You remember many of the movie's major events, characters, Cranks and the group's struggle to escape WCKD.";
+
+        knowledge =
+            "Good Fan";
+
+        icon =
+            "🔥";
+
+    } else if (score <= 80) {
+
+        title =
+            "⚡ Right Arm Veteran";
+
+        description =
+            "Impressive! You have a strong memory for Thomas's journey, the Scorch, the Right Arm and WCKD's plans.";
+
+        knowledge =
+            "Dedicated Fan";
+
+        icon =
+            "⚡";
+
+    } else if (score <= 96) {
+
+        title =
+            "🧪 WCKD Expert";
+
+        description =
+            "Excellent! You remember most of the important characters, events, WCKD details and how the group's escape unfolds.";
+
+        knowledge =
+            "Expert Fan";
+
+        icon =
+            "🧪";
+
+    } else {
+
+        title =
+            "👑 Scorch Trials Master";
+
+        description =
+            "Perfect score! You remembered practically every major detail about Thomas, the Gladers, WCKD, the Right Arm and the Scorch.";
+
+        knowledge =
+            "Ultimate Fan";
+
+        icon =
+            "👑";
+    }
+
+
+    document.getElementById(
+        "result-title"
+    ).textContent =
+        title;
+
+    document.getElementById(
+        "result-description"
+    ).textContent =
+        description;
+
+    document.getElementById(
+        "knowledge-level"
+    ).textContent =
+        knowledge;
+
+    document.getElementById(
+        "result-icon"
+    ).textContent =
+        icon;
+
+    progressBar.style.width =
+        "100%";
+}
+
+
+/* =========================================================
+   RESTART QUIZ
+   ========================================================= */
+
+function restartQuiz() {
+
+    currentQuestion = 0;
+
+    selectedAnswers =
+        new Array(questions.length).fill(null);
+
+    resultScreen.classList.add("hidden");
+
+    quizScreen.classList.add("hidden");
+
+    suggestionsCard.classList.add("hidden");
+
+    startScreen.classList.remove("hidden");
+
+    homeInfo.classList.remove("hidden");
+
+    progressBar.style.width =
+        "0%";
+
+    document.getElementById(
+        "final-score"
+    ).textContent =
+        "";
+
+    document.getElementById(
+        "correct-count"
+    ).textContent =
+        "—";
+
+    document.getElementById(
+        "incorrect-count"
+    ).textContent =
+        "—";
+
+    document.getElementById(
+        "total-count"
+    ).textContent =
+        questions.length;
+
+    document.getElementById(
+        "accuracy-percent"
+    ).textContent =
+        "—";
+
+    document.getElementById(
+        "result-title"
+    ).textContent =
+        "";
+
+    document.getElementById(
+        "result-description"
+    ).textContent =
+        "";
+
+    document.getElementById(
+        "knowledge-level"
+    ).textContent =
+        "";
+
+    document.getElementById(
+        "result-icon"
+    ).textContent =
+        "";
+}
+
+
+/* =========================================================
+   SHARE RESULT
+   ========================================================= */
+
+async function shareResult() {
+
+    const title =
+        document.getElementById(
+            "result-title"
+        ).textContent;
+
+    const knowledge =
+        document.getElementById(
+            "knowledge-level"
+        ).textContent;
+
+    const finalScore =
+        document.getElementById(
+            "final-score"
+        ).textContent;
+
+    const quizUrl =
+        "https://apocalypsequizzes.com/maze-runner-the-scorch-trials-quiz/";
+
+    const shareText =
+        `🔥 I scored ${finalScore} on The Maze Runner: The Scorch Trials Quiz!\n\n` +
+        `${title}\n` +
+        `Knowledge level: ${knowledge}\n\n` +
+        `How well do YOU remember The Scorch Trials?`;
+
+    const shareData = {
+
+        title:
+            "The Maze Runner: The Scorch Trials Quiz",
+
+        text:
+            shareText,
+
+        url:
+            quizUrl
+    };
+
+    try {
+
+        if (navigator.share) {
+
+            await navigator.share(
+                shareData
+            );
+
+        } else {
+
+            await navigator.clipboard.writeText(
+                shareText +
+                "\n\n" +
+                quizUrl
+            );
+
+            alert(
+                "Your result has been copied! You can paste it anywhere."
+            );
+        }
+
+    } catch (error) {
+
+        console.log(
+            "Sharing cancelled."
+        );
+    }
+}
+
+
+/* =========================================================
+   GLOBAL SITE MENU
+   ========================================================= */
+
+const menuToggle =
+    document.getElementById("menu-toggle");
+
+const siteMenu =
+    document.getElementById("site-menu");
+
+if (menuToggle && siteMenu) {
+
+    menuToggle.addEventListener(
+        "click",
+        function (event) {
+
+            event.stopPropagation();
+
+            const isOpen =
+                menuToggle.getAttribute(
+                    "aria-expanded"
+                ) === "true";
+
+            siteMenu.hidden =
+                isOpen;
+
+            menuToggle.setAttribute(
+                "aria-expanded",
+                String(!isOpen)
+            );
+
+            menuToggle.setAttribute(
+                "aria-label",
+                isOpen
+                    ? "Open navigation"
+                    : "Close navigation"
+            );
+        }
+    );
+
+    document.addEventListener(
+        "click",
+        function (event) {
+
+            if (
+                !siteMenu.hidden &&
+                !siteMenu.contains(event.target) &&
+                !menuToggle.contains(event.target)
+            ) {
+
+                siteMenu.hidden =
+                    true;
+
+                menuToggle.setAttribute(
+                    "aria-expanded",
+                    "false"
+                );
+
+                menuToggle.setAttribute(
+                    "aria-label",
+                    "Open navigation"
+                );
+            }
+        }
+    );
+
+    siteMenu
+        .querySelectorAll("a")
+        .forEach(
+            function (link) {
+
+                link.addEventListener(
+                    "click",
+                    function () {
+
+                        siteMenu.hidden =
+                            true;
+
+                        menuToggle.setAttribute(
+                            "aria-expanded",
+                            "false"
+                        );
+
+                        menuToggle.setAttribute(
+                            "aria-label",
+                            "Open navigation"
+                        );
+                    }
+                );
+            }
+        );
+}
+</script>
 
 </body>
 </html>
