@@ -1,0 +1,960 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>The Ultimate Zombie Apocalypse Survival Test</title>
+
+<meta name="description"
+    content="Take the Ultimate Zombie Apocalypse Survival Test with 90 decisions. Manage food, water, shelter, danger, and other survivors to discover how well you would survive.">
+
+<meta name="keywords"
+    content="ultimate zombie survival test, zombie apocalypse survival test, ultimate zombie quiz, zombie survival quiz, zombie quiz, apocalypse survival test, zombie apocalypse quiz, survival quiz, survival trivia, ultimate zombie trivia, zombie trivia, apocalypse trivia, zombies">
+
+<meta name="author" content="Apocalypse Quizzes">
+<meta name="robots" content="index, follow">
+
+<link rel="canonical"
+    href="https://apocalypsequizzes.com/ultimate-zombie-survival-test/">
+
+<meta property="og:title"
+    content="The Ultimate Zombie Apocalypse Survival Test">
+
+<meta property="og:description"
+    content="90 decisions. One apocalypse. How well would you survive?">
+
+<meta property="og:url"
+    content="https://apocalypsequizzes.com/ultimate-zombie-survival-test/">
+
+<meta property="og:type" content="website">
+
+<meta property="og:site_name"
+    content="Apocalypse Quizzes">
+
+<meta property="og:locale" content="en_US">
+
+<meta name="twitter:card" content="summary">
+
+<meta name="twitter:title"
+    content="The Ultimate Zombie Apocalypse Survival Test">
+
+<meta name="twitter:description"
+    content="Face 90 decisions and discover how well you would survive a zombie apocalypse.">
+
+<link rel="icon" type="image/png" href="../favicon.png">
+
+
+<!-- Google Analytics -->
+
+<script async
+    src="https://www.googletagmanager.com/gtag/js?id=G-YC3ERJSBST">
+</script>
+
+<script>
+
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() {
+        dataLayer.push(arguments);
+    }
+
+    gtag('js', new Date());
+
+    gtag('config', 'G-YC3ERJSBST');
+
+</script>
+
+
+<!-- Google AdSense -->
+
+<script async
+    src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2285244517360573"
+    crossorigin="anonymous">
+</script>
+
+
+<link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+
+<header class="site-header">
+
+<button
+    class="menu-toggle"
+    id="menu-toggle"
+    type="button"
+    aria-label="Open navigation"
+    aria-expanded="false"
+    aria-controls="site-menu">
+
+    <span></span>
+    <span></span>
+    <span></span>
+
+</button>
+
+
+<div class="site-title">
+    APOCALYPSE QUIZZES
+</div>
+
+</header>
+
+<nav
+    class="site-menu"
+    id="site-menu"
+    aria-label="Main navigation"
+    hidden>
+
+<div class="menu-links">
+
+    <a href="/">
+        🏠 Home
+    </a>
+
+    <a href="/search/">
+        🔎 Search Quizzes
+    </a>
+
+    <a href="/categories/">
+        📂 Categories
+    </a>
+
+    <div class="menu-divider"></div>
+
+    <a href="/about.html">
+        About
+    </a>
+
+    <a href="/privacy.html">
+        Privacy Policy
+    </a>
+
+    <a href="/disclaimer.html">
+        Disclaimer
+    </a>
+
+    <a href="/contact.html">
+        Contact
+    </a>
+
+</div>
+
+</nav>
+
+<main class="container">
+
+<!-- =====================================================
+     START SCREEN
+     ===================================================== -->
+
+<section id="start-screen">
+
+<div class="intro-card">
+
+<img
+    src="../images/ultimate-zombie.png"
+    class="quiz-start-image"
+>
+
+
+<div class="quiz-category">
+    ZOMBIE APOCALYPSE • SURVIVAL TEST
+</div>
+
+
+<h1>
+    The Ultimate Zombie Apocalypse Survival Test
+</h1>
+
+
+<p class="subtitle">
+    Face 90 zombie-apocalypse decisions involving
+    survival, resources, leadership, danger and other
+    survivors. Your choices determine both how well
+    you survive and the moral path you take.
+</p>
+
+
+<!-- QUIZ STATS -->
+
+<div class="info">
+
+    <span>
+        90 Decisions
+    </span>
+
+    <span>•</span>
+
+    <span>
+        ~15 Minutes
+    </span>
+
+    <span>•</span>
+
+    <span>
+        4 Choices
+    </span>
+
+</div>
+
+
+<p class="start-note">
+    Make your choices carefully. Survival and morality
+    are measured separately.
+</p>
+
+
+<!-- START BUTTON -->
+
+<button id="start-btn">
+    START QUIZ
+</button>
+
+
+<div class="spoiler-warning start-spoiler">
+
+    <p>
+        This is a fictional survival experience.
+        Your result is based entirely on the choices
+        you make during the test.
+    </p>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- =====================================================
+     QUIZ SCREEN
+     ===================================================== -->
+
+<section id="quiz-screen" class="screen hidden">
+
+<div class="quiz-header">
+
+<span id="question-number">
+    Decision 1 of 90
+</span>
+
+
+<span id="score-display">
+    SURVIVAL
+</span>
+
+</div>
+
+<div class="progress">
+
+<div id="progress-bar"></div>
+
+</div>
+
+<h2 id="question"></h2>
+
+<div id="answers"></div>
+
+<div class="quiz-navigation">
+
+<button
+    id="back-btn"
+    class="nav-btn"
+    type="button"
+    disabled>
+
+    ← Back
+
+</button>
+
+
+<button
+    id="next-btn"
+    class="nav-btn"
+    type="button"
+    disabled>
+
+    Next →
+
+</button>
+
+
+<button
+    id="submit-btn"
+    class="nav-btn submit-btn hidden"
+    type="button"
+    disabled>
+
+    Submit
+
+</button>
+
+</div>
+
+</section>
+
+<!-- =====================================================
+     RESULT SCREEN
+     ===================================================== -->
+
+<section id="result-screen" class="screen hidden">
+
+<p class="result-label">
+    YOUR APOCALYPSE RESULT
+</p>
+
+
+<h1 id="result-title"></h1>
+
+
+<!-- SURVIVAL SCORE -->
+
+<div class="result-score">
+
+    <span class="survival-label">
+        SURVIVAL SCORE
+    </span>
+
+    <span id="final-score">
+        0%
+    </span>
+
+</div>
+
+
+<p class="result-description" id="result-description"></p>
+
+<!-- MORALITY SCORE -->
+
+<div class="morality-result-card">
+
+    <span class="morality-label">
+        MORALITY SCORE
+    </span>
+
+
+    <div class="morality-result">
+
+        <span id="morality-score">
+            —
+        </span>
+
+    </div>
+
+
+    <p id="morality-description">
+        Your morality result reflects the values and
+        ethical choices revealed by your decisions.
+    </p>
+
+</div>
+
+
+<!-- SURVIVAL ESTIMATE -->
+
+<div class="survival-box">
+
+    <strong>
+        Estimated Survival:
+    </strong>
+
+    <span id="survival-time"></span>
+
+</div>
+
+
+<!-- RESULT ACTIONS -->
+
+<div class="result-actions">
+
+    <button id="restart-btn">
+        TRY AGAIN
+    </button>
+
+
+    <button id="share-btn">
+        📤 SHARE MY RESULT
+    </button>
+
+
+    <button id="challenge-btn">
+        🧟 CHALLENGE YOUR FRIENDS
+    </button>
+
+</div>
+
+</section>
+
+<!-- =====================================================
+     SUGGESTED QUIZZES CARD
+     ===================================================== -->
+
+<section id="suggestions-card" class="suggestions-card hidden">
+
+<div class="suggested-quizzes">
+
+
+    <h2>
+        Suggested Quizzes
+    </h2>
+
+
+    <p class="suggested-subtitle">
+        Survived this test? Try another apocalypse
+        quiz and see how you do.
+    </p>
+
+
+    <div class="suggested-grid">
+
+
+        <!-- ZOMBIE APOCALYPSE SURVIVAL QUIZ -->
+        <a href="/zombie-quiz/" class="suggested-card">
+                            <img
+                            src="../images/zombie-apocalypse.png"
+                            alt="Zombie Apocalypse Survival Quiz"
+                            class="suggested-image"
+            >
+            <span class="suggested-title">
+                Zombie Apocalypse Survival Quiz
+            </span>
+            <span class="suggested-description">
+                 How long you would survive in a Zombie Outbreak?
+            </span>
+        </a>
+
+
+
+        <!-- iZOMBIE QUIZ -->
+            <a href="/izombie-quiz/" class="suggested-card">
+                        <img
+                            src="../images/izombie-quiz.png"
+                            alt="iZombie Quiz"
+                            class="suggested-image"
+                        >
+                        <span class="suggested-title">
+                            iZombie Quiz
+                        </span>
+                        <span class="suggested-description">
+                            Test your knowledge of iZombie
+                        </span>
+                    </a>
+
+
+        <!-- FEAR THE WALKING DEAD QUIZ-->
+        <a href="/fear-the-walking-dead-quiz/" class="suggested-card">
+                        <img
+                            src="../images/fear.png "
+                            alt="Fear the Walking Dead Quiz"
+                            class="suggested-image"
+                        >
+                        <span class="suggested-title">
+                            Fear the Walking Dead Quiz          
+          </span>
+                        <span class="suggested-description">
+                            How Well Do You Know the show Fear The Walking Dead?
+                        </span>
+                    </a>
+
+
+    </div>
+
+</div>
+
+
+<!-- =================================================
+     EXPLORE MORE QUIZZES
+     ================================================= -->
+
+<div class="more-quizzes-section">
+
+    <h3>
+        Explore More Quizzes
+    </h3>
+
+
+    <p>
+        Discover more apocalypse, zombie, survival
+        and dystopian quizzes.
+    </p>
+
+
+    <a
+        href="/"
+        class="more-quizzes-btn">
+
+        🧟 APOCALYPSE QUIZZES
+
+    </a>
+
+</div>
+
+</section>
+
+<!-- =====================================================
+     INFORMATION BELOW THE QUIZ
+     ===================================================== -->
+
+<div id="home-info">
+
+
+<!-- ABOUT THE TEST -->
+
+<section class="home-info">
+
+<h2>
+    About this Survival Test
+</h2>
+
+
+<p>
+    The Ultimate Zombie Apocalypse Survival Test is a
+    90-decision fictional survival challenge that places
+    you inside a developing zombie outbreak. Instead of
+    testing your knowledge of a particular movie or
+    television series, the test asks you to make choices
+    as conditions change around you.
+</p>
+
+
+<p>
+    The situations cover many aspects of survival,
+    including food, water, shelter, transportation,
+    medical problems, dangerous encounters, resources,
+    leadership and relationships with other survivors.
+    Some decisions focus on immediate danger, while
+    others require you to think about what could happen
+    several days or weeks later.
+</p>
+
+
+<p>
+    Your decisions determine your Survival Score. Certain
+    questions also contribute to a separate Morality Score,
+    allowing the test to measure two different aspects of
+    your choices rather than treating survival and morality
+    as the same thing.
+</p>
+
+
+<p>
+    The test is designed as a fictional entertainment
+    experience and thought experiment. Your result is not
+    a scientific prediction of how you would perform during
+    a real emergency or disaster.
+</p>
+
+</section>
+
+
+<!-- WHAT THIS TEST COVERS -->
+
+<section class="home-info">
+
+<h2>
+    What This Test Covers
+</h2>
+
+
+<p>
+    The 90 decisions cover different problems that could
+    arise during a fictional zombie outbreak. Some
+    situations involve immediate threats, while others
+    focus on managing limited resources and making
+    decisions that could affect your group over time.
+</p>
+
+
+<h3>
+    Food and Water
+</h3>
+
+
+<p>
+    Questions may involve finding, protecting and managing
+    essential supplies when access to food and clean water
+    becomes limited.
+</p>
+
+
+<h3>
+    Shelter and Transportation
+</h3>
+
+
+<p>
+    The test includes decisions about choosing secure
+    locations, moving between areas and deciding when
+    transportation is worth the risks involved.
+</p>
+
+
+<h3>
+    Medical Problems
+</h3>
+
+
+<p>
+    Some situations involve injuries, illness, medical
+    supplies and difficult decisions about how to respond
+    when professional medical help is unavailable.
+</p>
+
+
+<h3>
+    Dangerous Encounters
+</h3>
+
+
+<p>
+    The scenarios include encounters with zombies,
+    dangerous environments and other threats where
+    choosing when to fight, hide, escape or take a risk
+    can affect your survival score.
+</p>
+
+
+<h3>
+    Other Survivors
+</h3>
+
+
+<p>
+    Some decisions involve trust, cooperation, leadership,
+    conflict and relationships with other survivors.
+    Working with others can provide advantages while also
+    creating additional risks and responsibilities.
+</p>
+
+
+<h3>
+    Morality and Difficult Choices
+</h3>
+
+
+<p>
+    Certain decisions include a separate morality component.
+    These choices can involve compassion, fairness, trust,
+    responsibility and the willingness to help others when
+    doing so may create additional risks for your group.
+</p>
+
+</section>
+
+
+<!-- HOW THE TEST WORKS -->
+
+<section class="home-info">
+
+<h2>
+    HOW THE TEST WORKS
+</h2>
+
+
+<p>
+    The complete test contains 90 fictional survival
+    decisions. Every decision presents four possible
+    choices. Read the situation carefully and select the
+    option you believe gives you the best outcome within
+    the scenario.
+</p>
+
+
+<p>
+    Each decision can contribute to your Survival Score.
+    With a maximum of 5 Survival points available from
+    each decision, the test has a maximum possible
+    Survival Score of 450 points before the result is
+    converted into a percentage.
+</p>
+
+
+<p>
+    Some decisions also contain a morality component.
+    These choices contribute separately to your Morality
+    Score and can reflect factors such as compassion,
+    fairness, trust, responsibility and your willingness
+    to help other people.
+</p>
+
+
+<p>
+    The two scores are intentionally separate. A player
+    can make highly effective survival decisions while
+    making choices that produce a lower Morality Score.
+    Likewise, a compassionate decision is not necessarily
+    the safest decision in every fictional situation.
+</p>
+
+</section>
+
+
+<!-- QUIZ NAVIGATION -->
+
+<section class="home-info">
+
+<h2>
+    Quiz Navigation
+</h2>
+
+
+<h3>
+    Starting the Test
+</h3>
+
+
+<p>
+    Select START QUIZ on the opening screen to begin.
+    The first survival decision will appear with four
+    possible choices.
+</p>
+
+
+<h3>
+    Choosing an Answer
+</h3>
+
+
+<p>
+    Read the complete situation and all four choices
+    before deciding. Consider both the immediate danger
+    and the possible consequences of your choice.
+</p>
+
+
+<h3>
+    Moving Between Decisions
+</h3>
+
+
+<p>
+    Use NEXT to continue through the test. The BACK
+    button allows you to return to an earlier decision
+    and reconsider your previous choice before submitting
+    the test.
+</p>
+
+
+<h3>
+    Completing the Test
+</h3>
+
+
+<p>
+    Continue until all 90 decisions have been completed.
+    When you are finished, select SUBMIT to calculate
+    your Survival Score, Morality Score and final
+    apocalypse result.
+</p>
+
+
+<h3>
+    Trying Again
+</h3>
+
+
+<p>
+    After seeing your result, select TRY AGAIN to replay
+    the test and experiment with different decisions.
+    You can also use SHARE MY RESULT or CHALLENGE YOUR
+    FRIENDS to compare your results with other players.
+</p>
+
+</section>
+
+
+<!-- FAQ -->
+
+<section class="home-info">
+
+<h2>
+    FREQUENTLY ASKED QUESTIONS
+</h2>
+
+
+<h3>
+    How many decisions are in the test?
+</h3>
+
+
+<p>
+    There are 90 fictional survival decisions, and every
+    decision provides four possible choices.
+</p>
+
+
+<h3>
+    What is the maximum Survival Score?
+</h3>
+
+
+<p>
+    Each decision can provide up to 5 Survival points,
+    giving the test a maximum possible Survival Score of
+    450 points before it is converted into a percentage.
+</p>
+
+
+<h3>
+    What is the Morality Score?
+</h3>
+
+
+<p>
+    The Morality Score is a separate measurement based
+    on decisions that contain a morality component. It
+    reflects patterns in your choices involving factors
+    such as compassion, fairness, trust and responsibility.
+</p>
+
+
+<h3>
+    Can I have a high Survival Score and a low Morality Score?
+</h3>
+
+
+<p>
+    Yes. The two scores measure different aspects of your
+    decisions. A choice that improves your chances of
+    survival does not necessarily represent the most
+    compassionate or fair decision.
+</p>
+
+
+<h3>
+    How are the choices scored?
+</h3>
+
+
+<p>
+    The test is a fictional decision-making experience,
+    not a scientific examination. Each choice has its own
+    point values, and the values determine how that choice
+    affects your Survival Score and, where applicable,
+    your Morality Score.
+</p>
+
+
+<h3>
+    Is this a real survival test?
+</h3>
+
+
+<p>
+    No. Zombies and the outbreak scenario are fictional.
+    Your result is intended for entertainment and does
+    not predict how you would perform during a real
+    emergency or disaster.
+</p>
+
+
+<h3>
+    Is the test based on a particular zombie series?
+</h3>
+
+
+<p>
+    No. The test is not based on one specific television
+    series, movie or game. Its situations use general
+    themes and ideas commonly found in zombie and
+    post-apocalyptic fiction.
+</p>
+
+
+<h3>
+    Can I change my answers?
+</h3>
+
+
+<p>
+    Yes. You can use the BACK button to return to earlier
+    decisions and reconsider your choices before submitting
+    the test.
+</p>
+
+
+<h3>
+    Can I take the test again?
+</h3>
+
+
+<p>
+    Yes. Select TRY AGAIN after receiving your result to
+    restart the test and see how different decisions affect
+    your Survival and Morality Scores.
+</p>
+
+
+<h3>
+    Can I challenge my friends?
+</h3>
+
+
+<p>
+    Yes. After completing the test, use CHALLENGE YOUR
+    FRIENDS to share the challenge and compare your
+    apocalypse results.
+</p>
+
+</section>
+
+</div>
+
+</main>
+
+<!-- =====================================================
+     FOOTER
+     ===================================================== -->
+
+<footer class="site-footer">
+
+<div class="footer-inner">
+
+<div class="footer-brand">
+    APOCALYPSE QUIZZES
+</div>
+
+
+<div class="footer-links">
+
+    <a href="/about.html">
+        About
+    </a>
+
+
+    <a href="/privacy.html">
+        Privacy Policy
+    </a>
+
+
+    <a href="/disclaimer.html">
+        Disclaimer
+    </a>
+
+
+    <a href="/contact.html">
+        Contact
+    </a>
+
+</div>
+
+
+<div class="copyright">
+    © 2026 Apocalypse Quizzes
+</div>
+
+</div>
+
+</footer>
+
+<script src="script.js"></script>
+
+</body>
+
+</html>
