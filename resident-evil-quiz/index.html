@@ -1537,4 +1537,663 @@ function goNext() {
 
     currentQuestion++;
 
-    showQuestion
+    showQuestion();
+
+}
+
+
+// =====================================================
+// BACK
+// =====================================================
+
+function goBack() {
+
+    if (
+        currentQuestion <= 0
+    ) {
+
+        return;
+
+    }
+
+
+    currentQuestion--;
+
+    showQuestion();
+
+}
+
+
+// =====================================================
+// NAVIGATION
+// =====================================================
+
+function updateNavigation() {
+
+    const isFirst =
+        currentQuestion === 0;
+
+
+    const isLast =
+        currentQuestion ===
+        questions.length - 1;
+
+
+    const currentAnswered =
+        selectedAnswers[currentQuestion] !== null;
+
+
+    const allAnswered =
+        selectedAnswers.every(
+            answer => answer !== null
+        );
+
+
+    backButton.disabled =
+        isFirst;
+
+
+    if (isLast) {
+
+        nextButton.classList.add(
+            "hidden"
+        );
+
+        submitButton.classList.remove(
+            "hidden"
+        );
+
+
+        submitButton.disabled =
+            !allAnswered;
+
+
+        submitButton.textContent =
+            allAnswered
+                ? "SUBMIT"
+                : "Answer All Questions";
+
+    } else {
+
+        nextButton.classList.remove(
+            "hidden"
+        );
+
+        submitButton.classList.add(
+            "hidden"
+        );
+
+
+        nextButton.textContent =
+            "Next →";
+
+
+        nextButton.disabled =
+            !currentAnswered;
+
+    }
+
+}
+
+
+// =====================================================
+// CALCULATE SCORE
+// =====================================================
+
+function calculateScore() {
+
+    let points = 0;
+
+    let correctAnswers = 0;
+
+
+    selectedAnswers.forEach(
+        (answerIndex, questionIndex) => {
+
+            if (
+                answerIndex === null
+            ) {
+
+                return;
+
+            }
+
+
+            const answer =
+                questions[questionIndex]
+                    .answers[answerIndex];
+
+
+            if (
+                answer[1] === 2
+            ) {
+
+                correctAnswers++;
+
+                points += 2;
+
+            }
+
+        }
+    );
+
+
+    return {
+        points,
+        correctAnswers
+    };
+
+}
+
+
+// =====================================================
+// SHOW RESULT
+// =====================================================
+
+function showResult() {
+
+    const scoreData =
+        calculateScore();
+
+
+    const points =
+        scoreData.points;
+
+
+    const correctAnswers =
+        scoreData.correctAnswers;
+
+
+    const totalQuestions =
+        questions.length;
+
+
+    const incorrectAnswers =
+        totalQuestions - correctAnswers;
+
+
+    const accuracy =
+        Math.round(
+            (correctAnswers / totalQuestions) * 100
+        );
+
+
+    quizScreen.classList.add(
+        "hidden"
+    );
+
+
+    resultScreen.classList.remove(
+        "hidden"
+    );
+
+
+    homeInfo.classList.remove(
+        "hidden"
+    );
+
+
+    suggestionsCard.classList.remove(
+        "hidden"
+    );
+
+
+    document.getElementById(
+        "final-score"
+    ).textContent =
+        `${points}/50`;
+
+
+    document.getElementById(
+        "correct-count"
+    ).textContent =
+        correctAnswers;
+
+
+    document.getElementById(
+        "incorrect-count"
+    ).textContent =
+        incorrectAnswers;
+
+
+    document.getElementById(
+        "total-count"
+    ).textContent =
+        totalQuestions;
+
+
+    document.getElementById(
+        "accuracy-percent"
+    ).textContent =
+        `${accuracy}%`;
+
+
+    let title;
+
+    let description;
+
+    let knowledge;
+
+    let icon;
+
+
+    // =================================================
+    // RESULT LEVELS
+    // =================================================
+
+    if (points <= 10) {
+
+        title =
+            "🧟 Zombie-Level Knowledge";
+
+
+        description =
+            "The T-virus has definitely infected your memory. You may need another trip through the Resident Evil movies.";
+
+
+        knowledge =
+            "Casual Viewer";
+
+
+        icon =
+            "🧟";
+
+
+    } else if (points <= 20) {
+
+        title =
+            "🏚️ Raccoon City Survivor";
+
+
+        description =
+            "You've seen the movies and remember the major events, but plenty of Umbrella secrets still escaped you.";
+
+
+        knowledge =
+            "Casual Fan";
+
+
+        icon =
+            "🏚️";
+
+
+    } else if (points <= 30) {
+
+        title =
+            "🔥 Umbrella Survivor";
+
+
+        description =
+            "You know Alice, Umbrella and the major events of the series, but some of the deeper movie trivia caught you out.";
+
+
+        knowledge =
+            "Good Fan";
+
+
+        icon =
+            "🔥";
+
+
+    } else if (points <= 40) {
+
+        title =
+            "⚔️ Biohazard Expert";
+
+
+        description =
+            "Impressive. You remember a lot of characters, creatures, locations and obscure details from the Resident Evil movies.";
+
+
+        knowledge =
+            "Dedicated Fan";
+
+
+        icon =
+            "⚔️";
+
+
+    } else if (points <= 48) {
+
+        title =
+            "👑 Umbrella Elite";
+
+
+        description =
+            "Excellent knowledge. You remember details that many Resident Evil fans would have forgotten.";
+
+
+        knowledge =
+            "Expert Fan";
+
+
+        icon =
+            "👑";
+
+
+    } else {
+
+        title =
+            "🧠 Resident Evil Encyclopedia";
+
+
+        description =
+            "You don't just remember the movies — you remember the tiny details. Even Umbrella would have trouble hiding anything from you.";
+
+
+        knowledge =
+            "Ultimate Fan";
+
+
+        icon =
+            "🧠";
+
+    }
+
+
+    document.getElementById(
+        "result-title"
+    ).textContent =
+        title;
+
+
+    document.getElementById(
+        "result-description"
+    ).textContent =
+        description;
+
+
+    document.getElementById(
+        "knowledge-level"
+    ).textContent =
+        knowledge;
+
+
+    document.getElementById(
+        "result-icon"
+    ).textContent =
+        icon;
+
+
+    progressBar.style.width =
+        "100%";
+
+
+    window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+    });
+
+}
+
+
+// =====================================================
+// RESTART QUIZ
+// =====================================================
+
+function restartQuiz() {
+
+    currentQuestion = 0;
+
+
+    selectedAnswers =
+        new Array(questions.length).fill(null);
+
+
+    resultScreen.classList.add(
+        "hidden"
+    );
+
+
+    quizScreen.classList.add(
+        "hidden"
+    );
+
+
+    startScreen.classList.remove(
+        "hidden"
+    );
+
+
+    homeInfo.classList.remove(
+        "hidden"
+    );
+
+
+    suggestionsCard.classList.add(
+        "hidden"
+    );
+
+
+    progressBar.style.width =
+        "0%";
+
+
+    window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+    });
+
+}
+
+
+// =====================================================
+// SHARE RESULT
+// =====================================================
+
+async function shareResult() {
+
+    const title =
+        document.getElementById(
+            "result-title"
+        ).textContent;
+
+
+    const knowledge =
+        document.getElementById(
+            "knowledge-level"
+        ).textContent;
+
+
+    const finalScore =
+        document.getElementById(
+            "final-score"
+        ).textContent;
+
+
+    const quizUrl =
+        "https://apocalypsequizzes.com/resident-evil-quiz/";
+
+
+    const shareText =
+        `🧟 I scored ${finalScore} on the Resident Evil Movie Quiz!\n\n` +
+        `${title}\n` +
+        `Knowledge level: ${knowledge}\n\n` +
+        `How well do YOU know the Resident Evil movies?`;
+
+
+    const shareData = {
+
+        title:
+            "Resident Evil Movie Quiz",
+
+        text:
+            shareText,
+
+        url:
+            quizUrl
+
+    };
+
+
+    try {
+
+        if (
+            navigator.share
+        ) {
+
+            await navigator.share(
+                shareData
+            );
+
+        } else {
+
+            await navigator.clipboard.writeText(
+                shareText +
+                "\n\n" +
+                quizUrl
+            );
+
+
+            alert(
+                "Your result has been copied! You can paste it anywhere."
+            );
+
+        }
+
+    } catch (error) {
+
+        console.log(
+            "Sharing cancelled."
+        );
+
+    }
+
+}
+
+
+// =====================================================
+// GLOBAL SITE MENU
+// =====================================================
+
+const menuToggle =
+    document.getElementById(
+        "menu-toggle"
+    );
+
+
+const siteMenu =
+    document.getElementById(
+        "site-menu"
+    );
+
+
+if (
+    menuToggle &&
+    siteMenu
+) {
+
+
+    // =================================================
+    // OPEN / CLOSE WITH HAMBURGER
+    // =================================================
+
+    menuToggle.addEventListener(
+        "click",
+        function (event) {
+
+            event.stopPropagation();
+
+
+            const isOpen =
+                menuToggle.getAttribute(
+                    "aria-expanded"
+                ) === "true";
+
+
+            siteMenu.hidden =
+                isOpen;
+
+
+            menuToggle.setAttribute(
+                "aria-expanded",
+                String(!isOpen)
+            );
+
+
+            menuToggle.setAttribute(
+                "aria-label",
+                isOpen
+                    ? "Open navigation"
+                    : "Close navigation"
+            );
+
+        }
+    );
+
+
+    // =================================================
+    // CLOSE WHEN CLICKING OUTSIDE
+    // =================================================
+
+    document.addEventListener(
+        "click",
+        function (event) {
+
+            if (
+                !siteMenu.hidden &&
+                !siteMenu.contains(event.target) &&
+                !menuToggle.contains(event.target)
+            ) {
+
+                siteMenu.hidden =
+                    true;
+
+
+                menuToggle.setAttribute(
+                    "aria-expanded",
+                    "false"
+                );
+
+
+                menuToggle.setAttribute(
+                    "aria-label",
+                    "Open navigation"
+                );
+
+            }
+
+        }
+    );
+
+
+    // =================================================
+    // CLOSE AFTER CLICKING A MENU LINK
+    // =================================================
+
+    siteMenu
+        .querySelectorAll("a")
+        .forEach(
+            function (link) {
+
+                link.addEventListener(
+                    "click",
+                    function () {
+
+                        siteMenu.hidden =
+                            true;
+
+
+                        menuToggle.setAttribute(
+                            "aria-expanded",
+                            "false"
+                        );
+
+
+                        menuToggle.setAttribute(
+                            "aria-label",
+                            "Open navigation"
+                        );
+
+                    }
+                );
+
+            }
+        );
+
+}
+
+</script>
+
+</body>
+</html>
