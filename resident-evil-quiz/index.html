@@ -1,0 +1,973 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Resident Evil Quiz – How Well Do You Know the Movies?</title>
+
+    <meta name="description" content="Think you know the Resident Evil movies? Test your knowledge of Alice, Umbrella Corporation, the T-virus, characters, facilities, creatures and major events with this 25-question Resident Evil movie quiz.">
+
+    <meta name="keywords" content="Resident Evil movie quiz, Resident Evil trivia, Resident Evil quiz, Alice quiz, Resident Evil movie trivia, Resident Evil knowledge, Resident Evil movie quiz questions, Umbrella Corporation quiz, T-virus quiz">
+
+    <meta name="author" content="Apocalypse Quizzes">
+    <meta name="robots" content="index, follow">
+
+    <link rel="canonical" href="https://apocalypsequizzes.com/resident-evil-quiz/">
+
+    <meta property="og:title" content="Resident Evil Quiz – How Well Do You Know the Movies?">
+    <meta property="og:description" content="Test your knowledge of Alice, Umbrella Corporation, the T-virus, creatures, characters and major events from the Resident Evil movies with 25 trivia questions.">
+    <meta property="og:url" content="https://apocalypsequizzes.com/resident-evil-quiz/">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Apocalypse Quizzes">
+    <meta property="og:image" content="https://apocalypsequizzes.com/resident-evil-quiz/resident-evil.png">
+
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Resident Evil Movie Quiz">
+    <meta name="twitter:description" content="How well do you know the Resident Evil movies? Take the 25-question trivia challenge.">
+    <meta name="twitter:image" content="https://apocalypsequizzes.com/resident-evil-quiz/resident-evil.png">
+
+    <link rel="icon" type="image/png" href="../favicon.png">
+
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-YC3ERJSBST"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){
+            dataLayer.push(arguments);
+        }
+        gtag('js', new Date());
+        gtag('config', 'G-YC3ERJSBST');
+    </script>
+
+    <!-- Google AdSense -->
+    <script async
+        src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2285244517360573"
+        crossorigin="anonymous">
+    </script>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<header class="site-header">
+
+    <button
+        class="menu-toggle"
+        id="menu-toggle"
+        type="button"
+        aria-label="Open navigation"
+        aria-expanded="false"
+        aria-controls="site-menu">
+
+        <span></span>
+        <span></span>
+        <span></span>
+
+    </button>
+
+    <div class="site-title">
+        APOCALYPSE QUIZZES
+    </div>
+
+</header>
+
+
+<nav
+    class="site-menu"
+    id="site-menu"
+    aria-label="Main navigation"
+    hidden>
+
+    <div class="menu-links">
+
+        <a href="/">
+            🏠 Home
+        </a>
+
+        <a href="/search/">
+            🔎 Search Quizzes
+        </a>
+
+        <a href="/categories/">
+            📂 Categories
+        </a>
+
+        <div class="menu-divider"></div>
+
+        <a href="/about.html">
+            About
+        </a>
+
+        <a href="/privacy.html">
+            Privacy Policy
+        </a>
+
+        <a href="/disclaimer.html">
+            Disclaimer
+        </a>
+
+        <a href="/contact.html">
+            Contact
+        </a>
+
+    </div>
+
+</nav>
+
+
+<main class="container">
+
+
+<!-- =====================================================
+     START SCREEN
+     ===================================================== -->
+
+<section id="start-screen">
+
+    <div class="intro-card">
+
+        <img
+            src="../images/resident-evil.png"
+            alt="Resident Evil Movie Quiz"
+            class="quiz-start-image"
+        >
+
+        <div class="quiz-category">
+            HORROR • SCIENCE FICTION • MOVIE TRIVIA
+        </div>
+
+        <h1>
+            Resident Evil Movie Quiz
+        </h1>
+
+        <p class="subtitle">
+            Think you know Alice, Umbrella Corporation, the T-virus
+            and the creatures created by it? Test your knowledge of
+            the Resident Evil movie series, including characters,
+            facilities, experiments, creatures and major events.
+        </p>
+
+        <div class="info">
+
+            <span>25 Questions</span>
+
+            <span>•</span>
+
+            <span>~5 Minutes</span>
+
+            <span>•</span>
+
+            <span>4 Choices</span>
+
+        </div>
+
+        <p class="start-note">
+            Ready? See how much you remember about the Resident Evil movies.
+        </p>
+
+        <button id="start-btn">
+            START QUIZ
+        </button>
+
+        <div class="spoiler-warning start-spoiler">
+
+            <p>
+                This quiz contains spoilers for the
+                <em>Resident Evil</em> movies.
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     QUIZ SCREEN
+     ===================================================== -->
+
+<section id="quiz-screen" class="screen hidden">
+
+    <div class="quiz-header">
+
+        <span id="question-number">
+            Question 1 of 25
+        </span>
+
+        <span id="score-display">
+            Resident Evil Trivia
+        </span>
+
+    </div>
+
+
+    <div class="progress">
+
+        <div id="progress-bar"></div>
+
+    </div>
+
+
+    <h2 id="question"></h2>
+
+
+    <div id="answers"></div>
+
+
+    <div class="quiz-navigation">
+
+        <button
+            id="back-btn"
+            class="nav-btn"
+            type="button"
+            disabled>
+
+            ← Back
+
+        </button>
+
+
+        <button
+            id="next-btn"
+            class="nav-btn"
+            type="button"
+            disabled>
+
+            Next →
+
+        </button>
+
+
+        <button
+            id="submit-btn"
+            class="nav-btn submit-btn hidden"
+            type="button"
+            disabled>
+
+            Answer All Questions
+
+        </button>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     RESULT SCREEN
+     ===================================================== -->
+
+<section id="result-screen" class="screen hidden">
+
+    <div id="result-icon" class="icon">
+        🧟
+    </div>
+
+    <p class="result-label">
+        YOUR RESULT
+    </p>
+
+    <h1 id="result-title"></h1>
+
+
+    <div class="result-score">
+
+        <span id="final-score"></span>
+
+    </div>
+
+
+    <p
+        class="result-description"
+        id="result-description">
+    </p>
+
+
+    <div class="survival-box">
+
+        <strong>
+            Resident Evil Knowledge
+        </strong>
+
+        <span id="knowledge-level"></span>
+
+    </div>
+
+
+    <div class="result-breakdown">
+
+        <div class="result-stat">
+
+            <span class="result-stat-label">
+                Correct
+            </span>
+
+            <strong id="correct-count">
+                —
+            </strong>
+
+        </div>
+
+
+        <div class="result-stat">
+
+            <span class="result-stat-label">
+                Incorrect
+            </span>
+
+            <strong id="incorrect-count">
+                —
+            </strong>
+
+        </div>
+
+
+        <div class="result-stat">
+
+            <span class="result-stat-label">
+                Total
+            </span>
+
+            <strong id="total-count">
+                25
+            </strong>
+
+        </div>
+
+
+        <div class="result-stat">
+
+            <span class="result-stat-label">
+                Accuracy
+            </span>
+
+            <strong id="accuracy-percent">
+                —
+            </strong>
+
+        </div>
+
+    </div>
+
+
+    <div class="result-actions">
+
+        <button id="restart-btn">
+            TRY AGAIN
+        </button>
+
+        <button id="share-btn">
+            📤 SHARE MY RESULT
+        </button>
+
+        <button id="challenge-btn">
+            🧟 CHALLENGE YOUR FRIENDS
+        </button>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     SUGGESTED QUIZZES
+     ===================================================== -->
+
+<section
+    id="suggestions-card"
+    class="suggestions-card hidden">
+
+    <div class="suggested-quizzes">
+
+        <h2>
+            Suggested Quizzes
+        </h2>
+
+        <p class="suggested-subtitle">
+            Enjoyed this zombie survival challenge?
+            Try another quiz.
+        </p>
+
+
+        <div class="suggested-grid">
+
+
+            <!-- ZOMBIE APOCALYPSE SURVIVAL QUIZ -->
+        <a href="/zombie-quiz/" class="suggested-card">
+                            <img
+                            src="../images/zombie-apocalypse.png"
+                            alt="Zombie Apocalypse Survival Quiz"
+                            class="suggested-image"
+            >
+            <span class="suggested-title">
+                Zombie Apocalypse Survival Quiz
+            </span>
+            <span class="suggested-description">
+                 How long you would survive in a Zombie Outbreak?
+            </span>
+        </a>
+
+
+            <!-- WORLD WAR Z QUIZ-->
+        <a href="/world-war-z-quiz/" class="suggested-card">
+                        <img
+                            src="../images/z.png "
+                            alt="World War Z Quiz"
+                            class="suggested-image"
+                        >
+                        <span class="suggested-title">
+                            World War Z Quiz         
+          </span>
+                        <span class="suggested-description">
+                            How Well Do You Know the movie WORLD WAR Z?
+                        </span>
+                    </a>
+
+
+
+
+            <!—TRAIN TO BUSAN QUIZ-->
+        <a href="/train-to-busan-quiz/" class="suggested-card">
+                        <img
+                            src="../images/busan.png "
+                            alt="Train to Busan Quiz"
+                            class="suggested-image"
+                        >
+                        <span class="suggested-title">
+                            Train to Busan Quiz         
+          </span>
+                        <span class="suggested-description">
+                            Test your knowledge of the zombie filled journey of Train to Busan Quiz?
+                        </span>
+                    </a>
+
+        </div>
+
+    </div>
+
+
+
+    <!-- MORE QUIZZES -->
+
+    <div class="more-quizzes-section">
+
+        <h3>
+            Explore More Quizzes
+        </h3>
+
+        <p>
+            Discover more apocalypse, zombie, survival,
+            science-fiction and dystopian quizzes.
+        </p>
+
+        <a
+            href="/"
+            class="more-quizzes-btn">
+
+            🧟 APOCALYPSE QUIZZES
+
+        </a>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     INFORMATION
+     ===================================================== -->
+
+<div id="home-info">
+
+
+    <!-- ABOUT -->
+
+    <section class="home-info">
+
+        <h2>
+            About The Resident Evil Movie Quiz
+        </h2>
+
+        <p>
+            The Resident Evil Movie Quiz is a 25-question trivia
+            challenge for fans of the live-action
+            <em>Resident Evil</em> film series. It tests how well
+            you remember Alice, Umbrella Corporation, the T-virus,
+            creatures, facilities, characters and major events
+            from the movies.
+        </p>
+
+        <p>
+            The questions include major story developments as well
+            as smaller details that can be easy to forget. You may
+            be asked about characters and their identities, Umbrella
+            facilities, experiments, artificial intelligence,
+            creatures, important locations and events that changed
+            the course of the story.
+        </p>
+
+        <p>
+            Each question has four possible answers, with one
+            correct choice. Every correct answer earns 2 points,
+            giving the quiz a maximum score of 50. Your final
+            result shows your score, number of correct answers,
+            accuracy and Resident Evil Knowledge level.
+        </p>
+
+        <p>
+            The quiz focuses on the original live-action movie
+            continuity starring Milla Jovovich as Alice rather
+            than the Resident Evil video games. Although the
+            movies are inspired by the games, they have their own
+            characters, storylines and interpretations of the
+            Resident Evil universe.
+        </p>
+
+    </section>
+
+
+
+    <!-- MOVIE DETAILS -->
+
+    <section class="home-info">
+
+        <h2>
+            Resident Evil Movie Series Details
+        </h2>
+
+        <p>
+            <strong>Original film series:</strong>
+            Six live-action movies starring Milla Jovovich as Alice
+        </p>
+
+        <p>
+            <strong>Central character:</strong>
+            Alice, portrayed by Milla Jovovich
+        </p>
+
+        <p>
+            <strong>Main organization:</strong>
+            Umbrella Corporation
+        </p>
+
+        <p>
+            <strong>Major fictional pathogen:</strong>
+            T-virus
+        </p>
+
+        <p>
+            <strong>Important facility:</strong>
+            The Hive
+        </p>
+
+        <p>
+            <strong>Recurring technology:</strong>
+            Artificial intelligence, cloning and biotechnology
+        </p>
+
+        <p>
+            <strong>Major threats:</strong>
+            Infected humans, mutated creatures and Umbrella's
+            biological weapons
+        </p>
+
+    </section>
+
+
+
+    <!-- WHAT QUIZ COVERS -->
+
+    <section class="home-info">
+
+        <h2>
+            What This Quiz Covers
+        </h2>
+
+        <p>
+            The questions cover characters, organizations,
+            locations, creatures, experiments and major events
+            from the original live-action Resident Evil movies.
+        </p>
+
+        <h3>
+            Alice
+        </h3>
+
+        <p>
+            Questions can cover Alice's background, her connection
+            to Umbrella, her exposure to the T-virus and the changes
+            she experiences throughout the movie series.
+        </p>
+
+        <h3>
+            Umbrella Corporation
+        </h3>
+
+        <p>
+            Umbrella's facilities, executives, experiments and
+            biological research are important parts of the movie
+            storyline.
+        </p>
+
+        <h3>
+            The T-virus
+        </h3>
+
+        <p>
+            The fictional T-virus is central to the outbreak,
+            infected creatures and many of the biological
+            experiments shown throughout the films.
+        </p>
+
+        <h3>
+            Characters
+        </h3>
+
+        <p>
+            Questions may involve Alice, Matt Addison, Spence
+            Parks, Carlos Oliveira, Claire Redfield, Chris Redfield,
+            Albert Wesker and other important characters.
+        </p>
+
+        <h3>
+            Creatures
+        </h3>
+
+        <p>
+            The quiz can test your memory of creatures such as
+            Cerberus, Lickers and Nemesis and the circumstances
+            surrounding their appearances.
+        </p>
+
+        <h3>
+            Major Events
+        </h3>
+
+        <p>
+            Questions can cover important events across the six
+            original live-action movies, including outbreaks,
+            Umbrella experiments, survivor groups and major
+            confrontations.
+        </p>
+
+    </section>
+
+
+
+    <!-- HOW QUIZ WORKS -->
+
+    <section class="home-info">
+
+        <h2>
+            How The Resident Evil Movie Quiz Works
+        </h2>
+
+        <p>
+            The quiz contains 25 multiple-choice questions.
+            Each question presents four possible choices, with
+            one correct answer.
+        </p>
+
+        <p>
+            Every correct answer is worth 2 points. With 25
+            questions, the maximum possible score is 50.
+        </p>
+
+        <p>
+            The quiz automatically moves to the next question
+            shortly after you select an answer. You can also use
+            the Back button to return to an earlier question and
+            change your selection.
+        </p>
+
+        <p>
+            Your final result shows your score out of 50 together
+            with your number of correct and incorrect answers and
+            your overall accuracy percentage.
+        </p>
+
+        <p>
+            The quiz is designed for entertainment and fan trivia.
+            It is not an official quiz produced by the filmmakers,
+            production companies or rights holders of the
+            Resident Evil franchise.
+        </p>
+
+    </section>
+
+
+
+    <!-- QUIZ NAVIGATION -->
+
+    <section class="home-info">
+
+        <h2>
+            Quiz Navigation
+        </h2>
+
+        <h3>
+            Starting the Quiz
+        </h3>
+
+        <p>
+            Select START QUIZ on the opening screen to begin.
+            The first Resident Evil question will then appear
+            with four possible answers.
+        </p>
+
+        <h3>
+            Choosing an Answer
+        </h3>
+
+        <p>
+            Read the question carefully and compare all four
+            choices before making your selection. Your selected
+            answer will be highlighted before the quiz continues.
+        </p>
+
+        <h3>
+            Next and Back Buttons
+        </h3>
+
+        <p>
+            The quiz normally advances automatically after an
+            answer is selected. The Back button allows you to
+            return to an earlier question and reconsider your
+            answer.
+        </p>
+
+        <h3>
+            Finishing the Quiz
+        </h3>
+
+        <p>
+            Continue until all 25 questions have been answered.
+            Once every question has been completed, the SUBMIT
+            button becomes available on the final question.
+        </p>
+
+        <h3>
+            Try Again
+        </h3>
+
+        <p>
+            Select TRY AGAIN after receiving your result if you
+            want another attempt. Your answers will be reset and
+            you can try to improve your score.
+        </p>
+
+        <h3>
+            Challenge Your Friends
+        </h3>
+
+        <p>
+            After completing the quiz, use CHALLENGE YOUR FRIENDS
+            to share the Resident Evil challenge with other fans.
+        </p>
+
+    </section>
+
+
+
+    <!-- FAQ -->
+
+    <section class="home-info">
+
+        <h2>
+            Resident Evil Movie Quiz FAQ
+        </h2>
+
+        <h3>
+            How many questions are in the quiz?
+        </h3>
+
+        <p>
+            The quiz contains 25 multiple-choice questions, with
+            four possible answers for each question.
+        </p>
+
+        <h3>
+            What is the maximum score?
+        </h3>
+
+        <p>
+            Each correct answer is worth 2 points, giving the quiz
+            a maximum possible score of 50.
+        </p>
+
+        <h3>
+            Which Resident Evil movies does the quiz cover?
+        </h3>
+
+        <p>
+            The quiz focuses on the original six live-action
+            Resident Evil movies starring Milla Jovovich as Alice.
+        </p>
+
+        <h3>
+            Is the quiz based on the video games?
+        </h3>
+
+        <p>
+            The main focus is the live-action movie continuity.
+            While the movies were inspired by the Resident Evil
+            games, the movie series has important differences in
+            characters, storylines and events.
+        </p>
+
+        <h3>
+            Who is Alice?
+        </h3>
+
+        <p>
+            Alice is the central protagonist of the original
+            live-action Resident Evil movie series and is portrayed
+            by Milla Jovovich.
+        </p>
+
+        <h3>
+            What is Umbrella Corporation?
+        </h3>
+
+        <p>
+            Umbrella Corporation is a major organization in the
+            movie series whose research, biotechnology and
+            experiments are closely connected to many of the
+            events experienced by Alice and the other survivors.
+        </p>
+
+        <h3>
+            What is the T-virus?
+        </h3>
+
+        <p>
+            The T-virus is a fictional biological agent in the
+            Resident Evil universe. Its effects are responsible
+            for many of the infected humans and creatures seen
+            throughout the movies.
+        </p>
+
+        <h3>
+            What is the Hive?
+        </h3>
+
+        <p>
+            The Hive is an underground Umbrella facility beneath
+            Raccoon City where important T-virus research takes
+            place in the first Resident Evil movie.
+        </p>
+
+        <h3>
+            Does the quiz include creatures?
+        </h3>
+
+        <p>
+            Yes. Questions can cover creatures and infected
+            enemies that appear throughout the movies, including
+            Cerberus, Lickers and Nemesis.
+        </p>
+
+        <h3>
+            Can I take the quiz again?
+        </h3>
+
+        <p>
+            Yes. Select TRY AGAIN after receiving your result to
+            restart the quiz and attempt a higher score.
+        </p>
+
+        <h3>
+            Can I challenge my friends?
+        </h3>
+
+        <p>
+            Yes. Use the CHALLENGE YOUR FRIENDS button after
+            completing the quiz to share the challenge with
+            other Resident Evil fans.
+        </p>
+
+    </section>
+
+
+
+    <!-- SPOILER WARNING -->
+
+    <section class="home-info spoiler-warning">
+
+        <h2>
+            Spoiler Warning
+        </h2>
+
+        <p>
+            This quiz contains spoilers for the original live-action
+            <em>Resident Evil</em> movies, including character
+            identities, organizations, creatures, locations,
+            experiments and major story events.
+        </p>
+
+        <p>
+            If you have not watched the movies and want to experience
+            their stories without learning important details in
+            advance, consider watching them before taking the quiz.
+        </p>
+
+    </section>
+
+</div>
+
+</main>
+
+
+
+<!-- =====================================================
+     FOOTER
+     ===================================================== -->
+
+<footer class="site-footer">
+
+    <div class="footer-inner">
+
+        <div class="footer-brand">
+            APOCALYPSE QUIZZES
+        </div>
+
+        <div class="footer-links">
+
+            <a href="/about.html">
+                About
+            </a>
+
+            <a href="/privacy.html">
+                Privacy Policy
+            </a>
+
+            <a href="/disclaimer.html">
+                Disclaimer
+            </a>
+
+            <a href="/contact.html">
+                Contact
+            </a>
+
+        </div>
+
+        <div class="copyright">
+            © 2026 Apocalypse Quizzes
+        </div>
+
+    </div>
+
+</footer>
+
+
+<script src="script.js"></script>
+
+</body>
+</html>
