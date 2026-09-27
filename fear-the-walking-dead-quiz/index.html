@@ -342,73 +342,56 @@
 
         <div class="suggested-grid">
 
-            <!-- RESIDENT EVIL QUIZ -->
+            <!-- ULTIMATE ZOMBIE SURVIVAL TEST -->
+        <a href="/ultimate-zombie-survival-test/" class="suggested-card">
+                        <img
+                            src="../images/ultimate-zombie.png"
+                            alt="Ultimate Zombie Survival Test"
+                            class="suggested-image"
+            >
+            <span class="suggested-title">
+                Ultimate Zombie Survival Test
+            </span>
+            <span class="suggested-description">
+                 Take the Ultimate Zombie Apocalypse Survival Test with 90 decisions. 
+            </span>
+        </a>
 
-            <a
-                href="/resident-evil-quiz/"
-                class="suggested-card">
-
-                <img
-                    src="../images/resident-evil.png"
-                    alt="Resident Evil Quiz"
-                    class="suggested-image"
-                >
-
-                <span class="suggested-title">
-                    Resident Evil Quiz
-                </span>
-
-                <span class="suggested-description">
-                    Test your knowledge of the Resident Evil movies.
-                </span>
-
-            </a>
 
 
             <!-- WALKING DEAD KNOWLEDGE -->
-
-            <a
-                href="/walking-dead-knowledge/"
-                class="suggested-card">
-
-                <img
-                    src="../images/walking-dead-knowledge.png"
-                    alt="The Walking Dead Knowledge Quiz"
-                    class="suggested-image"
-                >
-
-                <span class="suggested-title">
-                    The Walking Dead Knowledge Quiz
-                </span>
-
-                <span class="suggested-description">
-                    Test your knowledge of The Walking Dead.
-                </span>
-
-            </a>
+            <a href="/walking-dead-knowledge/" class="suggested-card">
+                        <img
+                            src="../images/walking-dead-knowledge.png"
+                            alt="The Walking Dead Knowledge Quiz"
+                            class="suggested-image"
+                        >
+                        <span class="suggested-title">
+                            The Walking Dead Knowledge Quiz
+                        </span>
+                        <span class="suggested-description">
+                            Test your knowledge of The Walking Dead. Find out how much you remember about Rick and group, surviving zombie apocalypse
+                        </span>
+                    </a>
 
 
-            <!-- ZOMBIE APOCALYPSE SURVIVAL QUIZ -->
 
-            <a
-                href="/zombie-quiz/"
-                class="suggested-card">
+            <!-- FEAR THE WALKING DEAD QUIZ-->
+        <a href="/fear-the-walking-dead-quiz/" class="suggested-card">
+                        <img
+                            src="../images/fear.png "
+                            alt="Fear the Walking Dead Quiz"
+                            class="suggested-image"
+                        >
+                        <span class="suggested-title">
+                            Fear the Walking Dead Quiz          
+          </span>
+                        <span class="suggested-description">
+                            How Well Do You Know the show Fear The Walking Dead? Answer few questions and test your knowledge
+                        </span>
+                    </a>
 
-                <img
-                    src="../images/zombie-apocalypse.png"
-                    alt="Zombie Apocalypse Survival Quiz"
-                    class="suggested-image"
-                >
 
-                <span class="suggested-title">
-                    Zombie Apocalypse Survival Quiz
-                </span>
-
-                <span class="suggested-description">
-                    How long would you survive in a zombie outbreak?
-                </span>
-
-            </a>
 
         </div>
 
@@ -1247,4 +1230,449 @@ showQuestion();
 
 function goBack() {
 
-if (
+if (currentQuestion > 0) {
+
+    currentQuestion--;
+
+    showQuestion();
+
+}
+
+}
+
+function updateNavigation() {
+
+const isFirst =
+    currentQuestion === 0;
+
+const isLast =
+    currentQuestion === questions.length - 1;
+
+const currentAnswered =
+    selectedAnswers[currentQuestion] !== null;
+
+const allAnswered =
+    selectedAnswers.every(
+        answer => answer !== null
+    );
+
+backButton.disabled =
+    isFirst;
+
+if (isLast) {
+
+    nextButton.classList.add("hidden");
+    submitButton.classList.remove("hidden");
+
+    submitButton.disabled =
+        !allAnswered;
+
+    submitButton.textContent =
+        allAnswered
+            ? "SUBMIT"
+            : "Answer All Questions";
+
+} else {
+
+    submitButton.classList.add("hidden");
+    nextButton.classList.remove("hidden");
+
+    nextButton.textContent =
+        "Next →";
+
+    nextButton.disabled =
+        !currentAnswered;
+
+}
+
+}
+
+function calculateScore() {
+
+let score = 0;
+
+selectedAnswers.forEach(
+    (answerIndex, questionIndex) => {
+
+        if (answerIndex !== null) {
+
+            score +=
+                questions[questionIndex]
+                    .answers[answerIndex][1];
+
+        }
+
+    }
+);
+
+return score;
+
+}
+
+function showResult() {
+
+const correctAnswers =
+    calculateScore();
+
+const totalQuestions =
+    questions.length;
+
+const incorrectAnswers =
+    totalQuestions - correctAnswers;
+
+const score =
+    Math.round(
+        (correctAnswers / totalQuestions) * 100
+    );
+
+const accuracy =
+    score;
+
+quizScreen.classList.add("hidden");
+resultScreen.classList.remove("hidden");
+
+homeInfo.classList.remove("hidden");
+suggestionsCard.classList.remove("hidden");
+
+
+/* RESULT SCORE */
+
+document.getElementById(
+    "final-score"
+).textContent = score;
+
+
+/* RESULT BREAKDOWN */
+
+document.getElementById(
+    "correct-count"
+).textContent = correctAnswers;
+
+document.getElementById(
+    "incorrect-count"
+).textContent = incorrectAnswers;
+
+document.getElementById(
+    "total-count"
+).textContent = totalQuestions;
+
+document.getElementById(
+    "accuracy-percent"
+).textContent = `${accuracy}%`;
+
+
+/* RESULT LEVEL */
+
+let title;
+let description;
+let knowledge;
+let icon;
+
+
+if (score <= 20) {
+
+    title =
+        "🧟 Zombie Bait";
+
+    description =
+        "The Z Nation survivors might not trust you with the apocalypse just yet. Time for another journey through the zombie apocalypse.";
+
+    knowledge =
+        "Casual Viewer";
+
+    icon =
+        "🧟";
+
+} else if (score <= 40) {
+
+    title =
+        "🏚️ Survivor";
+
+    description =
+        "You know some of the survivors and major events, but the zombie apocalypse has plenty of details left to uncover.";
+
+    knowledge =
+        "Casual Fan";
+
+    icon =
+        "🏚️";
+
+} else if (score <= 60) {
+
+    title =
+        "🔫 Zombie Fighter";
+
+    description =
+        "Not bad! You remember the major characters, missions and twists, but a few Z Nation details slipped through.";
+
+    knowledge =
+        "Good Fan";
+
+    icon =
+        "🔫";
+
+} else if (score <= 80) {
+
+    title =
+        "🧟‍♂️ Apocalypse Survivor";
+
+    description =
+        "Impressive! You know your survivors, zombies, missions and major events pretty well.";
+
+    knowledge =
+        "Dedicated Fan";
+
+    icon =
+        "🧟‍♂️";
+
+} else if (score <= 96) {
+
+    title =
+        "☣️ Z Nation Expert";
+
+    description =
+        "Excellent! You remember most of the details, characters and events from the Z Nation apocalypse.";
+
+    knowledge =
+        "Expert Fan";
+
+    icon =
+        "☣️";
+
+} else {
+
+    title =
+        "🧠 Z Nation Encyclopedia";
+
+    description =
+        "Perfect score! You know practically everything about the survivors, zombies, missions and chaotic world of Z Nation.";
+
+    knowledge =
+        "Ultimate Fan";
+
+    icon =
+        "🧠";
+
+}
+
+
+document.getElementById(
+    "result-title"
+).textContent = title;
+
+document.getElementById(
+    "result-description"
+).textContent = description;
+
+document.getElementById(
+    "knowledge-level"
+).textContent = knowledge;
+
+document.getElementById(
+    "result-icon"
+).textContent = icon;
+
+progressBar.style.width = "100%";
+
+}
+
+function restartQuiz() {
+
+currentQuestion = 0;
+
+selectedAnswers =
+    new Array(questions.length).fill(null);
+
+resultScreen.classList.add("hidden");
+quizScreen.classList.add("hidden");
+
+startScreen.classList.remove("hidden");
+
+homeInfo.classList.remove("hidden");
+suggestionsCard.classList.add("hidden");
+
+progressBar.style.width = "0%";
+
+}
+
+async function shareResult() {
+
+const title =
+    document.getElementById(
+        "result-title"
+    ).textContent;
+
+const knowledge =
+    document.getElementById(
+        "knowledge-level"
+    ).textContent;
+
+const finalScore =
+    document.getElementById(
+        "final-score"
+    ).textContent;
+
+const shareText =
+    `🧟 I scored ${finalScore}% on the Z Nation Quiz!\n\n` +
+    `${title}\n` +
+    `Knowledge level: ${knowledge}\n\n` +
+    `How well do YOU know Z Nation?`;
+
+const shareData = {
+
+    title:
+        "Z Nation Quiz",
+
+    text:
+        shareText,
+
+    url:
+        "https://apocalypsequizzes.com/z-nation-quiz/"
+
+};
+
+
+try {
+
+    if (navigator.share) {
+
+        await navigator.share(
+            shareData
+        );
+
+    } else {
+
+        await navigator.clipboard.writeText(
+            shareText +
+            "\n\nhttps://apocalypsequizzes.com/z-nation-quiz/"
+        );
+
+        alert(
+            "Your result has been copied! You can paste it anywhere."
+        );
+
+    }
+
+} catch (error) {
+
+    console.log(
+        "Sharing cancelled."
+    );
+
+}
+
+}
+
+// ===============================
+// GLOBAL SITE MENU
+// ===============================
+
+const menuToggle =
+document.getElementById(
+"menu-toggle"
+);
+
+const siteMenu =
+document.getElementById(
+"site-menu"
+);
+
+if (menuToggle && siteMenu) {
+
+// OPEN / CLOSE WITH HAMBURGER
+
+menuToggle.addEventListener(
+    "click",
+    function (event) {
+
+        event.stopPropagation();
+
+        const isOpen =
+            menuToggle.getAttribute(
+                "aria-expanded"
+            ) === "true";
+
+        siteMenu.hidden =
+            isOpen;
+
+        menuToggle.setAttribute(
+            "aria-expanded",
+            String(!isOpen)
+        );
+
+        menuToggle.setAttribute(
+            "aria-label",
+            isOpen
+                ? "Open navigation"
+                : "Close navigation"
+        );
+
+    }
+);
+
+
+// CLOSE WHEN CLICKING OUTSIDE
+
+document.addEventListener(
+    "click",
+    function (event) {
+
+        if (
+            !siteMenu.hidden &&
+            !siteMenu.contains(event.target) &&
+            !menuToggle.contains(event.target)
+        ) {
+
+            siteMenu.hidden =
+                true;
+
+            menuToggle.setAttribute(
+                "aria-expanded",
+                "false"
+            );
+
+            menuToggle.setAttribute(
+                "aria-label",
+                "Open navigation"
+            );
+
+        }
+
+    }
+);
+
+
+// CLOSE AFTER CLICKING A MENU LINK
+
+siteMenu
+    .querySelectorAll("a")
+    .forEach(function (link) {
+
+        link.addEventListener(
+            "click",
+            function () {
+
+                siteMenu.hidden =
+                    true;
+
+                menuToggle.setAttribute(
+                    "aria-expanded",
+                    "false"
+                );
+
+                menuToggle.setAttribute(
+                    "aria-label",
+                    "Open navigation"
+                );
+
+            }
+        );
+
+    });
+
+}
+
+</script>
+
+</body>
+</html>
