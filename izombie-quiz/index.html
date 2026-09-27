@@ -1,0 +1,762 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>iZombie Quiz – How Well Do You Know the Show?</title>
+
+    <meta name="description" content="Think you know iZombie? Test your knowledge of characters, zombies, brains, groups, events and more with this 50-question iZombie quiz.">
+
+    <meta name="keywords" content="iZombie quiz, iZombie trivia, iZombie quiz 50 questions, iZombie trivia quiz, izombie knowledge, izombie, zombie, apocalypse, izombie show, tv show knowledge">
+
+    <meta name="author" content="Apocalypse Quizzes">
+    <meta name="robots" content="index, follow">
+
+    <link rel="canonical" href="https://apocalypsequizzes.com/izombie-quiz/">
+
+    <meta property="og:title" content="iZombie Quiz – How Well Do You Know the Show?">
+    <meta property="og:description" content="Test your knowledge of iZombie with 50 questions covering characters, zombies, groups and memorable events.">
+    <meta property="og:url" content="https://apocalypsequizzes.com/izombie-quiz/">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Apocalypse Quizzes">
+
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="iZombie Quiz">
+    <meta name="twitter:description" content="How well do you know iZombie? Take the 50-question trivia challenge.">
+
+    <link rel="icon" type="image/png" href="../favicon.png">
+
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-YC3ERJSBST"></script>
+
+    <script>
+        window.dataLayer = window.dataLayer || [];
+
+        function gtag(){
+            dataLayer.push(arguments);
+        }
+
+        gtag('js', new Date());
+        gtag('config', 'G-YC3ERJSBST');
+    </script>
+
+    <!-- Google AdSense -->
+    <script async
+        src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2285244517360573"
+        crossorigin="anonymous">
+    </script>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<header class="site-header">
+
+    <button
+        class="menu-toggle"
+        id="menu-toggle"
+        type="button"
+        aria-label="Open navigation"
+        aria-expanded="false"
+        aria-controls="site-menu">
+
+        <span></span>
+        <span></span>
+        <span></span>
+
+    </button>
+
+    <div class="site-title">
+        APOCALYPSE QUIZZES
+    </div>
+
+</header>
+
+
+<nav
+    class="site-menu"
+    id="site-menu"
+    aria-label="Main navigation"
+    hidden>
+
+    <div class="menu-links">
+
+        <a href="/">
+            🏠 Home
+        </a>
+
+        <a href="/search/">
+            🔎 Search Quizzes
+        </a>
+
+        <a href="/categories/">
+            📂 Categories
+        </a>
+
+        <div class="menu-divider"></div>
+
+        <a href="/about.html">
+            About
+        </a>
+
+        <a href="/privacy.html">
+            Privacy Policy
+        </a>
+
+        <a href="/disclaimer.html">
+            Disclaimer
+        </a>
+
+        <a href="/contact.html">
+            Contact
+        </a>
+
+    </div>
+
+</nav>
+
+
+<main class="container">
+
+
+<!-- =====================================================
+     START SCREEN
+     ===================================================== -->
+
+<section id="start-screen">
+
+    <div class="intro-card">
+
+        <img
+            src="../images/izombie-quiz.png"
+            alt="iZombie Quiz"
+            class="quiz-start-image"
+        >
+
+        <div class="quiz-category">
+            ZOMBIE • TV SHOW TRIVIA
+        </div>
+
+        <h1>
+            iZombie Quiz
+        </h1>
+
+        <p class="subtitle">
+            Think you know Liv, Ravi, Clive, Blaine and the strange world
+            of New Seattle? Test your knowledge and see how much of
+            iZombie you really remember.
+        </p>
+
+        <div class="info">
+
+            <span>
+                50 Questions
+            </span>
+
+            <span>•</span>
+
+            <span>
+                ~10 Minutes
+            </span>
+
+            <span>•</span>
+
+            <span>
+                4 Choices
+            </span>
+
+        </div>
+
+        <p class="start-note">
+            Ready? See how much you remember about iZombie.
+        </p>
+
+        <button id="start-btn">
+            START QUIZ
+        </button>
+
+        <div class="spoiler-warning start-spoiler">
+
+            <p>
+                This quiz contains spoilers for
+                <em>iZombie</em>.
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     QUIZ SCREEN
+     ===================================================== -->
+
+<section id="quiz-screen" class="screen hidden">
+
+    <div class="quiz-header">
+
+        <span id="question-number">
+            Question 1 of 50
+        </span>
+
+        <span id="score-display">
+            iZombie Trivia
+        </span>
+
+    </div>
+
+
+    <div class="progress">
+
+        <div id="progress-bar"></div>
+
+    </div>
+
+
+    <h2 id="question"></h2>
+
+    <div id="answers"></div>
+
+
+    <div class="quiz-navigation">
+
+        <button
+            id="back-btn"
+            class="nav-btn"
+            type="button"
+            disabled>
+
+            ← Back
+
+        </button>
+
+
+        <button
+            id="next-btn"
+            class="nav-btn"
+            type="button">
+
+            Next →
+
+        </button>
+
+
+        <button
+            id="submit-btn"
+            class="nav-btn submit-btn hidden"
+            type="button"
+            disabled>
+
+            Answer All Questions
+
+        </button>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     RESULT SCREEN
+     ===================================================== -->
+
+<section id="result-screen" class="screen hidden">
+
+    <div id="result-icon" class="icon">
+        🧟
+    </div>
+
+
+    <p class="result-label">
+        YOUR RESULT
+    </p>
+
+
+    <h1 id="result-title"></h1>
+
+
+    <div class="result-score">
+
+        <span id="final-score"></span>/50
+
+    </div>
+
+
+    <p id="result-description"></p>
+
+
+    <!-- KNOWLEDGE LEVEL -->
+
+    <div class="survival-box">
+
+        <strong>
+            iZombie Knowledge
+        </strong>
+
+        <span id="knowledge-level"></span>
+
+    </div>
+
+
+    <!-- RESULT BREAKDOWN -->
+
+    <div class="result-breakdown">
+
+        <div class="result-stat">
+
+            <span class="result-stat-label">
+                Correct
+            </span>
+
+            <strong id="correct-count">
+                —
+            </strong>
+
+        </div>
+
+
+        <div class="result-stat">
+
+            <span class="result-stat-label">
+                Incorrect
+            </span>
+
+            <strong id="incorrect-count">
+                —
+            </strong>
+
+        </div>
+
+
+        <div class="result-stat">
+
+            <span class="result-stat-label">
+                Total
+            </span>
+
+            <strong id="total-count">
+                50
+            </strong>
+
+        </div>
+
+
+        <div class="result-stat">
+
+            <span class="result-stat-label">
+                Accuracy
+            </span>
+
+            <strong id="accuracy-percent">
+                —
+            </strong>
+
+        </div>
+
+    </div>
+
+
+    <!-- RESULT ACTIONS -->
+
+    <div class="result-actions">
+
+        <button id="restart-btn">
+            TRY AGAIN
+        </button>
+
+        <button id="share-btn">
+            📤 SHARE MY RESULT
+        </button>
+
+        <button id="challenge-btn">
+            🧟 CHALLENGE YOUR FRIENDS
+        </button>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     SUGGESTED QUIZZES
+     ===================================================== -->
+
+<section
+    id="suggestions-card"
+    class="suggestions-card hidden">
+
+    <div class="suggested-quizzes">
+
+        <h2>
+            Suggested Quizzes
+        </h2>
+
+        <p class="suggested-subtitle">
+            Think you can handle more? Try another quiz.
+        </p>
+
+
+        <div class="suggested-grid">
+
+
+            <!-- WALKING DEAD KNOWLEDGE -->
+            <a href="/walking-dead-knowledge/" class="suggested-card">
+                        <img
+                            src="../images/walking-dead-knowledge.png"
+                            alt="The Walking Dead Knowledge Quiz"
+                            class="suggested-image"
+                        >
+                        <span class="suggested-title">
+                            The Walking Dead Knowledge Quiz
+                        </span>
+                        <span class="suggested-description">
+                            Test your knowledge of The Walking Dead.
+                        </span>
+                    </a>
+
+
+
+            <!-- WALKING DEAD PERSONALITY -->
+        <a href="/walking-dead-characters-quiz/" class="suggested-card">
+                        <img
+                            src="../images/twd-personality.png"
+                            alt="The Walking Dead Personality Quiz"
+                            class="suggested-image"
+                        >
+                        <span class="suggested-title">
+                            The Walking Dead Personality Quiz
+                        </span>
+                        <span class="suggested-description">
+                            Find out which Walking Dead character matches your personality.
+                        </span>
+                    </a>
+
+
+
+            <!-- Z NATION QUIZ-->
+        <a href="/z-nation-quiz/" class="suggested-card">
+                        <img
+                            src="../images/z-nation.png"
+                            alt="Z Nation Quiz"
+                            class="suggested-image"
+                        >
+                        <span class="suggested-title">
+                            Z Nation Quiz              
+          </span>
+                        <span class="suggested-description">
+                            How Well Do You Know the Series Z Nation?
+                        </span>
+                    </a>
+
+
+        </div>
+
+
+        <!-- MORE QUIZZES CTA -->
+
+        <div class="more-quizzes-section">
+
+            <h3>
+                Explore More Quizzes
+            </h3>
+
+            <p>
+                Discover more apocalypse, zombie, survival and
+                dystopian quizzes.
+            </p>
+
+            <a
+                href="/"
+                class="more-quizzes-btn">
+
+                🧟 APOCALYPSE QUIZZES
+
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     INFORMATION BELOW THE QUIZ
+     ===================================================== -->
+
+<div id="home-info">
+
+
+    <!-- ABOUT -->
+
+    <section class="home-info">
+
+        <h2>
+            About the iZombie Quiz
+        </h2>
+
+        <p>
+            Think you know <em>iZombie</em>? This 50-question quiz
+            tests how closely you remember the characters, zombies,
+            brains, organizations, relationships and memorable events
+            from the series. It is designed for viewers who want to
+            test their knowledge of the strange world created around
+            Liv Moore and the people connected to her.
+        </p>
+
+        <p>
+            Questions can cover Liv Moore, Ravi Chakrabarti, Clive
+            Babineaux, Blaine DeBeers and other important characters.
+            You may also encounter questions about zombie rules,
+            brains, businesses, groups, identities, occupations,
+            locations and events that shaped the story.
+        </p>
+
+        <p>
+            Some questions focus on major storylines, while others
+            test smaller details that may be easy to forget. The quiz
+            is therefore intended for both regular viewers and fans
+            who remember the more unusual details of <em>iZombie</em>.
+            Your final score shows how much of the series you can
+            still recall.
+        </p>
+
+    </section>
+
+
+    <!-- HOW IT WORKS -->
+
+    <section class="home-info">
+
+        <h2>
+            How the iZombie Quiz Works
+        </h2>
+
+        <p>
+            The quiz contains 50 multiple-choice questions. Each
+            question has four possible choices, with one correct
+            answer. Read each question carefully and select the
+            answer you believe is correct before moving forward.
+        </p>
+
+        <p>
+            Every correct answer is worth 1 point, giving you a
+            maximum possible score of 50 points. Your final score is
+            used to determine your iZombie Knowledge level. A higher
+            score means you successfully remembered more of the
+            characters, events, zombie details and other information
+            covered by the quiz.
+        </p>
+
+        <p>
+            The quiz is intended as entertainment and fan trivia,
+            rather than an official assessment of how well someone
+            knows the series. If you do not get the score you wanted,
+            you can take the quiz again and see whether you can
+            improve your result.
+        </p>
+
+    </section>
+
+
+    <!-- QUIZ NAVIGATION -->
+
+    <section class="home-info">
+
+        <h2>
+            Quiz Navigation
+        </h2>
+
+        <h3>
+            Starting the Quiz
+        </h3>
+
+        <p>
+            Select START QUIZ to begin the challenge. The quiz
+            displays your current question number and a progress bar
+            so you can keep track of your position through all 50
+            questions.
+        </p>
+
+        <h3>
+            Selecting an Answer
+        </h3>
+
+        <p>
+            Choose an answer and use Next to continue through the
+            quiz. The Back button can be used to return to an earlier
+            question when available.
+        </p>
+
+        <h3>
+            Finishing the Quiz
+        </h3>
+
+        <p>
+            After answering all 50 questions, submit the quiz to view
+            your final score and iZombie Knowledge level.
+        </p>
+
+        <h3>
+            Try Again and Challenge Friends
+        </h3>
+
+        <p>
+            Select TRY AGAIN to replay the quiz. You can also use
+            SHARE MY RESULT or CHALLENGE YOUR FRIENDS to share your
+            result with other <em>iZombie</em> fans.
+        </p>
+
+    </section>
+
+
+    <!-- FAQ -->
+
+    <section class="home-info">
+
+        <h2>
+            iZombie Trivia and FAQ
+        </h2>
+
+        <h3>
+            How many questions are in the quiz?
+        </h3>
+
+        <p>
+            The quiz contains 50 questions, and every question has
+            four possible answers.
+        </p>
+
+
+        <h3>
+            What is the maximum score?
+        </h3>
+
+        <p>
+            The maximum score is 50 points because each correct
+            answer is worth 1 point.
+        </p>
+
+
+        <h3>
+            What does the quiz cover?
+        </h3>
+
+        <p>
+            Questions cover characters, zombies, brains, groups,
+            businesses, occupations, identities, relationships,
+            locations and memorable events from <em>iZombie</em>.
+        </p>
+
+
+        <h3>
+            Is this a general zombie survival quiz?
+        </h3>
+
+        <p>
+            No. This is primarily a knowledge and trivia quiz about
+            <em>iZombie</em>. The questions are based on the show's
+            characters, story, world and fictional zombie rules.
+        </p>
+
+
+        <h3>
+            Can I take the quiz again?
+        </h3>
+
+        <p>
+            Yes. Select TRY AGAIN after receiving your result to
+            restart the quiz and attempt to improve your score.
+        </p>
+
+
+        <h3>
+            Can I challenge my friends?
+        </h3>
+
+        <p>
+            Yes. Use the CHALLENGE YOUR FRIENDS option after
+            completing the quiz and compare your iZombie knowledge
+            with other fans of the series.
+        </p>
+
+    </section>
+
+
+    <!-- SPOILER WARNING -->
+
+    <section class="home-info spoiler-warning">
+
+        <h2>
+            Spoiler Warning
+        </h2>
+
+        <p>
+            This quiz contains spoilers for <em>iZombie</em>.
+            Questions may reveal important characters, identities,
+            relationships, zombie-related developments, organizations,
+            locations and major events from the series.
+        </p>
+
+        <p>
+            If you have not finished watching the show, consider
+            completing it before taking the quiz to avoid having
+            important story details revealed.
+        </p>
+
+    </section>
+
+</div>
+
+</main>
+
+
+<!-- =====================================================
+     FOOTER
+     ===================================================== -->
+
+<footer class="site-footer">
+
+    <div class="footer-inner">
+
+        <div class="footer-brand">
+            APOCALYPSE QUIZZES
+        </div>
+
+        <div class="footer-links">
+
+            <a href="/about.html">
+                About
+            </a>
+
+            <a href="/privacy.html">
+                Privacy Policy
+            </a>
+
+            <a href="/disclaimer.html">
+                Disclaimer
+            </a>
+
+            <a href="/contact.html">
+                Contact
+            </a>
+
+        </div>
+
+        <div class="copyright">
+            © 2026 Apocalypse Quizzes
+        </div>
+
+    </div>
+
+</footer>
+
+
+<script src="script.js"></script>
+
+</body>
+</html>
