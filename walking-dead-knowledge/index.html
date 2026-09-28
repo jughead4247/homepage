@@ -333,129 +333,117 @@
 
 
 <!-- =====================================================
-     RESULT SCREEN
-     ===================================================== -->
+         RESULT SCREEN
+         ===================================================== -->
 
-<section id="result-screen" class="screen hidden">
-
-
-    <p class="result-label">
-        YOUR RESULT
-    </p>
+    <section id="result-screen" class="screen hidden">
 
 
-    <h1 id="result-title"></h1>
+        <p class="result-label">
+            YOUR RESULT
+        </p>
 
 
-    <!-- MAIN SCORE -->
-
-    <div class="result-score">
-
-        <span id="final-score"></span>
-
-    </div>
+        <h1 id="result-title"></h1>
 
 
-    <p
-        class="result-description"
-        id="result-description">
-    </p>
+        <div class="result-score">
 
-
-    <!-- KNOWLEDGE LEVEL -->
-
-    <div class="survival-box">
-
-        <strong>
-            The Walking Dead TV Knowledge
-        </strong>
-
-        <span id="knowledge-level"></span>
-
-    </div>
-
-
-    <!-- RESULT BREAKDOWN -->
-
-    <div class="result-breakdown">
-
-        <div class="result-stat">
-
-            <span class="result-stat-label">
-                Correct
-            </span>
-
-            <strong id="correct-count">
-                —
-            </strong>
+            <span id="final-score">
+                0
+            </span>/100
 
         </div>
 
 
-        <div class="result-stat">
+        <p id="result-description"></p>
 
-            <span class="result-stat-label">
-                Incorrect
-            </span>
 
-            <strong id="incorrect-count">
-                —
+        <div class="survival-box">
+
+            <strong>
+                YOUR RANK
             </strong>
+
+            <span id="survival-time"></span>
 
         </div>
 
 
-        <div class="result-stat">
+        <!-- RESULT BREAKDOWN -->
 
-            <span class="result-stat-label">
-                Total
-            </span>
+        <div class="result-breakdown">
 
-            <strong id="total-count">
-                50
-            </strong>
+            <div class="result-stat">
+
+                <span class="result-stat-label">
+                    Correct
+                </span>
+
+                <strong id="correct-count">
+                    0
+                </strong>
+
+            </div>
+
+
+            <div class="result-stat">
+
+                <span class="result-stat-label">
+                    Incorrect
+                </span>
+
+                <strong id="incorrect-count">
+                    0
+                </strong>
+
+            </div>
+
+
+            <div class="result-stat">
+
+                <span class="result-stat-label">
+                    Total
+                </span>
+
+                <strong id="total-count">
+                    50
+                </strong>
+
+            </div>
+
+
+            <div class="result-stat">
+
+                <span class="result-stat-label">
+                    Accuracy
+                </span>
+
+                <strong id="accuracy-percent">
+                    0%
+                </strong>
+
+            </div>
 
         </div>
 
 
-        <div class="result-stat">
+        <!-- RESULT ACTIONS -->
 
-            <span class="result-stat-label">
-                Accuracy
-            </span>
-
-            <strong id="accuracy-percent">
-                —
-            </strong>
-
-        </div>
-
-    </div>
-
-
-    <!-- RESULT ACTIONS -->
-
-    <div class="result-actions">
-
-        <button id="restart-btn">
+        <button id="restart-btn" type="button">
             TRY AGAIN
         </button>
 
 
-        <button id="share-btn">
+        <button id="share-btn" type="button">
             📤 SHARE MY RESULT
         </button>
 
 
-        <button id="challenge-btn">
-            🧟 CHALLENGE YOUR FRIENDS
+        <button id="challenge-btn" type="button">
+            ⚔️ CHALLENGE YOUR FRIENDS
         </button>
-
-    </div>
-
-</section>
-
-
+             </section>
 
 <!-- =====================================================
      SUGGESTED QUIZZES CARD
