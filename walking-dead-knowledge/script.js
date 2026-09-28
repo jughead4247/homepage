@@ -1,957 +1,600 @@
 const questions = [
 
     {
-        question: "The outbreak has just begun. You wake up to no mobile network, sirens, neighbors shouting, and reports of violent attacks. You hear screaming outside. What do you do?",
+        question: "What was the first episode of The Walking Dead called?",
         answers: [
-            ["Look outside", 3, null],
-            ["Secure your home", 5, null],
-            ["Leave immediately", 2, null],
-            ["Check the rooftop", 3, null]
+            ["Days Gone Bye", 2],
+            ["Days Gone By", 0],
+            ["The First Day", 0],
+            ["Welcome to Atlanta", 0]
         ]
     },
 
     {
-        question: "You have 30 minutes before the electricity goes out. What is most important?",
+        question: "What does Glenn call Rick over the radio during their first contact?",
         answers: [
-            ["Clothes", 1, null],
-            ["Food, water, medicine, and tools", 5, null],
-            ["Valuables", 0, null],
-            ["Whatever fits in your bag", 3, null]
+            ["Dummy", 0],
+            ["Stupid", 0],
+            ["Dumbass", 2],
+            ["Idiot", 0]
         ]
     },
 
     {
-        question: "You hear pounding on a door downstairs. What do you do?",
+        question: "Which of these terms was NOT used for the walking dead in the show?",
         answers: [
-            ["Barricade and observe", 5, null],
-            ["Help the neighbors", 3, 5],
-            ["Leave immediately", 4, 2],
-            ["Check the rooftop", 3, null]
+            ["Walkers", 0],
+            ["Biters", 0],
+            ["Geeks", 0],
+            ["Zombies", 2]
         ]
     },
 
     {
-        question: "Your neighbor is asking for help, but you don't know if they're infected. What do you do?",
+        question: "What is the name of Negan's famous baseball bat?",
         answers: [
-            ["Open the door", 1, 4],
-            ["Shoot through the door", 0, 0],
-            ["Assess them from safety", 5, 5],
-            ["Ignore them", 3, 2]
+            ["Judith", 0],
+            ["Lucille", 2],
+            ["Clementine", 0],
+            ["Annie", 0]
         ]
     },
 
     {
-        question: "The power is out, and you hear screams outside. What do you do?",
+        question: "What was the name of the community led by Ezekiel?",
         answers: [
-            ["Investigate", 1, 3],
-            ["Stay inside", 5, 3],
-            ["Turn on the lights", 0, null],
-            ["Search for survivors", 2, 5]
+            ["The Commonwealth", 0],
+            ["Oceanside", 0],
+            ["The Kingdom", 2],
+            ["The Sanctuary", 0]
         ]
     },
 
     {
-        question: "Something hits your neighbor's door, and the sound is now outside your floor. What do you do?",
+        question: "What was the name of Morgan Jones's son?",
         answers: [
-            ["Stay silent", 5, null],
-            ["Prepare to fight", 3, null],
-            ["Move to the rooftop", 4, null],
-            ["Escape through the balcony", 2, null]
+            ["Daniel Jones", 0],
+            ["David Jones", 0],
+            ["Darren Jones", 0],
+            ["Duane Jones", 2]
         ]
     },
 
     {
-        question: "You hear 3–4 people moving toward your floor. What do you do?",
+        question: "Who was the leader of the Scavengers, the group that lived in the junkyard?",
         answers: [
-            ["Stay silent", 5, null],
-            ["Announce yourself", 3, 4],
-            ["Ambush them", 2, 1],
-            ["Escape to the rooftop", 4, 3]
+            ["Brion", 0],
+            ["Jadis", 2],
+            ["Winslow", 0],
+            ["Tamiel", 0]
         ]
     },
 
     {
-        question: "Unknown people outside know you're inside and ask, \"How many people are inside?\" What do you say?",
+        question: "Which animal was Ezekiel's beloved pet in The Walking Dead?",
         answers: [
-            ["\"Two.\"", 2, 3],
-            ["\"More than you.\"", 3, 2],
-            ["\"Enough.\"", 4, 3],
-            ["Stay silent", 5, 3]
+            ["Dog", 0],
+            ["Leopard", 0],
+            ["Tiger", 2],
+            ["Lion", 0]
         ]
     },
 
     {
-        question: "An infected person suddenly lunges at you. How do you react?",
+        question: "What was the name of Andrea's sister?",
         answers: [
-            ["Attack immediately", 3, 2],
-            ["Step aside and attack", 5, 2],
-            ["Create distance", 4, 3],
-            ["Swing wildly", 1, 1]
+            ["Amy", 2],
+            ["Beth", 0],
+            ["Lori", 0],
+            ["Maggie", 0]
         ]
     },
 
     {
-        question: "You can take only three priority categories. What do you choose?",
+        question: "What was the name of the prison where Rick's group lived for a period of time?",
         answers: [
-            ["Food and water", 4, null],
-            ["Medical supplies", 4, null],
-            ["Weapons", 3, null],
-            ["Balanced supplies", 5, null]
+            ["Atlanta Correctional Center", 0],
+            ["Georgia State Prison", 2],
+            ["West Georgia Correctional Facility", 0],
+            ["Woodbury State Prison", 0]
         ]
     },
 
     {
-        question: "You have 10 liters of water for three people. What do you do?",
+        question: "What was the name of the man who taught Morgan the philosophy of 'All Life Is Precious'?",
         answers: [
-            ["Drink freely", 1, 1],
-            ["Ration it", 5, 4],
-            ["Give most to one person", 2, 2],
-            ["Throw some away", 0, 0]
+            ["Carter", 0],
+            ["Eastman", 2],
+            ["Benjamin", 0],
+            ["Harlan", 0]
         ]
     },
 
     {
-        question: "One member is using much more food and water than everyone else. What do you do?",
+        question: "Who was Judith Grimes named after?",
         answers: [
-            ["Let them", 1, 1],
-            ["Confront them", 3, 3],
-            ["Set rations", 5, 5],
-            ["Give them less", 2, 1]
+            ["Lori's mother", 0],
+            ["Carl's teacher", 2],
+            ["Rick's mother", 0],
+            ["Carl's grandmother", 0]
         ]
     },
 
     {
-        question: "Your group needs a leader. Who would you support?",
+        question: "What was Eugene Porter's claimed occupation when he first met Abraham?",
         answers: [
-            ["Strongest", 3, 2],
-            ["Most experienced", 5, 4],
-            ["Most trusted", 4, 5],
-            ["Most strategic", 4, 3]
+            ["Geneticist", 0],
+            ["Epidemiologist", 0],
+            ["Scientist", 0],
+            ["Virologist", 2]
         ]
     },
 
     {
-        question: "One group member is becoming aggressive toward others. How do you handle the situation?",
+        question: "What is the name of Daryl Dixon's dog?",
         answers: [
-            ["Confront them", 3, 3],
-            ["Avoid them", 2, 2],
-            ["Talk privately", 5, 5],
-            ["Remove them", 4, 1]
+            ["Bear", 0],
+            ["Jack", 0],
+            ["Scout", 0],
+            ["Dog", 2]
         ]
     },
 
     {
-        question: "Your best friend from before the outbreak has become unstable and is no longer fit for the group. What do you do?",
+        question: "What was the name of the hospital where Beth was held and eventually died?",
         answers: [
-            ["Give another chance", 2, 5],
-            ["Talk to them", 4, 5],
-            ["Restrict their role", 5, 3],
-            ["Remove them", 5, 1]
+            ["Grady Memorial Hospital", 2],
+            ["Atlanta Memorial Hospital", 0],
+            ["Atlanta Medical Center", 0],
+            ["Grady Memorial", 0]
         ]
     },
 
     {
-        question: "One group member refuses to follow safety rules. What do you do?",
+        question: "Who was the leader of the Commonwealth?",
         answers: [
-            ["Ignore them", 1, 2],
-            ["Set rules and consequences", 5, 5],
-            ["Abandon them", 3, 1],
-            ["Let them decide", 2, 3]
+            ["Lance Hornsby", 0],
+            ["Pamela Milton", 2],
+            ["Sebastian Milton", 0],
+            ["Mercer", 0]
         ]
     },
 
     {
-        question: "Two members start arguing loudly while zombies are nearby. What do you prioritize?",
+        question: "What was the name of the high school that Maggie Greene attended?",
         answers: [
-            ["Let them argue", 1, 2],
-            ["Keep everyone quiet", 5, 4],
-            ["Leave them behind", 3, 0],
-            ["Shout louder", 0, 0]
+            ["King County High School", 0],
+            ["Linden County High School", 0],
+            ["Cranwall High School", 2],
+            ["Harrison High School", 0]
         ]
     },
 
     {
-        question: "Two members strongly disagree about where to go. What do you do?",
+        question: "Who shot Carl Grimes in the eye?",
         answers: [
-            ["Let everyone vote", 4, 5],
-            ["Decide yourself", 3, 2],
-            ["Hear both sides and assess the risks", 5, 5],
-            ["Let them decide", 2, 3]
+            ["Dwight", 0],
+            ["Spencer Monroe", 0],
+            ["Ron Anderson", 2],
+            ["Nicholas", 0]
         ]
     },
 
     {
-        question: "You discover that someone has been secretly stealing supplies to feed their family. What do you do?",
+        question: "What was Hershel Greene's profession before the apocalypse?",
         answers: [
-            ["Punish them", 3, 1],
-            ["Forgive them", 2, 5],
-            ["Fix the ration system", 5, 5],
-            ["Restrict their access", 4, 2]
+            ["Veterinarian", 2],
+            ["Doctor", 0],
+            ["Surgeon", 0],
+            ["Farmer", 0]
         ]
     },
 
     {
-        question: "A member secretly takes extra food. What is the biggest problem?",
+        question: "What was the name of the town ruled by the Governor?",
         answers: [
-            ["Lost food", 3, 2],
-            ["Loss of trust", 5, 5],
-            ["Their hunger", 3, 4],
-            ["The container", 1, 1]
+            ["Alexandria", 0],
+            ["Fairview", 0],
+            ["Woodbury", 2],
+            ["Kingstown", 0]
         ]
     },
 
     {
-        question: "You have only one packet of chips left. Who gets it?",
+        question: "What was the name of the former Savior who eventually became one of Rick's allies?",
         answers: [
-            ["Elderly person", 3, 4],
-            ["Pregnant woman", 4, 4],
-            ["7-year-old child", 4, 5],
-            ["Group leader", 5, 2]
+            ["Dwight", 2],
+            ["Gavin", 0],
+            ["Jared", 0],
+            ["Simon", 0]
         ]
     },
 
     {
-        question: "You can save only one: a 5-year-old child or an elderly man. Who do you save?",
+        question: "Which role did Norman Reedus originally audition for before being cast as Daryl Dixon?",
         answers: [
-            ["The child", 4, 5],
-            ["The elderly man", 3, 4],
-            ["Whoever is closer", 5, 3],
-            ["Try to save both", 2, 5]
+            ["Merle Dixon", 2],
+            ["Shane Walsh", 0],
+            ["Rick Grimes", 0],
+            ["T-Dog", 0]
         ]
     },
 
     {
-        question: "You can save only one: your doctor or your leader. Who do you save?",
+        question: "What was T-Dog's real name?",
         answers: [
-            ["Doctor", 5, 4],
-            ["Leader", 4, 3],
-            ["Whoever is closer", 3, 3],
-            ["Try to save both", 2, 5]
+            ["Terrence Douglas", 0],
+            ["Theodore Douglas", 2],
+            ["Thomas Douglas", 0],
+            ["Tyler Douglas", 0]
         ]
     },
 
     {
-        question: "You hear a child crying for help inside a building surrounded by zombies. What do you do?",
+        question: "What was Barrington House at Hilltop originally?",
         answers: [
-            ["Rescue alone", 2, 5],
-            ["Take the whole group", 2, 4],
-            ["Send two people", 5, 5],
-            ["Leave the child", 4, 0]
+            ["A private mansion", 0],
+            ["A military headquarters", 0],
+            ["A government office", 0],
+            ["A living-history museum", 2]
         ]
     },
 
     {
-        question: "Three zombies are blocking your route. What do you do?",
+        question: "What was Abraham Ford's military rank?",
         answers: [
-            ["Observe them", 4, 3],
-            ["Distract them", 3, 3],
-            ["Kill the nearest one", 4, 1],
-            ["Move between them", 5, 3]
+            ["Captain", 0],
+            ["Sergeant", 2],
+            ["Corporal", 0],
+            ["Lieutenant", 0]
         ]
     },
 
     {
-        question: "Several zombies are nearby but haven't noticed you. What do you do?",
+        question: "What was the name of Daryl's older brother?",
         answers: [
-            ["Take a longer route", 5, 3],
-            ["Run", 2, 2],
-            ["Wait", 4, 3],
-            ["Distract them", 2, 2]
+            ["Michael Dixon", 0],
+            ["Martin Dixon", 0],
+            ["Marcus Dixon", 0],
+            ["Merle Dixon", 2]
         ]
     },
 
     {
-        question: "You discover zombies are attracted to loud sounds. What do you do?",
+        question: "What does CRM stand for in The Walking Dead universe?",
         answers: [
-            ["Use the car horn", 0, 2],
-            ["Fire your gun", 0, 1],
-            ["Stay quiet", 5, 4],
-            ["Play music", 1, 2]
+            ["Commonwealth Republic Military", 0],
+            ["Central Republic Militia", 0],
+            ["Civic Republic Military", 2],
+            ["Civilian Republic Movement", 0]
         ]
     },
 
     {
-        question: "You reach a road filled with abandoned vehicles. What do you do?",
+        question: "Who shoots the rabid dogs for food while the group is on the road from Terminus?",
         answers: [
-            ["Search the vehicles", 3, 3],
-            ["Take one", 2, 2],
-            ["Find a less exposed route", 5, 4],
-            ["Stay on the road", 1, 2]
+            ["Daryl Dixon", 0],
+            ["Sasha Williams", 2],
+            ["Abraham Ford", 0],
+            ["Rick Grimes", 0]
         ]
     },
 
     {
-        question: "You find a parked car with the keys inside. What do you check first?",
+        question: "What was the name of Carol Peletier's husband?",
         answers: [
-            ["Radio", 2, null],
-            ["Fuel, condition, and surroundings", 5, null],
-            ["Glove compartment", 3, null],
-            ["Paint", 0, null]
+            ["Ed Peletier", 2],
+            ["Edward Peletier", 0],
+            ["Eric Peletier", 0],
+            ["Evan Peletier", 0]
         ]
     },
 
     {
-        question: "You need to travel a long distance. Which route would you choose?",
+        question: "What was the 100th episode of The Walking Dead called?",
         answers: [
-            ["Highway", 2, null],
-            ["Back roads", 4, null],
-            ["Rural routes", 5, null],
-            ["Change routes frequently", 3, null]
+            ["The Big Scary U", 0],
+            ["Mercy", 2],
+            ["Wrath", 0],
+            ["The Key", 0]
         ]
     },
 
     {
-        question: "Choose your main mode of transportation.",
+        question: "What is Jesus's real name in the show?",
         answers: [
-            ["Car", 4, null],
-            ["Truck", 5, null],
-            ["Motorcycle", 3, null],
-            ["On foot", 2, null]
+            ["Paul Rovia", 2],
+            ["Peter Rovia", 0],
+            ["Paul Reyes", 0],
+            ["Philip Rivas", 0]
         ]
     },
 
     {
-        question: "You can take only one small utility item. Which do you choose?",
+        question: "What was the name of Negan's main base?",
         answers: [
-            ["Knife", 5, null],
-            ["Flashlight", 4, null],
-            ["Matches", 3, null],
-            ["Rope", 3, null]
+            ["The Compound", 0],
+            ["The Fortress", 0],
+            ["The Stronghold", 0],
+            ["The Sanctuary", 2]
         ]
     },
 
     {
-        question: "You find a friendly dog following your group. What do you do?",
+        question: "What was the name of the survivor who left Rick's group on the way to the CDC and later became a member of the Saviors?",
         answers: [
-            ["Keep it", 4, 5],
-            ["Shoo it away", 5, 3],
-            ["Feed it and leave", 3, 4],
-            ["Kill it for food", 3, 0]
+            ["Guillermo", 0],
+            ["Morales", 2],
+            ["Jacqui", 0],
+            ["Jim", 0]
         ]
     },
 
     {
-        question: "You find an apparently abandoned house. What do you do?",
+        question: "What was Ezekiel's occupation before the apocalypse?",
         answers: [
-            ["Check the rooms", 3, null],
-            ["Search thoroughly", 4, null],
-            ["Observe from outside first", 5, null],
-            ["Enter immediately", 1, null]
+            ["Animal trainer", 0],
+            ["Veterinary assistant", 0],
+            ["Zookeeper", 2],
+            ["High school teacher", 0]
         ]
     },
 
     {
-        question: "You spot a small pharmacy that appears abandoned. What do you do?",
+        question: "What was the name of Hershel Greene's youngest daughter?",
         answers: [
-            ["Enter quickly", 2, null],
-            ["Ignore it", 3, null],
-            ["Observe it first", 5, null],
-            ["Break in", 1, null]
+            ["Beth", 2],
+            ["Maggie", 0],
+            ["Patricia", 0],
+            ["Sophia", 0]
         ]
     },
 
     {
-        question: "Four armed people are looting a pharmacy. What do you do?",
+        question: "Who was Negan's right-hand man?",
         answers: [
-            ["Wait for them to leave", 5, 3],
-            ["Change route", 4, 4],
-            ["Observe them", 5, 3],
-            ["Approach them", 2, 4]
+            ["Simon", 2],
+            ["Dwight", 0],
+            ["Gavin", 0],
+            ["Simon Grimes", 0]
         ]
     },
 
     {
-        question: "A stranger approaches your shelter asking for food. What do you do?",
+        question: "What was the name of the CDC doctor who stayed behind until the end in Season 1?",
         answers: [
-            ["Give them food", 3, 5],
-            ["Tell them to leave", 4, 2],
-            ["Assess them from safety", 5, 5],
-            ["Invite them inside", 1, 4]
+            ["Edward Jenner", 0],
+            ["Ethan Jenner", 0],
+            ["Edwin Jenner", 2],
+            ["Everett Jenner", 0]
         ]
     },
 
     {
-        question: "Another survivor offers to trade supplies. What do you do?",
+        question: "What was the name of Maggie's half-brother?",
         answers: [
-            ["Trade carefully", 5, 5],
-            ["Trust them", 2, 4],
-            ["Trade whatever they want", 1, 2],
-            ["Refuse", 3, 3]
+            ["Brandon Greene", 0],
+            ["Jimmy Greene", 0],
+            ["Shawn Greene", 2],
+            ["Billy Greene", 0]
         ]
     },
 
     {
-        question: "A survivor claims to know a safe shelter. What do you do?",
+        question: "What was Michonne's profession before the apocalypse?",
         answers: [
-            ["Trust them", 1, 4],
-            ["Assume they're dangerous", 3, 2],
-            ["Verify their information", 5, 5],
-            ["Give them supplies", 1, 5]
+            ["Lawyer", 2],
+            ["Journalist", 0],
+            ["Social worker", 0],
+            ["Prosecutor", 0]
         ]
     },
 
     {
-        question: "You find a warehouse with possible food, but hear movement inside. What do you do?",
+        question: "What were the people wearing wolf symbols called?",
         answers: [
-            ["Rush inside", 1, 1],
-            ["Observe and plan", 5, 4],
-            ["Set it on fire", 0, 0],
-            ["Send the weakest person", 0, 0]
+            ["The Wolves", 2],
+            ["The Raiders", 0],
+            ["The Hunters", 0],
+            ["The Scavengers", 0]
         ]
     },
 
     {
-        question: "You find a large amount of canned food, but carrying it all will slow you down. What do you do?",
+        question: "What is Princess's real name in The Walking Dead?",
         answers: [
-            ["Take everything", 2, 2],
-            ["Take what you can carry", 4, 4],
-            ["Prioritize valuable supplies", 5, 5],
-            ["Leave it", 3, 3]
+            ["Isabella Sanchez", 0],
+            ["Maria Sanchez", 0],
+            ["Juanita Sanchez", 2],
+            ["Gabriela Sanchez", 0]
         ]
     },
 
     {
-        question: "Your group needs water and finds a stream outside town. What do you do?",
+        question: "What was Glenn Rhee's job before the outbreak?",
         answers: [
-            ["Drink it", 1, 2],
-            ["Treat it first", 5, 4],
-            ["Take enough for today", 3, 3],
-            ["Avoid it", 4, 3]
+            ["Store clerk", 0],
+            ["Mechanic", 0],
+            ["Pizza delivery driver", 2],
+            ["Taxi driver", 0]
         ]
     },
 
     {
-        question: "Your food supply is running low. What do you do?",
+        question: "Which major characters does Alpha put on spikes to mark the Whisperers' territory?",
         answers: [
-            ["Reduce portions and find more", 5, 4],
-            ["Eat normally", 1, 2],
-            ["Send everyone searching", 2, 3],
-            ["Save most of it", 4, 3]
+            ["Tara, Enid, and Henry", 2],
+            ["Jesus, Alden, and Henry", 0],
+            ["Tara, Siddiq, and Luke", 0],
+            ["Enid, Rosita, and Tammy Rose", 0]
         ]
     },
 
     {
-        question: "You have enough food for only 5 of your 8 group members. What do you do?",
+        question: "Which character had two younger twin brothers?",
         answers: [
-            ["Equal rations", 4, 5],
-            ["Send people for food", 3, 3],
-            ["Prioritize vulnerable members", 5, 5],
-            ["Leave some behind", 2, 0]
+            ["Maggie", 0],
+            ["Aaron", 0],
+            ["Noah", 2],
+            ["Daryl", 0]
         ]
     },
 
     {
-        question: "You find a large military supply cache in a zombie-infested area. What do you do?",
+        question: "What was the name of the community founded by Deanna Monroe?",
         answers: [
-            ["Take the risk", 2, 2],
-            ["Leave it", 4, 3],
-            ["Send a scout", 5, 4],
-            ["Wait", 3, 3]
+            ["Hilltop", 0],
+            ["Alexandria", 2],
+            ["Oceanside", 0],
+            ["Kingdom", 0]
         ]
     },
 
     {
-        question: "Heavy rain has made the roads dangerous. What do you do?",
+        question: "Who accidentally shot Carl Grimes in Season 2?",
         answers: [
-            ["Continue", 1, 2],
-            ["Wait safely", 5, 4],
-            ["Take an unfamiliar shortcut", 2, 2],
-            ["Split the group", 1, 1]
+            ["Dale", 0],
+            ["Otis", 2],
+            ["Hershel", 0],
+            ["Shane", 0]
         ]
     },
 
     {
-        question: "Your vehicle breaks down far from your destination. What do you do?",
+        question: "What was the name of the doctor at Hilltop who treated Maggie?",
         answers: [
-            ["Stay with it", 2, 3],
-            ["Take supplies and continue on foot", 5, 4],
-            ["Walk to the nearest town", 3, 3],
-            ["Repair it", 3, 3]
+            ["Dr. Harlan", 0],
+            ["Dr. Siddiq", 0],
+            ["Dr. Hershel", 0],
+            ["Dr. Carson", 2]
         ]
     },
 
     {
-        question: "You're low on fuel. You can reach a town for supplies or head toward a guaranteed water source. Which do you choose?",
+        question: "When Morgan Jones left The Walking Dead, which spin-off did he move to?",
         answers: [
-            ["Town", 3, 3],
-            ["Water", 5, 4],
-            ["Split the group", 2, 2],
-            ["Search first", 4, 4]
+            ["The Walking Dead: World Beyond", 0],
+            ["Fear the Walking Dead", 2],
+            ["The Walking Dead: Dead City", 0],
+            ["The Walking Dead: The Ones Who Live", 0]
         ]
     },
 
     {
-        question: "Your vehicle may cause a bridge to collapse. What do you do?",
+        question: "What is Negan's full name?",
         answers: [
-            ["Cross quickly", 1, 2],
-            ["Continue on foot", 4, 3],
-            ["Find another route", 5, 4],
-            ["Test it first", 3, 3]
+            ["Negan Collins", 0],
+            ["Negan James", 0],
+            ["Negan Smith", 2],
+            ["Negan Miller", 0]
         ]
     },
 
     {
-        question: "Your wife becomes pregnant while you're still traveling. What do you do?",
+        question: "What was the title of the final episode of The Walking Dead?",
         answers: [
-            ["Find a doctor", 5, 5],
-            ["Find a community", 4, 5],
-            ["Settle somewhere safe", 4, 5],
-            ["Continue traveling", 2, 2]
-        ]
-    },
-
-    {
-        question: "A member has a deep, bleeding wound and you suspect a zombie bite. What do you do?",
-        answers: [
-            ["Use medical supplies", 4, 4],
-            ["Use makeshift bandages", 3, 3],
-            ["Quarantine and observe", 5, 3],
-            ["Treat and quarantine", 5, 5]
-        ]
-    },
-
-    {
-        question: "You can treat either one critically injured person or three mildly injured people. What do you choose?",
-        answers: [
-            ["Critical patient", 4, 3],
-            ["Three patients", 5, 5],
-            ["Divide medicine", 2, 4],
-            ["Group vote", 3, 5]
-        ]
-    },
-
-    {
-        question: "Your best fighter is becoming reckless and putting everyone at risk. What do you do?",
-        answers: [
-            ["Remove combat duties", 5, 4],
-            ["Confront them", 4, 4],
-            ["Keep them", 2, 2],
-            ["Monitor them", 3, 3]
-        ]
-    },
-
-    {
-        question: "A trusted member makes a mistake that attracts zombies and gets someone injured. What do you do?",
-        answers: [
-            ["Forgive them", 2, 5],
-            ["Remove responsibilities", 5, 4],
-            ["Punish them", 3, 1],
-            ["Let the group decide", 4, 5]
-        ]
-    },
-
-    {
-        question: "A trusted member secretly hides a zombie bite. What do you do?",
-        answers: [
-            ["Isolate them", 5, 4],
-            ["Question them first", 3, 4],
-            ["Let the group decide", 3, 5],
-            ["Expel them", 4, 1]
-        ]
-    },
-
-    {
-        question: "A member wants to leave the group with their share of supplies. What do you do?",
-        answers: [
-            ["Let them take everything", 1, 3],
-            ["Give a fair share", 5, 5],
-            ["Convince them to stay", 3, 4],
-            ["Don't let them leave", 2, 0]
-        ]
-    },
-
-    {
-        question: "A grieving member has stopped contributing to the group. What do you do?",
-        answers: [
-            ["Give them time", 4, 5],
-            ["Force them back", 2, 1],
-            ["Reduce responsibilities", 5, 4],
-            ["Remove them", 3, 1]
-        ]
-    },
-
-    {
-        question: "You discover your leader is secretly keeping extra food. What do you do?",
-        answers: [
-            ["Confront privately", 4, 5],
-            ["Expose them", 3, 4],
-            ["Remove them", 5, 3],
-            ["Keep quiet", 1, 1]
-        ]
-    },
-
-    {
-        question: "You receive a radio message claiming there is a safe settlement 50 km away. What do you do?",
-        answers: [
-            ["Leave immediately", 2, 3],
-            ["Ignore it", 3, 2],
-            ["Gather information first", 5, 4],
-            ["Send everyone separately", 1, 2]
-        ]
-    },
-
-    {
-        question: "Another large group is approaching your location. What do you do?",
-        answers: [
-            ["Hide and observe", 5, 4],
-            ["Confront them", 1, 1],
-            ["Run", 3, 2],
-            ["Approach them openly", 3, 5]
-        ]
-    },
-
-    {
-        question: "Another large community approaches your territory, but you don't know whether they're friendly. What do you do?",
-        answers: [
-            ["Attack", 1, 1],
-            ["Let them in", 2, 5],
-            ["Communicate and observe", 5, 5],
-            ["Abandon the settlement", 3, 2]
-        ]
-    },
-
-    {
-        question: "You discover that another group may be occupying a location you planned to use as a base. What do you do?",
-        answers: [
-            ["Confront them", 2, 2],
-            ["Find another location", 5, 4],
-            ["Observe them first", 5, 5],
-            ["Offer to share it", 4, 5]
-        ]
-    },
-
-    {
-        question: "Where would you establish your base?",
-        answers: [
-            ["Supermarket", 2, null],
-            ["Farmhouse", 4, null],
-            ["Police station", 5, null],
-            ["Mountain settlement", 5, null]
-        ]
-    },
-
-    {
-        question: "Your settlement can shelter only half of the people asking for help. Who do you accept?",
-        answers: [
-            ["Most vulnerable", 4, 5],
-            ["Most useful", 5, 2],
-            ["Families", 4, 4],
-            ["Nobody", 2, 1]
-        ]
-    },
-
-    {
-        question: "A settlement demands your weapons before letting you enter. What do you do?",
-        answers: [
-            ["Surrender", 2, 3],
-            ["Refuse", 3, 3],
-            ["Negotiate", 5, 5],
-            ["Pretend to agree", 4, 2]
-        ]
-    },
-
-    {
-        question: "You finally reach a settlement claiming to be safe. What do you do?",
-        answers: [
-            ["Enter immediately", 2, 3],
-            ["Observe it first", 5, 4],
-            ["Ask about rules and resources", 5, 5],
-            ["Leave", 3, 3]
-        ]
-    },
-
-    {
-        question: "The settlement offers you a permanent place to stay. What matters most?",
-        answers: [
-            ["Comfort", 2, 2],
-            ["Food", 4, 4],
-            ["Security, leadership, resources, and rules", 5, 5],
-            ["Friendly people", 3, 5]
-        ]
-    },
-
-    {
-        question: "Your settlement has been safe for months, and people are becoming careless. What do you do?",
-        answers: [
-            ["Increase restrictions", 3, 2],
-            ["Let them relax", 2, 4],
-            ["Regular drills", 5, 4],
-            ["Wait for danger", 1, 1]
-        ]
-    },
-
-    {
-        question: "Your settlement's walls can no longer withstand a major attack. What do you do?",
-        answers: [
-            ["Reinforce them", 4, 4],
-            ["Build new walls", 5, 4],
-            ["Relocate", 3, 3],
-            ["Create escape routes", 5, 5]
-        ]
-    },
-
-    {
-        question: "Your settlement is attacked. You can defend only the food storage or the medical center. Which do you protect?",
-        answers: [
-            ["Food storage", 4, 3],
-            ["Medical center", 5, 5],
-            ["Split defenders", 3, 4],
-            ["Evacuate supplies", 4, 4]
-        ]
-    },
-
-    {
-        question: "A skilled hunter refuses to follow group rules. What do you do?",
-        answers: [
-            ["Give privileges", 3, 2],
-            ["Same rules", 5, 5],
-            ["Limited independence", 4, 4],
-            ["Ask them to leave", 3, 2]
-        ]
-    },
-
-    {
-        question: "One group member is extremely useful but constantly challenges your leadership. What do you do?",
-        answers: [
-            ["Remove them", 3, 2],
-            ["Ignore them", 2, 2],
-            ["Give them responsibility", 5, 4],
-            ["Work with them", 5, 5]
-        ]
-    },
-
-    {
-        question: "You can broadcast your location to ask for help, but dangerous people may hear it. What do you do?",
-        answers: [
-            ["Broadcast", 2, 4],
-            ["Stay silent", 5, 3],
-            ["Fake location", 4, 2],
-            ["Send a coded message", 5, 4]
-        ]
-    },
-
-    {
-        question: "You discover a possible cure, but testing it could be dangerous. Who decides whether it is used?",
-        answers: [
-            ["Doctor", 5, 4],
-            ["Leader", 3, 3],
-            ["Patient", 2, 5],
-            ["Entire group", 4, 5]
-        ]
-    },
-
-    {
-        question: "A captured enemy claims to have information about a much larger hostile group. What do you do?",
-        answers: [
-            ["Trade freedom for information", 4, 4],
-            ["Keep and question them", 5, 2],
-            ["Don't trust them", 3, 3],
-            ["Use the information and imprison them", 4, 1]
-        ]
-    },
-
-    {
-        question: "You discover zombies have become faster than before. What do you do?",
-        answers: [
-            ["Keep the same strategy", 0, 2],
-            ["Change your plans", 5, 4],
-            ["Travel only during daylight", 4, 3],
-            ["Take more risks", 1, 1]
-        ]
-    },
-
-    {
-        question: "The zombies are behaving differently than before. What do you assume?",
-        answers: [
-            ["Nothing changed", 1, 2],
-            ["The situation is evolving", 5, 4],
-            ["They're becoming friendly", 0, 4],
-            ["They'll disappear", 0, 1]
-        ]
-    },
-
-    {
-        question: "Your shelter has been discovered by a large group of zombies. You have two escape routes. What matters most?",
-        answers: [
-            ["Which looks better", 1, 2],
-            ["Threats and destination", 5, 4],
-            ["Which is shorter", 2, 2],
-            ["Flip a coin", 0, 1]
-        ]
-    },
-
-    {
-        question: "You hear that a remote island may be unaffected. You have one chance to reach it. What do you do?",
-        answers: [
-            ["Go", 3, 3],
-            ["Stay", 4, 3],
-            ["Send scouts", 5, 4],
-            ["Gather information", 5, 4]
-        ]
-    },
-
-    {
-        question: "You discover a large amount of supplies, but taking them will slow the group and increase the risk of being caught. What do you do?",
-        answers: [
-            ["Take everything", 2, 2],
-            ["Take only essentials", 4, 4],
-            ["Take high-value supplies", 5, 5],
-            ["Leave everything", 3, 3]
-        ]
-    },
-
-    {
-        question: "A member of your group has become emotionally unstable after losing someone close to them. What do you do?",
-        answers: [
-            ["Give them time", 4, 5],
-            ["Keep them busy", 4, 3],
-            ["Watch them closely", 5, 3],
-            ["Remove them", 2, 1]
-        ]
-    },
-
-    {
-        question: "Your group has a chance to rescue another group, but doing so will consume most of your remaining fuel. What do you do?",
-        answers: [
-            ["Rescue them", 3, 5],
-            ["Leave them", 4, 2],
-            ["Limited rescue", 5, 5],
-            ["Contact them first", 5, 4]
-        ]
-    },
-
-    {
-        question: "Your group discovers that another large group is approaching your location. You don't know their intentions. What do you do?",
-        answers: [
-            ["Hide and observe", 5, 4],
-            ["Prepare to attack", 2, 1],
-            ["Contact them", 4, 5],
-            ["Leave", 3, 3]
-        ]
-    },
-
-    {
-        question: "Children born after the outbreak have never seen the old world. What should they learn?",
-        answers: [
-            ["Survival only", 4, 3],
-            ["History and survival", 5, 5],
-            ["Forget the old world", 2, 1],
-            ["Military skills", 4, 3]
-        ]
-    },
-
-    {
-        question: "Years into the outbreak, your settlement is stable but resources are becoming harder to find. What should you focus on?",
-        answers: [
-            ["Better weapons", 3, 2],
-            ["Food and water production", 5, 5],
-            ["Explore farther", 3, 4],
-            ["Move again", 2, 3]
-        ]
-    },
-
-    {
-        question: "Your group has survived for years. What should become your biggest priority?",
-        answers: [
-            ["Expansion", 2, 2],
-            ["Sustainable survival", 5, 5],
-            ["Finding other survivors", 4, 4],
-            ["Returning to cities", 2, 3]
-        ]
-    },
-
-    {
-        question: "A member of your group secretly takes extra medicine for their family. What do you do?",
-        answers: [
-            ["Punish them", 3, 1],
-            ["Forgive them", 2, 5],
-            ["Set stricter rules", 5, 4],
-            ["Give them less access", 4, 3]
-        ]
-    },
-
-    {
-        question: "Your settlement has limited resources, but a doctor arrives asking for protection in exchange for medical knowledge. What do you do?",
-        answers: [
-            ["Accept them", 4, 5],
-            ["Refuse them", 2, 2],
-            ["Test their knowledge first", 5, 4],
-            ["Trade protection for medicine", 5, 5]
-        ]
-    },
-
-    {
-        question: "A group member discovers that their family may still be alive far away. Leaving could endanger the entire group. What do you do?",
-        answers: [
-            ["Let them go", 3, 5],
-            ["Stop them", 2, 1],
-            ["Send a small team", 5, 5],
-            ["Search for information first", 5, 4]
-        ]
-    },
-
-    {
-        question: "After years of survival, you discover a functioning community offering a chance to rebuild civilization. What do you do?",
-        answers: [
-            ["Join them", 4, 5],
-            ["Stay independent", 3, 3],
-            ["Investigate first", 5, 4],
-            ["Send representatives", 5, 5]
+            ["Rest in Peace", 2],
+            ["Here's Negan", 0],
+            ["A New Beginning", 0],
+            ["What Comes After", 0]
         ]
     }
 
 ];
 
-// ===============================
-// QUIZ STATE
-// ===============================
 
 let currentQuestion = 0;
-let survivalScore = 0;
-let moralityScore = 0;
 
-// Store selected answer for every question.
-// -1 = unanswered
-let selectedAnswers = new Array(questions.length).fill(-1);
+let selectedAnswers =
+    new Array(questions.length).fill(null);
 
 
 // ===============================
 // ELEMENTS
 // ===============================
 
-const startScreen = document.getElementById("start-screen");
-const quizScreen = document.getElementById("quiz-screen");
-const resultScreen = document.getElementById("result-screen");
-const homeInfo = document.getElementById("home-info");
-const suggestionsCard = document.getElementById("suggestions-card");
+const startScreen =
+    document.getElementById("start-screen");
 
-const startButton = document.getElementById("start-btn");
-const restartButton = document.getElementById("restart-btn");
-const shareButton = document.getElementById("share-btn");
-const challengeButton = document.getElementById("challenge-btn");
+const quizScreen =
+    document.getElementById("quiz-screen");
 
-const backButton = document.getElementById("back-btn");
-const nextButton = document.getElementById("next-btn");
-const submitButton = document.getElementById("submit-btn");
+const resultScreen =
+    document.getElementById("result-screen");
 
-const questionNumber = document.getElementById("question-number");
-const questionText = document.getElementById("question");
-const answersContainer = document.getElementById("answers");
-const progressBar = document.getElementById("progress-bar");
+const homeInfo =
+    document.getElementById("home-info");
+
+const suggestionsCard =
+    document.getElementById("suggestions-card");
+
+
+const startButton =
+    document.getElementById("start-btn");
+
+const restartButton =
+    document.getElementById("restart-btn");
+
+const shareButton =
+    document.getElementById("share-btn");
+
+const challengeButton =
+    document.getElementById("challenge-btn");
+
+
+const backButton =
+    document.getElementById("back-btn");
+
+const nextButton =
+    document.getElementById("next-btn");
+
+
+const questionNumber =
+    document.getElementById("question-number");
+
+const questionText =
+    document.getElementById("question");
+
+const answersContainer =
+    document.getElementById("answers");
+
+const progressBar =
+    document.getElementById("progress-bar");
 
 
 // ===============================
-// EVENTS
+// BUTTON EVENTS
 // ===============================
 
-startButton.addEventListener("click", startQuiz);
-restartButton.addEventListener("click", restartQuiz);
-shareButton.addEventListener("click", shareResult);
-challengeButton.addEventListener("click", shareResult);
+startButton.addEventListener(
+    "click",
+    startQuiz
+);
 
-backButton.addEventListener("click", previousQuestion);
-nextButton.addEventListener("click", nextQuestion);
-submitButton.addEventListener("click", submitQuiz);
+restartButton.addEventListener(
+    "click",
+    restartQuiz
+);
+
+shareButton.addEventListener(
+    "click",
+    shareResult
+);
+
+challengeButton.addEventListener(
+    "click",
+    shareResult
+);
+
+backButton.addEventListener(
+    "click",
+    goBack
+);
+
+nextButton.addEventListener(
+    "click",
+    goNext
+);
 
 
 // ===============================
@@ -961,24 +604,42 @@ submitButton.addEventListener("click", submitQuiz);
 function startQuiz() {
 
     currentQuestion = 0;
-    survivalScore = 0;
-    moralityScore = 0;
 
     selectedAnswers =
-        new Array(questions.length).fill(-1);
+        new Array(questions.length).fill(null);
 
-    startScreen.classList.add("hidden");
-    resultScreen.classList.add("hidden");
-    quizScreen.classList.remove("hidden");
 
-    homeInfo.classList.add("hidden");
+    startScreen.classList.add(
+        "hidden"
+    );
+
+    resultScreen.classList.add(
+        "hidden"
+    );
+
+    quizScreen.classList.remove(
+        "hidden"
+    );
+
+    // Hide informational content while playing
+
+    homeInfo.classList.add(
+        "hidden"
+    );
+
+
+    // Hide suggested quizzes while playing
 
     if (suggestionsCard) {
-        suggestionsCard.classList.add("hidden");
+
+        suggestionsCard.classList.add(
+            "hidden"
+        );
+
     }
 
-    showQuestion();
 
+    showQuestion();
 }
 
 
@@ -988,73 +649,97 @@ function startQuiz() {
 
 function showQuestion() {
 
-    const current = questions[currentQuestion];
+    const current =
+        questions[currentQuestion];
+
 
     questionNumber.textContent =
-        `Decision ${currentQuestion + 1} of ${questions.length}`;
+        `Question ${currentQuestion + 1} of ${questions.length}`;
+
 
     questionText.textContent =
         current.question;
 
-    answersContainer.innerHTML = "";
 
+    answersContainer.innerHTML =
+        "";
 
-    // ===============================
-    // PROGRESS
-    // ===============================
 
     const progress =
-        ((currentQuestion + 1) / questions.length) * 100;
+        ((currentQuestion + 1) /
+            questions.length) * 100;
+
 
     progressBar.style.width =
         `${progress}%`;
 
 
-    // ===============================
-    // ANSWERS
-    // ===============================
+    current.answers.forEach(
+        (answer, index) => {
 
-    current.answers.forEach((answer, index) => {
-
-        const button =
-            document.createElement("button");
-
-        button.className = "answer";
-        button.type = "button";
-
-        button.textContent =
-            answer[0];
+            const button =
+                document.createElement("button");
 
 
-        // Restore previous selection
+            button.className =
+                "answer";
 
-        if (
-            selectedAnswers[currentQuestion] === index
-        ) {
 
-            button.classList.add("selected");
+            button.type =
+                "button";
+
+
+            button.textContent =
+                answer[0];
+
+
+            if (
+                selectedAnswers[
+                    currentQuestion
+                ] === index
+            ) {
+
+                button.classList.add(
+                    "selected"
+                );
+
+
+                button.style.backgroundColor =
+                    "#444";
+
+                button.style.borderColor =
+                    "#ffffff";
+
+                button.style.color =
+                    "#ffffff";
+
+                button.style.fontWeight =
+                    "700";
+
+                button.style.boxShadow =
+                    "0 0 0 2px rgba(255,255,255,0.25)";
+            }
+
+
+            button.addEventListener(
+                "click",
+                () => {
+
+                    selectAnswer(index);
+
+                }
+            );
+
+
+            answersContainer.appendChild(
+                button
+            );
 
         }
+    );
 
-
-        button.addEventListener("click", () => {
-
-            selectAnswer(index);
-
-        });
-
-
-        answersContainer.appendChild(button);
-
-    });
-
-
-    // ===============================
-    // NAVIGATION
-    // ===============================
 
     updateNavigation();
-
 }
 
 
@@ -1068,79 +753,138 @@ function selectAnswer(answerIndex) {
         answerIndex;
 
 
-    // Highlight selected answer
-
     const buttons =
-        answersContainer.querySelectorAll(".answer");
-
-
-    buttons.forEach((button, index) => {
-
-        button.classList.toggle(
-            "selected",
-            index === answerIndex
+        answersContainer.querySelectorAll(
+            ".answer"
         );
 
-    });
+
+    buttons.forEach(
+        (button, index) => {
+
+            if (index === answerIndex) {
+
+                button.classList.add(
+                    "selected"
+                );
+
+
+                button.style.backgroundColor =
+                    "#444";
+
+                button.style.borderColor =
+                    "#ffffff";
+
+                button.style.color =
+                    "#ffffff";
+
+                button.style.fontWeight =
+                    "700";
+
+                button.style.boxShadow =
+                    "0 0 0 2px rgba(255,255,255,0.25)";
+
+            } else {
+
+                button.classList.remove(
+                    "selected"
+                );
+
+
+                button.style.backgroundColor =
+                    "";
+
+                button.style.borderColor =
+                    "";
+
+                button.style.color =
+                    "";
+
+                button.style.fontWeight =
+                    "";
+
+                button.style.boxShadow =
+                    "";
+
+            }
+
+        }
+    );
 
 
     updateNavigation();
 
 
-    // Remember which question was selected
-    // before the automatic movement.
+    // Automatically move to the next question
 
-    const questionAtSelection =
-        currentQuestion;
+    if (
+        currentQuestion <
+        questions.length - 1
+    ) {
+
+        const questionAtSelection =
+            currentQuestion;
 
 
-    // ===============================
-    // AUTOMATICALLY MOVE FORWARD
-    // ===============================
+        setTimeout(
+            () => {
 
-    setTimeout(() => {
+                if (
+                    currentQuestion ===
+                        questionAtSelection &&
 
-        if (
-            currentQuestion === questionAtSelection &&
-            selectedAnswers[questionAtSelection] === answerIndex &&
-            currentQuestion < questions.length - 1
-        ) {
+                    selectedAnswers[
+                        questionAtSelection
+                    ] === answerIndex
+                ) {
 
-            currentQuestion++;
+                    currentQuestion++;
 
-            showQuestion();
+                    showQuestion();
 
-        }
+                }
 
-    }, 180);
+            },
+            150
+        );
 
+    }
 }
 
 
 // ===============================
-// NEXT QUESTION
+// NEXT / SUBMIT BUTTON
 // ===============================
 
-function nextQuestion() {
+function goNext() {
 
     if (
-        selectedAnswers[currentQuestion] === -1
+        currentQuestion ===
+        questions.length - 1
     ) {
 
-        return;
+        const allAnswered =
+            selectedAnswers.every(
+                answer => answer !== null
+            );
 
+
+        if (allAnswered) {
+
+            showResult();
+
+        }
+
+
+        return;
     }
 
 
     if (
-        currentQuestion === questions.length - 1
+        selectedAnswers[
+            currentQuestion
+        ] === null
     ) {
-
-        if (allQuestionsAnswered()) {
-
-            submitQuiz();
-
-        }
 
         return;
 
@@ -1150,15 +894,14 @@ function nextQuestion() {
     currentQuestion++;
 
     showQuestion();
-
 }
 
 
 // ===============================
-// PREVIOUS QUESTION
+// BACK BUTTON
 // ===============================
 
-function previousQuestion() {
+function goBack() {
 
     if (currentQuestion > 0) {
 
@@ -1167,25 +910,11 @@ function previousQuestion() {
         showQuestion();
 
     }
-
 }
 
 
 // ===============================
-// CHECK ALL ANSWERS
-// ===============================
-
-function allQuestionsAnswered() {
-
-    return selectedAnswers.every(
-        answer => answer !== -1
-    );
-
-}
-
-
-// ===============================
-// UPDATE NAVIGATION
+// NAVIGATION
 // ===============================
 
 function updateNavigation() {
@@ -1193,119 +922,101 @@ function updateNavigation() {
     const isFirst =
         currentQuestion === 0;
 
+
     const isLast =
-        currentQuestion === questions.length - 1;
+        currentQuestion ===
+        questions.length - 1;
+
 
     const currentAnswered =
-        selectedAnswers[currentQuestion] !== -1;
+        selectedAnswers[
+            currentQuestion
+        ] !== null;
+
 
     const allAnswered =
-        allQuestionsAnswered();
+        selectedAnswers.every(
+            answer => answer !== null
+        );
 
-
-    // ===============================
-    // BACK
-    // ===============================
 
     backButton.disabled =
         isFirst;
 
 
-    // ===============================
-    // LAST QUESTION
-    // ===============================
-
     if (isLast) {
 
-        nextButton.classList.add("hidden");
+        nextButton.textContent =
+            "SUBMIT";
 
-        submitButton.classList.remove("hidden");
 
-        submitButton.disabled =
+        nextButton.disabled =
             !allAnswered;
 
-        submitButton.textContent =
-            allAnswered
-                ? "SUBMIT"
-                : "ANSWER ALL QUESTIONS";
 
-    }
+        if (allAnswered) {
 
+            nextButton.classList.add(
+                "submit-ready"
+            );
 
-    // ===============================
-    // NORMAL QUESTIONS
-    // ===============================
+        } else {
 
-    else {
+            nextButton.classList.remove(
+                "submit-ready"
+            );
 
-        submitButton.classList.add("hidden");
+        }
 
-        nextButton.classList.remove("hidden");
+    } else {
 
         nextButton.textContent =
             "Next →";
 
+
         nextButton.disabled =
             !currentAnswered;
 
-    }
 
+        nextButton.classList.remove(
+            "submit-ready"
+        );
+
+    }
 }
 
 
 // ===============================
-// SUBMIT QUIZ
+// CALCULATE SCORE
 // ===============================
 
-function submitQuiz() {
+function calculateScore() {
 
-    if (!allQuestionsAnswered()) {
-
-        return;
-
-    }
-
-
-    // ===============================
-    // CALCULATE SCORES
-    // ===============================
-
-    survivalScore = 0;
-    moralityScore = 0;
+    let score = 0;
 
 
     selectedAnswers.forEach(
         (answerIndex, questionIndex) => {
 
-            const answer =
-                questions[questionIndex]
-                    .answers[answerIndex];
+            if (answerIndex === null) {
 
-
-            // Survival points
-
-            survivalScore +=
-                answer[1];
-
-
-            // Morality points
-
-            if (
-                answer[2] !== null &&
-                answer[2] !== undefined
-            ) {
-
-                moralityScore +=
-                    answer[2];
+                return;
 
             }
+
+
+            score +=
+                questions[
+                    questionIndex
+                ].answers[
+                    answerIndex
+                ][1];
 
         }
     );
 
 
-    showResult();
-
+    return score;
 }
 
 
@@ -1315,225 +1026,339 @@ function submitQuiz() {
 
 function showResult() {
 
-    homeInfo.classList.remove("hidden");
+    // calculateScore() returns 0–100
+    // because every correct answer is worth 2 points
 
-    quizScreen.classList.add("hidden");
+    const score =
+        calculateScore();
 
-    resultScreen.classList.remove("hidden");
+
+    const totalQuestions =
+        questions.length;
 
 
-    // Suggested quizzes are outside
-    // result-screen, so show them separately.
+    const correctAnswers =
+        score / 2;
+
+
+    const incorrectAnswers =
+        totalQuestions -
+        correctAnswers;
+
+
+    const accuracy =
+        Math.round(
+            (correctAnswers /
+                totalQuestions) * 100
+        );
+
+
+    // ===============================
+    // SHOW RESULT / RESTORE INFO
+    // ===============================
+
+    quizScreen.classList.add(
+        "hidden"
+    );
+
+    resultScreen.classList.remove(
+        "hidden"
+    );
+
+
+    // IMPORTANT:
+    // Info cards are visible on result page
+
+    homeInfo.classList.remove(
+        "hidden"
+    );
+
+
+    // Suggested quizzes are also visible on result page
 
     if (suggestionsCard) {
 
-        suggestionsCard.classList.remove("hidden");
+        suggestionsCard.classList.remove(
+            "hidden"
+        );
 
     }
 
 
     // ===============================
-    // SURVIVAL SCORE
+    // FINAL SCORE
     // ===============================
 
-    const survivalPercentage =
-        Math.round(
-            (survivalScore / 450) * 100
+    document.getElementById(
+        "final-score"
+    ).textContent =
+        score;
+
+
+    // ===============================
+    // RESULT BREAKDOWN
+    // ===============================
+
+    const correctCount =
+        document.getElementById(
+            "correct-count"
+        );
+
+    const incorrectCount =
+        document.getElementById(
+            "incorrect-count"
+        );
+
+    const totalCount =
+        document.getElementById(
+            "total-count"
+        );
+
+    const accuracyPercent =
+        document.getElementById(
+            "accuracy-percent"
         );
 
 
+    if (correctCount) {
+
+        correctCount.textContent =
+            correctAnswers;
+
+    }
+
+
+    if (incorrectCount) {
+
+        incorrectCount.textContent =
+            incorrectAnswers;
+
+    }
+
+
+    if (totalCount) {
+
+        totalCount.textContent =
+            totalQuestions;
+
+    }
+
+
+    if (accuracyPercent) {
+
+        accuracyPercent.textContent =
+            `${accuracy}%`;
+
+    }
+
+
     // ===============================
-    // MORALITY SCORE
-    // ===============================
-
-    const moralityPercentage =
-        Math.round(
-            (moralityScore / 394) * 100
-        );
-
-
-    document.getElementById("final-score").textContent =
-        survivalPercentage;
-
-
-    // ===============================
-    // SURVIVAL RESULT
+    // RESULT LEVEL
     // ===============================
 
     let title;
     let description;
-    let survival;
+    let knowledge;
+    let icon;
 
 
-    if (survivalPercentage <= 20) {
-
-        title =
-            "Zombie Food";
-
-        description =
-            "You probably wouldn't make it very far. Your biggest enemy isn't necessarily the zombies — it's your decision-making.";
-
-        survival =
-            "Hours to a few days";
-
-
-    } else if (survivalPercentage <= 45) {
+    if (score <= 20) {
 
         title =
-            "Short-Term Survivor";
+            "🧟 Walker-Level Knowledge";
 
         description =
-            "You might survive the initial chaos, but long-term survival would be difficult. Panic and poor preparation could eventually catch up with you.";
+            "You might recognize Rick and Daryl, but most of the details of the apocalypse have escaped you.";
 
-        survival =
-            "Several days to a few weeks";
+        knowledge =
+            "Casual Viewer";
+
+        icon =
+            "🧟";
 
 
-    } else if (survivalPercentage <= 70) {
+    } else if (score <= 40) {
 
         title =
-            "Survivor";
+            "🏚️ Alexandria Beginner";
 
         description =
-            "You have a decent chance. You understand that surviving isn't just about fighting zombies. Food, water, shelter and information matter.";
+            "You've watched the show, but there are plenty of characters, places and events you could still forget.";
 
-        survival =
-            "Several weeks to a few months";
+        knowledge =
+            "Casual Fan";
+
+        icon =
+            "🏚️";
 
 
-    } else if (survivalPercentage <= 90) {
+    } else if (score <= 60) {
 
         title =
-            "Apocalypse Survivor";
+            "🔥 Survivor";
 
         description =
-            "You're surprisingly difficult to take down. You plan ahead, avoid unnecessary risks and understand that other survivors can be dangerous.";
+            "You know the major characters and events, but some of the deeper Walking Dead trivia caught you out.";
 
-        survival =
-            "Several months to several years";
+        knowledge =
+            "Good Fan";
+
+        icon =
+            "🔥";
+
+
+    } else if (score <= 80) {
+
+        title =
+            "⚔️ Seasoned Survivor";
+
+        description =
+            "You've spent a lot of time in the apocalypse. You remember most of the important details and many of the obscure ones.";
+
+        knowledge =
+            "Dedicated Fan";
+
+        icon =
+            "⚔️";
+
+
+    } else if (score <= 94) {
+
+        title =
+            "👑 Walking Dead Expert";
+
+        description =
+            "Impressive. You remember characters, communities, groups and details that many fans have forgotten.";
+
+        knowledge =
+            "Expert Fan";
+
+        icon =
+            "👑";
 
 
     } else {
 
         title =
-            "The Last Human Alive";
+            "🧠 Walking Dead Encyclopedia";
 
         description =
-            "You don't merely survive the apocalypse — you've basically turned it into a long-term project. You prepare before everyone else realizes there's a problem.";
+            "You don't just remember the show — you remember the tiny details. You could probably survive a Walking Dead trivia convention.";
 
-        survival =
-            "5+ years";
+        knowledge =
+            "Ultimate Fan";
+
+        icon =
+            "🧠";
 
     }
 
 
-    document.getElementById("result-title").textContent =
+    // ===============================
+    // UPDATE RESULT CONTENT
+    // ===============================
+
+    document.getElementById(
+        "result-title"
+    ).textContent =
         title;
 
-    document.getElementById("result-description").textContent =
+
+    document.getElementById(
+        "result-description"
+    ).textContent =
         description;
 
-    document.getElementById("survival-time").textContent =
-        survival;
+
+    document.getElementById(
+        "knowledge-level"
+    ).textContent =
+        knowledge;
 
 
-    // ===============================
-    // MORALITY RESULT
-    // ===============================
-
-    document.getElementById("morality-score").textContent =
-        moralityPercentage + "%";
+    const resultIcon =
+        document.getElementById(
+            "result-icon"
+        );
 
 
-    let moralityTitle;
-    let moralityDescription;
+    if (resultIcon) {
 
-
-    if (moralityPercentage <= 20) {
-
-        moralityTitle =
-            "Ruthless Survivor";
-
-        moralityDescription =
-            "You put survival above almost everything else. In the apocalypse, you are willing to make difficult choices without letting emotions get in the way.";
-
-
-    } else if (moralityPercentage <= 40) {
-
-        moralityTitle =
-            "Pragmatic Survivor";
-
-        moralityDescription =
-            "You care about others, but survival comes first when resources and safety are limited.";
-
-
-    } else if (moralityPercentage <= 60) {
-
-        moralityTitle =
-            "Balanced Survivor";
-
-        moralityDescription =
-            "You try to balance survival with compassion. You understand that protecting your group sometimes requires difficult choices.";
-
-
-    } else if (moralityPercentage <= 80) {
-
-        moralityTitle =
-            "Compassionate Survivor";
-
-        moralityDescription =
-            "You place considerable value on helping others while still understanding the realities of survival.";
-
-
-    } else {
-
-        moralityTitle =
-            "Humanitarian";
-
-        moralityDescription =
-            "Even during the apocalypse, you strongly believe that protecting human life and helping others should remain a priority.";
+        resultIcon.textContent =
+            icon;
 
     }
 
 
-    document.getElementById("morality-description").textContent =
-        moralityTitle + " — " + moralityDescription;
-
+    // ===============================
+    // COMPLETE PROGRESS BAR
+    // ===============================
 
     progressBar.style.width =
         "100%";
+
+
+    // ===============================
+    // SCROLL TO TOP
+    // ===============================
+
+    window.scrollTo({
+
+        top: 0,
+
+        behavior: "smooth"
+
+    });
 
 }
 
 
 // ===============================
-// RESTART
+// RESTART QUIZ
 // ===============================
 
 function restartQuiz() {
 
     currentQuestion = 0;
 
-    survivalScore = 0;
-
-    moralityScore = 0;
 
     selectedAnswers =
-        new Array(questions.length).fill(-1);
+        new Array(questions.length).fill(null);
 
 
-    resultScreen.classList.add("hidden");
+    // Hide results
 
-    quizScreen.classList.add("hidden");
+    resultScreen.classList.add(
+        "hidden"
+    );
 
-    startScreen.classList.remove("hidden");
 
-    homeInfo.classList.remove("hidden");
+    quizScreen.classList.add(
+        "hidden"
+    );
 
+
+    // Show start screen
+
+    startScreen.classList.remove(
+        "hidden"
+    );
+
+
+    // Info cards visible on start page
+
+    homeInfo.classList.remove(
+        "hidden"
+    );
+
+
+    // Hide suggested quizzes
 
     if (suggestionsCard) {
 
-        suggestionsCard.classList.add("hidden");
+        suggestionsCard.classList.add(
+            "hidden"
+        );
 
     }
 
@@ -1542,49 +1367,56 @@ function restartQuiz() {
         "0%";
 
 
-    submitButton.disabled =
-        true;
+    window.scrollTo({
 
-    submitButton.textContent =
-        "SUBMIT";
+        top: 0,
+
+        behavior: "smooth"
+
+    });
 
 }
 
 
 // ===============================
-// SHARE
+// SHARE RESULT
 // ===============================
 
 async function shareResult() {
 
     const title =
-        document.getElementById("result-title")
-            .textContent;
+        document.getElementById(
+            "result-title"
+        ).textContent;
 
-    const survival =
-        document.getElementById("survival-time")
-            .textContent;
+
+    const knowledge =
+        document.getElementById(
+            "knowledge-level"
+        ).textContent;
+
 
     const finalScore =
-        document.getElementById("final-score")
-            .textContent;
+        document.getElementById(
+            "final-score"
+        ).textContent;
 
 
     const quizUrl =
-        "https://apocalypsequizzes.com/ultimate-zombie-survival-test/";
+        "https://apocalypsequizzes.com/walking-dead-knowledge/";
 
 
     const shareText =
-        `🧟 I scored ${finalScore}% on The Ultimate Zombie Apocalypse Survival Test!\n\n` +
+        `🧟 I scored ${finalScore}/100 on The Walking Dead Quiz!\n\n` +
         `${title}\n` +
-        `Estimated survival: ${survival}\n\n` +
-        `How long would YOU survive?`;
+        `Knowledge level: ${knowledge}\n\n` +
+        `How well do YOU know The Walking Dead?`;
 
 
     const shareData = {
 
         title:
-            "The Ultimate Zombie Apocalypse Survival Test",
+            "The Walking Dead Quiz",
 
         text:
             shareText,
@@ -1599,7 +1431,9 @@ async function shareResult() {
 
         if (navigator.share) {
 
-            await navigator.share(shareData);
+            await navigator.share(
+                shareData
+            );
 
         } else {
 
@@ -1608,6 +1442,7 @@ async function shareResult() {
                 "\n\n" +
                 quizUrl
             );
+
 
             alert(
                 "Your result has been copied! You can paste it anywhere."
@@ -1631,16 +1466,25 @@ async function shareResult() {
 // ===============================
 
 const menuToggle =
-    document.getElementById("menu-toggle");
+    document.getElementById(
+        "menu-toggle"
+    );
 
 const siteMenu =
-    document.getElementById("site-menu");
+    document.getElementById(
+        "site-menu"
+    );
 
 
-if (menuToggle && siteMenu) {
+if (
+    menuToggle &&
+    siteMenu
+) {
 
 
+    // ===============================
     // OPEN / CLOSE WITH HAMBURGER
+    // ===============================
 
     menuToggle.addEventListener(
         "click",
@@ -1648,18 +1492,22 @@ if (menuToggle && siteMenu) {
 
             event.stopPropagation();
 
+
             const isOpen =
                 menuToggle.getAttribute(
                     "aria-expanded"
                 ) === "true";
 
+
             siteMenu.hidden =
                 isOpen;
+
 
             menuToggle.setAttribute(
                 "aria-expanded",
                 String(!isOpen)
             );
+
 
             menuToggle.setAttribute(
                 "aria-label",
@@ -1672,7 +1520,9 @@ if (menuToggle && siteMenu) {
     );
 
 
+    // ===============================
     // CLOSE WHEN CLICKING OUTSIDE
+    // ===============================
 
     document.addEventListener(
         "click",
@@ -1680,17 +1530,23 @@ if (menuToggle && siteMenu) {
 
             if (
                 !siteMenu.hidden &&
-                !siteMenu.contains(event.target) &&
-                !menuToggle.contains(event.target)
+                !siteMenu.contains(
+                    event.target
+                ) &&
+                !menuToggle.contains(
+                    event.target
+                )
             ) {
 
                 siteMenu.hidden =
                     true;
 
+
                 menuToggle.setAttribute(
                     "aria-expanded",
                     "false"
                 );
+
 
                 menuToggle.setAttribute(
                     "aria-label",
@@ -1703,32 +1559,38 @@ if (menuToggle && siteMenu) {
     );
 
 
-    // CLOSE AFTER CLICKING A MENU LINK
+    // ===============================
+    // CLOSE AFTER CLICKING MENU LINK
+    // ===============================
 
     siteMenu
         .querySelectorAll("a")
-        .forEach(function (link) {
+        .forEach(
+            function (link) {
 
-            link.addEventListener(
-                "click",
-                function () {
+                link.addEventListener(
+                    "click",
+                    function () {
 
-                    siteMenu.hidden =
-                        true;
+                        siteMenu.hidden =
+                            true;
 
-                    menuToggle.setAttribute(
-                        "aria-expanded",
-                        "false"
-                    );
 
-                    menuToggle.setAttribute(
-                        "aria-label",
-                        "Open navigation"
-                    );
+                        menuToggle.setAttribute(
+                            "aria-expanded",
+                            "false"
+                        );
 
-                }
-            );
 
-        });
+                        menuToggle.setAttribute(
+                            "aria-label",
+                            "Open navigation"
+                        );
+
+                    }
+                );
+
+            }
+        );
 
 }
