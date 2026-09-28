@@ -504,179 +504,325 @@ const questions = [
 
 
 let currentQuestion = 0;
-let score = 0;
-let userAnswers = new Array(questions.length).fill(null);
-let autoAdvanceTimer = null;
+
+let selectedAnswers =
+    new Array(questions.length).fill(null);
 
 
-const startScreen = document.getElementById("start-screen");
-const quizScreen = document.getElementById("quiz-screen");
-const resultScreen = document.getElementById("result-screen");
-const homeInfo = document.getElementById("home-info");
+// =====================================================
+// ELEMENTS
+// =====================================================
+
+const startScreen =
+    document.getElementById("start-screen");
+
+const quizScreen =
+    document.getElementById("quiz-screen");
+
+const resultScreen =
+    document.getElementById("result-screen");
+
+const homeInfo =
+    document.getElementById("home-info");
+
+const suggestionsCard =
+    document.getElementById("suggestions-card");
 
 
-const startButton = document.getElementById("start-btn");
-const restartButton = document.getElementById("restart-btn");
-const shareButton = document.getElementById("share-btn");
-const challengeButton = document.getElementById("challenge-btn");
+const startButton =
+    document.getElementById("start-btn");
+
+const restartButton =
+    document.getElementById("restart-btn");
+
+const shareButton =
+    document.getElementById("share-btn");
+
+const challengeButton =
+    document.getElementById("challenge-btn");
 
 
-const questionNumber = document.getElementById("question-number");
-const questionText = document.getElementById("question");
-const answersContainer = document.getElementById("answers");
-const progressBar = document.getElementById("progress-bar");
+const backButton =
+    document.getElementById("back-btn");
+
+const nextButton =
+    document.getElementById("next-btn");
+
+const submitButton =
+    document.getElementById("submit-btn");
 
 
-const backButton = document.getElementById("back-btn");
-const nextButton = document.getElementById("next-btn");
-const submitButton = document.getElementById("submit-btn");
+const questionNumber =
+    document.getElementById("question-number");
+
+const questionText =
+    document.getElementById("question");
+
+const answersContainer =
+    document.getElementById("answers");
+
+const progressBar =
+    document.getElementById("progress-bar");
 
 
-startButton.addEventListener("click", startQuiz);
-restartButton.addEventListener("click", restartQuiz);
-shareButton.addEventListener("click", shareResult);
-challengeButton.addEventListener("click", shareResult);
+// =====================================================
+// BUTTON EVENTS
+// =====================================================
 
-backButton.addEventListener("click", goBack);
-nextButton.addEventListener("click", goNext);
-submitButton.addEventListener("click", submitQuiz);
+startButton.addEventListener(
+    "click",
+    startQuiz
+);
 
+restartButton.addEventListener(
+    "click",
+    restartQuiz
+);
+
+shareButton.addEventListener(
+    "click",
+    shareResult
+);
+
+challengeButton.addEventListener(
+    "click",
+    shareResult
+);
+
+backButton.addEventListener(
+    "click",
+    goBack
+);
+
+nextButton.addEventListener(
+    "click",
+    goNext
+);
+
+submitButton.addEventListener(
+    "click",
+    showResult
+);
+
+
+// =====================================================
+// START QUIZ
+// =====================================================
 
 function startQuiz() {
 
-    clearTimeout(autoAdvanceTimer);
-
     currentQuestion = 0;
-    score = 0;
-    userAnswers = new Array(questions.length).fill(null);
 
-    homeInfo.classList.add("hidden");
+    selectedAnswers =
+        new Array(questions.length).fill(null);
 
-    startScreen.classList.add("hidden");
-    resultScreen.classList.add("hidden");
-    quizScreen.classList.remove("hidden");
 
-    document.getElementById("suggestions-card").classList.add("hidden");
+    startScreen.classList.add(
+        "hidden"
+    );
+
+    resultScreen.classList.add(
+        "hidden"
+    );
+
+    quizScreen.classList.remove(
+        "hidden"
+    );
+
+    homeInfo.classList.add(
+        "hidden"
+    );
+
+    suggestionsCard.classList.add(
+        "hidden"
+    );
+
 
     showQuestion();
 
 }
 
 
+// =====================================================
+// SHOW QUESTION
+// =====================================================
+
 function showQuestion() {
 
-    clearTimeout(autoAdvanceTimer);
+    const current =
+        questions[currentQuestion];
 
-    const current = questions[currentQuestion];
 
     questionNumber.textContent =
         `Question ${currentQuestion + 1} of ${questions.length}`;
 
-    questionText.textContent = current.question;
 
-    answersContainer.innerHTML = "";
+    questionText.textContent =
+        current.question;
+
+
+    answersContainer.innerHTML =
+        "";
+
 
     const progress =
-        ((currentQuestion + 1) / questions.length) * 100;
+        ((currentQuestion + 1) /
+        questions.length) * 100;
+
 
     progressBar.style.width =
         `${progress}%`;
 
 
-    current.answers.forEach((answer, index) => {
+    current.answers.forEach(
+        (answer, index) => {
 
-        const button = document.createElement("button");
-
-        button.className = "answer";
-        button.type = "button";
-
-        button.textContent = answer[0];
-
-
-        if (userAnswers[currentQuestion] === index) {
-
-            button.classList.add("selected");
-
-        }
+            const button =
+                document.createElement(
+                    "button"
+                );
 
 
-        button.addEventListener("click", () => {
+            button.className =
+                "answer";
 
-            selectAnswer(index);
+            button.type =
+                "button";
 
-        });
-
-
-        answersContainer.appendChild(button);
-
-    });
+            button.textContent =
+                answer[0];
 
 
-    backButton.disabled =
-        currentQuestion === 0;
+            if (
+                selectedAnswers[
+                    currentQuestion
+                ] === index
+            ) {
+
+                button.classList.add(
+                    "selected"
+                );
+
+            }
 
 
-    if (currentQuestion === questions.length - 1) {
+            button.addEventListener(
+                "click",
+                () => {
 
-        nextButton.classList.add("hidden");
+                    selectAnswer(index);
 
-        submitButton.classList.remove("hidden");
+                }
+            );
 
 
-        if (allQuestionsAnswered()) {
-
-            submitButton.disabled = false;
-            submitButton.textContent = "SUBMIT";
-
-        } else {
-
-            submitButton.disabled = true;
-            submitButton.textContent = "Answer All Questions";
+            answersContainer.appendChild(
+                button
+            );
 
         }
+    );
 
-    } else {
 
-        submitButton.classList.add("hidden");
-
-        nextButton.classList.remove("hidden");
-
-        nextButton.disabled =
-            userAnswers[currentQuestion] === null;
-
-    }
+    updateNavigation();
 
 }
 
+
+// =====================================================
+// SELECT ANSWER
+// =====================================================
 
 function selectAnswer(answerIndex) {
 
-    clearTimeout(autoAdvanceTimer);
-
-    userAnswers[currentQuestion] =
-        answerIndex;
-
-
-    const answerButtons =
-        answersContainer.querySelectorAll(".answer");
+    selectedAnswers[
+        currentQuestion
+    ] = answerIndex;
 
 
-    answerButtons.forEach((button, index) => {
-
-        button.classList.toggle(
-            "selected",
-            index === answerIndex
+    const buttons =
+        answersContainer.querySelectorAll(
+            ".answer"
         );
 
-    });
+
+    buttons.forEach(
+        (button, index) => {
+
+            button.classList.toggle(
+                "selected",
+                index === answerIndex
+            );
+
+        }
+    );
 
 
-    if (currentQuestion === questions.length - 1) {
+    updateNavigation();
 
-        if (allQuestionsAnswered()) {
 
-            submitButton.disabled = false;
-            submitButton.textContent = "SUBMIT";
+    const questionAtSelection =
+        currentQuestion;
+
+
+    setTimeout(
+        () => {
+
+            if (
+                currentQuestion ===
+                    questionAtSelection &&
+
+                selectedAnswers[
+                    questionAtSelection
+                ] === answerIndex &&
+
+                currentQuestion <
+                    questions.length - 1
+            ) {
+
+                currentQuestion++;
+
+                showQuestion();
+
+            }
+
+        },
+        180
+    );
+
+}
+
+
+// =====================================================
+// NEXT BUTTON
+// =====================================================
+
+function goNext() {
+
+    if (
+        selectedAnswers[
+            currentQuestion
+        ] === null
+    ) {
+
+        return;
+
+    }
+
+
+    if (
+        currentQuestion ===
+        questions.length - 1
+    ) {
+
+        if (
+            selectedAnswers.every(
+                answer =>
+                    answer !== null
+            )
+        ) {
+
+            showResult();
 
         }
 
@@ -685,44 +831,22 @@ function selectAnswer(answerIndex) {
     }
 
 
-    autoAdvanceTimer = setTimeout(() => {
+    currentQuestion++;
 
-        goNext();
-
-    }, 180);
+    showQuestion();
 
 }
 
 
-function goNext() {
-
-    clearTimeout(autoAdvanceTimer);
-
-
-    if (userAnswers[currentQuestion] === null) {
-
-        return;
-
-    }
-
-
-    if (currentQuestion < questions.length - 1) {
-
-        currentQuestion++;
-
-        showQuestion();
-
-    }
-
-}
-
+// =====================================================
+// BACK BUTTON
+// =====================================================
 
 function goBack() {
 
-    clearTimeout(autoAdvanceTimer);
-
-
-    if (currentQuestion > 0) {
+    if (
+        currentQuestion > 0
+    ) {
 
         currentQuestion--;
 
@@ -733,47 +857,104 @@ function goBack() {
 }
 
 
-function allQuestionsAnswered() {
+// =====================================================
+// UPDATE NAVIGATION
+// =====================================================
 
-    return userAnswers.every(
-        answer => answer !== null
-    );
+function updateNavigation() {
+
+    const isFirst =
+        currentQuestion === 0;
+
+
+    const isLast =
+        currentQuestion ===
+        questions.length - 1;
+
+
+    const currentAnswered =
+        selectedAnswers[
+            currentQuestion
+        ] !== null;
+
+
+    const allAnswered =
+        selectedAnswers.every(
+            answer =>
+                answer !== null
+        );
+
+
+    backButton.disabled =
+        isFirst;
+
+
+    if (isLast) {
+
+        nextButton.classList.add(
+            "hidden"
+        );
+
+        submitButton.classList.remove(
+            "hidden"
+        );
+
+
+        submitButton.disabled =
+            !allAnswered;
+
+
+        submitButton.textContent =
+            allAnswered
+                ? "SUBMIT"
+                : "Answer All Questions";
+
+
+    } else {
+
+        submitButton.classList.add(
+            "hidden"
+        );
+
+        nextButton.classList.remove(
+            "hidden"
+        );
+
+
+        nextButton.textContent =
+            "Next →";
+
+
+        nextButton.disabled =
+            !currentAnswered;
+
+    }
 
 }
 
 
-function submitQuiz() {
+// =====================================================
+// CALCULATE SCORE
+// =====================================================
 
-    clearTimeout(autoAdvanceTimer);
+function calculateScore() {
 
-
-    if (!allQuestionsAnswered()) {
-
-        submitButton.disabled = true;
-        submitButton.textContent =
-            "Answer All Questions";
-
-        return;
-
-    }
+    let score = 0;
 
 
-    score = 0;
-
-
-    questions.forEach(
-        (question, questionIndex) => {
-
-            const selectedAnswer =
-                userAnswers[questionIndex];
-
+    selectedAnswers.forEach(
+        (answerIndex, questionIndex) => {
 
             if (
-                selectedAnswer !== null &&
-                question.answers[selectedAnswer][1] === 1
+                answerIndex !== null
             ) {
 
-                score++;
+                score +=
+                    questions[
+                        questionIndex
+                    ].answers[
+                        answerIndex
+                    ][1];
 
             }
 
@@ -781,49 +962,104 @@ function submitQuiz() {
     );
 
 
-    showResult();
+    return score;
 
 }
 
 
+// =====================================================
+// SHOW RESULT
+// =====================================================
+
 function showResult() {
 
-    quizScreen.classList.add("hidden");
-    resultScreen.classList.remove("hidden");
-
-    homeInfo.classList.remove("hidden");
-
-    document
-        .getElementById("suggestions-card")
-        .classList.remove("hidden");
+    const score =
+        calculateScore();
 
 
-    document.getElementById("final-score").textContent =
-        score;
-
-
-    document.getElementById("correct-count").textContent =
-        score;
-
-
-    document.getElementById("incorrect-count").textContent =
-        questions.length - score;
-
-
-    document.getElementById("total-count").textContent =
+    const totalQuestions =
         questions.length;
+
+
+    // Each correct answer = 2 points
+    const correctAnswers =
+        score / 2;
+
+
+    const incorrectAnswers =
+        totalQuestions -
+        correctAnswers;
 
 
     const accuracy =
         Math.round(
-            (score / questions.length) * 100
+            (correctAnswers /
+            totalQuestions) * 100
         );
 
 
-    document.getElementById("accuracy-percent").textContent =
+    // =================================================
+    // SCREEN VISIBILITY
+    // =================================================
+
+    quizScreen.classList.add(
+        "hidden"
+    );
+
+    resultScreen.classList.remove(
+        "hidden"
+    );
+
+    homeInfo.classList.remove(
+        "hidden"
+    );
+
+    suggestionsCard.classList.remove(
+        "hidden"
+    );
+
+
+    // =================================================
+    // RESULT SCORE
+    // =================================================
+
+    document.getElementById(
+        "final-score"
+    ).textContent =
+        score;
+
+
+    // =================================================
+    // RESULT BREAKDOWN
+    // =================================================
+
+    document.getElementById(
+        "correct-count"
+    ).textContent =
+        correctAnswers;
+
+
+    document.getElementById(
+        "incorrect-count"
+    ).textContent =
+        incorrectAnswers;
+
+
+    document.getElementById(
+        "total-count"
+    ).textContent =
+        totalQuestions;
+
+
+    document.getElementById(
+        "accuracy-percent"
+    ).textContent =
         `${accuracy}%`;
 
 
+    // =================================================
+    // RESULT LEVEL
+    // =================================================
     let title;
     let description;
     let knowledge;
