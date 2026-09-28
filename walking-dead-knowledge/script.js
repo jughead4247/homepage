@@ -1158,7 +1158,7 @@ function showResult() {
 
     let title;
     let description;
-    let knowledge;
+    let survival;
     let icon;
 
 
@@ -1170,7 +1170,7 @@ function showResult() {
         description =
             "You might recognize Rick and Daryl, but most of the details of the apocalypse have escaped you.";
 
-        knowledge =
+        survival =
             "Casual Viewer";
 
         icon =
@@ -1185,7 +1185,7 @@ function showResult() {
         description =
             "You've watched the show, but there are plenty of characters, places and events you could still forget.";
 
-        knowledge =
+        survival =
             "Casual Fan";
 
         icon =
@@ -1200,7 +1200,7 @@ function showResult() {
         description =
             "You know the major characters and events, but some of the deeper Walking Dead trivia caught you out.";
 
-        knowledge =
+        survival =
             "Good Fan";
 
         icon =
@@ -1215,7 +1215,7 @@ function showResult() {
         description =
             "You've spent a lot of time in the apocalypse. You remember most of the important details and many of the obscure ones.";
 
-        knowledge =
+        survival =
             "Dedicated Fan";
 
         icon =
@@ -1230,7 +1230,7 @@ function showResult() {
         description =
             "Impressive. You remember characters, communities, groups and details that many fans have forgotten.";
 
-        knowledge =
+        survival =
             "Expert Fan";
 
         icon =
@@ -1245,7 +1245,7 @@ function showResult() {
         description =
             "You don't just remember the show — you remember the tiny details. You could probably survive a Walking Dead trivia convention.";
 
-        knowledge =
+        survival =
             "Ultimate Fan";
 
         icon =
