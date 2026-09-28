@@ -1320,9 +1320,6 @@ const quizScreen = document.getElementById("quiz-screen");
 const resultScreen = document.getElementById("result-screen");
 const homeInfo = document.getElementById("home-info");
 
-const suggestionsCard =
-    document.getElementById("suggestions-card");
-
 const startButton = document.getElementById("start-btn");
 const restartButton = document.getElementById("restart-btn");
 const shareButton = document.getElementById("share-btn");
@@ -1336,6 +1333,9 @@ const questionNumber = document.getElementById("question-number");
 const questionText = document.getElementById("question");
 const answersContainer = document.getElementById("answers");
 const progressBar = document.getElementById("progress-bar");
+
+const suggestionsCard =
+    document.getElementById("suggestions-card");
 
 startButton.addEventListener("click", startQuiz);
 restartButton.addEventListener("click", restartQuiz);
@@ -1611,7 +1611,9 @@ function showResult() {
 
     resultScreen.classList.remove("hidden");
 
-
+    if (suggestionsCard) {
+    suggestionsCard.classList.remove("hidden");
+}
 
     document.getElementById("final-score").textContent =
         `${score}%`;
