@@ -21,8 +21,6 @@
     <link rel="canonical"
         href="https://apocalypsequizzes.com/the-hunger-games-mockingjay-part-2-quiz/">
 
-    <!-- Open Graph -->
-
     <meta property="og:title"
         content="The Hunger Games: Mockingjay – Part 2 Quiz – How Well Do You Know the Movie?">
 
@@ -39,9 +37,6 @@
     <meta property="og:image"
         content="https://apocalypsequizzes.com/images/hunger4.png">
 
-
-    <!-- Twitter -->
-
     <meta name="twitter:card" content="summary">
 
     <meta name="twitter:title"
@@ -53,11 +48,9 @@
     <meta name="twitter:image"
         content="https://apocalypsequizzes.com/images/hunger4.png">
 
-
     <link rel="icon"
         type="image/png"
         href="../favicon.png">
-
 
     <!-- Google Analytics -->
 
@@ -88,6 +81,51 @@
 
 
     <link rel="stylesheet" href="../style.css">
+
+
+    <!-- PAGE-SPECIFIC IMAGE / VISIBILITY SAFETY -->
+
+    <style>
+
+        /* Keep all hidden quiz sections actually hidden */
+
+        [hidden] {
+            display: none !important;
+        }
+
+
+        /* Prevent quiz images from escaping their cards */
+
+        .intro-card {
+            overflow: hidden;
+        }
+
+
+        .quiz-start-image {
+            display: block;
+            width: 100%;
+            max-width: 100%;
+            height: auto;
+            box-sizing: border-box;
+            object-fit: contain;
+        }
+
+
+        .suggested-card {
+            overflow: hidden;
+        }
+
+
+        .suggested-image {
+            display: block;
+            width: 100%;
+            max-width: 100%;
+            height: auto;
+            box-sizing: border-box;
+            object-fit: cover;
+        }
+
+    </style>
 
 </head>
 
@@ -208,21 +246,15 @@
 
         <div class="info">
 
-            <span>
-                25 Questions
-            </span>
+            <span>25 Questions</span>
 
             <span>•</span>
 
-            <span>
-                ~5 Minutes
-            </span>
+            <span>~5 Minutes</span>
 
             <span>•</span>
 
-            <span>
-                4 Choices
-            </span>
+            <span>4 Choices</span>
 
         </div>
 
@@ -256,7 +288,10 @@
      QUIZ SCREEN
      ===================================================== -->
 
-<section id="quiz-screen" class="screen hidden">
+<section
+    id="quiz-screen"
+    class="screen hidden"
+    hidden>
 
     <div class="quiz-header">
 
@@ -312,7 +347,8 @@
             id="submit-btn"
             class="nav-btn submit-btn hidden"
             type="button"
-            disabled>
+            disabled
+            hidden>
 
             Answer All Questions
 
@@ -327,7 +363,10 @@
      RESULT SCREEN
      ===================================================== -->
 
-<section id="result-screen" class="screen hidden">
+<section
+    id="result-screen"
+    class="screen hidden"
+    hidden>
 
 
     <p class="result-label">
@@ -363,7 +402,6 @@
 
 
     <div class="result-breakdown">
-
 
         <div class="result-stat">
 
@@ -446,7 +484,8 @@
 
 <section
     id="suggestions-card"
-    class="suggestions-card hidden">
+    class="suggestions-card hidden"
+    hidden>
 
 
     <div class="suggested-quizzes">
@@ -1270,6 +1309,10 @@ const questions = [
 ];
 
 
+/* =====================================================
+   VARIABLES
+   ===================================================== */
+
 let currentQuestion = 0;
 
 let selectedAnswers =
@@ -1333,6 +1376,36 @@ const progressBar =
 
 
 /* =====================================================
+   VISIBILITY HELPERS
+   ===================================================== */
+
+function hideElement(element) {
+
+    if (!element) {
+        return;
+    }
+
+    element.classList.add("hidden");
+
+    element.hidden = true;
+
+}
+
+
+function showElement(element) {
+
+    if (!element) {
+        return;
+    }
+
+    element.classList.remove("hidden");
+
+    element.hidden = false;
+
+}
+
+
+/* =====================================================
    EVENT LISTENERS
    ===================================================== */
 
@@ -1390,15 +1463,25 @@ function startQuiz() {
         new Array(questions.length).fill(null);
 
 
-    startScreen.classList.add("hidden");
+    /*
+       START STATE
 
-    resultScreen.classList.add("hidden");
+       Start screen    = hidden
+       Quiz screen     = visible
+       Result screen   = hidden
+       Suggestions     = hidden
+       Information     = hidden
+    */
 
-    quizScreen.classList.remove("hidden");
+    hideElement(startScreen);
 
-    homeInfo.classList.add("hidden");
+    showElement(quizScreen);
 
-    suggestionsCard.classList.add("hidden");
+    hideElement(resultScreen);
+
+    hideElement(suggestionsCard);
+
+    hideElement(homeInfo);
 
 
     showQuestion();
@@ -1640,9 +1723,10 @@ function updateNavigation() {
         );
 
 
-        submitButton.classList.remove(
-            "hidden"
-        );
+        hideElement(nextButton);
+
+
+        showElement(submitButton);
 
 
         submitButton.disabled =
@@ -1658,14 +1742,10 @@ function updateNavigation() {
 
     else {
 
-        submitButton.classList.add(
-            "hidden"
-        );
+        hideElement(submitButton);
 
 
-        nextButton.classList.remove(
-            "hidden"
-        );
+        showElement(nextButton);
 
 
         nextButton.textContent =
@@ -1739,24 +1819,25 @@ function showResult() {
         score;
 
 
-    quizScreen.classList.add(
-        "hidden"
-    );
+    /*
+       RESULT STATE
 
+       Start screen    = hidden
+       Quiz screen     = hidden
+       Result screen   = visible
+       Suggestions     = visible
+       Information     = visible
+    */
 
-    resultScreen.classList.remove(
-        "hidden"
-    );
+    hideElement(startScreen);
 
+    hideElement(quizScreen);
 
-    homeInfo.classList.remove(
-        "hidden"
-    );
+    showElement(resultScreen);
 
+    showElement(suggestionsCard);
 
-    suggestionsCard.classList.remove(
-        "hidden"
-    );
+    showElement(homeInfo);
 
 
     document.getElementById(
@@ -1894,29 +1975,25 @@ function restartQuiz() {
         new Array(questions.length).fill(null);
 
 
-    resultScreen.classList.add(
-        "hidden"
-    );
+    /*
+       RETURN TO START STATE
 
+       Start screen    = visible
+       Quiz screen     = hidden
+       Result screen   = hidden
+       Suggestions     = hidden
+       Information     = visible
+    */
 
-    quizScreen.classList.add(
-        "hidden"
-    );
+    hideElement(quizScreen);
 
+    hideElement(resultScreen);
 
-    startScreen.classList.remove(
-        "hidden"
-    );
+    hideElement(suggestionsCard);
 
+    showElement(startScreen);
 
-    homeInfo.classList.remove(
-        "hidden"
-    );
-
-
-    suggestionsCard.classList.add(
-        "hidden"
-    );
+    showElement(homeInfo);
 
 
     progressBar.style.width =
