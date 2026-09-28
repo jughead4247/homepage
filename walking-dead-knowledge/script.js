@@ -1,1099 +1,1596 @@
-<!DOCTYPE html>
+const questions = [
 
-<html lang="en">
-<head>
+    {
+        question: "What was the first episode of The Walking Dead called?",
+        answers: [
+            ["Days Gone Bye", 2],
+            ["Days Gone By", 0],
+            ["The First Day", 0],
+            ["Welcome to Atlanta", 0]
+        ]
+    },
 
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {
+        question: "What does Glenn call Rick over the radio during their first contact?",
+        answers: [
+            ["Dummy", 0],
+            ["Stupid", 0],
+            ["Dumbass", 2],
+            ["Idiot", 0]
+        ]
+    },
 
-    <title>The Walking Dead Quiz – How Well Do You Know the Show?</title>
+    {
+        question: "Which of these terms was NOT used for the walking dead in the show?",
+        answers: [
+            ["Walkers", 0],
+            ["Biters", 0],
+            ["Geeks", 0],
+            ["Zombies", 2]
+        ]
+    },
 
-    <meta
-        name="description"
-        content="Test your knowledge of The Walking Dead with this 50-question TV trivia quiz covering Rick Grimes, Daryl Dixon, Michonne, Negan, communities, major events, relationships and survival."
-    >
+    {
+        question: "What is the name of Negan's famous baseball bat?",
+        answers: [
+            ["Judith", 0],
+            ["Lucille", 2],
+            ["Clementine", 0],
+            ["Annie", 0]
+        ]
+    },
 
-    <meta
-        name="keywords"
-        content="The Walking Dead quiz, Walking Dead trivia, TWD quiz, zombie quiz, Walking Dead knowledge test, apocalypse quiz"
-    >
+    {
+        question: "What was the name of the community led by Ezekiel?",
+        answers: [
+            ["The Commonwealth", 0],
+            ["Oceanside", 0],
+            ["The Kingdom", 2],
+            ["The Sanctuary", 0]
+        ]
+    },
 
-    <meta name="author" content="Apocalypse Quizzes">
-    <meta name="robots" content="index, follow">
+    {
+        question: "What was the name of Morgan Jones's son?",
+        answers: [
+            ["Daniel Jones", 0],
+            ["David Jones", 0],
+            ["Darren Jones", 0],
+            ["Duane Jones", 2]
+        ]
+    },
 
-    <link
-        rel="canonical"
-        href="https://apocalypsequizzes.com/walking-dead-knowledge/"
-    >
+    {
+        question: "Who was the leader of the Scavengers, the group that lived in the junkyard?",
+        answers: [
+            ["Brion", 0],
+            ["Jadis", 2],
+            ["Winslow", 0],
+            ["Tamiel", 0]
+        ]
+    },
 
-    <meta
-        property="og:title"
-        content="The Walking Dead Quiz – How Well Do You Know the Show?"
-    >
+    {
+        question: "Which animal was Ezekiel's beloved pet in The Walking Dead?",
+        answers: [
+            ["Dog", 0],
+            ["Leopard", 0],
+            ["Tiger", 2],
+            ["Lion", 0]
+        ]
+    },
 
-    <meta
-        property="og:description"
-        content="Test your knowledge of Rick Grimes, Daryl Dixon, Michonne, Negan, the communities, major events and survival storylines from The Walking Dead with 50 trivia questions."
-    >
+    {
+        question: "What was the name of Andrea's sister?",
+        answers: [
+            ["Amy", 2],
+            ["Beth", 0],
+            ["Lori", 0],
+            ["Maggie", 0]
+        ]
+    },
 
-    <meta
-        property="og:url"
-        content="https://apocalypsequizzes.com/walking-dead-knowledge/"
-    >
+    {
+        question: "What was the name of the prison where Rick's group lived for a period of time?",
+        answers: [
+            ["Atlanta Correctional Center", 0],
+            ["Georgia State Prison", 2],
+            ["West Georgia Correctional Facility", 0],
+            ["Woodbury State Prison", 0]
+        ]
+    },
 
-    <meta property="og:type" content="website">
-    <meta property="og:site_name" content="Apocalypse Quizzes">
+    {
+        question: "What was the name of the man who taught Morgan the philosophy of 'All Life Is Precious'?",
+        answers: [
+            ["Carter", 0],
+            ["Eastman", 2],
+            ["Benjamin", 0],
+            ["Harlan", 0]
+        ]
+    },
 
-    <meta
-        property="og:image"
-        content="https://apocalypsequizzes.com/walking-dead-knowledge.png"
-    >
+    {
+        question: "Who was Judith Grimes named after?",
+        answers: [
+            ["Lori's mother", 0],
+            ["Carl's teacher", 2],
+            ["Rick's mother", 0],
+            ["Carl's grandmother", 0]
+        ]
+    },
 
-    <meta name="twitter:card" content="summary">
+    {
+        question: "What was Eugene Porter's claimed occupation when he first met Abraham?",
+        answers: [
+            ["Geneticist", 0],
+            ["Epidemiologist", 0],
+            ["Scientist", 0],
+            ["Virologist", 2]
+        ]
+    },
 
-    <meta
-        name="twitter:title"
-        content="The Walking Dead Quiz"
-    >
+    {
+        question: "What is the name of Daryl Dixon's dog?",
+        answers: [
+            ["Bear", 0],
+            ["Jack", 0],
+            ["Scout", 0],
+            ["Dog", 2]
+        ]
+    },
 
-    <meta
-        name="twitter:description"
-        content="How well do you remember The Walking Dead? Take the 50-question Walking Dead trivia challenge."
-    >
+    {
+        question: "What was the name of the hospital where Beth was held and eventually died?",
+        answers: [
+            ["Grady Memorial Hospital", 2],
+            ["Atlanta Memorial Hospital", 0],
+            ["Atlanta Medical Center", 0],
+            ["Grady Memorial", 0]
+        ]
+    },
 
-    <meta
-        name="twitter:image"
-        content="https://apocalypsequizzes.com/walking-dead-knowledge.png"
-    >
+    {
+        question: "Who was the leader of the Commonwealth?",
+        answers: [
+            ["Lance Hornsby", 0],
+            ["Pamela Milton", 2],
+            ["Sebastian Milton", 0],
+            ["Mercer", 0]
+        ]
+    },
 
-    <link
-        rel="icon"
-        type="image/png"
-        href="../favicon.png"
-    >
+    {
+        question: "What was the name of the high school that Maggie Greene attended?",
+        answers: [
+            ["King County High School", 0],
+            ["Linden County High School", 0],
+            ["Cranwall High School", 2],
+            ["Harrison High School", 0]
+        ]
+    },
 
-    <!-- Google Analytics -->
+    {
+        question: "Who shot Carl Grimes in the eye?",
+        answers: [
+            ["Dwight", 0],
+            ["Spencer Monroe", 0],
+            ["Ron Anderson", 2],
+            ["Nicholas", 0]
+        ]
+    },
 
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-YC3ERJSBST"></script>
+    {
+        question: "What was Hershel Greene's profession before the apocalypse?",
+        answers: [
+            ["Veterinarian", 2],
+            ["Doctor", 0],
+            ["Surgeon", 0],
+            ["Farmer", 0]
+        ]
+    },
 
-    <script>
-        window.dataLayer = window.dataLayer || [];
+    {
+        question: "What was the name of the town ruled by the Governor?",
+        answers: [
+            ["Alexandria", 0],
+            ["Fairview", 0],
+            ["Woodbury", 2],
+            ["Kingstown", 0]
+        ]
+    },
 
-        function gtag(){
-            dataLayer.push(arguments);
+    {
+        question: "What was the name of the former Savior who eventually became one of Rick's allies?",
+        answers: [
+            ["Dwight", 2],
+            ["Gavin", 0],
+            ["Jared", 0],
+            ["Simon", 0]
+        ]
+    },
+
+    {
+        question: "Which role did Norman Reedus originally audition for before being cast as Daryl Dixon?",
+        answers: [
+            ["Merle Dixon", 2],
+            ["Shane Walsh", 0],
+            ["Rick Grimes", 0],
+            ["T-Dog", 0]
+        ]
+    },
+
+    {
+        question: "What was T-Dog's real name?",
+        answers: [
+            ["Terrence Douglas", 0],
+            ["Theodore Douglas", 2],
+            ["Thomas Douglas", 0],
+            ["Tyler Douglas", 0]
+        ]
+    },
+
+    {
+        question: "What was Barrington House at Hilltop originally?",
+        answers: [
+            ["A private mansion", 0],
+            ["A military headquarters", 0],
+            ["A government office", 0],
+            ["A living-history museum", 2]
+        ]
+    },
+
+    {
+        question: "What was Abraham Ford's military rank?",
+        answers: [
+            ["Captain", 0],
+            ["Sergeant", 2],
+            ["Corporal", 0],
+            ["Lieutenant", 0]
+        ]
+    },
+
+    {
+        question: "What was the name of Daryl's older brother?",
+        answers: [
+            ["Michael Dixon", 0],
+            ["Martin Dixon", 0],
+            ["Marcus Dixon", 0],
+            ["Merle Dixon", 2]
+        ]
+    },
+
+    {
+        question: "What does CRM stand for in The Walking Dead universe?",
+        answers: [
+            ["Commonwealth Republic Military", 0],
+            ["Central Republic Militia", 0],
+            ["Civic Republic Military", 2],
+            ["Civilian Republic Movement", 0]
+        ]
+    },
+
+    {
+        question: "Who shoots the rabid dogs for food while the group is on the road from Terminus?",
+        answers: [
+            ["Daryl Dixon", 0],
+            ["Sasha Williams", 2],
+            ["Abraham Ford", 0],
+            ["Rick Grimes", 0]
+        ]
+    },
+
+    {
+        question: "What was the name of Carol Peletier's husband?",
+        answers: [
+            ["Ed Peletier", 2],
+            ["Edward Peletier", 0],
+            ["Eric Peletier", 0],
+            ["Evan Peletier", 0]
+        ]
+    },
+
+    {
+        question: "What was the 100th episode of The Walking Dead called?",
+        answers: [
+            ["The Big Scary U", 0],
+            ["Mercy", 2],
+            ["Wrath", 0],
+            ["The Key", 0]
+        ]
+    },
+
+    {
+        question: "What is Jesus's real name in the show?",
+        answers: [
+            ["Paul Rovia", 2],
+            ["Peter Rovia", 0],
+            ["Paul Reyes", 0],
+            ["Philip Rivas", 0]
+        ]
+    },
+
+    {
+        question: "What was the name of Negan's main base?",
+        answers: [
+            ["The Compound", 0],
+            ["The Fortress", 0],
+            ["The Stronghold", 0],
+            ["The Sanctuary", 2]
+        ]
+    },
+
+    {
+        question: "What was the name of the survivor who left Rick's group on the way to the CDC and later became a member of the Saviors?",
+        answers: [
+            ["Guillermo", 0],
+            ["Morales", 2],
+            ["Jacqui", 0],
+            ["Jim", 0]
+        ]
+    },
+
+    {
+        question: "What was Ezekiel's occupation before the apocalypse?",
+        answers: [
+            ["Animal trainer", 0],
+            ["Veterinary assistant", 0],
+            ["Zookeeper", 2],
+            ["High school teacher", 0]
+        ]
+    },
+
+    {
+        question: "What was the name of Hershel Greene's youngest daughter?",
+        answers: [
+            ["Beth", 2],
+            ["Maggie", 0],
+            ["Patricia", 0],
+            ["Sophia", 0]
+        ]
+    },
+
+    {
+        question: "Who was Negan's right-hand man?",
+        answers: [
+            ["Simon", 2],
+            ["Dwight", 0],
+            ["Gavin", 0],
+            ["Simon Grimes", 0]
+        ]
+    },
+
+    {
+        question: "What was the name of the CDC doctor who stayed behind until the end in Season 1?",
+        answers: [
+            ["Edward Jenner", 0],
+            ["Ethan Jenner", 0],
+            ["Edwin Jenner", 2],
+            ["Everett Jenner", 0]
+        ]
+    },
+
+    {
+        question: "What was the name of Maggie's half-brother?",
+        answers: [
+            ["Brandon Greene", 0],
+            ["Jimmy Greene", 0],
+            ["Shawn Greene", 2],
+            ["Billy Greene", 0]
+        ]
+    },
+
+    {
+        question: "What was Michonne's profession before the apocalypse?",
+        answers: [
+            ["Lawyer", 2],
+            ["Journalist", 0],
+            ["Social worker", 0],
+            ["Prosecutor", 0]
+        ]
+    },
+
+    {
+        question: "What were the people wearing wolf symbols called?",
+        answers: [
+            ["The Wolves", 2],
+            ["The Raiders", 0],
+            ["The Hunters", 0],
+            ["The Scavengers", 0]
+        ]
+    },
+
+    {
+        question: "What is Princess's real name in The Walking Dead?",
+        answers: [
+            ["Isabella Sanchez", 0],
+            ["Maria Sanchez", 0],
+            ["Juanita Sanchez", 2],
+            ["Gabriela Sanchez", 0]
+        ]
+    },
+
+    {
+        question: "What was Glenn Rhee's job before the outbreak?",
+        answers: [
+            ["Store clerk", 0],
+            ["Mechanic", 0],
+            ["Pizza delivery driver", 2],
+            ["Taxi driver", 0]
+        ]
+    },
+
+    {
+        question: "Which major characters does Alpha put on spikes to mark the Whisperers' territory?",
+        answers: [
+            ["Tara, Enid, and Henry", 2],
+            ["Jesus, Alden, and Henry", 0],
+            ["Tara, Siddiq, and Luke", 0],
+            ["Enid, Rosita, and Tammy Rose", 0]
+        ]
+    },
+
+    {
+        question: "Which character had two younger twin brothers?",
+        answers: [
+            ["Maggie", 0],
+            ["Aaron", 0],
+            ["Noah", 2],
+            ["Daryl", 0]
+        ]
+    },
+
+    {
+        question: "What was the name of the community founded by Deanna Monroe?",
+        answers: [
+            ["Hilltop", 0],
+            ["Alexandria", 2],
+            ["Oceanside", 0],
+            ["Kingdom", 0]
+        ]
+    },
+
+    {
+        question: "Who accidentally shot Carl Grimes in Season 2?",
+        answers: [
+            ["Dale", 0],
+            ["Otis", 2],
+            ["Hershel", 0],
+            ["Shane", 0]
+        ]
+    },
+
+    {
+        question: "What was the name of the doctor at Hilltop who treated Maggie?",
+        answers: [
+            ["Dr. Harlan", 0],
+            ["Dr. Siddiq", 0],
+            ["Dr. Hershel", 0],
+            ["Dr. Carson", 2]
+        ]
+    },
+
+    {
+        question: "When Morgan Jones left The Walking Dead, which spin-off did he move to?",
+        answers: [
+            ["The Walking Dead: World Beyond", 0],
+            ["Fear the Walking Dead", 2],
+            ["The Walking Dead: Dead City", 0],
+            ["The Walking Dead: The Ones Who Live", 0]
+        ]
+    },
+
+    {
+        question: "What is Negan's full name?",
+        answers: [
+            ["Negan Collins", 0],
+            ["Negan James", 0],
+            ["Negan Smith", 2],
+            ["Negan Miller", 0]
+        ]
+    },
+
+    {
+        question: "What was the title of the final episode of The Walking Dead?",
+        answers: [
+            ["Rest in Peace", 2],
+            ["Here's Negan", 0],
+            ["A New Beginning", 0],
+            ["What Comes After", 0]
+        ]
+    }
+
+];
+
+
+let currentQuestion = 0;
+
+let selectedAnswers =
+    new Array(questions.length).fill(null);
+
+
+// ===============================
+// ELEMENTS
+// ===============================
+
+const startScreen =
+    document.getElementById("start-screen");
+
+const quizScreen =
+    document.getElementById("quiz-screen");
+
+const resultScreen =
+    document.getElementById("result-screen");
+
+const homeInfo =
+    document.getElementById("home-info");
+
+const suggestionsCard =
+    document.getElementById("suggestions-card");
+
+
+const startButton =
+    document.getElementById("start-btn");
+
+const restartButton =
+    document.getElementById("restart-btn");
+
+const shareButton =
+    document.getElementById("share-btn");
+
+const challengeButton =
+    document.getElementById("challenge-btn");
+
+
+const backButton =
+    document.getElementById("back-btn");
+
+const nextButton =
+    document.getElementById("next-btn");
+
+
+const questionNumber =
+    document.getElementById("question-number");
+
+const questionText =
+    document.getElementById("question");
+
+const answersContainer =
+    document.getElementById("answers");
+
+const progressBar =
+    document.getElementById("progress-bar");
+
+
+// ===============================
+// BUTTON EVENTS
+// ===============================
+
+startButton.addEventListener(
+    "click",
+    startQuiz
+);
+
+restartButton.addEventListener(
+    "click",
+    restartQuiz
+);
+
+shareButton.addEventListener(
+    "click",
+    shareResult
+);
+
+challengeButton.addEventListener(
+    "click",
+    shareResult
+);
+
+backButton.addEventListener(
+    "click",
+    goBack
+);
+
+nextButton.addEventListener(
+    "click",
+    goNext
+);
+
+
+// ===============================
+// START QUIZ
+// ===============================
+
+function startQuiz() {
+
+    currentQuestion = 0;
+
+    selectedAnswers =
+        new Array(questions.length).fill(null);
+
+
+    startScreen.classList.add(
+        "hidden"
+    );
+
+    resultScreen.classList.add(
+        "hidden"
+    );
+
+    quizScreen.classList.remove(
+        "hidden"
+    );
+
+    // Hide informational content while playing
+
+    homeInfo.classList.add(
+        "hidden"
+    );
+
+
+    // Hide suggested quizzes while playing
+
+    if (suggestionsCard) {
+
+        suggestionsCard.classList.add(
+            "hidden"
+        );
+
+    }
+
+
+    showQuestion();
+}
+
+
+// ===============================
+// SHOW QUESTION
+// ===============================
+
+function showQuestion() {
+
+    const current =
+        questions[currentQuestion];
+
+
+    questionNumber.textContent =
+        `Question ${currentQuestion + 1} of ${questions.length}`;
+
+
+    questionText.textContent =
+        current.question;
+
+
+    answersContainer.innerHTML =
+        "";
+
+
+    const progress =
+        ((currentQuestion + 1) /
+            questions.length) * 100;
+
+
+    progressBar.style.width =
+        `${progress}%`;
+
+
+    current.answers.forEach(
+        (answer, index) => {
+
+            const button =
+                document.createElement("button");
+
+
+            button.className =
+                "answer";
+
+
+            button.type =
+                "button";
+
+
+            button.textContent =
+                answer[0];
+
+
+            if (
+                selectedAnswers[
+                    currentQuestion
+                ] === index
+            ) {
+
+                button.classList.add(
+                    "selected"
+                );
+
+
+                button.style.backgroundColor =
+                    "#444";
+
+                button.style.borderColor =
+                    "#ffffff";
+
+                button.style.color =
+                    "#ffffff";
+
+                button.style.fontWeight =
+                    "700";
+
+                button.style.boxShadow =
+                    "0 0 0 2px rgba(255,255,255,0.25)";
+            }
+
+
+            button.addEventListener(
+                "click",
+                () => {
+
+                    selectAnswer(index);
+
+                }
+            );
+
+
+            answersContainer.appendChild(
+                button
+            );
+
+        }
+    );
+
+
+    updateNavigation();
+}
+
+
+// ===============================
+// SELECT ANSWER
+// ===============================
+
+function selectAnswer(answerIndex) {
+
+    selectedAnswers[currentQuestion] =
+        answerIndex;
+
+
+    const buttons =
+        answersContainer.querySelectorAll(
+            ".answer"
+        );
+
+
+    buttons.forEach(
+        (button, index) => {
+
+            if (index === answerIndex) {
+
+                button.classList.add(
+                    "selected"
+                );
+
+
+                button.style.backgroundColor =
+                    "#444";
+
+                button.style.borderColor =
+                    "#ffffff";
+
+                button.style.color =
+                    "#ffffff";
+
+                button.style.fontWeight =
+                    "700";
+
+                button.style.boxShadow =
+                    "0 0 0 2px rgba(255,255,255,0.25)";
+
+            } else {
+
+                button.classList.remove(
+                    "selected"
+                );
+
+
+                button.style.backgroundColor =
+                    "";
+
+                button.style.borderColor =
+                    "";
+
+                button.style.color =
+                    "";
+
+                button.style.fontWeight =
+                    "";
+
+                button.style.boxShadow =
+                    "";
+
+            }
+
+        }
+    );
+
+
+    updateNavigation();
+
+
+    // Automatically move to the next question
+
+    if (
+        currentQuestion <
+        questions.length - 1
+    ) {
+
+        const questionAtSelection =
+            currentQuestion;
+
+
+        setTimeout(
+            () => {
+
+                if (
+                    currentQuestion ===
+                        questionAtSelection &&
+
+                    selectedAnswers[
+                        questionAtSelection
+                    ] === answerIndex
+                ) {
+
+                    currentQuestion++;
+
+                    showQuestion();
+
+                }
+
+            },
+            150
+        );
+
+    }
+}
+
+
+// ===============================
+// NEXT / SUBMIT BUTTON
+// ===============================
+
+function goNext() {
+
+    if (
+        currentQuestion ===
+        questions.length - 1
+    ) {
+
+        const allAnswered =
+            selectedAnswers.every(
+                answer => answer !== null
+            );
+
+
+        if (allAnswered) {
+
+            showResult();
+
         }
 
-        gtag('js', new Date());
-        gtag('config', 'G-YC3ERJSBST');
-    </script>
 
+        return;
+    }
 
-    <!-- Google AdSense -->
 
-    <script
-        async
-        src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2285244517360573"
-        crossorigin="anonymous">
-    </script>
+    if (
+        selectedAnswers[
+            currentQuestion
+        ] === null
+    ) {
 
+        return;
 
-    <link
-        rel="stylesheet"
-        href="style.css"
-    >
+    }
 
-</head>
 
-<body>
+    currentQuestion++;
 
+    showQuestion();
+}
 
-<header class="site-header">
 
-    <button
-        class="menu-toggle"
-        id="menu-toggle"
-        type="button"
-        aria-label="Open navigation"
-        aria-expanded="false"
-        aria-controls="site-menu">
+// ===============================
+// BACK BUTTON
+// ===============================
 
-        <span></span>
-        <span></span>
-        <span></span>
+function goBack() {
 
-    </button>
+    if (currentQuestion > 0) {
 
+        currentQuestion--;
 
-    <div class="site-title">
-        APOCALYPSE QUIZZES
-    </div>
+        showQuestion();
 
-</header>
+    }
+}
 
 
-<nav
-    class="site-menu"
-    id="site-menu"
-    aria-label="Main navigation"
-    hidden>
+// ===============================
+// NAVIGATION
+// ===============================
 
-    <div class="menu-links">
+function updateNavigation() {
 
-        <a href="/">
-            🏠 Home
-        </a>
+    const isFirst =
+        currentQuestion === 0;
 
-        <a href="/search/">
-            🔎 Search Quizzes
-        </a>
 
-        <a href="/categories/">
-            📂 Categories
-        </a>
+    const isLast =
+        currentQuestion ===
+        questions.length - 1;
 
-        <div class="menu-divider"></div>
 
-        <a href="/about.html">
-            About
-        </a>
+    const currentAnswered =
+        selectedAnswers[
+            currentQuestion
+        ] !== null;
 
-        <a href="/privacy.html">
-            Privacy Policy
-        </a>
 
-        <a href="/disclaimer.html">
-            Disclaimer
-        </a>
+    const allAnswered =
+        selectedAnswers.every(
+            answer => answer !== null
+        );
 
-        <a href="/contact.html">
-            Contact
-        </a>
 
-    </div>
+    backButton.disabled =
+        isFirst;
 
-</nav>
 
+    if (isLast) {
 
-<main class="container">
+        nextButton.textContent =
+            "SUBMIT";
 
 
-<!-- =====================================================
-     START SCREEN
-     ===================================================== -->
+        nextButton.disabled =
+            !allAnswered;
 
-<section id="start-screen">
 
-<div class="intro-card">
+        if (allAnswered) {
 
-    <img
-        src="../images/walking-dead-knowledge.png"
-        class="quiz-start-image"
-    >
+            nextButton.classList.add(
+                "submit-ready"
+            );
 
+        } else {
 
-    <div class="quiz-category">
-        ZOMBIES • TV TRIVIA
-    </div>
+            nextButton.classList.remove(
+                "submit-ready"
+            );
 
+        }
 
-    <h1>
-        The Walking Dead Quiz
-    </h1>
+    } else {
 
+        nextButton.textContent =
+            "Next →";
 
-    <p class="subtitle">
-        Test your knowledge of Rick Grimes, Daryl Dixon,
-        Michonne, Negan, the communities, major events,
-        relationships and the world of The Walking Dead.
-    </p>
 
+        nextButton.disabled =
+            !currentAnswered;
 
-    <!-- QUIZ STATS -->
 
-    <div class="info">
+        nextButton.classList.remove(
+            "submit-ready"
+        );
 
-        <span>
-            50 Questions
-        </span>
+    }
+}
 
-        <span>•</span>
 
-        <span>
-            ~10 Minutes
-        </span>
+// ===============================
+// CALCULATE SCORE
+// ===============================
 
-        <span>•</span>
+function calculateScore() {
 
-        <span>
-            4 Choices
-        </span>
+    let score = 0;
 
-    </div>
 
+    selectedAnswers.forEach(
+        (answerIndex, questionIndex) => {
 
-    <p class="start-note">
-        Ready? See how much you remember about
-        The Walking Dead.
-    </p>
+            if (answerIndex === null) {
 
+                return;
 
-    <!-- START BUTTON -->
+            }
 
-    <button id="start-btn">
-        START QUIZ
-    </button>
 
+            score +=
+                questions[
+                    questionIndex
+                ].answers[
+                    answerIndex
+                ][1];
 
-    <div class="spoiler-warning start-spoiler">
+        }
+    );
 
-        <p>
-            This quiz contains major spoilers for
-            <em>The Walking Dead</em>.
-        </p>
 
-    </div>
+    return score;
+}
 
 
-</div>
+// ===============================
+// SHOW RESULT
+// ===============================
 
-</section>
+function showResult() {
 
+    // calculateScore() returns 0–100
+    // because every correct answer is worth 2 points
 
+    const score =
+        calculateScore();
 
-<!-- =====================================================
-     QUIZ SCREEN
-     ===================================================== -->
 
-<section id="quiz-screen" class="screen hidden">
+    const totalQuestions =
+        questions.length;
 
-<div class="quiz-header">
 
-    <span id="question-number">
-        Question 1 of 50
-    </span>
+    const correctAnswers =
+        score / 2;
 
-    <span id="score-display">
-        The Walking Dead
-    </span>
 
-</div>
+    const incorrectAnswers =
+        totalQuestions -
+        correctAnswers;
 
 
-<div class="progress">
+    const accuracy =
+        Math.round(
+            (correctAnswers /
+                totalQuestions) * 100
+        );
 
-    <div id="progress-bar"></div>
 
-</div>
+    // ===============================
+    // SHOW RESULT / RESTORE INFO
+    // ===============================
 
+    quizScreen.classList.add(
+        "hidden"
+    );
 
-<h2 id="question"></h2>
+    resultScreen.classList.remove(
+        "hidden"
+    );
 
 
-<div id="answers"></div>
+    // IMPORTANT:
+    // Info cards are visible on result page
 
+    homeInfo.classList.remove(
+        "hidden"
+    );
 
-<div class="quiz-navigation">
 
-    <button
-        id="back-btn"
-        class="nav-btn"
-        type="button"
-        disabled>
+    // Suggested quizzes are also visible on result page
 
-        ← Back
+    if (suggestionsCard) {
 
-    </button>
+        suggestionsCard.classList.remove(
+            "hidden"
+        );
 
+    }
 
-    <button
-        id="next-btn"
-        class="nav-btn"
-        type="button"
-        disabled>
 
-        Next →
+    // ===============================
+    // FINAL SCORE
+    // ===============================
 
-    </button>
+    document.getElementById(
+        "final-score"
+    ).textContent =
+        score;
 
 
-    <button
-        id="submit-btn"
-        class="nav-btn submit-btn hidden"
-        type="button"
-        disabled>
+    // ===============================
+    // RESULT BREAKDOWN
+    // ===============================
 
-        Answer All Questions
+    const correctCount =
+        document.getElementById(
+            "correct-count"
+        );
 
-    </button>
+    const incorrectCount =
+        document.getElementById(
+            "incorrect-count"
+        );
 
-</div>
+    const totalCount =
+        document.getElementById(
+            "total-count"
+        );
 
-</section>
+    const accuracyPercent =
+        document.getElementById(
+            "accuracy-percent"
+        );
 
 
+    if (correctCount) {
 
-<!-- =====================================================
-         RESULT SCREEN
-         ===================================================== -->
+        correctCount.textContent =
+            correctAnswers;
 
-    <section id="result-screen" class="screen hidden">
+    }
 
 
-        <p class="result-label">
-            YOUR RESULT
-        </p>
+    if (incorrectCount) {
 
+        incorrectCount.textContent =
+            incorrectAnswers;
 
-        <h1 id="result-title"></h1>
+    }
 
 
-        <div class="result-score">
+    if (totalCount) {
 
-            <span id="final-score">
-                0
-            </span>/100
+        totalCount.textContent =
+            totalQuestions;
 
-        </div>
+    }
 
 
-        <p id="result-description"></p>
+    if (accuracyPercent) {
 
+        accuracyPercent.textContent =
+            `${accuracy}%`;
 
-        <div class="survival-box">
+    }
 
-            <strong>
-                YOUR RANK
-            </strong>
 
-            <span id="survival-time"></span>
+    // ===============================
+    // RESULT LEVEL
+    // ===============================
 
-        </div>
+    let title;
+    let description;
+    let survival;
+    let icon;
 
 
-        <!-- RESULT BREAKDOWN -->
+    if (score <= 20) {
 
-        <div class="result-breakdown">
+        title =
+            "🧟 Walker-Level Knowledge";
 
-            <div class="result-stat">
+        description =
+            "You might recognize Rick and Daryl, but most of the details of the apocalypse have escaped you.";
 
-                <span class="result-stat-label">
-                    Correct
-                </span>
+        survival =
+            "Casual Viewer";
 
-                <strong id="correct-count">
-                    0
-                </strong>
+        icon =
+            "🧟";
 
-            </div>
 
+    } else if (score <= 40) {
 
-            <div class="result-stat">
+        title =
+            "🏚️ Alexandria Beginner";
 
-                <span class="result-stat-label">
-                    Incorrect
-                </span>
+        description =
+            "You've watched the show, but there are plenty of characters, places and events you could still forget.";
 
-                <strong id="incorrect-count">
-                    0
-                </strong>
+        survival =
+            "Casual Fan";
 
-            </div>
+        icon =
+            "🏚️";
 
 
-            <div class="result-stat">
+    } else if (score <= 60) {
 
-                <span class="result-stat-label">
-                    Total
-                </span>
+        title =
+            "🔥 Survivor";
 
-                <strong id="total-count">
-                    50
-                </strong>
+        description =
+            "You know the major characters and events, but some of the deeper Walking Dead trivia caught you out.";
 
-            </div>
+        survival =
+            "Good Fan";
 
+        icon =
+            "🔥";
 
-            <div class="result-stat">
 
-                <span class="result-stat-label">
-                    Accuracy
-                </span>
+    } else if (score <= 80) {
 
-                <strong id="accuracy-percent">
-                    0%
-                </strong>
+        title =
+            "⚔️ Seasoned Survivor";
 
-            </div>
+        description =
+            "You've spent a lot of time in the apocalypse. You remember most of the important details and many of the obscure ones.";
 
-        </div>
+        survival =
+            "Dedicated Fan";
 
+        icon =
+            "⚔️";
 
-        <!-- RESULT ACTIONS -->
 
-        <button id="restart-btn" type="button">
-            TRY AGAIN
-        </button>
+    } else if (score <= 94) {
 
+        title =
+            "👑 Walking Dead Expert";
 
-        <button id="share-btn" type="button">
-            📤 SHARE MY RESULT
-        </button>
+        description =
+            "Impressive. You remember characters, communities, groups and details that many fans have forgotten.";
 
+        survival =
+            "Expert Fan";
 
-        <button id="challenge-btn" type="button">
-            ⚔️ CHALLENGE YOUR FRIENDS
-        </button>
-             </section>
+        icon =
+            "👑";
 
-<!-- =====================================================
-     SUGGESTED QUIZZES CARD
-     IMPORTANT: OUTSIDE RESULT-SCREEN
-     ===================================================== -->
 
-<section
-    id="suggestions-card"
-    class="suggestions-card hidden">
+    } else {
 
-    <div class="suggested-quizzes">
+        title =
+            "🧠 Walking Dead Encyclopedia";
 
-        <h2>
-            Suggested Quizzes
-        </h2>
+        description =
+            "You don't just remember the show — you remember the tiny details. You could probably survive a Walking Dead trivia convention.";
 
+        survival =
+            "Ultimate Fan";
 
-        <p class="suggested-subtitle">
-            Enjoyed The Walking Dead?
-            Try another zombie or survival quiz.
-        </p>
+        icon =
+            "🧠";
 
+    }
 
-        <div class="suggested-grid">
 
+    // ===============================
+    // UPDATE RESULT CONTENT
+    // ===============================
 
-            <!-- WALKING DEAD PERSONALITY -->
-        <a href="/the-walking-dead-characters-quiz/" class="suggested-card">
-                        <img
-                            src="../images/twd-personality.png"
-                            alt="The Walking Dead Personality Quiz"
-                            class="suggested-image"
-                        >
-                        <span class="suggested-title">
-                            The Walking Dead Personality Quiz
-                        </span>
-                        <span class="suggested-description">
-                            Find out which Walking Dead character matches your personality.
-                        </span>
-                    </a>
+    document.getElementById(
+        "result-title"
+    ).textContent =
+        title;
 
 
+    document.getElementById(
+        "result-description"
+    ).textContent =
+        description;
 
 
-            <!-- FEAR THE WALKING DEAD QUIZ-->
-        <a href="/fear-the-walking-dead-quiz/" class="suggested-card">
-                        <img
-                            src="../images/fear.png "
-                            alt="Fear the Walking Dead Quiz"
-                            class="suggested-image"
-                        >
-                        <span class="suggested-title">
-                            Fear the Walking Dead Quiz          
-          </span>
-                        <span class="suggested-description">
-                            How Well Do You Know the show Fear The Walking Dead? Answer few questions and test your knowledge
-                        </span>
-                    </a>
+    document.getElementById(
+        "survival-time"
+    ).textContent =
+        survival;
 
 
+    const resultIcon =
+        document.getElementById(
+            "result-icon"
+        );
 
-            <!-- THE LAST OF US QUIZ -->
-        <a href="/last-of-us-quiz/" class="suggested-card">
-                        <img
-                            src="../images/last-of-us-quiz.png"
-                            alt="The Last of Us Quiz"
-                            class="suggested-image"
-                        >
-                        <span class="suggested-title">
-                            The Last of Us Quiz              
-          </span>
-                        <span class="suggested-description">
-                            How Well Do You Know the series The Last of Us? Follow Joel and Ellie’s journey
-                        </span>
-                    </a>
 
+    if (resultIcon) {
 
+        resultIcon.textContent =
+            icon;
 
-        </div>
+    }
 
-    </div>
 
+    // ===============================
+    // COMPLETE PROGRESS BAR
+    // ===============================
 
-<!-- =====================================================
-     EXPLORE MORE QUIZZES
-     ===================================================== -->
+    progressBar.style.width =
+        "100%";
 
-<div class="more-quizzes-section">
 
-    <h3>
-        Explore More Quizzes
-    </h3>
+    // ===============================
+    // SCROLL TO TOP
+    // ===============================
 
-    <p>
-        Discover more apocalypse, zombie, survival,
-        science-fiction and disaster movie and TV quizzes.
-    </p>
+    window.scrollTo({
 
-    <a
-        href="/"
-        class="more-quizzes-btn">
+        top: 0,
 
-        🧟 APOCALYPSE QUIZZES
+        behavior: "smooth"
 
-    </a>
+    });
 
-</div>
+}
 
-</section>
 
+// ===============================
+// RESTART QUIZ
+// ===============================
 
+function restartQuiz() {
 
-<!-- =====================================================
-     INFORMATION BELOW THE QUIZ
-     ===================================================== -->
+    currentQuestion = 0;
 
-<div id="home-info">
 
+    selectedAnswers =
+        new Array(questions.length).fill(null);
 
-<!-- =====================================================
-     ABOUT THE WALKING DEAD
-     ===================================================== -->
 
-<section class="home-info">
+    // Hide results
 
-    <h2>
-        About The Walking Dead
-    </h2>
+    resultScreen.classList.add(
+        "hidden"
+    );
 
-    <p>
-        <strong>The Walking Dead</strong> is an American
-        post-apocalyptic horror television series developed
-        by Frank Darabont for AMC. The series is based on
-        the comic book series created by Robert Kirkman,
-        Tony Moore and Charlie Adlard.
-    </p>
 
-    <p>
-        The story begins with sheriff's deputy Rick Grimes
-        waking from a coma to discover that society has
-        collapsed following an outbreak that causes the dead
-        to return as walkers. Rick searches for his family
-        while encountering other survivors and gradually
-        becoming part of a larger group.
-    </p>
+    quizScreen.classList.add(
+        "hidden"
+    );
 
-    <p>
-        As the series progresses, the survivors move through
-        different locations and communities while facing
-        walkers, hostile groups, resource shortages and
-        conflicts within their own communities. Their
-        priorities gradually shift from simply surviving
-        each day to protecting settlements and building
-        a new society.
-    </p>
 
-    <p>
-        The series explores survival, leadership, loyalty,
-        family, relationships, morality and the consequences
-        of decisions made when the normal institutions of
-        society have disappeared.
-    </p>
+    // Show start screen
 
-</section>
+    startScreen.classList.remove(
+        "hidden"
+    );
 
 
-<!-- =====================================================
-     THE WALKING DEAD TV SERIES DETAILS
-     ===================================================== -->
+    // Info cards visible on start page
 
-<section class="home-info">
+    homeInfo.classList.remove(
+        "hidden"
+    );
 
-    <h2>
-        The Walking Dead TV Series Details
-    </h2>
 
-    <p>
-        <strong>Original network:</strong> AMC
-    </p>
+    // Hide suggested quizzes
 
-    <p>
-        <strong>Developed by:</strong> Frank Darabont
-    </p>
+    if (suggestionsCard) {
 
-    <p>
-        <strong>Based on:</strong> The Walking Dead comic
-        book series by Robert Kirkman, Tony Moore and
-        Charlie Adlard
-    </p>
+        suggestionsCard.classList.add(
+            "hidden"
+        );
 
-    <p>
-        <strong>Genre:</strong> Post-apocalyptic horror,
-        drama and survival
-    </p>
+    }
 
-    <p>
-        <strong>Main protagonist:</strong> Rick Grimes,
-        a former sheriff's deputy
-    </p>
 
-    <p>
-        <strong>Major setting:</strong> The United States
-        after the collapse of civilization
-    </p>
+    progressBar.style.width =
+        "0%";
 
-    <p>
-        <strong>Main threat:</strong> Walkers and hostile
-        human groups
-    </p>
 
-    <p>
-        <strong>Major communities:</strong> Alexandria,
-        Hilltop, the Kingdom and other survivor settlements
-    </p>
+    window.scrollTo({
 
-</section>
+        top: 0,
 
+        behavior: "smooth"
 
-<!-- =====================================================
-     WHAT THIS QUIZ COVERS
-     ===================================================== -->
+    });
 
-<section class="home-info">
+}
 
-    <h2>
-        What This Quiz Covers
-    </h2>
 
-    <p>
-        The questions are based on events, characters,
-        relationships, locations and storylines from
-        <em>The Walking Dead</em> television series.
-        Some questions test basic character knowledge,
-        while others require remembering specific events
-        and details from different parts of the series.
-    </p>
+// ===============================
+// SHARE RESULT
+// ===============================
 
+async function shareResult() {
 
-    <h3>
-        Characters and Relationships
-    </h3>
+    const title =
+        document.getElementById(
+            "result-title"
+        ).textContent;
 
-    <p>
-        Questions may cover Rick Grimes, Daryl Dixon,
-        Carol Peletier, Michonne, Glenn Rhee, Maggie Greene,
-        Negan, Carl Grimes, Hershel Greene, Shane Walsh,
-        Andrea, Rosita, Eugene, Abraham and many other
-        survivors.
-    </p>
 
-    <p>
-        Character relationships are also important because
-        alliances, friendships, family connections and
-        conflicts change considerably as the story progresses.
-    </p>
+    const knowledge =
+        document.getElementById(
+            "knowledge-level"
+        ).textContent;
 
 
-    <h3>
-        Walkers and Survival
-    </h3>
+    const finalScore =
+        document.getElementById(
+            "final-score"
+        ).textContent;
 
-    <p>
-        The quiz includes questions about walkers, survival
-        situations, weapons, supplies, dangerous locations
-        and the decisions characters make when dealing with
-        the outbreak.
-    </p>
 
+    const quizUrl =
+        "https://apocalypsequizzes.com/walking-dead-knowledge/";
 
-    <h3>
-        Survivor Communities
-    </h3>
 
-    <p>
-        The survivors encounter and establish several
-        communities throughout the series. Questions may
-        cover Alexandria, Hilltop, the Kingdom, the prison,
-        Terminus and other important settlements and
-        locations.
-    </p>
+    const shareText =
+        `🧟 I scored ${finalScore}/100 on The Walking Dead Quiz!\n\n` +
+        `${title}\n` +
+        `Knowledge level: ${knowledge}\n\n` +
+        `How well do YOU know The Walking Dead?`;
 
 
-    <h3>
-        Major Villains and Conflicts
-    </h3>
+    const shareData = {
 
-    <p>
-        The series features conflicts with both walkers
-        and human groups. The quiz can include questions
-        about Shane Walsh, the Governor, the Saviors,
-        Negan, the Whisperers and other major antagonists
-        and conflicts.
-    </p>
+        title:
+            "The Walking Dead Quiz",
 
+        text:
+            shareText,
 
-    <h3>
-        Major Events and Turning Points
-    </h3>
+        url:
+            quizUrl
 
-    <p>
-        Questions can cover important events that change
-        the direction of the story, including major
-        discoveries, community conflicts, attacks,
-        character decisions and other turning points.
-    </p>
+    };
 
 
-    <h3>
-        Character Deaths
-    </h3>
+    try {
 
-    <p>
-        Character deaths are an important part of the
-        television series. Some quiz questions may test
-        when, where or how significant characters died
-        and the events surrounding those deaths.
-    </p>
+        if (navigator.share) {
 
+            await navigator.share(
+                shareData
+            );
 
-    <h3>
-        Locations and Communities
-    </h3>
+        } else {
 
-    <p>
-        Remembering where major events occurred can also
-        help with the quiz. Questions may involve locations
-        such as Atlanta, the Greene farm, the prison,
-        Woodbury, Terminus, Alexandria, Hilltop and the
-        Kingdom.
-    </p>
+            await navigator.clipboard.writeText(
+                shareText +
+                "\n\n" +
+                quizUrl
+            );
 
-</section>
 
+            alert(
+                "Your result has been copied! You can paste it anywhere."
+            );
 
-<!-- =====================================================
-     HOW THE QUIZ WORKS
-     ===================================================== -->
+        }
 
-<section class="home-info">
+    } catch (error) {
 
-    <h2>
-        How Quiz Works
-    </h2>
+        console.log(
+            "Sharing cancelled."
+        );
 
-    <p>
-        The quiz contains 50 questions. Every question
-        has four possible choices, but only one answer
-        is correct. Read each question carefully and
-        select the answer you believe is correct.
-    </p>
+    }
 
-    <p>
-        Each correct answer contributes to your final
-        score, while an incorrect answer does not add
-        points. With 50 questions in total, your correct
-        answers are converted into a final percentage.
-    </p>
+}
 
-    <p>
-        The questions cover different parts of the
-        television series, so a strong score requires
-        remembering characters, relationships, locations,
-        major events and story details rather than only
-        the main characters.
-    </p>
 
-    <p>
-        There is no time limit, allowing you to take your
-        time and think about each question before choosing
-        an answer.
-    </p>
+// ===============================
+// GLOBAL SITE MENU
+// ===============================
 
-</section>
+const menuToggle =
+    document.getElementById(
+        "menu-toggle"
+    );
 
+const siteMenu =
+    document.getElementById(
+        "site-menu"
+    );
 
-<!-- =====================================================
-     QUIZ NAVIGATION
-     ===================================================== -->
 
-<section class="home-info">
+if (
+    menuToggle &&
+    siteMenu
+) {
 
-    <h2>
-        Quiz Navigation
-    </h2>
 
+    // ===============================
+    // OPEN / CLOSE WITH HAMBURGER
+    // ===============================
 
-    <h3>
-        Starting the Quiz
-    </h3>
+    menuToggle.addEventListener(
+        "click",
+        function (event) {
 
-    <p>
-        Select START QUIZ on the opening screen to begin.
-        The first question will appear with four possible
-        answers.
-    </p>
+            event.stopPropagation();
 
 
-    <h3>
-        Selecting an Answer
-    </h3>
+            const isOpen =
+                menuToggle.getAttribute(
+                    "aria-expanded"
+                ) === "true";
 
-    <p>
-        Read the question and all four choices before
-        making your selection. Select the answer you believe
-        is correct. Your selected answer remains associated
-        with that question while you move through the quiz.
-    </p>
 
+            siteMenu.hidden =
+                isOpen;
 
-    <h3>
-        Next and Back Buttons
-    </h3>
 
-    <p>
-        Use Next to move forward through the questions.
-        The Back button allows you to return to an earlier
-        question and review or change your selection.
-        The question number and progress bar show where
-        you are in the 50-question quiz.
-    </p>
+            menuToggle.setAttribute(
+                "aria-expanded",
+                String(!isOpen)
+            );
 
 
-    <h3>
-        Reviewing Previous Questions
-    </h3>
+            menuToggle.setAttribute(
+                "aria-label",
+                isOpen
+                    ? "Open navigation"
+                    : "Close navigation"
+            );
 
-    <p>
-        If you are unsure about an answer, you can return
-        to an earlier question using Back. Review the
-        available choices and change your selection before
-        continuing.
-    </p>
+        }
+    );
 
 
-    <h3>
-        Finishing the Quiz
-    </h3>
+    // ===============================
+    // CLOSE WHEN CLICKING OUTSIDE
+    // ===============================
 
-    <p>
-        Continue until all 50 questions have been answered.
-        When you reach the final question, submit the quiz
-        to finish and view your score, accuracy and result
-        breakdown.
-    </p>
+    document.addEventListener(
+        "click",
+        function (event) {
 
+            if (
+                !siteMenu.hidden &&
+                !siteMenu.contains(
+                    event.target
+                ) &&
+                !menuToggle.contains(
+                    event.target
+                )
+            ) {
 
-    <h3>
-        Try Again and Challenge Friends
-    </h3>
+                siteMenu.hidden =
+                    true;
 
-    <p>
-        After viewing your result, select TRY AGAIN to
-        replay the quiz and attempt a higher score.
-        You can also use SHARE MY RESULT or CHALLENGE
-        YOUR FRIENDS to share your result with others.
-    </p>
 
-</section>
+                menuToggle.setAttribute(
+                    "aria-expanded",
+                    "false"
+                );
 
 
-<!-- =====================================================
-     FAQ
-     ===================================================== -->
+                menuToggle.setAttribute(
+                    "aria-label",
+                    "Open navigation"
+                );
 
-<section class="home-info">
+            }
 
-    <h2>
-        FAQ
-    </h2>
+        }
+    );
 
 
-    <h3>
-        How many questions are in the quiz?
-    </h3>
+    // ===============================
+    // CLOSE AFTER CLICKING MENU LINK
+    // ===============================
 
-    <p>
-        There are 50 questions in total, and every
-        question has four possible choices.
-    </p>
+    siteMenu
+        .querySelectorAll("a")
+        .forEach(
+            function (link) {
 
+                link.addEventListener(
+                    "click",
+                    function () {
 
-    <h3>
-        What is the maximum score?
-    </h3>
+                        siteMenu.hidden =
+                            true;
 
-    <p>
-        The maximum result is 100%. The final percentage
-        is based on the number of questions answered
-        correctly out of 50.
-    </p>
 
+                        menuToggle.setAttribute(
+                            "aria-expanded",
+                            "false"
+                        );
 
-    <h3>
-        What topics are covered?
-    </h3>
 
-    <p>
-        The quiz covers <em>The Walking Dead</em>,
-        including characters, relationships, walkers,
-        survival situations, communities, locations,
-        villains, character deaths and major story events.
-    </p>
+                        menuToggle.setAttribute(
+                            "aria-label",
+                            "Open navigation"
+                        );
 
+                    }
+                );
 
+            }
+        );
 
-    <h3>
-        Does the quiz cover the entire TV series?
-    </h3>
-
-    <p>
-        The quiz covers the main <em>The Walking Dead</em>
-        television series and can include events and
-        characters from different parts of the series.
-        Questions are not limited to the early Atlanta
-        storyline.
-    </p>
-
-
-    <h3>
-        Is this quiz based on the comic books?
-    </h3>
-
-    <p>
-        No. This quiz is intended to test knowledge of
-        <em>The Walking Dead</em> television series.
-        Some characters and storylines differ between
-        the television adaptation and the original comics.
-    </p>
-
-
-    <h3>
-        Does the quiz contain spoilers?
-    </h3>
-
-    <p>
-        Yes. The quiz can reveal major character deaths,
-        important plot developments, relationships,
-        community conflicts and other significant events
-        from the series.
-    </p>
-
-
-    <h3>
-        Is there a time limit?
-    </h3>
-
-    <p>
-        No. You can answer the questions at your own pace.
-    </p>
-
-
-    <h3>
-        Can I take the quiz again?
-    </h3>
-
-    <p>
-        Yes. Select TRY AGAIN after completing the quiz
-        to start another attempt and try to improve
-        your score.
-    </p>
-
-
-    <h3>
-        Can I challenge my friends?
-    </h3>
-
-    <p>
-        Yes. Select CHALLENGE YOUR FRIENDS after
-        completing the quiz to share the challenge
-        and see whether your friends can beat your score.
-    </p>
-
-</section>
-
-
-<!-- =====================================================
-     SPOILER WARNING
-     ===================================================== -->
-
-<section class="home-info spoiler-warning">
-
-    <h2>
-        Spoiler Warning
-    </h2>
-
-    <p>
-        This quiz contains spoilers for
-        <em>The Walking Dead</em>. Questions may reveal
-        major character deaths, important plot developments,
-        community conflicts, relationships, discoveries
-        and other significant events from the television
-        series.
-    </p>
-
-    <p>
-        If you are currently watching the show and want
-        to avoid spoilers, consider finishing the relevant
-        episodes before taking the quiz.
-    </p>
-
-</section>
-
-</div>
-
-</main>
-
-<!-- =====================================================
-     FOOTER
-     ===================================================== -->
-
-<footer class="site-footer">
-
-<div class="footer-inner">
-
-    <div class="footer-brand">
-        APOCALYPSE QUIZZES
-    </div>
-
-
-    <div class="footer-links">
-
-        <a href="/about.html">
-            About
-        </a>
-
-        <a href="/privacy.html">
-            Privacy Policy
-        </a>
-
-        <a href="/disclaimer.html">
-            Disclaimer
-        </a>
-
-        <a href="/contact.html">
-            Contact
-        </a>
-
-    </div>
-
-
-    <div class="copyright">
-        © 2026 Apocalypse Quizzes
-    </div>
-
-</div>
-
-</footer>
-
-
-<script src="script.js"></script>
-
-</body>
-</html>
+}
