@@ -1273,7 +1273,7 @@ function showResult() {
     document.getElementById(
         "knowledge-level"
     ).textContent =
-        knowledge;
+        survival;
 
 
     const resultIcon =
