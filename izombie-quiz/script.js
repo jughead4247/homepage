@@ -974,28 +974,24 @@ function calculateScore() {
 function showResult() {
 
     const score =
-        calculateScore();
+    calculateScore();
 
+const totalQuestions =
+    questions.length;
 
-    const totalQuestions =
-        questions.length;
+// Each correct answer = 1 point
+const correctAnswers =
+    score;
 
+const incorrectAnswers =
+    totalQuestions -
+    correctAnswers;
 
-    // Each correct answer = 2 points
-    const correctAnswers =
-        score / 2;
-
-
-    const incorrectAnswers =
-        totalQuestions -
-        correctAnswers;
-
-
-    const accuracy =
-        Math.round(
-            (correctAnswers /
-            totalQuestions) * 100
-        );
+const accuracy =
+    Math.round(
+        (correctAnswers /
+        totalQuestions) * 100
+    );
 
 
     // =================================================
