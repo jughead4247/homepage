@@ -1,0 +1,1957 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Zombieland: Double Tap Quiz – 30 Questions Trivia</title>
+
+    <meta name="description" content="Think you know Zombieland: Double Tap? Test your knowledge of Columbus, Tallahassee, Wichita, Little Rock, Madison, Nevada, Babylon, the zombie types and the movie's biggest events with this 30-question movie quiz.">
+
+    <meta name="keywords" content="Zombieland Double Tap quiz, Zombieland Double Tap movie quiz, Zombieland trivia, Zombieland quiz, Columbus quiz, Tallahassee quiz, Wichita quiz, Madison quiz, zombie movie quiz, apocalypse quiz">
+
+    <meta name="author" content="Apocalypse Quizzes">
+    <meta name="robots" content="index, follow">
+
+    <link rel="canonical" href="https://apocalypsequizzes.com/zombieland-double-tap-quiz/">
+
+    <meta property="og:title" content="Zombieland: Double Tap Quiz – How Well Do You Know the Movie?">
+    <meta property="og:description" content="Test your knowledge of Columbus, Tallahassee, Wichita, Little Rock, Madison, Nevada, Babylon and the zombie chaos in Zombieland: Double Tap with 30 movie trivia questions.">
+    <meta property="og:url" content="https://apocalypsequizzes.com/zombieland-double-tap-quiz/">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Apocalypse Quizzes">
+    <meta property="og:image" content="https://apocalypsequizzes.com/images/zombieland2.png">
+
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Zombieland: Double Tap Movie Quiz">
+    <meta name="twitter:description" content="How well do you remember Zombieland: Double Tap? Take the 30-question movie trivia challenge.">
+    <meta name="twitter:image" content="https://apocalypsequizzes.com/images/zombieland2.png">
+
+    <link rel="icon" type="image/png" href="../favicon.png">
+
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-YC3ERJSBST"></script>
+
+    <script>
+        window.dataLayer = window.dataLayer || [];
+
+        function gtag(){
+            dataLayer.push(arguments);
+        }
+
+        gtag('js', new Date());
+        gtag('config', 'G-YC3ERJSBST');
+    </script>
+
+    <!-- Google AdSense -->
+    <script async
+        src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2285244517360573"
+        crossorigin="anonymous">
+    </script>
+
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+
+<header class="site-header">
+
+    <button
+        class="menu-toggle"
+        id="menu-toggle"
+        type="button"
+        aria-label="Open navigation"
+        aria-expanded="false"
+        aria-controls="site-menu">
+
+        <span></span>
+        <span></span>
+        <span></span>
+
+    </button>
+
+    <div class="site-title">
+        APOCALYPSE QUIZZES
+    </div>
+
+</header>
+
+
+<nav
+    class="site-menu"
+    id="site-menu"
+    aria-label="Main navigation"
+    hidden>
+
+    <div class="menu-links">
+
+        <a href="/">
+            🏠 Home
+        </a>
+
+        <a href="/search/">
+            🔎 Search Quizzes
+        </a>
+
+        <a href="/categories/">
+            📂 Categories
+        </a>
+
+        <div class="menu-divider"></div>
+
+        <a href="/about.html">
+            About
+        </a>
+
+        <a href="/privacy.html">
+            Privacy Policy
+        </a>
+
+        <a href="/disclaimer.html">
+            Disclaimer
+        </a>
+
+        <a href="/contact.html">
+            Contact
+        </a>
+
+    </div>
+
+</nav>
+
+
+<main class="container">
+
+
+<!-- =====================================================
+     START SCREEN
+     ===================================================== -->
+
+<section id="start-screen">
+
+    <div class="intro-card">
+
+        <img
+            src="../images/zombieland2.png"
+            class="quiz-start-image"
+             >
+
+        <div class="quiz-category">
+            ZOMBIE • SURVIVAL MOVIE TRIVIA
+        </div>
+
+        <h1>
+            Zombieland: Double Tap Quiz
+        </h1>
+
+        <p class="subtitle">
+            Think you can survive Zombieland?
+            Test your knowledge of Columbus, Tallahassee,
+            Wichita, Little Rock, Madison, Nevada,
+            Babylon and the zombie chaos of
+            Zombieland: Double Tap.
+        </p>
+
+        <div class="info">
+
+            <span>
+                30 Questions
+            </span>
+
+            <span>•</span>
+
+            <span>
+                ~6 Minutes
+            </span>
+
+            <span>•</span>
+
+            <span>
+                4 Choices
+            </span>
+
+        </div>
+
+        <p class="start-note">
+            Ready? See how much you remember about
+            Zombieland: Double Tap.
+        </p>
+
+        <button id="start-btn">
+            START QUIZ
+        </button>
+
+        <div class="spoiler-warning start-spoiler">
+
+            <p>
+                This quiz contains spoilers for
+                <em>Zombieland: Double Tap</em>.
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     QUIZ SCREEN
+     ===================================================== -->
+
+<section id="quiz-screen" class="screen hidden">
+
+    <div class="quiz-header">
+
+        <span id="question-number">
+            Question 1 of 30
+        </span>
+
+        <span id="score-display">
+            Zombieland Trivia
+        </span>
+
+    </div>
+
+    <div class="progress">
+
+        <div id="progress-bar"></div>
+
+    </div>
+
+    <h2 id="question"></h2>
+
+    <div id="answers"></div>
+
+    <div class="quiz-navigation">
+
+        <button
+            id="back-btn"
+            class="nav-btn"
+            type="button"
+            disabled>
+
+            ← Back
+
+        </button>
+
+        <button
+            id="next-btn"
+            class="nav-btn"
+            type="button"
+            disabled>
+
+            Next →
+
+        </button>
+
+        <button
+            id="submit-btn"
+            class="nav-btn submit-btn hidden"
+            type="button"
+            disabled>
+
+            Answer All Questions
+
+        </button>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     RESULT SCREEN
+     ===================================================== -->
+
+<section id="result-screen" class="screen hidden">
+
+    <p class="result-label">
+        YOUR RESULT
+    </p>
+
+    <h1 id="result-title"></h1>
+
+    <div class="result-score">
+
+        <span id="final-score"></span>
+
+    </div>
+
+    <p
+        class="result-description"
+        id="result-description">
+    </p>
+
+    <div class="survival-box">
+
+        <strong>
+            Zombieland: Double Tap Movie Knowledge
+        </strong>
+
+        <span id="knowledge-level"></span>
+
+    </div>
+
+    <div class="result-breakdown">
+
+        <div class="result-stat">
+
+            <span class="result-stat-label">
+                Correct
+            </span>
+
+            <strong id="correct-count">
+                —
+            </strong>
+
+        </div>
+
+        <div class="result-stat">
+
+            <span class="result-stat-label">
+                Incorrect
+            </span>
+
+            <strong id="incorrect-count">
+                —
+            </strong>
+
+        </div>
+
+        <div class="result-stat">
+
+            <span class="result-stat-label">
+                Total
+            </span>
+
+            <strong id="total-count">
+                30
+            </strong>
+
+        </div>
+
+        <div class="result-stat">
+
+            <span class="result-stat-label">
+                Accuracy
+            </span>
+
+            <strong id="accuracy-percent">
+                —
+            </strong>
+
+        </div>
+
+    </div>
+
+    <div class="result-actions">
+
+        <button id="restart-btn">
+            TRY AGAIN
+        </button>
+
+        <button id="share-btn">
+            📤 SHARE MY RESULT
+        </button>
+
+        <button id="challenge-btn">
+            🚀 CHALLENGE YOUR FRIENDS
+        </button>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     SUGGESTED QUIZZES CARD
+     ===================================================== -->
+
+<section id="suggestions-card" class="suggestions-card hidden">
+
+    <div class="suggested-quizzes">
+
+        <h2>
+            Suggested Quizzes
+        </h2>
+
+        <p class="suggested-subtitle">
+            Enjoyed this zombie survival challenge?
+            Try another apocalypse or survival movie quiz.
+        </p>
+
+        <div class="suggested-grid">
+
+            <!—ZOMBIELAND QUIZ->
+        <a href="/zombieland-quiz/" class="suggested-card">
+                        <img
+                            src="../images/zombieland.png "
+                            alt="Zombieland Quiz"
+                            class="suggested-image"
+                        >
+                        <span class="suggested-title">
+                            Zombieland Quiz
+          </span>
+                        <span class="suggested-description">
+                            Test your knowledge of Columbus, Tallahassee, Wichita, Little Rock, the rules  and the zombie apocalypse with this 25-question movie quiz
+                        </span>
+                    </a>
+
+
+            <!—I AM LEGEND QUIZ-->
+        <a href="/i-am-legend-quiz/" class="suggested-card">
+                        <img
+                            src="../images/legend.png "
+                            alt="I Am Legend Quiz"
+                            class="suggested-image"
+                        >
+                        <span class="suggested-title">
+                            I Am Legend Quiz         
+          </span>
+                        <span class="suggested-description">
+                            How Well Do You Know the movie I am Legend? Test your knowledge of Dr. Nevile through post-apocalyptic world 
+                        </span>
+                    </a>
+
+
+
+            <!-- WORLD WAR Z QUIZ-->
+        <a href="/world-war-z-quiz/" class="suggested-card">
+                        <img
+                            src="../images/z.png "
+                            alt="World War Z Quiz"
+                            class="suggested-image"
+                        >
+                        <span class="suggested-title">
+                            World War Z Quiz         
+          </span>
+                        <span class="suggested-description">
+                            Test your knowledge of legendary movie World War Z. check how much you really remember events and characters 
+                        </span>
+                    </a>
+
+
+        </div>
+
+    </div>
+
+    <div class="more-quizzes-section">
+
+        <h3>
+            Explore More Quizzes
+        </h3>
+
+        <p>
+            Discover more apocalypse, zombie, survival,
+            science-fiction and disaster movie quizzes.
+        </p>
+
+        <a
+            href="/"
+            class="more-quizzes-btn">
+
+            🧟 APOCALYPSE QUIZZES
+
+        </a>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     INFORMATION BELOW THE QUIZ
+     ===================================================== -->
+
+<div id="home-info">
+
+<section class="home-info">
+
+    <h2>
+        About The Quiz
+    </h2>
+
+    <p>
+        The Zombieland: Double Tap Movie Quiz is a
+        30-question trivia challenge based on the 2019
+        zombie comedy film
+        <em>Zombieland: Double Tap</em>.
+        The story follows Columbus, Tallahassee, Wichita
+        and Little Rock as they continue surviving in a
+        zombie-infested United States.
+    </p>
+
+    <p>
+        The movie introduces new survivors including
+        Madison, Nevada, Albuquerque, Flagstaff and
+        Berkeley while also revealing different types
+        of increasingly dangerous zombies.
+    </p>
+
+    <p>
+        This quiz focuses on the movie's characters,
+        locations, zombie types, survival rules,
+        Babylon and major events from the story.
+        It is designed for viewers who want to test
+        how closely they remember Zombieland: Double Tap.
+    </p>
+
+</section>
+
+
+<section class="home-info">
+
+    <h2>
+        Zombieland: Double Tap Movie Details
+    </h2>
+
+    <p>
+        <strong>Release year:</strong> 2019
+    </p>
+
+    <p>
+        <strong>Director:</strong> Ruben Fleischer
+    </p>
+
+    <p>
+        <strong>Genre:</strong> Zombie comedy, action and horror
+    </p>
+
+    <p>
+        <strong>Main characters:</strong> Columbus,
+        Tallahassee, Wichita and Little Rock
+    </p>
+
+    <p>
+        <strong>New survivors:</strong> Madison,
+        Nevada, Albuquerque, Flagstaff and Berkeley
+    </p>
+
+    <p>
+        <strong>Major location:</strong> Babylon,
+        a gun-free community built by survivors
+    </p>
+
+    <p>
+        <strong>Zombie types:</strong> Homers,
+        Hawkings, Ninjas and T-800s
+    </p>
+
+</section>
+
+<section class="home-info">
+
+    <h2>
+        How Quiz Works
+    </h2>
+
+    <p>
+        The quiz contains 30 questions. Every question
+        has four possible choices, but only one answer
+        is correct. Read each question carefully and
+        select the answer you believe is correct.
+    </p>
+
+    <p>
+        Each correct answer gives you 1 point, while an
+        incorrect answer gives you 0 points. With
+        30 questions in total, your correct answers are
+        converted into a final percentage.
+    </p>
+
+    <p>
+        Your final result represents how many questions
+        you answered correctly. The result categories are
+        based on your performance across the 30 questions.
+    </p>
+
+</section>
+
+
+<section class="home-info">
+
+    <h2>
+        Quiz Navigation
+    </h2>
+
+    <h3>
+        Starting the Quiz
+    </h3>
+
+    <p>
+        Select START QUIZ on the opening screen to begin.
+        The first question will appear with four possible
+        answers.
+    </p>
+
+    <h3>
+        Selecting an Answer
+    </h3>
+
+    <p>
+        Read the question and all four choices before
+        making your selection. Once you choose an answer,
+        continue to the next question.
+    </p>
+
+    <h3>
+        Next and Back Buttons
+    </h3>
+
+    <p>
+        Use Next to move forward through the questions.
+        The Back button allows you to return to an earlier
+        question and review or change your selection.
+        Your question number and progress are displayed
+        as you move through the quiz.
+    </p>
+
+    <h3>
+        Finishing the Quiz
+    </h3>
+
+    <p>
+        Continue until all 30 questions have been
+        answered. When you reach the end, submit your
+        answers to finish the quiz and view your final
+        score and knowledge result.
+    </p>
+
+    <h3>
+        Try Again and Challenge Friends
+    </h3>
+
+    <p>
+        After viewing your result, select TRY AGAIN to
+        replay the quiz and attempt a higher score.
+        You can also use SHARE MY RESULT or CHALLENGE
+        YOUR FRIENDS to share your result.
+    </p>
+
+</section>
+
+
+<section class="home-info">
+
+    <h2>
+        FREQUENTLY ASKED QUESTIONS
+    </h2>
+
+    <h3>
+        How many questions are in the quiz?
+    </h3>
+
+    <p>
+        There are 30 questions in total, and every
+        question has four possible choices.
+    </p>
+
+
+    <h3>
+        What is the maximum score?
+    </h3>
+
+    <p>
+        The maximum result is 100%. Each correct answer
+        contributes 1 point before the score is converted
+        into a percentage.
+    </p>
+
+
+    <h3>
+        What topics are covered?
+    </h3>
+
+    <p>
+        The quiz covers <em>Zombieland: Double Tap</em>,
+        including Columbus, Tallahassee, Wichita,
+        Little Rock, Madison, Nevada, Albuquerque,
+        Flagstaff, Berkeley, zombie types, survival
+        rules, Babylon and major story events.
+    </p>
+
+
+    <h3>
+        Is this quiz only about the characters?
+    </h3>
+
+    <p>
+        No. Character questions are only part of the
+        quiz. Other questions cover zombie types,
+        survival rules, locations, Babylon, weapons,
+        major events and important details from the movie.
+    </p>
+
+
+    <h3>
+        Which movie does this quiz cover?
+    </h3>
+
+    <p>
+        This quiz focuses on the 2019 zombie comedy
+        film <em>Zombieland: Double Tap</em>, directed
+        by Ruben Fleischer.
+    </p>
+
+
+    <h3>
+        Do I need to watch the movie before taking the quiz?
+    </h3>
+
+    <p>
+        It is recommended. The questions are based on
+        events, characters and details from the movie,
+        including information that may be difficult to
+        answer without having watched it.
+    </p>
+
+
+    <h3>
+        What does my score mean?
+    </h3>
+
+    <p>
+        Your percentage shows how many of the 30
+        questions you answered correctly. A higher
+        percentage means you correctly remembered more
+        of the movie's details.
+    </p>
+
+
+    <h3>
+        Can I take the quiz again?
+    </h3>
+
+    <p>
+        Yes. Select TRY AGAIN after completing the quiz
+        to start another attempt and try to improve your
+        score.
+    </p>
+
+
+    <h3>
+        Can I challenge my friends?
+    </h3>
+
+    <p>
+        Yes. Select CHALLENGE YOUR FRIENDS after
+        completing the quiz to share the challenge and
+        see whether your friends can beat your score.
+    </p>
+
+</section>
+
+
+<section class="home-info spoiler-warning">
+
+    <h2>
+        Spoiler Warning
+    </h2>
+
+    <p>
+        This quiz contains spoilers for
+        <em>Zombieland: Double Tap</em>. Questions may
+        reveal important details about the characters,
+        zombie types, Babylon, survival rules and other
+        major events from the movie.
+    </p>
+
+    <p>
+        If you have not watched
+        <em>Zombieland: Double Tap</em>, consider
+        watching the movie before taking the quiz to
+        avoid having important story details revealed.
+    </p>
+
+</section>
+
+</div>
+
+</main>
+
+
+<!-- =====================================================
+     FOOTER
+     ===================================================== -->
+
+<footer class="site-footer">
+
+    <div class="footer-inner">
+
+        <div class="footer-brand">
+            APOCALYPSE QUIZZES
+        </div>
+
+        <div class="footer-links">
+
+            <a href="/about.html">
+                About
+            </a>
+
+            <a href="/privacy.html">
+                Privacy Policy
+            </a>
+
+            <a href="/disclaimer.html">
+                Disclaimer
+            </a>
+
+            <a href="/contact.html">
+                Contact
+            </a>
+
+        </div>
+
+        <div class="copyright">
+            © 2026 Apocalypse Quizzes
+        </div>
+
+    </div>
+
+</footer>
+
+
+<script>
+
+const questions = [
+
+    {
+        question: "Where does the original group live at the beginning of the film?",
+        answers: [
+            ["White House", 1],
+            ["Pentagon", 0],
+            ["Graceland", 0],
+            ["Capitol Building", 0]
+        ]
+    },
+
+    {
+        question: "What is the name of Tallahassee's heavily modified presidential limousine?",
+        answers: [
+            ["The King", 0],
+            ["The Cadillac", 0],
+            ["The President", 0],
+            ["The Beast", 1]
+        ]
+    },
+
+    {
+        question: "What is Wichita's real name?",
+        answers: [
+            ["Katie", 0],
+            ["Krista", 1],
+            ["Karen", 0],
+            ["Kristen", 0]
+        ]
+    },
+
+    {
+        question: "What famous diamond does Columbus use when he proposes to Wichita?",
+        answers: [
+            ["The Hope Diamond", 1],
+            ["The Koh-i-Noor", 0],
+            ["The Cullinan Diamond", 0],
+            ["The Regent Diamond", 0]
+        ]
+    },
+
+    {
+        question: "Where does Columbus first encounter Madison?",
+        answers: [
+            ["A gas station", 0],
+            ["A shopping mall", 1],
+            ["Graceland", 0],
+            ["Babylon", 0]
+        ]
+    },
+
+    {
+        question: "What are the slow, unintelligent zombies called?",
+        answers: [
+            ["Homers", 1],
+            ["Hawkings", 0],
+            ["Ninjas", 0],
+            ["T-800s", 0]
+        ]
+    },
+
+    {
+        question: "What gift does Tallahassee give Little Rock for Christmas in Zombieland: Double Tap?",
+        answers: [
+            ["A necklace that once belonged to a First Lady", 0],
+            ["A sword that once belonged to Abraham Lincoln", 0],
+            ["A watch that once belonged to John F. Kennedy", 0],
+            ["A Colt .45 pistol once owned by Elvis Presley", 1]
+        ]
+    },
+
+    {
+        question: "What is Tallahassee's main obsession throughout the film?",
+        answers: [
+            ["Finding Elvis Presley", 1],
+            ["Finding weapons", 0],
+            ["Finding food", 0],
+            ["Finding a new home", 0]
+        ]
+    },
+
+    {
+        question: "Which zombie type displays greater intelligence?",
+        answers: [
+            ["Homers", 0],
+            ["Hawkings", 1],
+            ["Ninjas", 0],
+            ["T-800s", 0]
+        ]
+    },
+
+    {
+        question: "Which of these is one of Columbus's newly added survival rules in Zombieland: Double Tap?",
+        answers: [
+            ["Wear camouflage", 0],
+            ["Ziploc bags", 1],
+            ["Never trust women", 0],
+            ["Always carry a knife", 0]
+        ]
+    },
+
+    {
+        question: "Who gets the “Zombie Kill of the Week” in Zombieland: Double Tap?",
+        answers: [
+            ["Dave Sanderman", 1],
+            ["Matteo Bianchi", 0],
+            ["Tallahassee", 0],
+            ["Albuquerque", 0]
+        ]
+    },
+
+    {
+        question: "What does Columbus call the phenomenon of mistakenly killing a human because they look like a zombie?",
+        answers: [
+            ["Zombie confusion", 0],
+            ["Double tapping", 0],
+            ["Murraying", 1],
+            ["False positive", 0]
+        ]
+    },
+
+    {
+        question: "Which character is introduced after being discovered hiding in a Pinkberry freezer?",
+        answers: [
+            ["Nevada", 0],
+            ["Wichita", 0],
+            ["Madison", 1],
+            ["Little Rock", 0]
+        ]
+    },
+
+    {
+        question: "What food triggers Madison's allergic reaction?",
+        answers: [
+            ["Beef jerky", 0],
+            ["Peanut butter", 0],
+            ["Trail mix", 1],
+            ["Popcorn", 0]
+        ]
+    },
+
+    {
+        question: "What does Madison later drive when she catches up with the group?",
+        answers: [
+            ["A pink Cadillac", 0],
+            ["An ice-cream truck", 1],
+            ["A monster truck", 0],
+            ["The Beast", 0]
+        ]
+    },
+
+    {
+        question: "Which zombie strain attacks Madison during the group's journey?",
+        answers: [
+            ["Homer", 0],
+            ["Hawking", 0],
+            ["T-800", 0],
+            ["Ninja", 1]
+        ]
+    },
+
+    {
+        question: "Which character is essentially Columbus's counterpart?",
+        answers: [
+            ["Albuquerque", 0],
+            ["Flagstaff", 1],
+            ["Berkeley", 0],
+            ["Nevada", 0]
+        ]
+    },
+
+    {
+        question: "What does Nevada reveal about Little Rock?",
+        answers: [
+            ["She has been bitten", 0],
+            ["She returned to the White House", 0],
+            ["She has gone to Babylon", 1],
+            ["She was captured by zombies", 0]
+        ]
+    },
+
+    {
+        question: "What is the name of the woman working at the Elvis-themed motel?",
+        answers: [
+            ["Nevada", 1],
+            ["Madison", 0],
+            ["Wichita", 0],
+            ["Little Rock", 0]
+        ]
+    },
+
+    {
+        question: "Which character is played by Rosario Dawson?",
+        answers: [
+            ["Madison", 0],
+            ["Wichita", 0],
+            ["Little Rock", 0],
+            ["Nevada", 1]
+        ]
+    },
+
+    {
+        question: "Which character is essentially Tallahassee's counterpart?",
+        answers: [
+            ["Flagstaff", 0],
+            ["Berkeley", 0],
+            ["Albuquerque", 1],
+            ["Little Rock", 0]
+        ]
+    },
+
+    {
+        question: "What does Berkeley identify himself as?",
+        answers: [
+            ["A nudist monk", 0],
+            ["A nutritionist", 0],
+            ["An environmentalist", 0],
+            ["A pacifist musician", 1]
+        ]
+    },
+
+    {
+        question: "What musical instrument is Berkeley associated with?",
+        answers: [
+            ["Piano", 0],
+            ["Harmonica", 0],
+            ["Violin", 0],
+            ["Guitar", 1]
+        ]
+    },
+
+    {
+        question: "Which person is credited with the “Zombie Kill of the Year”?",
+        answers: [
+            ["Tallahassee", 0],
+            ["Dave Sanderman", 0],
+            ["Matteo Bianchi", 1],
+            ["Albuquerque", 0]
+        ]
+    },
+
+    {
+        question: "What is Babylon?",
+        answers: [
+            ["A heavily militarized compound", 0],
+            ["A secured shopping mall", 0],
+            ["A government bunker", 0],
+            ["A gun-free, pacifist community", 1]
+        ]
+    },
+
+    {
+        question: "What do the people of Babylon give newcomers after melting down their weapons?",
+        answers: [
+            ["A new weapon", 0],
+            ["A peace-sign necklace made from the melted weapons", 1],
+            ["A survival handbook", 0],
+            ["A key to the commune", 0]
+        ]
+    },
+
+    {
+        question: "What nickname does Columbus give the heavily evolved zombies?",
+        answers: [
+            ["T-600", 0],
+            ["T-700", 0],
+            ["T-800", 1],
+            ["T-1000", 0]
+        ]
+    },
+
+    {
+        question: "What attracts the large zombie horde toward Babylon?",
+        answers: [
+            ["Fireworks", 1],
+            ["Gunfire", 0],
+            ["A vehicle alarm", 0],
+            ["Music", 0]
+        ]
+    },
+
+    {
+        question: "Who uses a numbered list of “commandments” as part of his survival philosophy?",
+        answers: [
+            ["Nevada", 0],
+            ["Flagstaff", 1],
+            ["Berkeley", 0],
+            ["Madison", 0]
+        ]
+    },
+
+    {
+        question: "What does Columbus call Tallahassee's massive zombie kill at the end of the film?",
+        answers: [
+            ["Zombie Kill of the Year", 0],
+            ["Zombie Kill of the Century", 1],
+            ["Zombie Kill of the Decade", 0],
+            ["The Great Zombie Kill", 0]
+        ]
+    }
+
+];
+
+
+let currentQuestion = 0;
+
+let selectedAnswers =
+    new Array(questions.length).fill(null);
+
+
+const startScreen =
+    document.getElementById("start-screen");
+
+const quizScreen =
+    document.getElementById("quiz-screen");
+
+const resultScreen =
+    document.getElementById("result-screen");
+
+const homeInfo =
+    document.getElementById("home-info");
+
+
+const startButton =
+    document.getElementById("start-btn");
+
+const restartButton =
+    document.getElementById("restart-btn");
+
+const shareButton =
+    document.getElementById("share-btn");
+
+const challengeButton =
+    document.getElementById("challenge-btn");
+
+
+const backButton =
+    document.getElementById("back-btn");
+
+const nextButton =
+    document.getElementById("next-btn");
+
+const submitButton =
+    document.getElementById("submit-btn");
+
+
+const questionNumber =
+    document.getElementById("question-number");
+
+const questionText =
+    document.getElementById("question");
+
+const answersContainer =
+    document.getElementById("answers");
+
+const progressBar =
+    document.getElementById("progress-bar");
+
+const suggestionsCard =
+    document.getElementById("suggestions-card");
+
+
+startButton.addEventListener(
+    "click",
+    startQuiz
+);
+
+restartButton.addEventListener(
+    "click",
+    restartQuiz
+);
+
+shareButton.addEventListener(
+    "click",
+    shareResult
+);
+
+challengeButton.addEventListener(
+    "click",
+    shareResult
+);
+
+backButton.addEventListener(
+    "click",
+    goBack
+);
+
+nextButton.addEventListener(
+    "click",
+    goNext
+);
+
+submitButton.addEventListener(
+    "click",
+    showResult
+);
+
+
+// ===============================
+// START QUIZ
+// ===============================
+
+function startQuiz() {
+
+    currentQuestion = 0;
+
+    selectedAnswers =
+        new Array(questions.length).fill(null);
+
+    startScreen.classList.add("hidden");
+
+    resultScreen.classList.add("hidden");
+
+    quizScreen.classList.remove("hidden");
+
+    homeInfo.classList.add("hidden");
+
+    suggestionsCard.classList.add("hidden");
+
+    showQuestion();
+
+}
+
+
+// ===============================
+// SHOW QUESTION
+// ===============================
+
+function showQuestion() {
+
+    const current =
+        questions[currentQuestion];
+
+
+    questionNumber.textContent =
+        `Question ${currentQuestion + 1} of ${questions.length}`;
+
+
+    questionText.textContent =
+        current.question;
+
+
+    answersContainer.innerHTML = "";
+
+
+    const progress =
+        ((currentQuestion + 1) / questions.length) * 100;
+
+
+    progressBar.style.width =
+        `${progress}%`;
+
+
+    current.answers.forEach(
+        (answer, index) => {
+
+            const button =
+                document.createElement("button");
+
+
+            button.className =
+                "answer";
+
+
+            button.type =
+                "button";
+
+
+            button.textContent =
+                answer[0];
+
+
+            if (
+                selectedAnswers[currentQuestion] === index
+            ) {
+
+                button.classList.add(
+                    "selected"
+                );
+
+            }
+
+
+            button.addEventListener(
+                "click",
+                () => {
+                    selectAnswer(index);
+                }
+            );
+
+
+            answersContainer.appendChild(
+                button
+            );
+
+        }
+    );
+
+
+    updateNavigation();
+
+}
+
+
+// ===============================
+// SELECT ANSWER
+// ===============================
+
+function selectAnswer(answerIndex) {
+
+    selectedAnswers[currentQuestion] =
+        answerIndex;
+
+
+    const buttons =
+        answersContainer.querySelectorAll(
+            ".answer"
+        );
+
+
+    buttons.forEach(
+        (button, index) => {
+
+            button.classList.toggle(
+                "selected",
+                index === answerIndex
+            );
+
+        }
+    );
+
+
+    updateNavigation();
+
+
+    const questionAtSelection =
+        currentQuestion;
+
+
+    setTimeout(() => {
+
+        if (
+            currentQuestion === questionAtSelection &&
+            selectedAnswers[questionAtSelection] === answerIndex &&
+            currentQuestion < questions.length - 1
+        ) {
+
+            currentQuestion++;
+
+            showQuestion();
+
+        }
+
+    }, 180);
+
+}
+
+
+// ===============================
+// NEXT
+// ===============================
+
+function goNext() {
+
+    if (
+        selectedAnswers[currentQuestion] === null
+    ) {
+
+        return;
+
+    }
+
+
+    if (
+        currentQuestion === questions.length - 1
+    ) {
+
+        if (
+            selectedAnswers.every(
+                answer => answer !== null
+            )
+        ) {
+
+            showResult();
+
+        }
+
+        return;
+
+    }
+
+
+    currentQuestion++;
+
+    showQuestion();
+
+}
+
+
+// ===============================
+// BACK
+// ===============================
+
+function goBack() {
+
+    if (currentQuestion > 0) {
+
+        currentQuestion--;
+
+        showQuestion();
+
+    }
+
+}
+
+
+// ===============================
+// UPDATE NAVIGATION
+// ===============================
+
+function updateNavigation() {
+
+    const isFirst =
+        currentQuestion === 0;
+
+
+    const isLast =
+        currentQuestion === questions.length - 1;
+
+
+    const currentAnswered =
+        selectedAnswers[currentQuestion] !== null;
+
+
+    const allAnswered =
+        selectedAnswers.every(
+            answer => answer !== null
+        );
+
+
+    backButton.disabled =
+        isFirst;
+
+
+    if (isLast) {
+
+        nextButton.classList.add(
+            "hidden"
+        );
+
+        submitButton.classList.remove(
+            "hidden"
+        );
+
+
+        submitButton.disabled =
+            !allAnswered;
+
+
+        submitButton.textContent =
+            allAnswered
+                ? "SUBMIT"
+                : "Answer All Questions";
+
+    } else {
+
+        submitButton.classList.add(
+            "hidden"
+        );
+
+        nextButton.classList.remove(
+            "hidden"
+        );
+
+
+        nextButton.textContent =
+            "Next →";
+
+
+        nextButton.disabled =
+            !currentAnswered;
+
+    }
+
+}
+
+
+// ===============================
+// CALCULATE SCORE
+// ===============================
+
+function calculateScore() {
+
+    let score = 0;
+
+
+    selectedAnswers.forEach(
+        (answerIndex, questionIndex) => {
+
+            if (answerIndex !== null) {
+
+                score +=
+                    questions[questionIndex]
+                        .answers[answerIndex][1];
+
+            }
+
+        }
+    );
+
+
+    return score;
+
+}
+
+
+// ===============================
+// SHOW RESULT
+// ===============================
+
+function showResult() {
+
+    const correctAnswers =
+        calculateScore();
+
+
+    const totalQuestions =
+        questions.length;
+
+
+    const incorrectAnswers =
+        totalQuestions - correctAnswers;
+
+
+    const score =
+        Math.round(
+            (correctAnswers / totalQuestions) * 100
+        );
+
+
+    const accuracy =
+        score;
+
+
+    quizScreen.classList.add(
+        "hidden"
+    );
+
+    resultScreen.classList.remove(
+        "hidden"
+    );
+
+    homeInfo.classList.remove(
+        "hidden"
+    );
+
+    suggestionsCard.classList.remove(
+        "hidden"
+    );
+
+
+    document.getElementById(
+        "final-score"
+    ).textContent =
+        `${score}%`;
+
+
+    document.getElementById(
+        "correct-count"
+    ).textContent =
+        correctAnswers;
+
+
+    document.getElementById(
+        "incorrect-count"
+    ).textContent =
+        incorrectAnswers;
+
+
+    document.getElementById(
+        "total-count"
+    ).textContent =
+        totalQuestions;
+
+
+    document.getElementById(
+        "accuracy-percent"
+    ).textContent =
+        `${accuracy}%`;
+
+
+    let title;
+
+    let description;
+
+    let knowledge;
+
+
+    if (score <= 20) {
+
+        title =
+            "🧟 Zombie Newcomer";
+
+        description =
+            "The zombies have already caught you off guard. It may be time to revisit Zombieland: Double Tap and try again.";
+
+        knowledge =
+            "Casual Viewer";
+
+
+    } else if (score <= 40) {
+
+        title =
+            "🔫 Survivor";
+
+        description =
+            "You remember some of the survivors and zombie chaos, but several details from the journey slipped through the cracks.";
+
+        knowledge =
+            "Casual Fan";
+
+
+    } else if (score <= 60) {
+
+        title =
+            "🧟 Zombieland Survivor";
+
+        description =
+            "Not bad! You remember many of the movie's major characters, events and different types of zombies.";
+
+        knowledge =
+            "Good Fan";
+
+
+    } else if (score <= 80) {
+
+        title =
+            "🔥 Zombie Hunter";
+
+        description =
+            "Impressive! You have a strong memory for Columbus, Tallahassee, the new survivors and the events leading to Babylon.";
+
+        knowledge =
+            "Dedicated Fan";
+
+
+    } else if (score <= 96) {
+
+        title =
+            "💀 Zombieland Expert";
+
+        description =
+            "Excellent! You remember most of the important characters, zombie types, survival rules and major events from Zombieland: Double Tap.";
+
+        knowledge =
+            "Expert Fan";
+
+
+    } else {
+
+        title =
+            "🧟 Zombieland Master";
+
+        description =
+            "Perfect score! You remembered practically every major detail about the survivors, zombies, Babylon and the chaos of Zombieland: Double Tap.";
+
+        knowledge =
+            "Ultimate Fan";
+
+    }
+
+
+    document.getElementById(
+        "result-title"
+    ).textContent =
+        title;
+
+
+    document.getElementById(
+        "result-description"
+    ).textContent =
+        description;
+
+
+    document.getElementById(
+        "knowledge-level"
+    ).textContent =
+        knowledge;
+
+
+    progressBar.style.width =
+        "100%";
+
+}
+
+
+// ===============================
+// RESTART QUIZ
+// ===============================
+
+function restartQuiz() {
+
+    currentQuestion = 0;
+
+
+    selectedAnswers =
+        new Array(questions.length).fill(null);
+
+
+    resultScreen.classList.add(
+        "hidden"
+    );
+
+    quizScreen.classList.add(
+        "hidden"
+    );
+
+    startScreen.classList.remove(
+        "hidden"
+    );
+
+    homeInfo.classList.remove(
+        "hidden"
+    );
+
+
+    suggestionsCard.classList.add(
+        "hidden"
+    );
+
+
+    progressBar.style.width =
+        "0%";
+
+}
+
+
+// ===============================
+// SHARE RESULT
+// ===============================
+
+async function shareResult() {
+
+    const title =
+        document.getElementById(
+            "result-title"
+        ).textContent;
+
+
+    const knowledge =
+        document.getElementById(
+            "knowledge-level"
+        ).textContent;
+
+
+    const finalScore =
+        document.getElementById(
+            "final-score"
+        ).textContent;
+
+
+    const quizUrl =
+        "https://apocalypsequizzes.com/zombieland-double-tap-quiz/";
+
+
+    const shareText =
+        `🧟 I scored ${finalScore} on the Zombieland: Double Tap Quiz!\n\n` +
+        `${title}\n` +
+        `Knowledge level: ${knowledge}\n\n` +
+        `How well do YOU remember Zombieland: Double Tap?`;
+
+
+    const shareData = {
+
+        title:
+            "Zombieland: Double Tap Quiz",
+
+        text:
+            shareText,
+
+        url:
+            quizUrl
+
+    };
+
+
+    try {
+
+        if (navigator.share) {
+
+            await navigator.share(
+                shareData
+            );
+
+        } else {
+
+            await navigator.clipboard.writeText(
+                shareText +
+                "\n\n" +
+                quizUrl
+            );
+
+
+            alert(
+                "Your result has been copied! You can paste it anywhere."
+            );
+
+        }
+
+    } catch (error) {
+
+        console.log(
+            "Sharing cancelled."
+        );
+
+    }
+
+}
+
+
+// ===============================
+// GLOBAL SITE MENU
+// ===============================
+
+const menuToggle =
+    document.getElementById(
+        "menu-toggle"
+    );
+
+
+const siteMenu =
+    document.getElementById(
+        "site-menu"
+    );
+
+
+if (menuToggle && siteMenu) {
+
+
+    menuToggle.addEventListener(
+        "click",
+        function (event) {
+
+            event.stopPropagation();
+
+
+            const isOpen =
+                menuToggle.getAttribute(
+                    "aria-expanded"
+                ) === "true";
+
+
+            siteMenu.hidden =
+                isOpen;
+
+
+            menuToggle.setAttribute(
+                "aria-expanded",
+                String(!isOpen)
+            );
+
+
+            menuToggle.setAttribute(
+                "aria-label",
+                isOpen
+                    ? "Open navigation"
+                    : "Close navigation"
+            );
+
+        }
+    );
+
+
+    document.addEventListener(
+        "click",
+        function (event) {
+
+            if (
+                !siteMenu.hidden &&
+                !siteMenu.contains(event.target) &&
+                !menuToggle.contains(event.target)
+            ) {
+
+                siteMenu.hidden =
+                    true;
+
+
+                menuToggle.setAttribute(
+                    "aria-expanded",
+                    "false"
+                );
+
+
+                menuToggle.setAttribute(
+                    "aria-label",
+                    "Open navigation"
+                );
+
+            }
+
+        }
+    );
+
+
+    siteMenu
+        .querySelectorAll("a")
+        .forEach(function (link) {
+
+            link.addEventListener(
+                "click",
+                function () {
+
+                    siteMenu.hidden =
+                        true;
+
+
+                    menuToggle.setAttribute(
+                        "aria-expanded",
+                        "false"
+                    );
+
+
+                    menuToggle.setAttribute(
+                        "aria-label",
+                        "Open navigation"
+                    );
+
+                }
+            );
+
+        });
+
+}
+
+</script>
+
+</body>
+</html>
