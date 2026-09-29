@@ -1833,3 +1833,11 @@ background-attachment: fixed;
     border-color: #e5e5e5;
     pointer-events: none;
 }
+
+/* ===============================
+   CATEGORY PAGINATION
+   =============================== */
+
+.category-pagination {
+    margin: 25px 0 20px;
+}
