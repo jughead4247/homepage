@@ -710,7 +710,7 @@ const quizzes = [
     },
 
 
-    {
+        {
         title: "The Cloverfield Paradox Quiz",
 
         description:
@@ -721,10 +721,37 @@ const quizzes = [
 
         url:
             "https://apocalypsequizzes.com/the-cloverfield-paradox-quiz/"
+    },
+
+
+    {
+        title: "Zombieland Quiz",
+
+        description:
+            "Test your knowledge of Zombieland, its characters, rules, zombies, survival story, and major events.",
+
+        categories:
+            "Zombieland Zombieland movie movie quiz Columbus Tallahassee Wichita Little Rock Rule 1 Rule 2 Rule 3 Rule 17 Rule 18 Rule 22 Rule 31 Rule 32 zombies zombie apocalypse survival Pacific Playland Bill Murray 406 Winchester Twinkies zombie outbreak undead post-apocalyptic comedy horror",
+
+        url:
+            "https://apocalypsequizzes.com/zombieland-quiz/"
+    },
+
+
+    {
+        title: "Zombieland: Double Tap Quiz",
+
+        description:
+            "Test your knowledge of Zombieland: Double Tap, its characters, rules, zombies, new survivors, and major events.",
+
+        categories:
+            "Zombieland Double Tap Zombieland 2 movie movie quiz Columbus Tallahassee Wichita Little Rock Madison Albuquerque Flagstaff Berkeley Nevada Rule 1 Rule 2 Rule 3 Rule 17 Rule 18 Rule 22 Rule 31 Rule 32 zombies zombie apocalypse survival Pacific Playland White House mall zombie outbreak undead post-apocalyptic comedy horror",
+
+        url:
+            "https://apocalypsequizzes.com/zombieland-double-tap-quiz/"
     }
 
 ];
-
 
 
 // =========================================
