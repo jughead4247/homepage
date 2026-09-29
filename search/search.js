@@ -412,7 +412,7 @@ const quizzes = [
             "Alice in Borderland Alice in Borderland Season 1 TV show series Arisu Ryohei Arisu Usagi Yuzuha Chishiya Shuntaro Chishiya Karube Daikichi Segawa Chota Morita Kuina Hikari Niragi Shibuki Ann Rizuna Aguni Morizono Hatter Mira Kano Last Boss games Borderland visas playing cards Beach survival dystopian survival",
 
         url:
-            "https://apocalypsequizzes.com/alice-in-borderland-season-1-quiz/"
+            "https://apocalypsequizzes.com/alice-in-borderland-s1-trivia/"
     },
 
 
@@ -426,7 +426,7 @@ const quizzes = [
             "Alice in Borderland Alice in Borderland Season 2 TV show series Arisu Ryohei Arisu Usagi Yuzuha Usagi Chishiya Shuntaro Chishiya Kuina Hikari Niragi Aguni Morita Ann Rizuna Heiya Akane Heiya Banda Yaba Mira Kano Queen of Hearts King of Spades King of Clubs King of Diamonds King of Hearts Jack of Hearts Jack of Spades Jack of Clubs Jack of Diamonds Queen of Spades Queen of Clubs games Face Cards Borderland Beach visas playing cards survival dystopian survival",
 
         url:
-            "https://apocalypsequizzes.com/alice-in-borderland-season-2-quiz/"
+            "https://apocalypsequizzes.com/alice-in-borderland-s2-trivia/"
     },
 
 
@@ -440,7 +440,7 @@ const quizzes = [
             "Alice in Borderland Alice in Borderland Season 3 TV show series Arisu Ryohei Arisu Usagi Yuzuha Usagi Chishiya Shuntaro Chishiya Kuina Hikari Niragi Banda Yaba Mira Kano Joker Joker's tournament Borderland games playing cards face cards survival dystopian survival characters events",
 
         url:
-            "https://apocalypsequizzes.com/alice-in-borderland-season-3-quiz/"
+            "https://apocalypsequizzes.com/alice-in-borderland-s3-trivia/"
     },
 
 
@@ -454,7 +454,7 @@ const quizzes = [
             "Alice in Borderland Alice in Borderland games games quiz TV show series Borderland deadly games game rules game objectives playing cards cards Hearts Diamonds Clubs Spades Visa visas survival challenges challenges mechanics strategies survival strategy Arisu Ryohei Arisu Usagi Yuzuha Usagi Chishiya Shuntaro Chishiya Kuina Hikari Niragi Aguni Hatter Beach King of Spades King of Clubs King of Diamonds King of Hearts Queen of Spades Queen of Clubs Queen of Diamonds Queen of Hearts Jack of Spades Jack of Clubs Jack of Diamonds Jack of Hearts Joker Face Cards games Season 1 Season 2 Season 3 dystopian survival",
 
         url:
-            "https://apocalypsequizzes.com/alice-in-borderland-games-quiz/"
+            "https://apocalypsequizzes.com/alice-in-borderland-games-trivia/"
     },
 
 
