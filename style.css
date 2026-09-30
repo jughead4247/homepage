@@ -557,7 +557,6 @@ background-attachment: fixed;
     font-size: 0.88rem;
 }
 
-
 /* ===============================
    QUIZ BUTTON
    =============================== */
@@ -600,24 +599,70 @@ background-attachment: fixed;
    =============================== */
 
 .how-it-works {
-    margin-top: 60px;
-    padding: 90px 0;
+    width: min(100% - 32px, 1100px);
+
+    margin: 32px auto;
+
+    padding: 45px 40px;
 
     background: #111111;
 
     color: #ffffff;
 
-    border-top: 1px solid #292929;
+    border: 1px solid #292929;
 
-    border-bottom: 1px solid #292929;
+    border-radius: 20px;
+
+    box-shadow:
+        0 12px 40px rgba(0, 0, 0, 0.25);
 }
+
+
+/* ===============================
+   HOW IT WORKS HEADING
+   =============================== */
+
+.how-it-works .section-heading {
+    max-width: 820px;
+
+    margin: 0 auto 28px;
+
+    text-align: center;
+}
+
+.how-it-works .section-heading h2 {
+    margin: 0 0 20px;
+
+    color: #ffffff;
+
+    font-size: clamp(2rem, 5vw, 2.8rem);
+
+    line-height: 1.15;
+}
+
+.how-it-works .section-heading > p:last-child {
+    margin: 0 auto;
+
+    max-width: 760px;
+
+    color: #cccccc;
+
+    font-size: 1rem;
+
+    line-height: 1.6;
+}
+
+
+/* ===============================
+   HOW IT WORKS STEPS
+   =============================== */
 
 .steps {
     display: grid;
 
     grid-template-columns: repeat(3, 1fr);
 
-    gap: 24px;
+    gap: 14px;
 }
 
 
@@ -626,200 +671,236 @@ background-attachment: fixed;
    =============================== */
 
 .step {
-    padding: 30px;
-
-    border: 1px solid #dddddd;
-
-    border-radius: 16px;
-
-    background: #ffffff;
-
-    color: #171717;
-
-    box-shadow:
-        0 8px 28px rgba(0, 0, 0, 0.18);
-
-    transition:
-        transform 0.2s ease,
-        box-shadow 0.2s ease;
+    padding: 18px 20px;
+    border: 1px solid #3d3d3d;
+    border-radius: 12px;
+    background: #181818;
+    color: #fff;
+    box-shadow: none;
+    transition: transform .2s ease, border-color .2s ease, background .2s ease;
 }
 
 .step:hover {
-    transform: translateY(-4px);
-
-    box-shadow:
-        0 12px 32px rgba(0, 0, 0, 0.25);
+    transform: translateY(-3px);
+    border-color: #666;
+    background: #202020;
+    box-shadow: none;
 }
 
 .step-number {
     width: 42px;
-
     height: 42px;
-
-    display: flex;
-
+    display: inline-flex;
     align-items: center;
-
     justify-content: center;
-
-    margin-bottom: 20px;
-
-    border-radius: 50%;
-
-    background: #171717;
-
-    color: #ffffff;
-
+    margin: 0 10px 0 0;
+    border-radius: 10px;
+    background: #252525;
+    color: #fff;
     font-weight: 800;
+    font-size: 1rem;
+    vertical-align: middle;
 }
 
 .step h3 {
-    margin: 0 0 10px;
-
-    color: #171717;
+    display: inline;
+    margin: 0;
+    color: #fff;
+    font-size: 1rem;
+    line-height: 1.3;
+    vertical-align: middle;
 }
 
 .step p {
-    margin: 0;
-
-    color: #555555;
+    margin: 12px 0 0;
+    color: #aaa;
+    font-size: .84rem;
+    line-height: 1.5;
 }
 
 
-/* ===============================
-   ABOUT / INFORMATION
-   =============================== */
+ /* ===============================
+    SHARED INFORMATION CARDS
+    =============================== */
 
-.home-info {
+.home-info,
+.faq {
     width: min(100% - 32px, 1100px);
-
-    margin: 40px auto;
-
-    padding: 70px 40px;
+    margin: 32px auto;
+    padding: 45px 40px;
 
     background: #111111;
-
     color: #ffffff;
 
     border: 1px solid #292929;
-
     border-radius: 20px;
 
     box-shadow:
         0 12px 40px rgba(0, 0, 0, 0.25);
 }
 
-.home-info h2 {
-    margin: 0 0 20px;
 
-    font-size: clamp(2rem, 5vw, 2.8rem);
+/* ===============================
+   INFORMATION CARD EYEBROW
+   =============================== */
 
-    line-height: 1.15;
+.home-info .eyebrow,
+.faq .eyebrow {
+    margin: 0 0 10px;
 
-    color: #ffffff;
-}
+    text-align: center;
 
-.home-info h3 {
-    margin-top: 32px;
+    color: #aaaaaa;
 
-    margin-bottom: 8px;
+    font-size: 0.8rem;
+    font-weight: 700;
 
-    color: #ffffff;
-}
-
-.home-info p {
-    max-width: 820px;
-
-    color: #cccccc;
+    letter-spacing: 0.12em;
+    line-height: 1.3;
 }
 
 
 /* ===============================
-   SURVIVAL DECISIONS
+   INFORMATION CARD TITLE
    =============================== */
 
-.home-info + .home-info {
-    background: #111111;
+.home-info h2,
+.faq h2 {
+    margin: 0 0 20px;
+
+    text-align: center;
+
+    color: #ffffff;
+
+    font-size: clamp(2rem, 5vw, 2.8rem);
+
+    line-height: 1.15;
 }
 
+
+/* ===============================
+   INFORMATION CARD BODY
+   =============================== */
+
+.home-info p,
+.faq p {
+    max-width: 820px;
+
+    margin-left: auto;
+    margin-right: auto;
+
+    color: #cccccc;
+
+    line-height: 1.6;
+}
+
+
+/* ===============================
+   INFORMATION SUBHEADINGS
+   =============================== */
+
+.home-info h3,
+.faq h3 {
+    max-width: 820px;
+
+    margin: 30px auto 8px;
+
+    color: #ffffff;
+
+    font-size: 1.1rem;
+
+    line-height: 1.35;
+}
+
+
+/* ===============================
+   INFORMATION LINKS
+   =============================== */
+
+.home-info a,
+.faq a {
+    color: #ff4a4a;
+}
 
 /* ===============================
    FEATURE LIST
    =============================== */
 
 .feature-list {
-    display: flex;
+    display: grid;
 
-    flex-wrap: wrap;
+    grid-template-columns: repeat(2, 1fr);
 
-    gap: 10px;
+    gap: 12px;
 
     margin-top: 28px;
 }
 
 .feature-list span {
-    padding: 9px 15px;
+    display: grid;
 
-    border: 1px solid #555555;
+    grid-template-columns: 38px 1fr;
 
-    border-radius: 999px;
+    grid-template-rows: auto auto;
 
-    background: #222222;
+    column-gap: 10px;
 
-    color: #eeeeee;
+    padding: 12px 14px;
 
-    font-size: 0.9rem;
+    border: 1px solid #3d3d3d;
+
+    border-radius: 10px;
+
+    background: #181818;
 }
 
+.feature-icon {
+    grid-row: 1 / 3;
 
-/* ===============================
-   FAQ
-   =============================== */
+    width: 38px;
+    height: 38px;
 
-.faq {
-    width: min(100% - 32px, 1100px);
+    display: flex;
 
-    margin: 40px auto;
+    align-items: center;
+    justify-content: center;
 
-    padding: 70px 40px;
+    border-radius: 8px;
 
-    background: #111111;
+    background: #252525;
 
-    color: #ffffff;
-
-    border: 1px solid #292929;
-
-    border-radius: 20px;
-
-    box-shadow:
-        0 12px 40px rgba(0, 0, 0, 0.25);
-}
-
-.faq h2 {
-    color: #ffffff;
-}
-
-.faq h3 {
     font-size: 1.1rem;
 
+    font-weight: normal;
+}
+
+.feature-list strong {
     color: #ffffff;
+
+    font-size: 0.95rem;
+
+    line-height: 1.25;
 }
 
-.faq p {
-    color: #cccccc;
-}
+.feature-list small {
+    color: #aaaaaa;
 
-.faq a {
-    color: #ff4a4a;
+    font-size: 0.78rem;
+
+    line-height: 1.35;
 }
 
 
 /* ===============================
-   COMING SOON
+   EXPANDING COLLECTION
    =============================== */
 
 .coming-soon {
-    padding: 90px 20px;
+    width: min(100% - 32px, 1100px);
+
+    margin: 32px auto;
+
+    padding: 45px 40px;
 
     text-align: center;
 
@@ -827,26 +908,69 @@ background-attachment: fixed;
 
     color: #ffffff;
 
-    border-bottom: 1px solid #292929;
+    border: 1px solid #292929;
+
+    border-radius: 20px;
+
+    box-shadow:
+        0 12px 40px rgba(0, 0, 0, 0.25);
 }
+
+
+/* ===============================
+   EXPANDING COLLECTION EYEBROW
+   =============================== */
 
 .coming-soon .eyebrow {
+    margin: 0 0 10px;
+
     color: #aaaaaa;
+
+    font-size: 0.8rem;
+
+    font-weight: 700;
+
+    letter-spacing: 0.12em;
+
+    line-height: 1.3;
 }
+
+
+/* ===============================
+   EXPANDING COLLECTION TITLE
+   =============================== */
 
 .coming-soon h2 {
+    margin: 0 0 20px;
+
     color: #ffffff;
+
+    font-size: clamp(2rem, 5vw, 2.8rem);
+
+    line-height: 1.15;
 }
 
+
+/* ===============================
+   EXPANDING COLLECTION TEXT
+   =============================== */
+
 .coming-soon > p {
-    max-width: 650px;
+    max-width: 820px;
 
     margin-left: auto;
 
     margin-right: auto;
 
-    color: #aaaaaa;
+    color: #cccccc;
+
+    line-height: 1.6;
 }
+
+
+/* ===============================
+   FUTURE QUIZZES
+   =============================== */
 
 .future-quizzes {
     display: grid;
@@ -857,15 +981,15 @@ background-attachment: fixed;
 
     max-width: 850px;
 
-    margin: 35px auto 0;
+    margin: 28px auto 0;
 }
 
 .future-quizzes div {
-    padding: 24px 16px;
+    padding: 20px 16px;
 
     border: 1px solid #333333;
 
-    border-radius: 14px;
+    border-radius: 12px;
 
     background: #181818;
 
@@ -1022,9 +1146,9 @@ background-attachment: fixed;
     .quiz-section,
     .how-it-works,
     .coming-soon {
-        padding-top: 60px;
+        padding-top: 50px;
 
-        padding-bottom: 60px;
+        padding-bottom: 50px;
     }
 
     .quiz-card-content {
@@ -1036,28 +1160,83 @@ background-attachment: fixed;
     }
 
     .feature-list {
+        grid-template-columns: 1fr;
+
         gap: 8px;
     }
 
-    .home-info {
+    .feature-list span {
+        padding: 10px 12px;
+    }
+
+    .home-info,
+    .faq,
+    .coming-soon {
         width: calc(100% - 24px);
 
         margin: 24px auto;
 
-        padding: 45px 24px;
+        padding: 32px 24px;
 
         border-radius: 16px;
     }
 
-    .faq {
-        width: calc(100% - 24px);
-
-        margin: 24px auto;
-
-        padding: 45px 24px;
-
-        border-radius: 16px;
+    .home-info h2,
+    .faq h2,
+    .coming-soon h2 {
+        font-size: 2rem;
     }
+
+    .future-quizzes {
+        grid-template-columns: 1fr;
+
+        gap: 12px;
+    }
+
+    .future-quizzes div {
+        padding: 18px 14px;
+    }
+}
+
+.how-it-works {
+    width: calc(100% - 24px);
+
+    margin: 24px auto;
+
+    padding: 32px 24px;
+
+    border-radius: 16px;
+}
+
+.how-it-works .section-heading {
+    margin-bottom: 24px;
+}
+
+.how-it-works .section-heading h2 {
+    font-size: 2rem;
+}
+
+.how-it-works .section-heading > p:last-child {
+    font-size: 0.92rem;
+}
+
+.steps {
+    grid-template-columns: 1fr;
+
+    gap: 8px;
+}
+
+.step {
+    padding: 14px;
+
+    grid-template-columns: 38px 1fr;
+
+    column-gap: 12px;
+}
+
+.step-number {
+    width: 38px;
+    height: 38px;
 }
 
 
