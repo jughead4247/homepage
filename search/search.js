@@ -749,6 +749,19 @@ const quizzes = [
 
         url:
             "https://apocalypsequizzes.com/zombieland-double-tap-quiz/"
+    },
+
+{
+        title: "Rise of the Planet of the Apes Quiz",
+
+        description:
+            "Test your knowledge of Rise of the Planet of the Apes, Caesar, Will Rodman, ALZ-112, Gen-Sys, and the ape uprising.",
+
+        categories:
+            "Rise of the Planet of the Apes Rise Planet of the Apes movie movie quiz Planet of the Apes Caesar Will Rodman William Rodman Caroline Aranha Charles Rodman Bright Eyes Cornelia Koba Maurice Rocket Buck Dodge Landon John Landon Steven Jacobs Robert Franklin Douglas Hunsiker Gen-Sys ALZ-112 ALZ-113 Alzheimer's disease Simian Flu simian virus ape uprising apes chimpanzees gorilla orangutan bonobo primate shelter San Francisco Golden Gate Bridge San Francisco Zoo Redwood forest survival apocalypse pandemic plague outbreak science fiction",
+
+        url:
+            "https://apocalypsequizzes.com/rise-of-planet-of-the-apes-quiz/"
     }
 
 ];
