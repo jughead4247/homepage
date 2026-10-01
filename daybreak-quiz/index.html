@@ -1,0 +1,2116 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Daybreak Quiz – 30 Questions Trivia</title>
+
+<meta name="description" content="Think you know Daybreak? Test your knowledge of Josh, Sam Dean, Angelica, Wesley, Turbo, Ms. Crumble, the Ghoulies, the tribes and the post-apocalyptic world of Daybreak with this 30-question TV quiz.">
+
+<meta name="keywords" content="Daybreak quiz, Daybreak TV quiz, Daybreak trivia, Daybreak TV trivia, Daybreak Netflix quiz, Josh Wheeler quiz, Sam Dean quiz, Angelica quiz, Wesley quiz, Turbo quiz, Ghoulies quiz, zombie apocalypse quiz, apocalypse quiz">
+
+<meta name="author" content="Apocalypse Quizzes">
+<meta name="robots" content="index, follow">
+
+<link rel="canonical" href="https://apocalypsequizzes.com/daybreak-quiz/">
+
+<meta property="og:title" content="Daybreak Quiz – How Well Do You Know the Show?">
+<meta property="og:description" content="Test your knowledge of Josh, Sam, Angelica, Wesley, Turbo, Ms. Crumble, the Ghoulies and the tribes of Daybreak with 30 TV trivia questions.">
+<meta property="og:url" content="https://apocalypsequizzes.com/daybreak-quiz/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Apocalypse Quizzes">
+
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Daybreak TV Quiz">
+<meta name="twitter:description" content="How well do you remember Josh, Sam, Angelica, Wesley and the post-apocalyptic world of Daybreak? Take the 30-question trivia challenge.">
+
+<link rel="icon" type="image/png" href="../favicon.png">
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-YC3ERJSBST"></script>
+
+<script>
+window.dataLayer = window.dataLayer || [];
+
+function gtag(){
+    dataLayer.push(arguments);
+}
+
+gtag('js', new Date());
+gtag('config', 'G-YC3ERJSBST');
+</script>
+
+<!-- Google AdSense -->
+
+<script async
+    src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2285244517360573"
+    crossorigin="anonymous"></script>
+
+<link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+
+<header class="site-header">
+
+<button
+    class="menu-toggle"
+    id="menu-toggle"
+    type="button"
+    aria-label="Open navigation"
+    aria-expanded="false"
+    aria-controls="site-menu">
+
+    <span></span>
+    <span></span>
+    <span></span>
+
+</button>
+
+<div class="site-title">
+    APOCALYPSE QUIZZES
+</div>
+
+</header>
+
+
+<nav
+    class="site-menu"
+    id="site-menu"
+    aria-label="Main navigation"
+    hidden>
+
+<div class="menu-links">
+
+<a href="/">
+    🏠 Home
+</a>
+
+<a href="/search/">
+    🔎 Search Quizzes
+</a>
+
+<a href="/categories/">
+    📂 Categories
+</a>
+
+<div class="menu-divider"></div>
+
+<a href="/about.html">
+    About
+</a>
+
+<a href="/privacy.html">
+    Privacy Policy
+</a>
+
+<a href="/disclaimer.html">
+    Disclaimer
+</a>
+
+<a href="/contact.html">
+    Contact
+</a>
+
+</div>
+
+</nav>
+
+
+<main class="container">
+
+
+<!-- =====================================================
+     START SCREEN
+     ===================================================== -->
+
+<section id="start-screen">
+
+<div class="intro-card">
+
+<img
+    src="../images/daybreak.png"
+    class="quiz-start-image"
+>
+
+<p class="quiz-category">
+    POST-APOCALYPTIC • TV TRIVIA
+</p>
+
+<h1>
+    Daybreak Quiz
+</h1>
+
+<p class="subtitle">
+    Think you know <em>Daybreak</em>?
+    Test your knowledge of Josh, Sam Dean,
+    Angelica, Wesley, Turbo, Ms. Crumble,
+    the Ghoulies, the tribes and the strange
+    post-apocalyptic world of Glendale.
+</p>
+
+<div class="info">
+
+<span>30 Questions</span>
+<span>•</span>
+<span>~6 Minutes</span>
+<span>•</span>
+<span>4 Choices</span>
+
+</div>
+
+<p class="start-note">
+    One answer is correct for each question.
+    Choose carefully and see how well you remember
+    the characters, tribes, events and bizarre details
+    of <em>Daybreak</em>.
+</p>
+
+<button id="start-btn" type="button">
+    START QUIZ
+</button>
+
+<div class="spoiler-warning start-spoiler">
+
+<p>
+    This quiz contains major story details from
+    <em>Daybreak</em>.
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- =====================================================
+     QUIZ SCREEN
+     ===================================================== -->
+
+<section id="quiz-screen" class="screen hidden">
+
+<div class="quiz-header">
+
+<span id="question-number">
+    Question 1 of 30
+</span>
+
+<span id="score-display">
+    Daybreak Trivia
+</span>
+
+</div>
+
+
+<div class="progress">
+
+<div id="progress-bar"></div>
+
+</div>
+
+
+<h2 id="question"></h2>
+
+<div id="answers"></div>
+
+
+<div class="quiz-navigation">
+
+<button
+    id="back-btn"
+    class="nav-btn"
+    type="button"
+    disabled>
+
+    ← Back
+
+</button>
+
+
+<button
+    id="next-btn"
+    class="nav-btn"
+    type="button"
+    disabled>
+
+    Next →
+
+</button>
+
+
+<button
+    id="submit-btn"
+    class="nav-btn submit-btn hidden"
+    type="button"
+    disabled>
+
+    Answer All Questions
+
+</button>
+
+</div>
+
+</section>
+
+
+<!-- =====================================================
+     RESULT SCREEN
+     ===================================================== -->
+
+<section id="result-screen" class="screen hidden">
+
+<p class="result-label">
+    YOUR RESULT
+</p>
+
+<h1 id="result-title"></h1>
+
+
+<div class="result-score">
+
+<span id="final-score"></span>
+
+</div>
+
+
+<p id="result-description"></p>
+
+
+<div class="survival-box">
+
+<strong>
+    Daybreak TV Knowledge
+</strong>
+
+<span id="knowledge-level"></span>
+
+</div>
+
+
+<!-- RESULT BREAKDOWN -->
+
+<div class="result-breakdown">
+
+<div class="result-stat">
+
+<span
+    id="correct-count"
+    class="result-stat-value">
+
+    0
+
+</span>
+
+<span class="result-stat-label">
+    Correct
+</span>
+
+</div>
+
+
+<div class="result-stat">
+
+<span
+    id="incorrect-count"
+    class="result-stat-value">
+
+    0
+
+</span>
+
+<span class="result-stat-label">
+    Incorrect
+</span>
+
+</div>
+
+
+<div class="result-stat">
+
+<span
+    id="total-count"
+    class="result-stat-value">
+
+    30
+
+</span>
+
+<span class="result-stat-label">
+    Total
+</span>
+
+</div>
+
+
+<div class="result-stat">
+
+<span
+    id="accuracy-percent"
+    class="result-stat-value">
+
+    0%
+
+</span>
+
+<span class="result-stat-label">
+    Accuracy
+</span>
+
+</div>
+
+</div>
+
+
+<button id="restart-btn" type="button">
+    TRY AGAIN
+</button>
+
+
+<button id="share-btn" type="button">
+    📤 SHARE MY RESULT
+</button>
+
+
+<button id="challenge-btn" type="button">
+    ⚔️ CHALLENGE YOUR FRIENDS
+</button>
+
+</section>
+
+
+<!-- =================================================
+     SUGGESTED QUIZZES
+     ================================================= -->
+
+<section
+    id="suggestions-card"
+    class="suggestions-card hidden">
+
+<div class="suggested-quizzes">
+
+<h2>
+    Suggested Quizzes
+</h2>
+
+<p class="suggested-subtitle">
+    Survived the Daybreak apocalypse? Try another apocalypse quiz.
+</p>
+
+
+<div class="suggested-grid">
+
+
+<!-- MAD MAX: FURY ROAD QUIZ-->
+        <a href="/mad-max-fury-road-quiz/" class="suggested-card">
+                        <img
+                            src="../images/fury.png "
+                            alt=" Mad Max: Fury Road Quiz"
+                            class="suggested-image"
+                        >
+                        <span class="suggested-title">
+                            Mad Max: Fury Road Quiz
+          </span>
+                        <span class="suggested-description">
+                            Can you survive the wastelands and journey of the Fury road. Check your knowledge of the movie Mad Max-Fury Road.
+                        </span>
+                    </a>
+
+
+
+<!-- FURIOSA: A MAD MAX SAGA QUIZ-->
+        <a href="/furiosa-a-mad-max-saga-quiz/" class="suggested-card">
+                        <img
+                            src="../images/furiosa.png "
+                            alt=" Furiosa: A Mad Max Saga Quiz"
+                            class="suggested-image"
+                        >
+                        <span class="suggested-title">
+                            Furiosa: A Mad Max Saga Quiz
+          </span>
+                        <span class="suggested-description">
+                            Take the journey with Furiosa, find out how much you know about Furiosa: a mad max saga
+                        </span>
+                    </a>
+
+
+<!-- LOVE AND MONSTERS QUIZ -->
+        <a href="/love-and-monsters-quiz/" class="suggested-card">
+                        <img
+                            src="../images/love-and-monsters-quiz.png"
+                            alt="Love and Monsters Quiz"
+                            class="suggested-image"
+            >
+            <span class="suggested-title">
+                Love and Monsters Quiz
+            </span>
+            <span class="suggested-description">
+          Test your knowledge of the movie Love and Monsters. Joel’s journey through monsters infested world
+            </span>
+        </a>
+
+
+</div>
+
+</div>
+
+
+<!-- MORE QUIZZES CTA -->
+
+<div class="more-quizzes-section">
+
+<h3>
+    Explore More Quizzes
+</h3>
+
+<p>
+    Discover more apocalypse, zombie, survival and
+    disaster TV and movie quizzes.
+</p>
+
+<a
+    href="/"
+    class="more-quizzes-btn">
+
+    🧟 APOCALYPSE QUIZZES
+
+</a>
+
+</div>
+
+</section>
+
+
+<!-- =====================================================
+     INFORMATION SECTIONS
+     ===================================================== -->
+
+<div id="home-info">
+
+
+<!-- =====================================================
+     ABOUT THE QUIZ
+     ===================================================== -->
+
+<section class="home-info">
+
+<h2>
+    ABOUT THE QUIZ
+</h2>
+
+<p>
+    The Daybreak TV Quiz is a 30-question trivia
+    challenge for fans of the post-apocalyptic Netflix
+    series <em>Daybreak</em>. The series follows Josh
+    Wheeler as he searches for Sam Dean after an
+    apocalypse transforms Glendale into a strange world
+    divided among different groups of teenagers.
+</p>
+
+<p>
+    The questions cover Josh, Sam, Angelica, Wesley,
+    Turbo, Ms. Crumble, Eli, Mona Lisa, Principal Burr,
+    the Cheermazons, the Jocks, the Golf Team, the
+    Game Overs and other characters and groups.
+</p>
+
+<p>
+    Some questions test major story events, while others
+    focus on smaller character details, identities,
+    relationships, philosophies and the unusual rules
+    of the post-apocalyptic world.
+</p>
+
+</section>
+
+
+<!-- =====================================================
+     SHOW DETAILS
+     ===================================================== -->
+
+<section class="home-info">
+
+<h2>
+    Daybreak TV Show Details
+</h2>
+
+<p>
+    <strong>Title:</strong> <em>Daybreak</em>
+</p>
+
+<p>
+    <strong>Format:</strong> Post-apocalyptic comedy-drama
+    television series
+</p>
+
+<p>
+    <strong>Setting:</strong> Glendale, California
+</p>
+
+<p>
+    <strong>Main Characters:</strong> Josh Wheeler,
+    Sam Dean, Angelica Green, Wesley Fists, Turbo,
+    Ms. Crumble, Eli Cardashyan and other survivors.
+</p>
+
+<p>
+    The story takes place after an apocalypse leaves
+    Glendale populated mostly by teenagers and strange
+    groups known as tribes. With adults largely absent,
+    survivors create their own communities, alliances
+    and rivalries while attempting to understand the
+    new world around them.
+</p>
+
+</section>
+
+
+<!-- =====================================================
+     WHAT THIS QUIZ COVERS
+     ===================================================== -->
+
+<section class="home-info">
+
+<h2>
+    WHAT THIS QUIZ COVERS
+</h2>
+
+<p>
+    The questions cover important characters, groups,
+    locations, relationships and events from
+    <em>Daybreak</em>.
+</p>
+
+<h3>
+    Josh and Sam
+</h3>
+
+<p>
+    Questions cover Josh Wheeler's search for Sam Dean,
+    their relationship before the apocalypse and the
+    decisions Josh makes while trying to find her.
+</p>
+
+<h3>
+    Angelica and Wesley
+</h3>
+
+<p>
+    The quiz covers Angelica's background, her survival
+    after the apocalypse and Wesley's transformation
+    into a nonviolent samurai.
+</p>
+
+<h3>
+    The Ghoulies
+</h3>
+
+<p>
+    Questions cover the zombie-like creatures known as
+    Ghoulies and the unusual changes caused by the
+    apocalypse.
+</p>
+
+<h3>
+    The Tribes
+</h3>
+
+<p>
+    The quiz covers groups including the Jocks,
+    Cheermazons, Golf Team, Game Overs and STEM Punks,
+    along with their leaders and conflicts.
+</p>
+
+<h3>
+    Turbo and Principal Burr
+</h3>
+
+<p>
+    Several questions focus on Turbo, Mona Lisa,
+    Principal Burr, Baron Triumph and the power struggles
+    between the different survivors.
+</p>
+
+</section>
+
+
+<!-- =====================================================
+     HOW THE QUIZ WORKS
+     ===================================================== -->
+
+<section class="home-info">
+
+<h2>
+    HOW THE QUIZ WORKS
+</h2>
+
+<p>
+    The quiz contains 30 questions. Every question has
+    four possible choices, but only one answer is correct.
+    Read each question carefully and select the answer you
+    believe is correct before continuing.
+</p>
+
+<p>
+    Each correct answer gives you 1 point, while an
+    incorrect answer gives you 0 points. With 30 questions
+    in total, your number of correct answers is converted
+    into a final percentage out of 100%.
+</p>
+
+<p>
+    Your final result represents your knowledge of
+    <em>Daybreak</em> based on your performance. A high
+    score means you successfully remembered many of the
+    characters, tribes, events and unusual details
+    featured in the series.
+</p>
+
+</section>
+
+
+<!-- =====================================================
+     QUIZ NAVIGATION
+     ===================================================== -->
+
+<section class="home-info">
+
+<h2>
+    Quiz Navigation
+</h2>
+
+<h3>
+    Starting the quiz
+</h3>
+
+<p>
+    Select START QUIZ on the opening screen to begin.
+    The first question will appear with four possible
+    answers.
+</p>
+
+<h3>
+    Selecting an answer
+</h3>
+
+<p>
+    Read the question and all four choices before making
+    your decision. Select the answer you believe is
+    correct and continue through the quiz.
+</p>
+
+<h3>
+    Next and Back buttons
+</h3>
+
+<p>
+    Use Next to move forward through the questions. The
+    Back button allows you to return to an earlier
+    question and review your selection. Your current
+    question number and progress are displayed as you
+    move through the quiz.
+</p>
+
+<h3>
+    Finishing the quiz
+</h3>
+
+<p>
+    Continue until you have answered all 30 questions.
+    When you reach the end, submit your answers to finish
+    the quiz and view your final percentage and
+    Daybreak TV Knowledge result.
+</p>
+
+<h3>
+    Try Again and Challenge Friends
+</h3>
+
+<p>
+    After viewing your result, select TRY AGAIN to replay
+    the quiz and attempt a higher score. You can also use
+    SHARE MY RESULT or CHALLENGE YOUR FRIENDS to share
+    your result and challenge other fans.
+</p>
+
+</section>
+
+
+<!-- =====================================================
+     FAQ
+     ===================================================== -->
+
+<section class="home-info">
+
+<h2>
+    FAQ
+</h2>
+
+<h3>
+    How many questions are in the quiz?
+</h3>
+
+<p>
+    There are 30 questions in total, and every question
+    has four possible choices.
+</p>
+
+<h3>
+    What is the maximum score?
+</h3>
+
+<p>
+    The maximum result is 100%. Each correct answer
+    contributes 1 point before the score is converted
+    into a percentage.
+</p>
+
+<h3>
+    What topics are covered?
+</h3>
+
+<p>
+    The quiz focuses on <em>Daybreak</em>, including Josh,
+    Sam, Angelica, Wesley, Turbo, Ms. Crumble, Eli,
+    Mona Lisa, Principal Burr, the Ghoulies and the
+    different tribes.
+</p>
+
+<h3>
+    Is this quiz only about Josh?
+</h3>
+
+<p>
+    Josh is one of the main characters, but the questions
+    also cover Sam, Angelica, Wesley, Turbo, Ms. Crumble,
+    Eli, Mona Lisa, Principal Burr and the various groups
+    formed after the apocalypse.
+</p>
+
+<h3>
+    What are the zombie-like creatures called in Daybreak?
+</h3>
+
+<p>
+    The zombie-like creatures in the series are called
+    Ghoulies.
+</p>
+
+<h3>
+    What does my score mean?
+</h3>
+
+<p>
+    Your percentage shows how many of the 30
+    <em>Daybreak</em> questions you answered correctly.
+    A higher score indicates stronger knowledge of the
+    characters, events and details covered by the quiz.
+</p>
+
+<h3>
+    Can I take the quiz again?
+</h3>
+
+<p>
+    Yes. Select TRY AGAIN after completing the quiz to
+    start another attempt and try to improve your score.
+</p>
+
+<h3>
+    Can I challenge my friends?
+</h3>
+
+<p>
+    Yes. Select CHALLENGE YOUR FRIENDS after completing
+    the quiz to share the challenge and see whether your
+    friends can beat your score.
+</p>
+
+</section>
+
+
+<!-- =====================================================
+     SPOILER WARNING
+     ===================================================== -->
+
+<section class="home-info spoiler-warning">
+
+<h2>
+    Spoiler Warning
+</h2>
+
+<p>
+    This quiz contains spoilers for <em>Daybreak</em>.
+    Questions may reveal character identities,
+    relationships, tribal alliances, major events,
+    the Ghoulies, Turbo's group, Principal Burr,
+    the Cheermazons and other important details
+    from the series.
+</p>
+
+<p>
+    If you have not watched <em>Daybreak</em>, consider
+    watching the series before taking the quiz to avoid
+    having important story details spoiled.
+</p>
+
+</section>
+
+</div>
+
+</main>
+
+
+<!-- =====================================================
+     FOOTER
+     ===================================================== -->
+
+<footer class="site-footer">
+
+<div class="footer-inner">
+
+<div class="footer-brand">
+    APOCALYPSE QUIZZES
+</div>
+
+<div class="footer-links">
+
+<a href="/about.html">
+    About
+</a>
+
+<a href="/privacy.html">
+    Privacy Policy
+</a>
+
+<a href="/disclaimer.html">
+    Disclaimer
+</a>
+
+<a href="/contact.html">
+    Contact
+</a>
+
+</div>
+
+<div class="copyright">
+    © 2026 Apocalypse Quizzes
+</div>
+
+</div>
+
+</footer>
+
+
+<script>
+
+const questions = [
+
+{
+    question: "How old is Angelica when the apocalypse occurs?",
+    answers: [
+        ["12", 0],
+        ["10", 1],
+        ["14", 0],
+        ["16", 0]
+    ]
+},
+
+{
+    question: "Where was Angelica's mother when the initial apocalypse struck?",
+    answers: [
+        ["In a military bunker", 0],
+        ["In a submarine underwater", 1],
+        ["At Glendale High School", 0],
+        ["In a hospital", 0]
+    ]
+},
+
+{
+    question: "What unexpected factor helped many teenagers survive the initial apocalypse?",
+    answers: [
+        ["They had been living underground", 0],
+        ["They had military protection", 0],
+        ["They were naturally immune to the outbreak", 0],
+        ["They had received HPV vaccinations", 1]
+    ]
+},
+
+{
+    question: "What are the zombie-like creatures in Daybreak called?",
+    answers: [
+        ["Walkers", 0],
+        ["Biters", 0],
+        ["Ghoulies", 1],
+        ["Crawlers", 0]
+    ]
+},
+
+{
+    question: "Where does most of Daybreak take place?",
+    answers: [
+        ["Glendale, California", 1],
+        ["New York City", 0],
+        ["San Francisco, California", 0],
+        ["Las Vegas, Nevada", 0]
+    ]
+},
+
+{
+    question: "What does Josh name his sword?",
+    answers: [
+        ["Klaus", 0],
+        ["Sam", 1],
+        ["Wesley", 0],
+        ["Excalibur", 0]
+    ]
+},
+
+{
+    question: "What does Josh use as a replacement for his missing finger?",
+    answers: [
+        ["A prosthetic finger containing lockpicks", 1],
+        ["A knife", 0],
+        ["A metal hook", 0],
+        ["A wooden replacement", 0]
+    ]
+},
+
+{
+    question: "What is Sam Dean's full first name?",
+    answers: [
+        ["Samaira Dean", 1],
+        ["Samantha Dean", 0],
+        ["Samira Dean", 0],
+        ["Samuel Dean", 0]
+    ]
+},
+
+{
+    question: "Which episode reveals much of Josh and Sam's relationship before the apocalypse?",
+    answers: [
+        ["Canta Tu Vida", 0],
+        ["Schmuck Bait!", 0],
+        ["Post Mates", 1],
+        ["5318008", 0]
+    ]
+},
+
+{
+    question: "Why do Angelica and Wesley lie to Josh about Sam?",
+    answers: [
+        ["They want to steal his supplies", 0],
+        ["Turbo orders them to", 0],
+        ["Sam asks them to", 0],
+        ["They believe it will stop Josh from leaving them to search for her", 1]
+    ]
+},
+
+{
+    question: "What does Wesley call himself after adopting his nonviolent samurai philosophy?",
+    answers: [
+        ["A bounty hunter", 0],
+        ["A military commander", 0],
+        ["A pacifist samurai", 1],
+        ["A doctor", 0]
+    ]
+},
+
+{
+    question: "What does Wesley call his philosophy of nonviolence?",
+    answers: [
+        ["The Way of the Fist", 0],
+        ["The Way of the Blade", 0],
+        ["Bushido", 1],
+        ["Peaceful Warrior", 0]
+    ]
+},
+
+{
+    question: "Which type of sword does Wesley use?",
+    answers: [
+        ["Rapier", 0],
+        ["Katana", 1],
+        ["Claymore", 0],
+        ["Scimitar", 0]
+    ]
+},
+
+{
+    question: "Who narrates Wesley's episode in Daybreak?",
+    answers: [
+        ["RZA", 1],
+        ["Method Man", 0],
+        ["Ice-T", 0],
+        ["Snoop Dogg", 0]
+    ]
+},
+
+{
+    question: "What subject does Ms. Crumble teach at Glendale High before the apocalypse?",
+    answers: [
+        ["Chemistry", 0],
+        ["Biology", 1],
+        ["Physical Education", 0],
+        ["English", 0]
+    ]
+},
+
+{
+    question: "What does Eli keep a collection of in his school locker?",
+    answers: [
+        ["Baseball cards", 0],
+        ["Pokémon cards", 1],
+        ["Weapons", 0],
+        ["Comic books", 0]
+    ]
+},
+
+{
+    question: "Who is Mavis?",
+    answers: [
+        ["Turbo's sister", 0],
+        ["A member of the Cheermazons", 0],
+        ["Eli's real girlfriend", 0],
+        ["A mannequin Eli believes is his girlfriend", 1]
+    ]
+},
+
+{
+    question: "Why does Eli pretend to be Baron Triumph?",
+    answers: [
+        ["To frighten survivors away from the mall", 1],
+        ["To become leader of the Jocks", 0],
+        ["To find Sam", 0],
+        ["To recruit children", 0]
+    ]
+},
+
+{
+    question: "Who is the captain of the Golf Team at the beginning of Daybreak?",
+    answers: [
+        ["Terry", 1],
+        ["Barry", 0],
+        ["Gary", 0],
+        ["Jerry", 0]
+    ]
+},
+
+{
+    question: "Who does Turbo frame for the attack on the Jocks?",
+    answers: [
+        ["Barry", 0],
+        ["Terry", 0],
+        ["Gary", 1],
+        ["Larry", 0]
+    ]
+},
+
+{
+    question: "What is Mona Lisa's role in Turbo's group?",
+    answers: [
+        ["She is the group's doctor", 0],
+        ["She is secretly working for Josh", 0],
+        ["She is the group's prisoner", 0],
+        ["She is Turbo's second-in-command", 1]
+    ]
+},
+
+{
+    question: "What is Mona Lisa's real name?",
+    answers: [
+        ["Karen", 0],
+        ["Melissa", 0],
+        ["Mary", 1],
+        ["Maria", 0]
+    ]
+},
+
+{
+    question: "What is Principal Burr's full name?",
+    answers: [
+        ["Marcus Francis Burr", 0],
+        ["Matthew Xavier Burr", 0],
+        ["Martin Francis Burr", 0],
+        ["Michael Francis Xavier Burr", 1]
+    ]
+},
+
+{
+    question: "What allergy does Principal Burr have?",
+    answers: [
+        ["Peanuts", 1],
+        ["Shellfish", 0],
+        ["Dairy", 0],
+        ["Gluten", 0]
+    ]
+},
+
+{
+    question: "Where does Principal Burr operate his secret base as Baron Triumph?",
+    answers: [
+        ["Glendale High", 0],
+        ["The local hospital", 0],
+        ["Glendale Mall", 0],
+        ["The Hoyle family's cereal factory", 1]
+    ]
+},
+
+{
+    question: "What is the name of the group formed by survivors at the mall?",
+    answers: [
+        ["The Daybreakers", 1],
+        ["The Survivors", 0],
+        ["The Glendale Alliance", 0],
+        ["The Mall Rats", 0]
+    ]
+},
+
+{
+    question: "Who are the three leaders of the Cheermazons?",
+    answers: [
+        ["Mona, KJ and Aria", 0],
+        ["Demi, Victoria and Miryam", 1],
+        ["Sam, Angelica and Mavis", 0],
+        ["Jessica, Karen and Veronica", 0]
+    ]
+},
+
+{
+    question: "What is KJ particularly notable for?",
+    answers: [
+        ["Being the strongest Jock", 0],
+        ["Leading the Cheermazons", 0],
+        ["Being a former teacher", 0],
+        ["Being a polyglot", 1]
+    ]
+},
+
+{
+    question: "Who helps Josh and KJ plan an attempt to assassinate Turbo?",
+    answers: [
+        ["Wesley and the Cheermazons", 0],
+        ["Aria Killigan and the Game Overs", 1],
+        ["Eli and the Golf Team", 0],
+        ["Mona Lisa and the Jocks", 0]
+    ]
+},
+
+{
+    question: "Who attempts to assassinate Turbo during the gathering of the tribes?",
+    answers: [
+        ["The Cheermazons", 0],
+        ["The Gamers", 0],
+        ["The Golf Team", 0],
+        ["The STEM Punks", 1]
+    ]
+}
+
+];
+
+
+let currentQuestion = 0;
+
+let selectedAnswers =
+    new Array(questions.length).fill(null);
+
+
+/* =====================================================
+   DOM ELEMENTS
+   ===================================================== */
+
+const startScreen =
+    document.getElementById("start-screen");
+
+const quizScreen =
+    document.getElementById("quiz-screen");
+
+const resultScreen =
+    document.getElementById("result-screen");
+
+const homeInfo =
+    document.getElementById("home-info");
+
+const suggestionsCard =
+    document.getElementById("suggestions-card");
+
+
+const startButton =
+    document.getElementById("start-btn");
+
+const restartButton =
+    document.getElementById("restart-btn");
+
+const shareButton =
+    document.getElementById("share-btn");
+
+const challengeButton =
+    document.getElementById("challenge-btn");
+
+
+const backButton =
+    document.getElementById("back-btn");
+
+const nextButton =
+    document.getElementById("next-btn");
+
+const submitButton =
+    document.getElementById("submit-btn");
+
+
+const questionNumber =
+    document.getElementById("question-number");
+
+const questionText =
+    document.getElementById("question");
+
+const answersContainer =
+    document.getElementById("answers");
+
+const progressBar =
+    document.getElementById("progress-bar");
+
+
+/* =====================================================
+   EVENT LISTENERS
+   ===================================================== */
+
+startButton.addEventListener(
+    "click",
+    startQuiz
+);
+
+restartButton.addEventListener(
+    "click",
+    restartQuiz
+);
+
+shareButton.addEventListener(
+    "click",
+    shareResult
+);
+
+challengeButton.addEventListener(
+    "click",
+    shareResult
+);
+
+backButton.addEventListener(
+    "click",
+    goBack
+);
+
+nextButton.addEventListener(
+    "click",
+    goNext
+);
+
+submitButton.addEventListener(
+    "click",
+    showResult
+);
+
+
+/* =====================================================
+   START QUIZ
+   ===================================================== */
+
+function startQuiz() {
+
+    currentQuestion = 0;
+
+    selectedAnswers =
+        new Array(questions.length).fill(null);
+
+    startScreen.classList.add("hidden");
+
+    resultScreen.classList.add("hidden");
+
+    quizScreen.classList.remove("hidden");
+
+    homeInfo.classList.add("hidden");
+
+    suggestionsCard.classList.add("hidden");
+
+    progressBar.style.width = "0%";
+
+    showQuestion();
+
+}
+
+
+/* =====================================================
+   SHOW QUESTION
+   ===================================================== */
+
+function showQuestion() {
+
+    const current =
+        questions[currentQuestion];
+
+
+    questionNumber.textContent =
+        `Question ${currentQuestion + 1} of ${questions.length}`;
+
+
+    questionText.textContent =
+        current.question;
+
+
+    answersContainer.innerHTML = "";
+
+
+    const progress =
+        ((currentQuestion + 1) /
+        questions.length) * 100;
+
+
+    progressBar.style.width =
+        `${progress}%`;
+
+
+    current.answers.forEach(
+        (answer, index) => {
+
+            const button =
+                document.createElement("button");
+
+
+            button.className =
+                "answer";
+
+
+            button.type =
+                "button";
+
+
+            button.textContent =
+                answer[0];
+
+
+            if (
+                selectedAnswers[currentQuestion] === index
+            ) {
+
+                button.classList.add(
+                    "selected"
+                );
+
+            }
+
+
+            button.addEventListener(
+                "click",
+                () => {
+
+                    selectAnswer(index);
+
+                }
+            );
+
+
+            answersContainer.appendChild(
+                button
+            );
+
+        }
+    );
+
+
+    updateNavigation();
+
+}
+
+
+/* =====================================================
+   SELECT ANSWER
+   ===================================================== */
+
+function selectAnswer(answerIndex) {
+
+    selectedAnswers[currentQuestion] =
+        answerIndex;
+
+
+    const buttons =
+        answersContainer.querySelectorAll(
+            ".answer"
+        );
+
+
+    buttons.forEach(
+        (button, index) => {
+
+            button.classList.toggle(
+                "selected",
+                index === answerIndex
+            );
+
+        }
+    );
+
+
+    updateNavigation();
+
+
+    const questionAtSelection =
+        currentQuestion;
+
+
+    setTimeout(() => {
+
+        if (
+            currentQuestion === questionAtSelection &&
+            selectedAnswers[questionAtSelection] === answerIndex &&
+            currentQuestion < questions.length - 1
+        ) {
+
+            currentQuestion++;
+
+            showQuestion();
+
+        }
+
+    }, 180);
+
+}
+
+
+/* =====================================================
+   NEXT
+   ===================================================== */
+
+function goNext() {
+
+    if (
+        selectedAnswers[currentQuestion] === null
+    ) {
+
+        return;
+
+    }
+
+
+    if (
+        currentQuestion === questions.length - 1
+    ) {
+
+        if (
+            selectedAnswers.every(
+                answer => answer !== null
+            )
+        ) {
+
+            showResult();
+
+        }
+
+        return;
+
+    }
+
+
+    currentQuestion++;
+
+    showQuestion();
+
+}
+
+
+/* =====================================================
+   BACK
+   ===================================================== */
+
+function goBack() {
+
+    if (currentQuestion > 0) {
+
+        currentQuestion--;
+
+        showQuestion();
+
+    }
+
+}
+
+
+/* =====================================================
+   NAVIGATION
+   ===================================================== */
+
+function updateNavigation() {
+
+    const isFirst =
+        currentQuestion === 0;
+
+
+    const isLast =
+        currentQuestion === questions.length - 1;
+
+
+    const currentAnswered =
+        selectedAnswers[currentQuestion] !== null;
+
+
+    const allAnswered =
+        selectedAnswers.every(
+            answer => answer !== null
+        );
+
+
+    backButton.disabled =
+        isFirst;
+
+
+    if (isLast) {
+
+        nextButton.classList.add(
+            "hidden"
+        );
+
+        submitButton.classList.remove(
+            "hidden"
+        );
+
+
+        submitButton.disabled =
+            !allAnswered;
+
+
+        submitButton.textContent =
+            allAnswered
+                ? "SUBMIT"
+                : "Answer All Questions";
+
+    }
+
+    else {
+
+        submitButton.classList.add(
+            "hidden"
+        );
+
+        nextButton.classList.remove(
+            "hidden"
+        );
+
+
+        nextButton.textContent =
+            "Next →";
+
+
+        nextButton.disabled =
+            !currentAnswered;
+
+    }
+
+}
+
+
+/* =====================================================
+   CALCULATE SCORE
+   ===================================================== */
+
+function calculateScore() {
+
+    let score = 0;
+
+
+    selectedAnswers.forEach(
+        (answerIndex, questionIndex) => {
+
+            if (answerIndex !== null) {
+
+                score +=
+                    questions[questionIndex]
+                        .answers[answerIndex][1];
+
+            }
+
+        }
+    );
+
+
+    return score;
+
+}
+
+
+/* =====================================================
+   SHOW RESULT
+   ===================================================== */
+
+function showResult() {
+
+    const correctAnswers =
+        calculateScore();
+
+
+    const totalQuestions =
+        questions.length;
+
+
+    const incorrectAnswers =
+        totalQuestions -
+        correctAnswers;
+
+
+    const score =
+        Math.round(
+            (correctAnswers /
+            totalQuestions) * 100
+        );
+
+
+    const accuracy =
+        score;
+
+
+    /* SCREEN VISIBILITY */
+
+    homeInfo.classList.remove(
+        "hidden"
+    );
+
+    quizScreen.classList.add(
+        "hidden"
+    );
+
+    resultScreen.classList.remove(
+        "hidden"
+    );
+
+    suggestionsCard.classList.remove(
+        "hidden"
+    );
+
+
+    /* SCORE */
+
+    document.getElementById(
+        "final-score"
+    ).textContent =
+        `${score}%`;
+
+
+    /* RESULT BREAKDOWN */
+
+    document.getElementById(
+        "correct-count"
+    ).textContent =
+        correctAnswers;
+
+
+    document.getElementById(
+        "incorrect-count"
+    ).textContent =
+        incorrectAnswers;
+
+
+    document.getElementById(
+        "total-count"
+    ).textContent =
+        totalQuestions;
+
+
+    document.getElementById(
+        "accuracy-percent"
+    ).textContent =
+        `${accuracy}%`;
+
+
+    /* RESULT CLASSIFICATION */
+
+    let title;
+    let description;
+    let knowledge;
+    let icon;
+
+
+    if (score <= 20) {
+
+        title =
+            "🧟 Ghoulie Survivor";
+
+        description =
+            "Daybreak caught you off guard. It may be time to revisit Glendale and try the quiz again.";
+
+        knowledge =
+            "Casual Viewer";
+
+        icon =
+            "🧟";
+
+    }
+
+    else if (score <= 40) {
+
+        title =
+            "🏹 Post-Apocalypse Survivor";
+
+        description =
+            "You remember some of Daybreak's characters and events, but several details about the tribes and survivors slipped through the cracks.";
+
+        knowledge =
+            "Casual Fan";
+
+        icon =
+            "🏹";
+
+    }
+
+    else if (score <= 60) {
+
+        title =
+            "⚔️ Tribe Ally";
+
+        description =
+            "Not bad! You remember many of the major characters, groups and events from the strange new world of Daybreak.";
+
+        knowledge =
+            "Good Fan";
+
+        icon =
+            "⚔️";
+
+    }
+
+    else if (score <= 80) {
+
+        title =
+            "🗡️ Daybreak Expert";
+
+        description =
+            "Impressive! You have a strong memory for Josh, Sam, Angelica, Wesley, Turbo and the tribes of Glendale.";
+
+        knowledge =
+            "Dedicated Fan";
+
+        icon =
+            "🗡️";
+
+    }
+
+    else if (score <= 96) {
+
+        title =
+            "👑 Tribe Leader";
+
+        description =
+            "Excellent! You remember most of the important characters, alliances, philosophies and events from Daybreak.";
+
+        knowledge =
+            "Expert Fan";
+
+        icon =
+            "👑";
+
+    }
+
+    else {
+
+        title =
+            "🔥 Daybreak Master";
+
+        description =
+            "Perfect score! You remembered practically every major detail about the characters, tribes and bizarre world of Daybreak.";
+
+        knowledge =
+            "Ultimate Fan";
+
+        icon =
+            "🔥";
+
+    }
+
+
+    document.getElementById(
+        "result-title"
+    ).textContent =
+        title;
+
+
+    document.getElementById(
+        "result-description"
+    ).textContent =
+        description;
+
+
+    document.getElementById(
+        "knowledge-level"
+    ).textContent =
+        knowledge;
+
+
+    const resultIcon =
+        document.getElementById("result-icon");
+
+    if (resultIcon) {
+
+        resultIcon.textContent =
+            icon;
+
+    }
+
+
+    progressBar.style.width =
+        "100%";
+
+}
+
+
+/* =====================================================
+   RESTART QUIZ
+   ===================================================== */
+
+function restartQuiz() {
+
+    currentQuestion = 0;
+
+
+    selectedAnswers =
+        new Array(questions.length).fill(null);
+
+
+    resultScreen.classList.add(
+        "hidden"
+    );
+
+    quizScreen.classList.add(
+        "hidden"
+    );
+
+    startScreen.classList.remove(
+        "hidden"
+    );
+
+    homeInfo.classList.remove(
+        "hidden"
+    );
+
+    suggestionsCard.classList.add(
+        "hidden"
+    );
+
+
+    progressBar.style.width =
+        "0%";
+
+}
+
+
+/* =====================================================
+   SHARE RESULT
+   ===================================================== */
+
+async function shareResult() {
+
+    const title =
+        document.getElementById(
+            "result-title"
+        ).textContent;
+
+
+    const knowledge =
+        document.getElementById(
+            "knowledge-level"
+        ).textContent;
+
+
+    const finalScore =
+        document.getElementById(
+            "final-score"
+        ).textContent;
+
+
+    const quizUrl =
+        "https://apocalypsequizzes.com/daybreak-quiz/";
+
+
+    const shareText =
+        `🔥 I scored ${finalScore} on the Daybreak TV Quiz!\n\n` +
+        `${title}\n` +
+        `Knowledge level: ${knowledge}\n\n` +
+        `How well do YOU remember Daybreak?`;
+
+
+    const shareData = {
+
+        title:
+            "Daybreak TV Quiz",
+
+        text:
+            shareText,
+
+        url:
+            quizUrl
+
+    };
+
+
+    try {
+
+        if (navigator.share) {
+
+            await navigator.share(
+                shareData
+            );
+
+        }
+
+        else {
+
+            await navigator.clipboard.writeText(
+                shareText +
+                "\n\n" +
+                quizUrl
+            );
+
+
+            alert(
+                "Your result has been copied! You can paste it anywhere."
+            );
+
+        }
+
+    }
+
+    catch (error) {
+
+        console.log(
+            "Sharing cancelled."
+        );
+
+    }
+
+}
+
+
+/* =====================================================
+   GLOBAL SITE MENU
+   ===================================================== */
+
+const menuToggle =
+    document.getElementById(
+        "menu-toggle"
+    );
+
+const siteMenu =
+    document.getElementById(
+        "site-menu"
+    );
+
+
+if (menuToggle && siteMenu) {
+
+
+    /* OPEN / CLOSE WITH HAMBURGER */
+
+    menuToggle.addEventListener(
+        "click",
+        function(event) {
+
+            event.stopPropagation();
+
+
+            const isOpen =
+                menuToggle.getAttribute(
+                    "aria-expanded"
+                ) === "true";
+
+
+            siteMenu.hidden =
+                isOpen;
+
+
+            menuToggle.setAttribute(
+                "aria-expanded",
+                String(!isOpen)
+            );
+
+
+            menuToggle.setAttribute(
+                "aria-label",
+                isOpen
+                    ? "Open navigation"
+                    : "Close navigation"
+            );
+
+        }
+    );
+
+
+    /* CLOSE WHEN CLICKING OUTSIDE */
+
+    document.addEventListener(
+        "click",
+        function(event) {
+
+            if (
+                !siteMenu.hidden &&
+                !siteMenu.contains(event.target) &&
+                !menuToggle.contains(event.target)
+            ) {
+
+                siteMenu.hidden =
+                    true;
+
+
+                menuToggle.setAttribute(
+                    "aria-expanded",
+                    "false"
+                );
+
+
+                menuToggle.setAttribute(
+                    "aria-label",
+                    "Open navigation"
+                );
+
+            }
+
+        }
+    );
+
+
+    /* CLOSE AFTER CLICKING MENU LINK */
+
+    siteMenu
+        .querySelectorAll("a")
+        .forEach(
+            function(link) {
+
+                link.addEventListener(
+                    "click",
+                    function() {
+
+                        siteMenu.hidden =
+                            true;
+
+
+                        menuToggle.setAttribute(
+                            "aria-expanded",
+                            "false"
+                        );
+
+
+                        menuToggle.setAttribute(
+                            "aria-label",
+                            "Open navigation"
+                        );
+
+                    }
+                );
+
+            }
+        );
+
+}
+
+</script>
+
+</body>
+</html>
