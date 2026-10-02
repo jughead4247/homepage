@@ -280,7 +280,12 @@
     <url>
         <loc>https://apocalypsequizzes.com/war-for-the-planet-of-the-apes-quiz/</loc>
     </url>
-    
+
+    <!-- Kingdom of the Planet of the Apes -->
+    <url>
+        <loc> https://apocalypsequizzes.com/kingdom-of-the-planet-of-the-apes-quiz/</loc>
+    </url>
+
     <!-- Daybreak Quiz -->
     <url>
         <loc>https://apocalypsequizzes.com/daybreak-quiz/</loc>
