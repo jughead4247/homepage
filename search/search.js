@@ -762,6 +762,75 @@ const quizzes = [
 
         url:
             "https://apocalypsequizzes.com/rise-of-the-planet-of-the-apes-quiz/"
+    },
+
+    {
+        title: "Dawn of the Planet of the Apes Quiz",
+
+        description:
+            "Test your knowledge of Dawn of the Planet of the Apes, Caesar, Koba, Malcolm, the ape colony, and the conflict between apes and humans.",
+
+        categories:
+            "Dawn of the Planet of the Apes Dawn Planet of the Apes movie movie quiz Planet of the Apes Caesar Koba Malcolm Dreyfus Ellie Alexander Blue Eyes Cornelia Maurice Rocket Luca Ash Grey Simone Carver Foster McCullough ape colony apes chimpanzees gorillas orangutans humans survivors San Francisco Muir Woods dam power plant San Francisco Zoo Golden Gate Bridge ALZ-113 Simian Flu virus outbreak pandemic survival apocalypse post-apocalyptic science fiction",
+
+        url:
+            "https://apocalypsequizzes.com/dawn-of-the-planet-of-the-apes-quiz/"
+    },
+
+
+    {
+        title: "War for the Planet of the Apes Quiz",
+
+        description:
+            "Test your knowledge of War for the Planet of the Apes, Caesar, the Colonel, Koba's legacy, the apes, and the final conflict.",
+
+        categories:
+            "War for the Planet of the Apes War Planet of the Apes movie movie quiz Planet of the Apes Caesar Colonel McCullough Woody Harrelson Maurice Rocket Luca Cornelius Blue Eyes Cornelia Nova Bad Ape Donkey Winter Red Echo Winter ape colony apes chimpanzees gorillas orangutans humans soldiers Alpha Omega Koba San Francisco Redwood forest military prison dam border survival war apocalypse post-apocalyptic science fiction",
+
+        url:
+            "https://apocalypsequizzes.com/war-for-the-planet-of-the-apes-quiz/"
+    },
+
+
+    {
+        title: "Kingdom of the Planet of the Apes Quiz",
+
+        description:
+            "Test your knowledge of Kingdom of the Planet of the Apes, Noa, Mae, Raka, Proximus Caesar, the Eagle Clan, and the ape kingdoms.",
+
+        categories:
+            "Kingdom of the Planet of the Apes Kingdom Planet of the Apes movie movie quiz Planet of the Apes Noa Mae Raka Proximus Caesar Sylva Trevathan Soona Anaya Koro Eagle Clan ape clan apes chimpanzees gorillas orangutans humans Caesar legacy Caesar religion Eagle Clan Proximus Kingdom vaults human survivors coastal village dam Forbidden Zone archives technology staff eagles eagle eggs survival apocalypse post-apocalyptic science fiction",
+
+        url:
+            "https://apocalypsequizzes.com/kingdom-of-the-planet-of-the-apes-quiz/"
+    },
+
+
+    {
+        title: "Daybreak Quiz",
+
+        description:
+            "Test your knowledge of Daybreak, Josh, Sam, Angelica, Wesley, Turbo, Ms. Crumble, the tribes, and the post-apocalyptic world.",
+
+        categories:
+            "Daybreak Daybreak TV show Daybreak series Netflix Josh Wheeler Sam Dean Angelica Green Wesley Fists Turbo Ms Crumble Principal Burr Eli Cardashyan Mona Lisa Eli Cardashyan Cheermazons Jocks Game Overs STEM Punks Ghoulies tribes survivors Glendale California post-apocalyptic apocalypse zombies nuclear explosion survival teenagers high school apocalypse comedy drama",
+
+        url:
+            "https://apocalypsequizzes.com/daybreak-quiz/"
+    },
+
+
+    {
+        title: "Battleship Quiz",
+
+        description:
+            "Test your knowledge of Battleship, Alex Hopper, the RIMPAC exercise, the alien invasion, the U.S. Navy ships, and the battle for Earth.",
+
+        categories:
+            "Battleship Battleship movie movie quiz Alex Hopper Stone Hopper Sam Shane Admiral Shane Yugi Nagata Mick Canales Cal Zapata Walter Lynch Nathan Nagata USS John Paul Jones USS Sampson USS Missouri JDS Myoko RIMPAC Pacific Rim Rim of the Pacific Exercise Navy US Navy Japanese Navy NOAA buoys aliens extraterrestrial invasion Planet G Shredders alien ships alien technology Oahu Hawaii Pearl Harbor Honolulu naval battle ocean military survival apocalypse science fiction action movie",
+
+        url:
+            "https://apocalypsequizzes.com/battleship-quiz/"
     }
 
 ];
