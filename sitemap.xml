@@ -290,4 +290,9 @@
     <url>
         <loc>https://apocalypsequizzes.com/daybreak-quiz/</loc>
     </url>
+
+    <!-- Battleship Quiz -->
+    <url>
+        <loc>https://apocalypsequizzes.com/battleship-quiz/</loc>
+    </url>
 </urlset>
