@@ -630,7 +630,7 @@ submitBtn.disabled =
 try {
 
     const result =
-        window.calculateFinalPersonality(
+        window.calculatePersonality(
             answerIndexes
         );
 
