@@ -102,23 +102,23 @@ const questions =
 window.TWD_PERSONALITY_QUESTIONS || [];
 
 if (
-!questions.length ||
-typeof window.calculateFinalPersonality !== "function"
+    !questions.length ||
+    typeof window.calculatePersonality !== "function"
 ) {
 
-console.error(
-    "TWD personality engine was not loaded correctly."
-);
+    console.error(
+        "TWD personality engine was not loaded correctly."
+    );
 
-if (startBtn) {
+    if (startBtn) {
 
-    startBtn.disabled = true;
+        startBtn.disabled = true;
 
-    startBtn.textContent =
-        "QUIZ DATA ERROR";
-}
+        startBtn.textContent =
+            "QUIZ DATA ERROR";
+    }
 
-return;
+    return;
 
 }
 
