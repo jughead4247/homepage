@@ -964,11 +964,11 @@ const questions = [
             traits: ["morality","pragmatism"],
             affinity: {michonne:3, rick:2}
         },
-        {
-            text: "Kill them before they get another opportunity.",
-            traits: ["ruthlessness","survival"],
-            affinity: {shane:3, governor:3, gareth:2}
-        },
+       {
+    text: "Kill them before they get another opportunity.",
+    traits: ["ruthlessness","survival"],
+    affinity: {shane:3, governor:3, gareth:3}
+},
         {
             text: "Let the group decide rather than making the choice yourself.",
             traits: ["trust","morality"],
@@ -1113,10 +1113,10 @@ const questions = [
             affinity: {carol:4, eugene:3}
         },
         {
-            text: "If one person must be sacrificed to save dozens, consider it.",
-            traits: ["pragmatism","survival"],
-            affinity: {gregory:4, governor:3}
-        },
+    text: "If one person must be sacrificed to save dozens, consider it.",
+    traits: ["pragmatism","survival"],
+    affinity: {gregory:4, governor:3, gareth:2}
+},
         {
             text: "Try to negotiate a different price.",
             traits: ["charisma","strategy"],
@@ -1220,10 +1220,10 @@ const questions = [
             affinity: {rick:3, michonne:3}
         },
         {
-            text: "Use it now to eliminate a dangerous enemy.",
-            traits: ["ruthlessness","courage"],
-            affinity: {shane:3, governor:3, gareth:2}
-        },
+    text: "Use it now to eliminate a dangerous enemy.",
+    traits: ["ruthlessness","courage"],
+    affinity: {shane:3, governor:3, gareth:3}
+},
         {
             text: "Use it only if innocent people are directly threatened.",
             traits: ["morality","loyalty"],
@@ -1293,10 +1293,10 @@ const questions = [
             affinity: {glenn:4, hershel:2}
         },
         {
-            text: "Take the food. Survival sometimes requires uncomfortable choices.",
-            traits: ["pragmatism","survival"],
-            affinity: {gregory:4, governor:2}
-        },
+    text: "Take the food. Survival sometimes requires uncomfortable choices.",
+    traits: ["pragmatism","survival"],
+    affinity: {gregory:4, governor:2, gareth:2}
+},
         {
             text: "Use the offer to negotiate for even more information.",
             traits: ["charisma","manipulation"],
@@ -1361,10 +1361,10 @@ const questions = [
             affinity: {ezekiel:4, glenn:3}
         },
         {
-            text: "Assess whether their supplies could help your group.",
-            traits: ["pragmatism","survival"],
-            affinity: {eugene:3, gregory:4}
-        },
+    text: "Assess whether their supplies could help your group.",
+    traits: ["pragmatism","survival"],
+    affinity: {eugene:3, gregory:3, gareth:2}
+},
         {
             text: "Approach carefully and determine whether they could become a threat.",
             traits: ["strategy","survival"],
@@ -1468,10 +1468,10 @@ const questions = [
             affinity: {rick:3, maggie:3}
         },
         {
-            text: "Take the weapons first. Whoever controls them has leverage.",
-            traits: ["ruthlessness","pragmatism"],
-            affinity: {negan:4, governor:3}
-        }
+    text: "Take the weapons first. Whoever controls them has leverage.",
+    traits: ["ruthlessness","pragmatism"],
+    affinity: {negan:4, governor:3, gareth:2}
+}
     ]
 },
 
@@ -1531,10 +1531,10 @@ const questions = [
             affinity: {morgan:4, hershel:3}
         },
         {
-            text: "Create a plan that forces them to leave without realizing you caused it.",
-            traits: ["manipulation","strategy"],
-            affinity: {carol:5, governor:2}
-        },
+    text: "Create a plan that forces them to leave without realizing you caused it.",
+    traits: ["manipulation","strategy"],
+    affinity: {carol:5, governor:2, gareth:2}
+},
         {
             text: "Bring everyone together and make the decision as a group.",
             traits: ["leadership","loyalty"],
@@ -1555,35 +1555,59 @@ function validateQuiz() {
     const errors = [];
 
     if (questions.length !== 30) {
-        errors.push(`Expected 30 questions, found ${questions.length}.`);
+        errors.push(
+            `Expected 30 questions, found ${questions.length}.`
+        );
     }
 
     const characterIds = Object.keys(CHARACTERS);
 
     if (characterIds.length !== 19) {
-        errors.push(`Expected 19 characters, found ${characterIds.length}.`);
+        errors.push(
+            `Expected 19 characters, found ${characterIds.length}.`
+        );
     }
+
+
+    /* --------------------------------------------------------
+       Validate every question
+    -------------------------------------------------------- */
 
     questions.forEach((q, qi) => {
 
         if (!q.question || typeof q.question !== "string") {
-            errors.push(`Question ${qi + 1}: missing question text.`);
+
+            errors.push(
+                `Question ${qi + 1}: missing question text.`
+            );
+
         }
 
-        if (!Array.isArray(q.answers) || q.answers.length !== 5) {
+        if (!Array.isArray(q.answers) ||
+            q.answers.length !== 5) {
+
             errors.push(
                 `Question ${qi + 1}: expected exactly 5 answers.`
             );
+
             return;
         }
+
 
         q.answers.forEach((answer, ai) => {
 
             if (!answer.text) {
+
                 errors.push(
                     `Question ${qi + 1}, answer ${ai + 1}: missing text.`
                 );
+
             }
+
+
+            /* ------------------------------------------------
+               Trait validation
+            ------------------------------------------------ */
 
             if (!Array.isArray(answer.traits) ||
                 answer.traits.length < 2) {
@@ -1591,41 +1615,77 @@ function validateQuiz() {
                 errors.push(
                     `Question ${qi + 1}, answer ${ai + 1}: invalid traits.`
                 );
+
             }
+
 
             (answer.traits || []).forEach(trait => {
 
                 if (!TRAIT_KEYS.includes(trait)) {
+
                     errors.push(
-                        `Question ${qi + 1}, answer ${ai + 1}: unknown trait "${trait}".`
+                        `Question ${qi + 1}, answer ${ai + 1}: ` +
+                        `unknown trait "${trait}".`
                     );
+
                 }
+
             });
+
+
+            /* ------------------------------------------------
+               Affinity validation
+            ------------------------------------------------ */
 
             if (!answer.affinity ||
                 typeof answer.affinity !== "object") {
 
                 errors.push(
-                    `Question ${qi + 1}, answer ${ai + 1}: missing affinity.`
+                    `Question ${qi + 1}, answer ${ai + 1}: ` +
+                    `missing affinity.`
                 );
 
             } else {
 
-                Object.keys(answer.affinity).forEach(id => {
+                Object.entries(answer.affinity).forEach(
+                    ([id, value]) => {
 
-                    if (!CHARACTERS[id]) {
-                        errors.push(
-                            `Question ${qi + 1}, answer ${ai + 1}: unknown character "${id}".`
-                        );
+                        if (!CHARACTERS[id]) {
+
+                            errors.push(
+                                `Question ${qi + 1}, answer ${ai + 1}: ` +
+                                `unknown character "${id}".`
+                            );
+
+                        }
+
+
+                        if (
+                            typeof value !== "number" ||
+                            !Number.isFinite(value) ||
+                            value <= 0
+                        ) {
+
+                            errors.push(
+                                `Question ${qi + 1}, answer ${ai + 1}: ` +
+                                `invalid affinity value for "${id}".`
+                            );
+
+                        }
+
                     }
-
-                });
+                );
 
             }
 
         });
 
     });
+
+
+    /* --------------------------------------------------------
+       Character validation
+    -------------------------------------------------------- */
 
     characterIds.forEach(id => {
 
@@ -1637,17 +1697,36 @@ function validateQuiz() {
             errors.push(
                 `${id}: expected ${TRAIT_KEYS.length} trait scores.`
             );
+
         }
+
 
         if (!CHARACTER_SIGNATURES[id]) {
-            errors.push(`${id}: missing signature.`);
+
+            errors.push(
+                `${id}: missing signature.`
+            );
+
         }
 
+
         if (CHARACTER_ACCESSIBILITY[id] === undefined) {
-            errors.push(`${id}: missing accessibility.`);
+
+            errors.push(
+                `${id}: missing accessibility.`
+            );
+
         }
 
     });
+
+
+    /* --------------------------------------------------------
+       Count affinity routes
+       
+       Every character should have several independent ways
+       to reach them through answer choices.
+    -------------------------------------------------------- */
 
     const affinityCounts = {};
 
@@ -1655,27 +1734,54 @@ function validateQuiz() {
         affinityCounts[id] = 0;
     });
 
+
     questions.forEach(q => {
 
         q.answers.forEach(answer => {
 
             Object.keys(answer.affinity || {}).forEach(id => {
-                affinityCounts[id]++;
+
+                if (affinityCounts[id] !== undefined) {
+                    affinityCounts[id]++;
+                }
+
             });
 
         });
 
     });
 
+
+    /* --------------------------------------------------------
+       Minimum route requirement
+       
+       Five is intentional.
+
+       A character should not depend on only 2–3 answers
+       across a 30-question quiz.
+    -------------------------------------------------------- */
+
+    const MIN_AFFINITY_ROUTES = 5;
+
+
     characterIds.forEach(id => {
 
-        if (affinityCounts[id] < 3) {
+        if (affinityCounts[id] < MIN_AFFINITY_ROUTES) {
+
             errors.push(
-                `${id}: only ${affinityCounts[id]} affinity routes.`
+                `${id}: only ${affinityCounts[id]} ` +
+                `affinity routes. Minimum required: ` +
+                `${MIN_AFFINITY_ROUTES}.`
             );
+
         }
 
     });
+
+
+    /* --------------------------------------------------------
+       Validation failed
+    -------------------------------------------------------- */
 
     if (errors.length) {
 
@@ -1684,11 +1790,29 @@ function validateQuiz() {
             errors
         );
 
+        console.table(
+            characterIds.map(id => ({
+                Character: CHARACTERS[id].name,
+                ID: id,
+                "Affinity Routes": affinityCounts[id],
+                Required: MIN_AFFINITY_ROUTES,
+                Status:
+                    affinityCounts[id] >= MIN_AFFINITY_ROUTES
+                        ? "PASS"
+                        : "FAIL"
+            }))
+        );
+
         return false;
     }
 
+
+    /* --------------------------------------------------------
+       Validation passed
+    -------------------------------------------------------- */
+
     console.log(
-        `%cTHE WALKING DEAD QUIZ VALIDATION PASSED`,
+        "%cTHE WALKING DEAD QUIZ VALIDATION PASSED",
         "font-weight:bold;"
     );
 
@@ -1701,12 +1825,26 @@ function validateQuiz() {
     );
 
     console.log(
-        "All characters have multiple affinity routes."
+        `Minimum affinity routes: ${MIN_AFFINITY_ROUTES}`
     );
+
+
+    console.table(
+        characterIds.map(id => ({
+            Character: CHARACTERS[id].name,
+            ID: id,
+            "Affinity Routes": affinityCounts[id]
+        }))
+    );
+
+
+    console.log(
+        "All 19 characters have sufficient affinity routes."
+    );
+
 
     return true;
 }
-
 
 /* ============================================================
    8. ANSWER PROFILE
