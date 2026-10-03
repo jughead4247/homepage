@@ -1,6 +1,6 @@
 /* ============================================================
    THE WALKING DEAD — PERSONALITY QUIZ ENGINE
-   v2 — CHARACTER-FIRST EDITION
+   v3 — CHARACTER-FIRST BALANCED EDITION
 
    30 questions
    18 TWD-specific situations
@@ -17,7 +17,23 @@
    - no random result selection
    - character affinity + personality traits
    - strong character identity without making questions obvious
+   - balanced result distribution
    - built-in 100,000-run distribution simulator
+
+   v3 BALANCING:
+   - Core signature reduced
+   - Hidden affinity increased
+   - Overall trait influence slightly reduced
+   - Secondary signature influence slightly increased
+   - Signature activation reduced
+   - Accessibility compressed into a small bonus
+   - Affinity conversion strengthened
+
+   IMPORTANT:
+   This is an entertainment personality quiz.
+   The balancing is intentionally designed for variety and
+   enjoyable character results rather than scientific
+   personality measurement.
 ============================================================ */
 
 
@@ -310,9 +326,18 @@ const CHARACTERS = {
 /* ============================================================
    4. CHARACTER IMPORTANCE / ACCESSIBILITY
 
-   Higher = easier to reach.
+   Higher = slightly easier to reach.
 
-   This is intentional entertainment balancing.
+   IMPORTANT v3 CHANGE:
+   The original values (3.8–8.0) were being added directly
+   to the final score.
+
+   That was too strong.
+
+   We now convert the importance scale into only 0–2.5 points.
+
+   This keeps major characters somewhat more accessible without
+   allowing accessibility to overpower the actual quiz answers.
 ============================================================ */
 
 const CHARACTER_ACCESSIBILITY = {
@@ -342,6 +367,46 @@ const CHARACTER_ACCESSIBILITY = {
     gregory: 3.8,
     dawn: 3.8
 };
+
+
+/* ============================================================
+   ACCESSIBILITY SETTINGS
+============================================================ */
+
+const ACCESSIBILITY_MIN = 3.8;
+const ACCESSIBILITY_MAX = 8.0;
+const ACCESSIBILITY_BONUS_MAX = 2.5;
+
+
+function calculateAccessibilityBonus(characterId) {
+
+    const value =
+        Number(
+            CHARACTER_ACCESSIBILITY[characterId]
+        );
+
+    if (!Number.isFinite(value)) {
+        return 0;
+    }
+
+    const normalized =
+        (
+            value -
+            ACCESSIBILITY_MIN
+        ) /
+        (
+            ACCESSIBILITY_MAX -
+            ACCESSIBILITY_MIN
+        );
+
+    return Math.max(
+        0,
+        Math.min(
+            ACCESSIBILITY_BONUS_MAX,
+            normalized * ACCESSIBILITY_BONUS_MAX
+        )
+    );
+}
 
 
 /* ============================================================
@@ -964,11 +1029,11 @@ const questions = [
             traits: ["morality","pragmatism"],
             affinity: {michonne:3, rick:2}
         },
-       {
-    text: "Kill them before they get another opportunity.",
-    traits: ["ruthlessness","survival"],
-    affinity: {shane:3, governor:3, gareth:3}
-},
+        {
+            text: "Kill them before they get another opportunity.",
+            traits: ["ruthlessness","survival"],
+            affinity: {shane:3, governor:3, gareth:3}
+        },
         {
             text: "Let the group decide rather than making the choice yourself.",
             traits: ["trust","morality"],
@@ -1113,10 +1178,10 @@ const questions = [
             affinity: {carol:4, eugene:3}
         },
         {
-    text: "If one person must be sacrificed to save dozens, consider it.",
-    traits: ["pragmatism","survival"],
-    affinity: {gregory:4, governor:3, gareth:2}
-},
+            text: "If one person must be sacrificed to save dozens, consider it.",
+            traits: ["pragmatism","survival"],
+            affinity: {gregory:4, governor:3, gareth:2}
+        },
         {
             text: "Try to negotiate a different price.",
             traits: ["charisma","strategy"],
@@ -1220,10 +1285,10 @@ const questions = [
             affinity: {rick:3, michonne:3}
         },
         {
-    text: "Use it now to eliminate a dangerous enemy.",
-    traits: ["ruthlessness","courage"],
-    affinity: {shane:3, governor:3, gareth:3}
-},
+            text: "Use it now to eliminate a dangerous enemy.",
+            traits: ["ruthlessness","courage"],
+            affinity: {shane:3, governor:3, gareth:3}
+        },
         {
             text: "Use it only if innocent people are directly threatened.",
             traits: ["morality","loyalty"],
@@ -1293,10 +1358,10 @@ const questions = [
             affinity: {glenn:4, hershel:2}
         },
         {
-    text: "Take the food. Survival sometimes requires uncomfortable choices.",
-    traits: ["pragmatism","survival"],
-    affinity: {gregory:4, governor:2, gareth:2}
-},
+            text: "Take the food. Survival sometimes requires uncomfortable choices.",
+            traits: ["pragmatism","survival"],
+            affinity: {gregory:4, governor:2, gareth:2}
+        },
         {
             text: "Use the offer to negotiate for even more information.",
             traits: ["charisma","manipulation"],
@@ -1361,10 +1426,10 @@ const questions = [
             affinity: {ezekiel:4, glenn:3}
         },
         {
-    text: "Assess whether their supplies could help your group.",
-    traits: ["pragmatism","survival"],
-    affinity: {eugene:3, gregory:3, gareth:2}
-},
+            text: "Assess whether their supplies could help your group.",
+            traits: ["pragmatism","survival"],
+            affinity: {eugene:3, gregory:3, gareth:2}
+        },
         {
             text: "Approach carefully and determine whether they could become a threat.",
             traits: ["strategy","survival"],
@@ -1468,10 +1533,10 @@ const questions = [
             affinity: {rick:3, maggie:3}
         },
         {
-    text: "Take the weapons first. Whoever controls them has leverage.",
-    traits: ["ruthlessness","pragmatism"],
-    affinity: {negan:4, governor:3, gareth:2}
-}
+            text: "Take the weapons first. Whoever controls them has leverage.",
+            traits: ["ruthlessness","pragmatism"],
+            affinity: {negan:4, governor:3, gareth:2}
+        }
     ]
 },
 
@@ -1531,10 +1596,10 @@ const questions = [
             affinity: {morgan:4, hershel:3}
         },
         {
-    text: "Create a plan that forces them to leave without realizing you caused it.",
-    traits: ["manipulation","strategy"],
-    affinity: {carol:5, governor:2, gareth:2}
-},
+            text: "Create a plan that forces them to leave without realizing you caused it.",
+            traits: ["manipulation","strategy"],
+            affinity: {carol:5, governor:2, gareth:2}
+        },
         {
             text: "Bring everyone together and make the decision as a group.",
             traits: ["leadership","loyalty"],
@@ -1723,9 +1788,6 @@ function validateQuiz() {
 
     /* --------------------------------------------------------
        Count affinity routes
-       
-       Every character should have several independent ways
-       to reach them through answer choices.
     -------------------------------------------------------- */
 
     const affinityCounts = {};
@@ -1751,15 +1813,6 @@ function validateQuiz() {
 
     });
 
-
-    /* --------------------------------------------------------
-       Minimum route requirement
-       
-       Five is intentional.
-
-       A character should not depend on only 2–3 answers
-       across a 30-question quiz.
-    -------------------------------------------------------- */
 
     const MIN_AFFINITY_ROUTES = 5;
 
@@ -1846,6 +1899,7 @@ function validateQuiz() {
     return true;
 }
 
+
 /* ============================================================
    8. ANSWER PROFILE
 ============================================================ */
@@ -1901,10 +1955,6 @@ function calculatePersonality(answerIndexes) {
 
     /*
        Normalize trait scores to 0–100.
-
-       Each trait can appear a different number of times
-       in the question bank, so we calculate actual
-       theoretical minimum/maximum values.
     */
 
     const minScores = {};
@@ -2127,9 +2177,16 @@ function calculateOverallTraitScore(
 /* ============================================================
    13. SIGNATURE ACTIVATION
 
-   Non-linear.
+   v3 BALANCE CHANGE
 
-   Matching 3–4 defining traits is deliberately valuable.
+   Original maximum:
+       +24
+
+   New maximum:
+       +12
+
+   The signature still matters, but it cannot overwhelm
+   the hidden answer routes.
 ============================================================ */
 
 function calculateSignatureActivation(
@@ -2171,66 +2228,101 @@ function calculateSignatureActivation(
 
     let bonus = 0;
 
+
     /*
        Two defining traits matching strongly.
+       v3: +2 instead of +5
     */
 
     if (veryClose >= 2) {
-        bonus += 5;
+        bonus += 2;
     }
+
 
     /*
        Three defining traits matching strongly.
+       v3: +3 instead of +7
     */
 
     if (veryClose >= 3) {
-        bonus += 7;
+        bonus += 3;
     }
+
 
     /*
        All four defining traits.
+       v3: +4 instead of +8
     */
 
     if (veryClose >= 4) {
-        bonus += 8;
+        bonus += 4;
     }
+
 
     /*
        Three reasonably close traits.
+       v3: +1 instead of +4
     */
 
     if (close + veryClose >= 3) {
-        bonus += 4;
+        bonus += 1;
     }
+
 
     /*
        Four reasonably close traits.
+       v3: +1 instead of +4
     */
 
     if (close + veryClose >= 4) {
-        bonus += 4;
+        bonus += 1;
     }
+
 
     /*
        A weaker but still recognizable profile.
+       v3: +1 instead of +2
     */
 
     if (
         moderate + close + veryClose >= 4 &&
         veryClose >= 1
     ) {
-        bonus += 2;
+        bonus += 1;
     }
 
-    return Math.min(24, bonus);
+
+    /*
+       Absolute ceiling.
+
+       This guarantees that signature activation cannot
+       become the dominant mechanism.
+    */
+
+    return Math.min(
+        12,
+        bonus
+    );
 }
 
 
 /* ============================================================
    14. CHARACTER ROUTE MATCH
 
-   Direct hidden affinity is intentionally important,
-   but not enough by itself.
+   v3 CHANGE:
+
+   Original:
+       raw * 3.5
+
+   New:
+       raw * 4.5
+
+   Hidden answer choices therefore have substantially more
+   influence on the final character result.
+
+   This is especially important for characters whose overall
+   personality profile is less generic or less similar to
+   the average answer pattern.
 ============================================================ */
 
 function calculateAffinityScore(
@@ -2243,21 +2335,34 @@ function calculateAffinityScore(
             characterAffinity?.[characterId] || 0
         );
 
-    /*
-       Maximum normal route is roughly 30–50.
 
-       Convert to a controlled 0–100 contribution.
+    /*
+       Stronger conversion than v2.
+
+       The cap remains 100 so an unusually large affinity
+       accumulation cannot exceed the entire scoring scale.
     */
 
     return Math.min(
         100,
-        raw * 3.5
+        raw * 4.5
     );
 }
 
 
 /* ============================================================
    15. FINAL CHARACTER MATCH
+
+   v3 BALANCE:
+
+       Core signature       28%
+       Hidden affinity      38%
+       Overall personality  17%
+       Secondary traits     12%
+       Baseline              5%
+
+       Signature activation  +0 to +12
+       Accessibility         +0 to +2.5
 ============================================================ */
 
 function calculateCharacterMatch(
@@ -2270,12 +2375,14 @@ function calculateCharacterMatch(
     const signature =
         CHARACTER_SIGNATURES[characterId];
 
+
     const coreScore =
         calculateCoreSignatureScore(
             userProfile,
             character,
             signature
         );
+
 
     const secondaryScore =
         calculateSecondaryScore(
@@ -2284,17 +2391,20 @@ function calculateCharacterMatch(
             signature
         );
 
+
     const overallScore =
         calculateOverallTraitScore(
             userProfile,
             character
         );
 
+
     const affinityScore =
         calculateAffinityScore(
             characterId,
             characterAffinity
         );
+
 
     const activation =
         calculateSignatureActivation(
@@ -2305,46 +2415,40 @@ function calculateCharacterMatch(
 
 
     /*
-       CHARACTER-FIRST BALANCE
-
-       Core signature:
-       35%
-
-       Hidden answer route:
-       30%
-
-       Overall personality:
-       20%
-
-       Secondary personality:
-       10%
-
-       Small remaining component:
-       5%
+       v3 CHARACTER-FIRST BALANCE
     */
 
     let score =
-        coreScore * 0.35 +
-        affinityScore * 0.30 +
-        overallScore * 0.20 +
-        secondaryScore * 0.10 +
+        coreScore * 0.28 +
+        affinityScore * 0.38 +
+        overallScore * 0.17 +
+        secondaryScore * 0.12 +
         50 * 0.05;
 
 
     /*
        Signature activation.
+
+       Limited to a maximum of +12.
     */
 
     score += activation;
 
 
     /*
-       Accessibility makes major characters somewhat easier
-       to reach, but cannot rescue a terrible match.
+       Major characters retain a small accessibility advantage.
+
+       IMPORTANT:
+       This is now approximately 0–2.5 points rather than
+       the previous 3.8–8.0 points.
     */
 
-    score +=
-        CHARACTER_ACCESSIBILITY[characterId] || 0;
+    const accessibilityBonus =
+        calculateAccessibilityBonus(
+            characterId
+        );
+
+    score += accessibilityBonus;
 
 
     /*
@@ -2353,7 +2457,10 @@ function calculateCharacterMatch(
 
     return Math.min(
         100,
-        Math.max(0, score)
+        Math.max(
+            0,
+            score
+        )
     );
 }
 
@@ -2378,49 +2485,71 @@ function calculateFinalPersonality(
         personality.characterAffinity;
 
 
-    const results = Object.entries(CHARACTERS)
-        .map(([id, character]) => {
+    const results =
+        Object.entries(CHARACTERS)
+            .map(([id, character]) => {
 
-            const rawScore =
-                calculateCharacterMatch(
-                    userProfile,
-                    character,
-                    id,
-                    characterAffinity
-                );
-
-            return {
-                id,
-                name: character.name,
-                image: character.image,
-
-                score: rawScore,
-
-                affinity:
-                    characterAffinity[id] || 0,
-
-                coreSignature:
-                    calculateCoreSignatureScore(
+                const rawScore =
+                    calculateCharacterMatch(
                         userProfile,
                         character,
-                        CHARACTER_SIGNATURES[id]
-                    ),
+                        id,
+                        characterAffinity
+                    );
 
-                overall:
-                    calculateOverallTraitScore(
-                        userProfile,
-                        character
-                    )
-            };
 
-        });
+                return {
+                    id,
+                    name: character.name,
+                    image: character.image,
+
+                    score: rawScore,
+
+                    affinity:
+                        characterAffinity[id] || 0,
+
+                    coreSignature:
+                        calculateCoreSignatureScore(
+                            userProfile,
+                            character,
+                            CHARACTER_SIGNATURES[id]
+                        ),
+
+                    overall:
+                        calculateOverallTraitScore(
+                            userProfile,
+                            character
+                        ),
+
+                    secondary:
+                        calculateSecondaryScore(
+                            userProfile,
+                            character,
+                            CHARACTER_SIGNATURES[id]
+                        ),
+
+                    accessibilityBonus:
+                        calculateAccessibilityBonus(id),
+
+                    activation:
+                        calculateSignatureActivation(
+                            userProfile,
+                            character,
+                            CHARACTER_SIGNATURES[id]
+                        )
+                };
+
+            });
 
 
     /*
-       Small deterministic near-match bonus.
+       Deterministic sorting.
 
-       This makes close alternatives feel competitive,
-       but does NOT use randomness.
+       1. Final score
+       2. Hidden affinity
+       3. Character ID
+
+       No random tie breaking.
     */
 
     results.sort((a, b) => {
@@ -2442,9 +2571,14 @@ function calculateFinalPersonality(
        Keep the top three.
     */
 
-    const winner = results[0] || null;
-    const second = results[1] || null;
-    const third = results[2] || null;
+    const winner =
+        results[0] || null;
+
+    const second =
+        results[1] || null;
+
+    const third =
+        results[2] || null;
 
 
     /*
@@ -2458,7 +2592,10 @@ function calculateFinalPersonality(
                 name: TWD_TRAITS[trait],
                 score: userProfile[trait]
             }))
-            .sort((a, b) => b.score - a.score);
+            .sort(
+                (a, b) =>
+                    b.score - a.score
+            );
 
 
     return {
@@ -2471,7 +2608,8 @@ function calculateFinalPersonality(
 
         results,
 
-        profile: userProfile,
+        profile:
+            userProfile,
 
         rawScores:
             personality.rawScores,
@@ -2594,14 +2732,19 @@ function simulateTWDResults(
 
 
         if (result.winner) {
+
             counts[result.winner.id]++;
+
             scoreTotals[result.winner.id] +=
                 result.winner.score;
+
         }
+
 
         if (result.second) {
             secondCounts[result.second.id]++;
         }
+
 
         if (result.third) {
             thirdCounts[result.third.id]++;
@@ -2622,7 +2765,8 @@ function simulateTWDResults(
                     Character:
                         character.name,
 
-                    ID: id,
+                    ID:
+                        id,
 
                     "#1":
                         counts[id],
@@ -2679,7 +2823,9 @@ function simulateTWDResults(
 
     console.log(
         `Characters appearing: ${
-            rows.filter(r => r["#1"] > 0).length
+            rows.filter(
+                r => r["#1"] > 0
+            ).length
         } / 19`
     );
 
@@ -2695,13 +2841,16 @@ function simulateTWDResults(
             row => row["#1"] === 0
         );
 
+
     if (zeroWins.length) {
 
         console.warn(
             "CHARACTERS WITH ZERO WINS:"
         );
 
-        console.table(zeroWins);
+        console.table(
+            zeroWins
+        );
 
     } else {
 
@@ -2721,10 +2870,12 @@ function simulateTWDResults(
         rows[0]["#1"] +
         rows[1]["#1"];
 
+
     const topTwoPercent =
         topTwo /
         simulations *
         100;
+
 
     console.log(
         `Top two characters combined: ${
@@ -2755,12 +2906,39 @@ function simulateTWDResults(
     }
 
 
+    /*
+       Additional distribution diagnostics.
+
+       These make it easier to see whether the lower-frequency
+       characters are actually reachable.
+    */
+
+    const lowestFive =
+        rows
+            .slice()
+            .sort(
+                (a, b) =>
+                    a["#1"] - b["#1"]
+            )
+            .slice(0, 5);
+
+
+    console.log(
+        "\nLowest five result frequencies:"
+    );
+
+    console.table(
+        lowestFive
+    );
+
+
     window.TWD_SIMULATION_RESULTS = {
         seed,
         simulations,
         rows,
         zeroWins
     };
+
 
     return window.TWD_SIMULATION_RESULTS;
 }
@@ -2780,14 +2958,17 @@ function testTWDQuiz() {
     const answers =
         questions.map(() => 0);
 
+
     const result =
         calculateFinalPersonality(
             answers
         );
 
+
     console.log(
         "TWD TEST RESULT"
     );
+
 
     console.table([
         result.winner,
@@ -2795,12 +2976,82 @@ function testTWDQuiz() {
         result.third
     ]);
 
+
     return result;
 }
 
 
 /* ============================================================
-   20. EXPOSE GLOBALS
+   20. ADDITIONAL BALANCE TESTS
+============================================================ */
+
+/*
+   Test every single answer position.
+
+   This is NOT used by the actual quiz.
+
+   It checks whether choosing the same answer position
+   throughout the quiz produces a valid deterministic result.
+*/
+
+function testAllAnswerPatterns() {
+
+    const results = [];
+
+    for (let answerIndex = 0; answerIndex < 5; answerIndex++) {
+
+        const answers =
+            questions.map(
+                () => answerIndex
+            );
+
+        const result =
+            calculateFinalPersonality(
+                answers
+            );
+
+        results.push({
+
+            AnswerPosition:
+                answerIndex + 1,
+
+            Winner:
+                result.winner
+                    ? result.winner.name
+                    : "None",
+
+            Score:
+                result.winner
+                    ? result.winner.score.toFixed(2)
+                    : "—",
+
+            Second:
+                result.second
+                    ? result.second.name
+                    : "None",
+
+            Third:
+                result.third
+                    ? result.third.name
+                    : "None"
+
+        });
+
+    }
+
+
+    console.log(
+        "\nTWD ALL-ANSWER-POSITION TEST"
+    );
+
+    console.table(results);
+
+    return results;
+}
+
+
+/* ============================================================
+   21. EXPOSE GLOBALS
 ============================================================ */
 
 window.TWD_TRAITS =
@@ -2836,27 +3087,64 @@ window.simulateTWDResults =
 window.testTWDQuiz =
     testTWDQuiz;
 
+window.testAllAnswerPatterns =
+    testAllAnswerPatterns;
+
+window.calculateAccessibilityBonus =
+    calculateAccessibilityBonus;
+
 
 /* ============================================================
-   21. RUN VALIDATION
+   22. RUN VALIDATION
 ============================================================ */
 
 validateQuiz();
 
 
 /*
-   Uncomment this in the browser console to run:
+   Browser console commands:
+
+   ------------------------------------------------------------
+   Main distribution test
+   ------------------------------------------------------------
 
    simulateTWDResults(100000, 20261003);
 
-   Or simply:
 
-   simulateTWDResults();
+   ------------------------------------------------------------
+   Quick deterministic test
+   ------------------------------------------------------------
+
+   testTWDQuiz();
+
+
+   ------------------------------------------------------------
+   Test all five answer positions
+   ------------------------------------------------------------
+
+   testAllAnswerPatterns();
+
+
+   ------------------------------------------------------------
+   Inspect one character's accessibility
+   ------------------------------------------------------------
+
+   calculateAccessibilityBonus("rick");
+   calculateAccessibilityBonus("dawn");
+
+
+   ------------------------------------------------------------
+   Inspect actual result from chosen answers
+   ------------------------------------------------------------
+
+   calculateFinalPersonality(
+       window.TWD_QUIZ_UI.getAnswers()
+   );
 */
 
 
 console.log(
-    "%cTWD Personality Quiz v2 loaded.",
+    "%cTWD Personality Quiz v3 loaded.",
     "font-weight:bold;"
 );
 
