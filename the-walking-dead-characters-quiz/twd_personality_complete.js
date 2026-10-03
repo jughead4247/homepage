@@ -2887,11 +2887,11 @@ function calculateRouteIdentityBonus(characterId, rawAffinity) {
         (Number(rawAffinity) || 0) / maximum
     ));
 
-    if (ratio >= 0.72) return 3.5;
-    if (ratio >= 0.58) return 2.75;
-    if (ratio >= 0.44) return 1.75;
-    if (ratio >= 0.30) return 0.85;
-    if (ratio >= 0.18) return 0.20;
+    if (ratio >= 0.72) return 5.0;
+    if (ratio >= 0.58) return 4.0;
+    if (ratio >= 0.44) return 2.5;
+    if (ratio >= 0.30) return 1.25;
+    if (ratio >= 0.18) return 0.35;
     return 0;
 }
 
@@ -2976,31 +2976,65 @@ function calculateCharacterMatch(
             ] || 0
         );
 
+    let score =
+        (coreScore * 0.30) +
+        (affinityScore * 0.40) +
+        (overallScore * 0.14) +
+        (secondaryScore * 0.10) +
+        (50 * 0.06);
 
-    const accessibility =
-        calculateAccessibilityBonus(
-            characterId
+
+    score += activation;
+    score += routeIdentity;
+
+
+    /*
+       Accessibility now affects the entire personality match.
+
+       Major characters receive a strong multiplier.
+       Supporting characters remain possible.
+       Minor characters are still possible, but need a
+       stronger personality/answer match to overcome the
+       accessibility disadvantage.
+    */
+
+    const accessibilityValue =
+        Number(
+            CHARACTER_ACCESSIBILITY[
+                characterId
+            ] || ACCESSIBILITY_MIN
+        );
+
+    const normalizedAccessibility =
+        Math.max(
+            0,
+            Math.min(
+                1,
+                (
+                    accessibilityValue -
+                    ACCESSIBILITY_MIN
+                ) /
+                (
+                    ACCESSIBILITY_MAX -
+                    ACCESSIBILITY_MIN
+                )
+            )
         );
 
 
-    let score =
-    (coreScore * 0.36) +
-    (affinityScore * 0.25) +
-    (overallScore * 0.17) +
-    (secondaryScore * 0.12) +
-    (50 * 0.10);
+    const accessibilityMultiplier =
+        0.55 +
+        (
+            0.45 *
+            Math.pow(
+                normalizedAccessibility,
+                1.8
+            )
+        );
 
 
-    score +=
-        activation;
-
-
-    score +=
-        routeIdentity;
-
-
-    score +=
-        accessibility;
+    score *=
+        accessibilityMultiplier;
 
 
     return Math.min(
