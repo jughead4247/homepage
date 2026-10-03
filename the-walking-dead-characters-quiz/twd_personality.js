@@ -744,12 +744,6 @@ function renderResult(result) {
             `You are most like ${winner.name}`;
     }
 
-    if (matchScore) {
-
-        matchScore.textContent =
-            formatScore(winner.score);
-    }
-
     if (winnerImage) {
 
         if (winner.image) {
@@ -774,10 +768,9 @@ function renderResult(result) {
 
     if (resultDescription) {
 
-        resultDescription.textContent =
-            `${winner.name} is your closest personality match based on your 16-trait profile. ` +
-            `Your decisions produced a ${formatScore(winner.score)} match with this character.`;
-    }
+    resultDescription.textContent =
+        `${winner.name} is your closest personality match based on your 16-trait profile.`;
+}
 
     /* -------------------------
        TOP 3 MATCHES
@@ -939,22 +932,10 @@ function renderTopMatches(matches) {
             name.textContent =
                 match.name;
 
-            const percent =
-                document.createElement(
-                    "div"
-                );
-
-            percent.className =
-                "match-percent";
-
-            percent.textContent =
-                formatScore(match.score);
-
             row.append(
                 rank,
                 image,
-                name,
-                percent
+                name
             );
 
             topMatches.appendChild(
