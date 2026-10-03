@@ -98,12 +98,22 @@ document.getElementById("trait-profile");
 ENGINE CHECK
 ============================================================ */
 
+/*
+   twd_personality_complete.js must load BEFORE this file.
+
+   The personality engine exports:
+   window.TWD_QUESTIONS
+   window.calculatePersonality
+   window.calculateFinalPersonality
+*/
+
 const questions =
-window.TWD_PERSONALITY_QUESTIONS || [];
+    window.TWD_QUESTIONS || [];
 
 if (
     !questions.length ||
-    typeof window.calculatePersonality !== "function"
+    typeof window.calculatePersonality !== "function" ||
+    typeof window.calculateFinalPersonality !== "function"
 ) {
 
     console.error(
@@ -119,16 +129,29 @@ if (
     }
 
     return;
-
 }
 
 /* ============================================================
 QUIZ STATE
 ============================================================ */
 
+/*
+   IMPORTANT:
+
+   The engine expects an ARRAY:
+
+   [
+       answerIndexForQuestion1,
+       answerIndexForQuestion2,
+       ...
+   ]
+
+   Therefore the UI also stores answers as an array.
+*/
+
 let currentQuestion = 0;
 
-let answerIndexes = {};
+let answerIndexes = [];
 
 let lastResult = null;
 
@@ -138,18 +161,28 @@ SCREEN CONTROL
 
 function showScreen(screen) {
 
-startScreen.classList.add("hidden");
+    if (!screen) {
+        return;
+    }
 
-quizScreen.classList.add("hidden");
+    if (startScreen) {
+        startScreen.classList.add("hidden");
+    }
 
-resultScreen.classList.add("hidden");
+    if (quizScreen) {
+        quizScreen.classList.add("hidden");
+    }
 
-screen.classList.remove("hidden");
+    if (resultScreen) {
+        resultScreen.classList.add("hidden");
+    }
 
-window.scrollTo({
-    top: 0,
-    behavior: "smooth"
-});
+    screen.classList.remove("hidden");
+
+    window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+    });
 
 }
 
@@ -159,33 +192,35 @@ START QUIZ
 
 function startQuiz() {
 
-currentQuestion = 0;
+    currentQuestion = 0;
 
-answerIndexes = {};
+    answerIndexes = [];
 
-lastResult = null;
+    lastResult = null;
 
-submitBtn.disabled = false;
+    if (submitBtn) {
+        submitBtn.disabled = false;
+    }
 
-if (homeInfo) {
+    if (homeInfo) {
 
-    homeInfo.classList.add(
-        "hidden"
+        homeInfo.classList.add(
+            "hidden"
+        );
+    }
+
+    if (suggestionsCard) {
+
+        suggestionsCard.classList.add(
+            "hidden"
+        );
+    }
+
+    showScreen(
+        quizScreen
     );
-}
 
-if (suggestionsCard) {
-
-    suggestionsCard.classList.add(
-        "hidden"
-    );
-}
-
-showScreen(
-    quizScreen
-);
-
-renderQuestion();
+    renderQuestion();
 
 }
 
@@ -195,26 +230,26 @@ GET CURRENT ANSWER
 
 function getSelectedIndex() {
 
-const question =
-    questions[currentQuestion];
+    const question =
+        questions[currentQuestion];
 
-if (!question) {
+    if (!question) {
+        return null;
+    }
+
+    const index =
+        answerIndexes[currentQuestion];
+
+    if (
+        Number.isInteger(index) &&
+        index >= 0 &&
+        index < question.answers.length
+    ) {
+
+        return index;
+    }
+
     return null;
-}
-
-const index =
-    answerIndexes[question.id];
-
-if (
-    Number.isInteger(index) &&
-    index >= 0 &&
-    index < question.answers.length
-) {
-
-    return index;
-}
-
-return null;
 
 }
 
@@ -224,128 +259,116 @@ RENDER CURRENT QUESTION
 
 function renderQuestion() {
 
-const question =
-    questions[currentQuestion];
+    const question =
+        questions[currentQuestion];
 
-if (!question) {
-    return;
-}
-
-if (!questionNumber) {
-
-    console.error(
-        "Missing HTML element: #question-number"
-    );
-
-    return;
-}
-
-if (!progressBar) {
-
-    console.error(
-        "Missing HTML element: #progress-bar"
-    );
-
-    return;
-}
-
-if (!questionElement) {
-
-    console.error(
-        "Missing HTML element: #question"
-    );
-
-    return;
-}
-
-if (!answersElement) {
-
-    console.error(
-        "Missing HTML element: #answers"
-    );
-
-    return;
-}
-
-
-questionNumber.textContent =
-    `Question ${currentQuestion + 1} of ${questions.length}`;
-
-
-const percent =
-    Math.round(
-        ((currentQuestion + 1) /
-            questions.length) * 100
-    );
-
-
-if (progressText) {
-
-    progressText.textContent =
-        `${percent}%`;
-}
-
-
-progressBar.style.width =
-    `${percent}%`;
-
-
-questionElement.textContent =
-    question.question;
-
-
-answersElement.innerHTML = "";
-
-
-const selectedIndex =
-    getSelectedIndex();
-
-
-question.answers.forEach(
-    (answer, index) => {
-
-        const button =
-            document.createElement("button");
-
-        button.type =
-            "button";
-
-        button.className =
-            "answer";
-
-        button.textContent =
-            answer.text;
-
-
-        if (
-            selectedIndex === index
-        ) {
-
-            button.classList.add(
-                "selected"
-            );
-        }
-
-
-        button.addEventListener(
-            "click",
-            () => {
-
-                selectAnswer(index);
-
-            }
-        );
-
-
-        answersElement.appendChild(
-            button
-        );
-
+    if (!question) {
+        return;
     }
-);
 
+    if (!questionNumber) {
 
-updateNavigation();
+        console.error(
+            "Missing HTML element: #question-number"
+        );
+
+        return;
+    }
+
+    if (!progressBar) {
+
+        console.error(
+            "Missing HTML element: #progress-bar"
+        );
+
+        return;
+    }
+
+    if (!questionElement) {
+
+        console.error(
+            "Missing HTML element: #question"
+        );
+
+        return;
+    }
+
+    if (!answersElement) {
+
+        console.error(
+            "Missing HTML element: #answers"
+        );
+
+        return;
+    }
+
+    questionNumber.textContent =
+        `Question ${currentQuestion + 1} of ${questions.length}`;
+
+    const percent =
+        Math.round(
+            ((currentQuestion + 1) /
+                questions.length) * 100
+        );
+
+    if (progressText) {
+
+        progressText.textContent =
+            `${percent}%`;
+    }
+
+    progressBar.style.width =
+        `${percent}%`;
+
+    questionElement.textContent =
+        question.question;
+
+    answersElement.innerHTML = "";
+
+    const selectedIndex =
+        getSelectedIndex();
+
+    question.answers.forEach(
+        (answer, index) => {
+
+            const button =
+                document.createElement("button");
+
+            button.type =
+                "button";
+
+            button.className =
+                "answer";
+
+            button.textContent =
+                answer.text;
+
+            if (
+                selectedIndex === index
+            ) {
+
+                button.classList.add(
+                    "selected"
+                );
+            }
+
+            button.addEventListener(
+                "click",
+                () => {
+
+                    selectAnswer(index);
+
+                }
+            );
+
+            answersElement.appendChild(
+                button
+            );
+
+        }
+    );
+
+    updateNavigation();
 
 }
 
@@ -355,82 +378,84 @@ SELECT ANSWER
 
 function selectAnswer(answerIndex) {
 
-const question =
-    questions[currentQuestion];
+    const question =
+        questions[currentQuestion];
 
-if (!question) {
-    return;
-}
-
-
-answerIndexes[question.id] =
-    answerIndex;
-
-
-const buttons =
-    answersElement.querySelectorAll(
-        ".answer"
-    );
-
-
-buttons.forEach(
-    (button, index) => {
-
-        button.classList.toggle(
-            "selected",
-            index === answerIndex
-        );
-
-    }
-);
-
-
-updateNavigation();
-
-
-const questionAtSelection =
-    currentQuestion;
-
-const selectedAnswerAtSelection =
-    answerIndex;
-
-
-setTimeout(() => {
-
-    const selectedQuestion =
-        questions[
-            questionAtSelection
-        ];
-
-
-    if (!selectedQuestion) {
+    if (!question) {
         return;
     }
 
+    /*
+       Store answer by QUESTION INDEX.
 
-    const currentSavedAnswer =
-        answerIndexes[
-            selectedQuestion.id
-        ];
+       This matches the personality engine's expected format.
+    */
 
+    answerIndexes[currentQuestion] =
+        answerIndex;
 
-    if (
-        currentQuestion ===
-            questionAtSelection &&
+    const buttons =
+        answersElement.querySelectorAll(
+            ".answer"
+        );
 
-        currentSavedAnswer ===
-            selectedAnswerAtSelection &&
+    buttons.forEach(
+        (button, index) => {
 
-        currentQuestion <
-            questions.length - 1
-    ) {
+            button.classList.toggle(
+                "selected",
+                index === answerIndex
+            );
 
-        currentQuestion++;
+        }
+    );
 
-        renderQuestion();
-    }
+    updateNavigation();
 
-}, 180);
+    /*
+       Automatically advance after a short delay.
+       The delay prevents accidental double clicks.
+    */
+
+    const questionAtSelection =
+        currentQuestion;
+
+    const selectedAnswerAtSelection =
+        answerIndex;
+
+    setTimeout(() => {
+
+        const selectedQuestion =
+            questions[
+                questionAtSelection
+            ];
+
+        if (!selectedQuestion) {
+            return;
+        }
+
+        const currentSavedAnswer =
+            answerIndexes[
+                questionAtSelection
+            ];
+
+        if (
+            currentQuestion ===
+                questionAtSelection &&
+
+            currentSavedAnswer ===
+                selectedAnswerAtSelection &&
+
+            currentQuestion <
+                questions.length - 1
+        ) {
+
+            currentQuestion++;
+
+            renderQuestion();
+        }
+
+    }, 180);
 
 }
 
@@ -440,28 +465,26 @@ NEXT BUTTON
 
 function goNext() {
 
-if (
-    getSelectedIndex() === null
-) {
+    if (
+        getSelectedIndex() === null
+    ) {
 
-    return;
-}
+        return;
+    }
 
+    if (
+        currentQuestion ===
+        questions.length - 1
+    ) {
 
-if (
-    currentQuestion ===
-    questions.length - 1
-) {
+        submitQuiz();
 
-    submitQuiz();
+        return;
+    }
 
-    return;
-}
+    currentQuestion++;
 
-
-currentQuestion++;
-
-renderQuestion();
+    renderQuestion();
 
 }
 
@@ -471,14 +494,13 @@ BACK BUTTON
 
 function goBack() {
 
-if (currentQuestion <= 0) {
-    return;
-}
+    if (currentQuestion <= 0) {
+        return;
+    }
 
+    currentQuestion--;
 
-currentQuestion--;
-
-renderQuestion();
+    renderQuestion();
 
 }
 
@@ -488,24 +510,21 @@ CHECK IF ALL QUESTIONS ANSWERED
 
 function allQuestionsAnswered() {
 
-return questions.every(
-    question => {
+    return questions.every(
+        (question, index) => {
 
-        const index =
-            answerIndexes[
-                question.id
-            ];
+            const indexSelected =
+                answerIndexes[index];
 
+            return (
+                Number.isInteger(indexSelected) &&
+                indexSelected >= 0 &&
+                indexSelected <
+                    question.answers.length
+            );
 
-        return (
-            Number.isInteger(index) &&
-            index >= 0 &&
-            index <
-                question.answers.length
-        );
-
-    }
-);
+        }
+    );
 
 }
 
@@ -515,71 +534,73 @@ UPDATE NAVIGATION BUTTONS
 
 function updateNavigation() {
 
-const isFirst =
-    currentQuestion === 0;
+    const isFirst =
+        currentQuestion === 0;
 
+    const isLast =
+        currentQuestion ===
+        questions.length - 1;
 
-const isLast =
-    currentQuestion ===
-    questions.length - 1;
+    const currentAnswered =
+        getSelectedIndex() !== null;
 
+    const allAnswered =
+        allQuestionsAnswered();
 
-const currentAnswered =
-    getSelectedIndex() !== null;
+    /* BACK stays visible, disabled only on Question 1 */
 
+    if (backBtn) {
 
-const allAnswered =
-    allQuestionsAnswered();
+        backBtn.disabled =
+            isFirst;
+    }
 
+    if (isLast) {
 
-/* BACK stays visible, disabled only on Question 1 */
+        if (nextBtn) {
 
-backBtn.disabled =
-    isFirst;
+            nextBtn.classList.add(
+                "hidden"
+            );
+        }
 
+        if (submitBtn) {
 
-if (isLast) {
+            submitBtn.classList.remove(
+                "hidden"
+            );
 
-    nextBtn.classList.add(
-        "hidden"
-    );
+            submitBtn.disabled =
+                !allAnswered;
 
+            submitBtn.textContent =
+                allAnswered
+                    ? "SEE MY RESULT"
+                    : "Answer All Questions";
+        }
 
-    submitBtn.classList.remove(
-        "hidden"
-    );
+        return;
+    }
 
+    if (submitBtn) {
 
-    submitBtn.disabled =
-        !allAnswered;
+        submitBtn.classList.add(
+            "hidden"
+        );
+    }
 
+    if (nextBtn) {
 
-    submitBtn.textContent =
-        allAnswered
-            ? "SEE MY RESULT"
-            : "Answer All Questions";
+        nextBtn.classList.remove(
+            "hidden"
+        );
 
+        nextBtn.textContent =
+            "Next →";
 
-    return;
-}
-
-
-submitBtn.classList.add(
-    "hidden"
-);
-
-
-nextBtn.classList.remove(
-    "hidden"
-);
-
-
-nextBtn.textContent =
-    "Next →";
-
-
-nextBtn.disabled =
-    !currentAnswered;
+        nextBtn.disabled =
+            !currentAnswered;
+    }
 
 }
 
@@ -589,108 +610,118 @@ SUBMIT QUIZ
 
 function submitQuiz() {
 
-const unanswered =
-    questions.filter(
-        question => {
+    const unanswered =
+        questions.filter(
+            (question, index) => {
 
-            const index =
-                answerIndexes[
-                    question.id
-                ];
+                const answer =
+                    answerIndexes[index];
 
+                return (
+                    !Number.isInteger(answer) ||
+                    answer < 0 ||
+                    answer >=
+                        question.answers.length
+                );
 
-            return (
-                !Number.isInteger(index) ||
-                index < 0 ||
-                index >=
-                    question.answers.length
+            }
+        );
+
+    if (unanswered.length > 0) {
+
+        console.error(
+            "Quiz is incomplete. Unanswered question numbers:",
+            unanswered.map(
+                question =>
+                    questions.indexOf(question) + 1
+            )
+        );
+
+        return;
+    }
+
+    if (submitBtn) {
+        submitBtn.disabled = true;
+    }
+
+    try {
+
+        /*
+           Send the ARRAY directly to the personality engine.
+        */
+
+        const result =
+            window.calculateFinalPersonality(
+                answerIndexes
             );
 
+        if (
+            !result ||
+            !result.winner
+        ) {
+
+            throw new Error(
+                "No personality result returned."
+            );
         }
-    );
 
+        lastResult =
+            result;
 
-if (unanswered.length > 0) {
+        renderResult(
+            result
+        );
 
-    console.error(
-        "Quiz is incomplete. Unanswered question IDs:",
-        unanswered.map(
-            question => question.id
-        )
-    );
+        showScreen(
+            resultScreen
+        );
 
-    return;
+        if (homeInfo) {
+
+            homeInfo.classList.remove(
+                "hidden"
+            );
+        }
+
+        if (suggestionsCard) {
+
+            suggestionsCard.classList.remove(
+                "hidden"
+            );
+        }
+
+    } catch (error) {
+
+        console.error(
+            "Unable to calculate TWD result:",
+            error
+        );
+
+        if (submitBtn) {
+            submitBtn.disabled = false;
+        }
+
+        alert(
+            "There was a problem calculating your result. Please refresh the page and try again."
+        );
+    }
+
 }
 
+/* ============================================================
+FORMAT SCORE
+============================================================ */
 
-submitBtn.disabled =
-    true;
+function formatScore(score) {
 
+    const value =
+        Number(score);
 
-try {
-
-    const result =
-        window.calculatePersonality(
-            answerIndexes
-        );
-
-
-    if (
-        !result ||
-        !result.winner
-    ) {
-
-        throw new Error(
-            "No personality result returned."
-        );
+    if (!Number.isFinite(value)) {
+        return "0%";
     }
 
-
-    lastResult =
-        result;
-
-
-    renderResult(
-        result
-    );
-
-
-    showScreen(
-        resultScreen
-    );
-
-
-    if (homeInfo) {
-
-        homeInfo.classList.remove(
-            "hidden"
-        );
-    }
-
-
-    if (suggestionsCard) {
-
-        suggestionsCard.classList.remove(
-            "hidden"
-        );
-    }
-
-} catch (error) {
-
-    console.error(
-        "Unable to calculate TWD result:",
-        error
-    );
-
-
-    submitBtn.disabled =
-        false;
-
-
-    alert(
-        "There was a problem calculating your result. Please refresh the page and try again."
-    );
-}
+    return `${value.toFixed(1)}%`;
 
 }
 
@@ -700,84 +731,134 @@ RENDER RESULT
 
 function renderResult(result) {
 
-const winner =
-    result.winner;
+    const winner =
+        result.winner;
 
+    if (!winner) {
+        return;
+    }
 
-resultTitle.textContent =
-    `You are most like ${winner.name}`;
+    if (resultTitle) {
 
+        resultTitle.textContent =
+            `You are most like ${winner.name}`;
+    }
 
-matchScore.textContent =
-    winner.similarity;
+    if (matchScore) {
 
+        matchScore.textContent =
+            formatScore(winner.score);
+    }
 
-if (winner.image) {
+    if (winnerImage) {
 
-    winnerImage.src =
-        winner.image;
+        if (winner.image) {
 
-    winnerImage.alt =
-        winner.name;
+            winnerImage.src =
+                winner.image;
 
-} else {
+            winnerImage.alt =
+                winner.name;
 
-    winnerImage.removeAttribute(
-        "src"
-    );
+        } else {
 
-    winnerImage.alt =
-        "";
-}
+            winnerImage.removeAttribute(
+                "src"
+            );
 
+            winnerImage.alt =
+                "";
+        }
 
-resultDescription.textContent =
-    `${winner.name} is your closest personality match based on your 16-trait profile. ` +
-    `Your decisions produced a ${winner.similarity}% similarity with this character.`;
+    }
 
+    if (resultDescription) {
 
-if (
-    Array.isArray(result.results)
-) {
+        resultDescription.textContent =
+            `${winner.name} is your closest personality match based on your 16-trait profile. ` +
+            `Your decisions produced a ${formatScore(winner.score)} match with this character.`;
+    }
 
-    renderTopMatches(
-        result.results.slice(0, 3)
-    );
-}
+    /* -------------------------
+       TOP 3 MATCHES
+       ------------------------- */
 
+    if (
+        Array.isArray(result.results)
+    ) {
 
-if (
-    Array.isArray(
-        result.strongestTraits
-    )
-) {
+        renderTopMatches(
+            result.results.slice(0, 3)
+        );
+    }
 
-    renderTraitList(
-        strongestTraits,
-        result.strongestTraits
-    );
-}
+    /* -------------------------
+       STRONGEST TRAITS
+       ------------------------- */
 
+    if (
+        Array.isArray(
+            result.strongestTraits
+        )
+    ) {
 
-if (
-    Array.isArray(
-        result.lowestTraits
-    )
-) {
+        renderTraitList(
+            strongestTraits,
+            result.strongestTraits
+        );
+    }
 
-    renderTraitList(
-        lowestTraits,
-        result.lowestTraits
-    );
-}
+    /* -------------------------
+       LOWEST TRAITS
+       ------------------------- */
 
+    if (
+        result.profile &&
+        lowestTraits
+    ) {
 
-if (result.profile) {
+        const lowest =
+            Object.entries(
+                result.profile
+            )
+            .map(
+                ([key, score]) => ({
 
-    renderFullProfile(
+                    trait: key,
+
+                    label:
+                        window.TWD_TRAITS?.[key] ||
+                        key,
+
+                    score:
+                        Number(score)
+
+                })
+            )
+            .sort(
+                (a, b) =>
+                    a.score - b.score
+            )
+            .slice(0, 5);
+
+        renderTraitList(
+            lowestTraits,
+            lowest
+        );
+    }
+
+    /* -------------------------
+       FULL PROFILE
+       ------------------------- */
+
+    if (
         result.profile
-    );
-}
+    ) {
+
+        renderFullProfile(
+            result.profile
+        );
+    }
 
 }
 
@@ -787,104 +868,90 @@ RENDER TOP 3 MATCHES
 
 function renderTopMatches(matches) {
 
-topMatches.innerHTML =
-    "";
-
-
-matches.forEach(
-    (match, index) => {
-
-        const row =
-            document.createElement(
-                "div"
-            );
-
-
-        row.className =
-            "match-item";
-
-
-        const rank =
-            document.createElement(
-                "div"
-            );
-
-
-        rank.className =
-            "match-rank";
-
-
-        rank.textContent =
-            `#${index + 1}`;
-
-
-        const image =
-            document.createElement(
-                "img"
-            );
-
-
-        image.className =
-            "match-thumb";
-
-
-        if (match.image) {
-
-            image.src =
-                match.image;
-        }
-
-
-        image.alt =
-            match.name;
-
-
-        image.loading =
-            "lazy";
-
-
-        const name =
-            document.createElement(
-                "div"
-            );
-
-
-        name.className =
-            "match-name";
-
-
-        name.textContent =
-            match.name;
-
-
-        const percent =
-            document.createElement(
-                "div"
-            );
-
-
-        percent.className =
-            "match-percent";
-
-
-        percent.textContent =
-            `${match.similarity}%`;
-
-
-        row.append(
-            rank,
-            image,
-            name,
-            percent
-        );
-
-
-        topMatches.appendChild(
-            row
-        );
-
+    if (!topMatches) {
+        return;
     }
-);
+
+    topMatches.innerHTML =
+        "";
+
+    matches.forEach(
+        (match, index) => {
+
+            const row =
+                document.createElement(
+                    "div"
+                );
+
+            row.className =
+                "match-item";
+
+            const rank =
+                document.createElement(
+                    "div"
+                );
+
+            rank.className =
+                "match-rank";
+
+            rank.textContent =
+                `#${index + 1}`;
+
+            const image =
+                document.createElement(
+                    "img"
+                );
+
+            image.className =
+                "match-thumb";
+
+            if (match.image) {
+
+                image.src =
+                    match.image;
+            }
+
+            image.alt =
+                match.name;
+
+            image.loading =
+                "lazy";
+
+            const name =
+                document.createElement(
+                    "div"
+                );
+
+            name.className =
+                "match-name";
+
+            name.textContent =
+                match.name;
+
+            const percent =
+                document.createElement(
+                    "div"
+                );
+
+            percent.className =
+                "match-percent";
+
+            percent.textContent =
+                formatScore(match.score);
+
+            row.append(
+                rank,
+                image,
+                name,
+                percent
+            );
+
+            topMatches.appendChild(
+                row
+            );
+
+        }
+    );
 
 }
 
@@ -893,120 +960,118 @@ RENDER TRAIT LIST
 ============================================================ */
 
 function renderTraitList(
-container,
-traits
+    container,
+    traits
 ) {
 
-container.innerHTML =
-    "";
-
-
-traits.forEach(
-    trait => {
-
-        const row =
-            document.createElement(
-                "div"
-            );
-
-
-        row.className =
-            "trait-row";
-
-
-        const top =
-            document.createElement(
-                "div"
-            );
-
-
-        top.className =
-            "trait-top";
-
-
-        const name =
-            document.createElement(
-                "span"
-            );
-
-
-        name.className =
-            "trait-name";
-
-
-        name.textContent =
-            trait.label ||
-            trait.name ||
-            trait.trait;
-
-
-        const value =
-            document.createElement(
-                "span"
-            );
-
-
-        value.className =
-            "trait-value";
-
-
-        value.textContent =
-            `${trait.score}%`;
-
-
-        top.append(
-            name,
-            value
-        );
-
-
-        const bar =
-            document.createElement(
-                "div"
-            );
-
-
-        bar.className =
-            "trait-bar";
-
-
-        const fill =
-            document.createElement(
-                "div"
-            );
-
-
-        fill.className =
-            "trait-fill";
-
-
-        fill.style.width =
-            `${Math.max(
-                0,
-                Math.min(
-                    100,
-                    trait.score
-                )
-            )}%`;
-
-
-        bar.appendChild(
-            fill
-        );
-
-
-        row.append(
-            top,
-            bar
-        );
-
-
-        container.appendChild(
-            row
-        );
-
+    if (!container) {
+        return;
     }
-);
+
+    container.innerHTML =
+        "";
+
+    if (!Array.isArray(traits)) {
+        return;
+    }
+
+    traits.forEach(
+        trait => {
+
+            const row =
+                document.createElement(
+                    "div"
+                );
+
+            row.className =
+                "trait-row";
+
+            const top =
+                document.createElement(
+                    "div"
+                );
+
+            top.className =
+                "trait-top";
+
+            const name =
+                document.createElement(
+                    "span"
+                );
+
+            name.className =
+                "trait-name";
+
+            name.textContent =
+                trait.label ||
+                trait.name ||
+                trait.trait ||
+                trait.id ||
+                "";
+
+            const value =
+                document.createElement(
+                    "span"
+                );
+
+            value.className =
+                "trait-value";
+
+            const numericScore =
+                Number(trait.score);
+
+            value.textContent =
+                Number.isFinite(numericScore)
+                    ? `${Math.round(numericScore)}%`
+                    : "0%";
+
+            top.append(
+                name,
+                value
+            );
+
+            const bar =
+                document.createElement(
+                    "div"
+                );
+
+            bar.className =
+                "trait-bar";
+
+            const fill =
+                document.createElement(
+                    "div"
+                );
+
+            fill.className =
+                "trait-fill";
+
+            fill.style.width =
+                `${Math.max(
+                    0,
+                    Math.min(
+                        100,
+                        Number.isFinite(numericScore)
+                            ? numericScore
+                            : 0
+                    )
+                )}%`;
+
+            bar.appendChild(
+                fill
+            );
+
+            row.append(
+                top,
+                bar
+            );
+
+            container.appendChild(
+                row
+            );
+
+        }
+    );
 
 }
 
@@ -1015,123 +1080,111 @@ RENDER FULL TRAIT PROFILE
 ============================================================ */
 
 function renderFullProfile(
-profile
+    profile
 ) {
 
-traitProfile.innerHTML =
-    "";
-
-
-const keys =
-    window.TRAIT_KEYS || [];
-
-
-const labels =
-    window.TWD_TRAITS || [];
-
-
-keys.forEach(
-    (key, index) => {
-
-        const score =
-            Number(
-                profile[key] ?? 65
-            );
-
-
-        const row =
-            document.createElement(
-                "div"
-            );
-
-
-        row.className =
-            "profile-row";
-
-
-        const label =
-            document.createElement(
-                "div"
-            );
-
-
-        label.className =
-            "profile-label";
-
-
-        const name =
-            document.createElement(
-                "span"
-            );
-
-
-        name.textContent =
-            labels[index] || key;
-
-
-        const value =
-            document.createElement(
-                "span"
-            );
-
-
-        value.textContent =
-            score;
-
-
-        label.append(
-            name,
-            value
-        );
-
-
-        const track =
-            document.createElement(
-                "div"
-            );
-
-
-        track.className =
-            "profile-track";
-
-
-        const fill =
-            document.createElement(
-                "div"
-            );
-
-
-        fill.className =
-            "profile-fill";
-
-
-        fill.style.width =
-            `${Math.max(
-                0,
-                Math.min(
-                    100,
-                    score
-                )
-            )}%`;
-
-
-        track.appendChild(
-            fill
-        );
-
-
-        row.append(
-            label,
-            track
-        );
-
-
-        traitProfile.appendChild(
-            row
-        );
-
+    if (!traitProfile) {
+        return;
     }
-);
+
+    traitProfile.innerHTML =
+        "";
+
+    /*
+       Correct globals exported by the engine.
+    */
+
+    const keys =
+        window.TWD_TRAIT_KEYS || [];
+
+    const labels =
+        window.TWD_TRAITS || {};
+
+    keys.forEach(
+        key => {
+
+            const score =
+                Number(
+                    profile[key] ?? 65
+                );
+
+            const row =
+                document.createElement(
+                    "div"
+                );
+
+            row.className =
+                "profile-row";
+
+            const label =
+                document.createElement(
+                    "div"
+                );
+
+            label.className =
+                "profile-label";
+
+            const name =
+                document.createElement(
+                    "span"
+                );
+
+            name.textContent =
+                labels[key] || key;
+
+            const value =
+                document.createElement(
+                    "span"
+                );
+
+            value.textContent =
+                Math.round(score);
+
+            label.append(
+                name,
+                value
+            );
+
+            const track =
+                document.createElement(
+                    "div"
+                );
+
+            track.className =
+                "profile-track";
+
+            const fill =
+                document.createElement(
+                    "div"
+                );
+
+            fill.className =
+                "profile-fill";
+
+            fill.style.width =
+                `${Math.max(
+                    0,
+                    Math.min(
+                        100,
+                        score
+                    )
+                )}%`;
+
+            track.appendChild(
+                fill
+            );
+
+            row.append(
+                label,
+                track
+            );
+
+            traitProfile.appendChild(
+                row
+            );
+
+        }
+    );
 
 }
 
@@ -1141,7 +1194,7 @@ RESTART QUIZ
 
 function restartQuiz() {
 
-startQuiz();
+    startQuiz();
 
 }
 
@@ -1151,85 +1204,79 @@ SHARE RESULT
 
 async function shareResult() {
 
-if (
-    !lastResult ||
-    !lastResult.winner
-) {
+    if (
+        !lastResult ||
+        !lastResult.winner
+    ) {
 
-    return;
-}
+        return;
+    }
 
+    const winner =
+        lastResult.winner;
 
-const winner =
-    lastResult.winner;
+    const text =
+        `I got ${winner.name} in the Walking Dead Personality Quiz — ` +
+        `${formatScore(winner.score)} match!`;
 
+    const url =
+        window.location.href;
 
-const text =
-    `I got ${winner.name} in the Walking Dead Personality Quiz — ` +
-    `${winner.similarity}% match!`;
+    if (navigator.share) {
 
+        try {
 
-const url =
-    window.location.href;
+            await navigator.share({
 
+                title:
+                    "My Walking Dead Personality Result",
 
-if (navigator.share) {
+                text:
+                    text,
+
+                url:
+                    url
+
+            });
+
+            return;
+
+        } catch (error) {
+
+            if (
+                error.name ===
+                "AbortError"
+            ) {
+
+                return;
+            }
+
+            console.log(
+                "Native sharing unavailable."
+            );
+        }
+    }
+
+    const shareText =
+        `${text}\n${url}`;
 
     try {
 
-        await navigator.share({
+        await copyText(
+            shareText
+        );
 
-            title:
-                "My Walking Dead Personality Result",
-
-            text:
-                text,
-
-            url:
-                url
-
-        });
-
-        return;
+        alert(
+            "Your result and quiz link have been copied!"
+        );
 
     } catch (error) {
 
-        if (
-            error.name ===
-            "AbortError"
-        ) {
-
-            return;
-        }
-
-        console.log(
-            "Native sharing unavailable."
+        prompt(
+            "Copy your result:",
+            shareText
         );
     }
-}
-
-
-const shareText =
-    `${text}\n${url}`;
-
-
-try {
-
-    await copyText(
-        shareText
-    );
-
-    alert(
-        "Your result and quiz link have been copied!"
-    );
-
-} catch (error) {
-
-    prompt(
-        "Copy your result:",
-        shareText
-    );
-}
 
 }
 
@@ -1239,86 +1286,80 @@ CHALLENGE FRIENDS
 
 async function challengeFriends() {
 
-let text =
-    "I just took the Walking Dead Personality Quiz.";
+    let text =
+        "I just took the Walking Dead Personality Quiz.";
 
+    if (
+        lastResult &&
+        lastResult.winner
+    ) {
 
-if (
-    lastResult &&
-    lastResult.winner
-) {
+        text +=
+            ` I got ${lastResult.winner.name} ` +
+            `with a ${formatScore(lastResult.winner.score)} match.`;
+    }
 
     text +=
-        ` I got ${lastResult.winner.name} ` +
-        `with a ${lastResult.winner.similarity}% match.`;
-}
+        " Which Walking Dead character will you get?";
 
+    const url =
+        window.location.href;
 
-text +=
-    " Which Walking Dead character will you get?";
+    if (navigator.share) {
 
+        try {
 
-const url =
-    window.location.href;
+            await navigator.share({
 
+                title:
+                    "Walking Dead Personality Quiz",
 
-if (navigator.share) {
+                text:
+                    text,
+
+                url:
+                    url
+
+            });
+
+            return;
+
+        } catch (error) {
+
+            if (
+                error.name ===
+                "AbortError"
+            ) {
+
+                return;
+            }
+
+            console.log(
+                "Native sharing unavailable."
+            );
+        }
+    }
+
+    const challengeText =
+        `${text}\n${url}`;
 
     try {
 
-        await navigator.share({
+        await copyText(
+            challengeText
+        );
 
-            title:
-                "Walking Dead Personality Quiz",
-
-            text:
-                text,
-
-            url:
-                url
-
-        });
-
-        return;
+        alert(
+            "Challenge message and quiz link copied!"
+        );
 
     } catch (error) {
 
-        if (
-            error.name ===
-            "AbortError"
-        ) {
-
-            return;
-        }
-
-        console.log(
-            "Native sharing unavailable."
+        prompt(
+            "Copy this challenge:",
+            challengeText
         );
     }
-}
-
-
-const challengeText =
-    `${text}\n${url}`;
-
-
-try {
-
-    await copyText(
-        challengeText
-    );
-
-    alert(
-        "Challenge message and quiz link copied!"
-    );
-
-} catch (error) {
-
-    prompt(
-        "Copy this challenge:",
-        challengeText
-    );
-}
 
 }
 
@@ -1328,70 +1369,59 @@ COPY TEXT
 
 async function copyText(text) {
 
-if (
-    navigator.clipboard &&
-    window.isSecureContext
-) {
+    if (
+        navigator.clipboard &&
+        window.isSecureContext
+    ) {
 
-    await navigator.clipboard.writeText(
-        text
+        await navigator.clipboard.writeText(
+            text
+        );
+
+        return;
+    }
+
+    const textarea =
+        document.createElement(
+            "textarea"
+        );
+
+    textarea.value =
+        text;
+
+    textarea.style.position =
+        "fixed";
+
+    textarea.style.left =
+        "-9999px";
+
+    textarea.style.top =
+        "0";
+
+    textarea.style.opacity =
+        "0";
+
+    document.body.appendChild(
+        textarea
     );
 
-    return;
-}
+    textarea.focus();
 
+    textarea.select();
 
-const textarea =
-    document.createElement(
-        "textarea"
-    );
+    const successful =
+        document.execCommand(
+            "copy"
+        );
 
+    textarea.remove();
 
-textarea.value =
-    text;
+    if (!successful) {
 
-
-textarea.style.position =
-    "fixed";
-
-
-textarea.style.left =
-    "-9999px";
-
-
-textarea.style.top =
-    "0";
-
-
-textarea.style.opacity =
-    "0";
-
-
-document.body.appendChild(
-    textarea
-);
-
-
-textarea.focus();
-
-textarea.select();
-
-
-const successful =
-    document.execCommand(
-        "copy"
-    );
-
-
-textarea.remove();
-
-
-if (!successful) {
-
-    throw new Error(
-        "Copy operation failed."
-    );
-}
+        throw new Error(
+            "Copy operation failed."
+        );
+    }
 
 }
 
@@ -1399,40 +1429,61 @@ if (!successful) {
 EVENT LISTENERS
 ============================================================ */
 
-startBtn.addEventListener(
-"click",
-startQuiz
-);
+if (startBtn) {
 
-backBtn.addEventListener(
-"click",
-goBack
-);
+    startBtn.addEventListener(
+        "click",
+        startQuiz
+    );
+}
 
-nextBtn.addEventListener(
-"click",
-goNext
-);
+if (backBtn) {
 
-submitBtn.addEventListener(
-"click",
-submitQuiz
-);
+    backBtn.addEventListener(
+        "click",
+        goBack
+    );
+}
 
-restartBtn.addEventListener(
-"click",
-restartQuiz
-);
+if (nextBtn) {
 
-shareBtn.addEventListener(
-"click",
-shareResult
-);
+    nextBtn.addEventListener(
+        "click",
+        goNext
+    );
+}
 
-challengeBtn.addEventListener(
-"click",
-challengeFriends
-);
+if (submitBtn) {
+
+    submitBtn.addEventListener(
+        "click",
+        submitQuiz
+    );
+}
+
+if (restartBtn) {
+
+    restartBtn.addEventListener(
+        "click",
+        restartQuiz
+    );
+}
+
+if (shareBtn) {
+
+    shareBtn.addEventListener(
+        "click",
+        shareResult
+    );
+}
+
+if (challengeBtn) {
+
+    challengeBtn.addEventListener(
+        "click",
+        challengeFriends
+    );
+}
 
 /* ============================================================
 DEBUG / EXTERNAL ACCESS
@@ -1440,15 +1491,15 @@ DEBUG / EXTERNAL ACCESS
 
 window.TWD_QUIZ_UI = {
 
-startQuiz,
+    startQuiz,
 
-renderQuestion,
+    renderQuestion,
 
-submitQuiz,
+    submitQuiz,
 
-getAnswers: () => ({
-    ...answerIndexes
-})
+    getAnswers: () => [
+        ...answerIndexes
+    ]
 
 };
 
@@ -1483,22 +1534,18 @@ menuToggle.addEventListener(
 
         event.stopPropagation();
 
-
         const isOpen =
             menuToggle.getAttribute(
                 "aria-expanded"
             ) === "true";
 
-
         siteMenu.hidden =
             isOpen;
-
 
         menuToggle.setAttribute(
             "aria-expanded",
             String(!isOpen)
         );
-
 
         menuToggle.setAttribute(
             "aria-label",
@@ -1509,7 +1556,6 @@ menuToggle.addEventListener(
 
     }
 );
-
 
 /* ------------------------------------------------------------
    CLOSE WHEN CLICKING OUTSIDE
@@ -1532,12 +1578,10 @@ document.addEventListener(
             siteMenu.hidden =
                 true;
 
-
             menuToggle.setAttribute(
                 "aria-expanded",
                 "false"
             );
-
 
             menuToggle.setAttribute(
                 "aria-label",
@@ -1548,7 +1592,6 @@ document.addEventListener(
 
     }
 );
-
 
 /* ------------------------------------------------------------
    CLOSE AFTER CLICKING MENU LINK
@@ -1566,12 +1609,10 @@ siteMenu
                     siteMenu.hidden =
                         true;
 
-
                     menuToggle.setAttribute(
                         "aria-expanded",
                         "false"
                     );
-
 
                     menuToggle.setAttribute(
                         "aria-label",
