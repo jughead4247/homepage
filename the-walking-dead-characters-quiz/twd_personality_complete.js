@@ -3023,9 +3023,9 @@ function calculateCharacterMatch(
 
 
     const accessibilityMultiplier =
-    0.80 +
+    0.75 +
     (
-        0.20 *
+        0.25 *
         Math.pow(
             normalizedAccessibility,
             1.5
