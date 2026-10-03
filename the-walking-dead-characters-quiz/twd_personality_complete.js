@@ -429,7 +429,7 @@ const CHARACTER_ACCESSIBILITY = {
 
 const ACCESSIBILITY_MIN = 3.8;
 const ACCESSIBILITY_MAX = 8.0;
-const ACCESSIBILITY_BONUS_MAX = 2.5;
+const ACCESSIBILITY_BONUS_MAX = 4.0;
 
 function calculateAccessibilityBonus(characterId) {
 
@@ -2740,17 +2740,32 @@ Object.keys(
 
 
 /* ============================================================
-   17. NORMALIZED AFFINITY SCORE
+   17. HYBRID AFFINITY SCORE — v6
 ============================================================
 
-   Converts raw affinity into 0–100.
+   Affinity now considers BOTH:
 
-   exponent = 0.90
+   1. Route coverage
+      How much of this character's available route the player
+      followed.
 
-   This gives a slight compression while preserving the
-   advantage of genuinely strong affinity.
+   2. Route volume
+      How substantial the character's overall affinity network is.
+
+   This prevents a character with only a handful of routes from
+   becoming disproportionately easy to obtain simply because
+   the player selected most of those routes.
+
+   Rare characters remain possible, but broad-route characters
+   receive a natural advantage.
 
 ============================================================ */
+
+const AFFINITY_COVERAGE_EXPONENT = 1.15;
+const AFFINITY_VOLUME_REFERENCE = 700;
+const AFFINITY_VOLUME_WEIGHT = 0.30;
+const AFFINITY_COVERAGE_WEIGHT = 0.70;
+
 
 function calculateAffinityScore(
     characterId,
@@ -2779,7 +2794,11 @@ function calculateAffinityScore(
         );
 
 
-    const ratio =
+    /* --------------------------------------------------------
+       Route coverage
+    -------------------------------------------------------- */
+
+    const coverage =
         Math.max(
             0,
             Math.min(
@@ -2789,26 +2808,74 @@ function calculateAffinityScore(
         );
 
 
-    return (
+    /*
+       Exponent > 1 deliberately makes partial route coverage
+       less powerful.
+
+       Example:
+
+       50% coverage does NOT become 50 points.
+
+       It becomes approximately 43.5 points.
+    */
+
+    const coverageScore =
         Math.pow(
-            ratio,
-            0.90
-        ) * 100
+            coverage,
+            AFFINITY_COVERAGE_EXPONENT
+        ) * 100;
+
+
+    /* --------------------------------------------------------
+       Route volume
+    -------------------------------------------------------- */
+
+    /*
+       Soft saturation.
+
+       This rewards characters with substantial affinity
+       networks without allowing raw affinity to dominate.
+
+       ~124 max  -> relatively small
+       ~300 max  -> moderate
+       ~600 max  -> strong
+       ~900 max  -> near maximum
+    */
+
+    const volumeScore =
+        (
+            maximum /
+            (
+                maximum +
+                AFFINITY_VOLUME_REFERENCE
+            )
+        ) * 100;
+
+
+    /* --------------------------------------------------------
+       Hybrid
+    -------------------------------------------------------- */
+
+    return (
+        (coverageScore *
+            AFFINITY_COVERAGE_WEIGHT) +
+
+        (volumeScore *
+            AFFINITY_VOLUME_WEIGHT)
     );
 
 }
 
-
 /* ============================================================
-   18. ROUTE IDENTITY BONUS
+   18. ROUTE IDENTITY BONUS — v6
 ============================================================
 
-   Rewards a character when a player's answers repeatedly
-   follow that character's route.
+   Rewards strong character-specific answer patterns.
 
-   Maximum = 6.
+   The thresholds are deliberately more demanding than v5,
+   because affinity itself already measures route coverage.
 
-   This is relative to each character's own affinity maximum.
+   Maximum = 5
 
 ============================================================ */
 
@@ -2838,42 +2905,43 @@ function calculateRouteIdentityBonus(
             Math.min(
                 1,
                 (
-                    Number(
-                        rawAffinity
-                    ) || 0
-                ) /
-                maximum
+                    Number(rawAffinity) || 0
+                ) / maximum
             )
         );
 
 
-    if (ratio >= 0.70) {
-
-        return 6.0;
-
-    }
-
-    if (ratio >= 0.55) {
+    if (ratio >= 0.72) {
 
         return 5.0;
 
     }
 
-    if (ratio >= 0.40) {
 
-        return 3.5;
+    if (ratio >= 0.58) {
 
-    }
-
-    if (ratio >= 0.25) {
-
-        return 2.0;
+        return 4.0;
 
     }
 
-    if (ratio >= 0.12) {
 
-        return 0.5;
+    if (ratio >= 0.44) {
+
+        return 2.5;
+
+    }
+
+
+    if (ratio >= 0.30) {
+
+        return 1.25;
+
+    }
+
+
+    if (ratio >= 0.18) {
+
+        return 0.35;
 
     }
 
@@ -2881,7 +2949,6 @@ function calculateRouteIdentityBonus(
     return 0;
 
 }
-
 
 /* ============================================================
    19. FINAL CHARACTER MATCH
@@ -2972,11 +3039,11 @@ function calculateCharacterMatch(
 
 
     let score =
-        (coreScore * 0.28) +
-        (affinityScore * 0.42) +
-        (overallScore * 0.14) +
-        (secondaryScore * 0.10) +
-        (50 * 0.06);
+    (coreScore * 0.30) +
+    (affinityScore * 0.40) +
+    (overallScore * 0.14) +
+    (secondaryScore * 0.10) +
+    (50 * 0.06);
 
 
     score +=
