@@ -4,9 +4,20 @@
 
    Calibration:
    - theoretical min/max normalization per trait
-   - neutral/moderate profile is centered around ~65
+   - neutral/moderate profile is centered around ~62
+   - wider profile spread than previous version
+   - character-specific signature matching
+   - overall personality matching
+   - personality-shape matching
+   - deterministic signature activation
+   - deterministic result accessibility
+   - deterministic near-tie diversity
    - final profile remains 5–95
-   - weighted character matching
+
+   IMPORTANT:
+   This is designed as a FUN CHARACTER-MATCHING QUIZ.
+   It is intentionally optimized for recognizable results,
+   rather than scientific personality measurement.
    ============================================================ */
 
 const TRAIT_KEYS = [
@@ -24,22 +35,29 @@ const TWD_TRAITS = [
 ];
 
 const TRAIT_WEIGHTS = {
-    selfPreservation: 1.0, courage: 1.0, empathy: 1.0, loyalty: 1.0,
-    morality: 1.0, pragmatism: 1.0, ruthlessness: 0.9, leadership: 1.0,
-    independence: 0.9, trust: 0.8, charisma: 0.8, manipulation: 0.9,
-    strategy: 1.0, hope: 0.9, emotionalControl: 0.9, riskAppetite: 0.9
+    selfPreservation: 1.0,
+    courage: 1.0,
+    empathy: 1.0,
+    loyalty: 1.0,
+    morality: 1.0,
+    pragmatism: 1.0,
+    ruthlessness: 0.9,
+    leadership: 1.0,
+    independence: 0.9,
+    trust: 0.8,
+    charisma: 0.8,
+    manipulation: 0.9,
+    strategy: 1.0,
+    hope: 0.9,
+    emotionalControl: 0.9,
+    riskAppetite: 0.9
 };
+
+
 /* ------------------------------------------------------------
    CHARACTER MATRIX
-   Order exactly matches TRAIT_KEYS.
 
-   Calibration goals:
-   - Every character has a distinct personality fingerprint.
-   - No character is universally high or universally low.
-   - Each character has clear strengths AND weaknesses.
-   - Extreme characters remain extreme where appropriate.
-   - Moderate characters are not allowed to become automatic
-     "default" matches.
+   Order exactly matches TRAIT_KEYS.
    ------------------------------------------------------------ */
 
 const TWD_CHARACTERS = {
@@ -254,407 +272,2062 @@ const TWD_CHARACTERS = {
     }
 };
 
+
+/* ------------------------------------------------------------
+   CHARACTER SIGNATURES
+   ------------------------------------------------------------ */
+
+const CHARACTER_SIGNATURES = {
+
+    rick: {
+        primary: {
+            leadership: 1.7,
+            courage: 1.6,
+            loyalty: 1.6,
+            strategy: 1.5
+        },
+        secondary: {
+            morality: 1.15,
+            hope: 1.15,
+            charisma: 1.10
+        }
+    },
+
+    daryl: {
+        primary: {
+            independence: 1.7,
+            selfPreservation: 1.6,
+            loyalty: 1.6,
+            courage: 1.5
+        },
+        secondary: {
+            emotionalControl: 1.2,
+            strategy: 1.15,
+            riskAppetite: 1.1
+        }
+    },
+
+    carol: {
+        primary: {
+            pragmatism: 1.7,
+            strategy: 1.6,
+            manipulation: 1.6,
+            selfPreservation: 1.5
+        },
+        secondary: {
+            independence: 1.2,
+            ruthlessness: 1.15,
+            emotionalControl: 1.1
+        }
+    },
+
+    shane: {
+        primary: {
+            courage: 1.7,
+            riskAppetite: 1.7,
+            pragmatism: 1.6,
+            ruthlessness: 1.5
+        },
+        secondary: {
+            leadership: 1.2,
+            independence: 1.15,
+            selfPreservation: 1.1
+        }
+    },
+
+    glenn: {
+        primary: {
+            empathy: 1.7,
+            morality: 1.7,
+            loyalty: 1.6,
+            trust: 1.5
+        },
+        secondary: {
+            hope: 1.2,
+            courage: 1.15,
+            emotionalControl: 1.1
+        }
+    },
+
+    michonne: {
+        primary: {
+            independence: 1.7,
+            courage: 1.6,
+            emotionalControl: 1.6,
+            strategy: 1.5
+        },
+        secondary: {
+            loyalty: 1.2,
+            selfPreservation: 1.15,
+            morality: 1.1
+        }
+    },
+
+    maggie: {
+        primary: {
+            loyalty: 1.7,
+            leadership: 1.6,
+            courage: 1.5,
+            hope: 1.5
+        },
+        secondary: {
+            empathy: 1.2,
+            morality: 1.15,
+            strategy: 1.1
+        }
+    },
+
+    hershel: {
+        primary: {
+            morality: 1.8,
+            empathy: 1.7,
+            trust: 1.6,
+            loyalty: 1.5
+        },
+        secondary: {
+            emotionalControl: 1.2,
+            hope: 1.15,
+            charisma: 1.1
+        }
+    },
+
+    abraham: {
+        primary: {
+            courage: 1.8,
+            riskAppetite: 1.7,
+            leadership: 1.6,
+            pragmatism: 1.5
+        },
+        secondary: {
+            charisma: 1.2,
+            loyalty: 1.15,
+            selfPreservation: 1.1
+        }
+    },
+
+    eugene: {
+        primary: {
+            strategy: 1.8,
+            selfPreservation: 1.6,
+            pragmatism: 1.5,
+            manipulation: 1.4
+        },
+        secondary: {
+            independence: 1.2,
+            charisma: 1.1,
+            emotionalControl: 1.1
+        }
+    },
+
+    negan: {
+        primary: {
+            charisma: 1.8,
+            manipulation: 1.8,
+            ruthlessness: 1.7,
+            leadership: 1.6
+        },
+        secondary: {
+            pragmatism: 1.25,
+            strategy: 1.15,
+            riskAppetite: 1.1
+        }
+    },
+
+    governor: {
+        primary: {
+            manipulation: 1.9,
+            ruthlessness: 1.8,
+            leadership: 1.6,
+            charisma: 1.6
+        },
+        secondary: {
+            selfPreservation: 1.25,
+            strategy: 1.2,
+            pragmatism: 1.1
+        }
+    },
+
+    morgan: {
+        primary: {
+            empathy: 1.8,
+            morality: 1.7,
+            hope: 1.6,
+            loyalty: 1.5
+        },
+        secondary: {
+            trust: 1.25,
+            emotionalControl: 1.1,
+            courage: 1.1
+        }
+    },
+
+    gabriel: {
+        primary: {
+            morality: 1.7,
+            hope: 1.7,
+            empathy: 1.5,
+            emotionalControl: 1.5
+        },
+        secondary: {
+            trust: 1.2,
+            loyalty: 1.15,
+            strategy: 1.1
+        }
+    },
+
+    ezekiel: {
+        primary: {
+            charisma: 1.8,
+            leadership: 1.7,
+            hope: 1.6,
+            loyalty: 1.5
+        },
+        secondary: {
+            empathy: 1.25,
+            morality: 1.15,
+            courage: 1.1
+        }
+    },
+
+    gregory: {
+        primary: {
+            selfPreservation: 1.8,
+            manipulation: 1.7,
+            charisma: 1.5,
+            pragmatism: 1.4
+        },
+        secondary: {
+            independence: 1.2,
+            strategy: 1.1,
+            trust: 0.8
+        }
+    },
+
+    gareth: {
+        primary: {
+            ruthlessness: 1.9,
+            manipulation: 1.8,
+            pragmatism: 1.7,
+            selfPreservation: 1.5
+        },
+        secondary: {
+            strategy: 1.3,
+            riskAppetite: 1.1,
+            leadership: 1.05
+        }
+    },
+
+    dawn: {
+        primary: {
+            leadership: 1.7,
+            pragmatism: 1.6,
+            selfPreservation: 1.5,
+            strategy: 1.4
+        },
+        secondary: {
+            manipulation: 1.15,
+            emotionalControl: 1.1,
+            charisma: 1.05
+        }
+    },
+
+    bob: {
+        primary: {
+            empathy: 1.8,
+            morality: 1.6,
+            trust: 1.6,
+            hope: 1.5
+        },
+        secondary: {
+            emotionalControl: 1.25,
+            loyalty: 1.2,
+            courage: 1.1
+        }
+    }
+};
+
+
+/* ------------------------------------------------------------
+   CHARACTER ACCESSIBILITY
+
+   Game-design adjustment only.
+
+   Higher = slightly easier to reach.
+   Lower = slightly less likely when matches are otherwise close.
+   ------------------------------------------------------------ */
+
+const CHARACTER_ACCESSIBILITY = {
+
+    rick: 4.5,
+    daryl: 4.5,
+    carol: 4.0,
+    shane: 3.5,
+    glenn: 2.5,
+    michonne: 4.0,
+    maggie: 3.5,
+    hershel: 2.5,
+    abraham: 3.5,
+    eugene: 3.0,
+    negan: 4.5,
+    governor: 3.5,
+    morgan: 3.0,
+    gabriel: 1.5,
+    ezekiel: 3.0,
+    gregory: 1.5,
+    gareth: 2.5,
+    dawn: 1.0,
+    bob: 2.0
+};
+
+
 /* ------------------------------------------------------------
    QUESTIONS
-   Each answer contains only the defined 16 traits.
    ------------------------------------------------------------ */
 
 const TWD_PERSONALITY_QUESTIONS = [
-{
-id:1, question:"Your group has just arrived at an unfamiliar settlement. It's getting dark, and one of the residents has disappeared. The leader says nobody goes outside until morning. You hear something moving outside the walls. What do you do?",
-answers:[
-{text:"Stay inside. Going out at night without knowing what's out there is stupid.",traits:{selfPreservation:3,courage:-1,strategy:1,independence:1,riskAppetite:-2}},
-{text:"Go outside alone and find out what happened.",traits:{selfPreservation:-1,courage:3,leadership:1,independence:3,riskAppetite:3}},
-{text:"Ask for a small team and search while keeping a safe route back.",traits:{selfPreservation:1,courage:2,leadership:3,strategy:3,riskAppetite:1}},
-{text:"Ignore the missing person. If the leader isn't worried, neither am I.",traits:{selfPreservation:2,courage:-2,leadership:-2,strategy:-1,independence:-1,riskAppetite:-2}},
-{text:"Secretly prepare an escape route in case the settlement is attacked.",traits:{selfPreservation:3,leadership:1,strategy:3,independence:2,riskAppetite:-1}}
-]},
-{
-id:2, question:"A member of your group admits that they betrayed you months ago. Their actions indirectly caused several people to die. They've been hiding the truth because they were afraid you'd kill them. Now they're genuinely remorseful. What matters most when deciding what to do?",
-answers:[
-{text:"Whether they can prove they're genuinely sorry.",traits:{empathy:3,morality:1,trust:2,ruthlessness:-1,emotionalControl:2}},
-{text:"Whether keeping them alive puts the group at risk.",traits:{pragmatism:3,morality:1,ruthlessness:2,trust:-2,emotionalControl:3}},
-{text:"What they actually intended when they betrayed us.",traits:{empathy:2,morality:2,pragmatism:1,trust:1,emotionalControl:2}},
-{text:"The fact that they betrayed us cannot be undone.",traits:{morality:3,trust:-3,ruthlessness:1,emotionalControl:1}},
-{text:"Whether they're still useful to the group.",traits:{pragmatism:3,morality:-2,empathy:-1,trust:-1,emotionalControl:2}}
-]},
-{
-id:3, question:"Your group discovers a large herd approaching. There is only enough time to evacuate one section of the settlement. Everyone starts arguing. Nobody wants to make the final decision because whichever section you choose will be abandoned. What do you do?",
-answers:[
-{text:"Make the decision myself and accept responsibility.",traits:{leadership:3,courage:2,pragmatism:1,strategy:1,emotionalControl:3}},
-{text:"Force everyone to vote.",traits:{leadership:1,morality:2,strategy:1,emotionalControl:1}},
-{text:"Quickly calculate which section gives us the best chance of survival.",traits:{leadership:2,courage:1,pragmatism:3,strategy:3,morality:-1,emotionalControl:3}},
-{text:"Ask the most experienced person to decide.",traits:{leadership:-1,courage:-1,pragmatism:1,strategy:2,emotionalControl:2}},
-{text:"Refuse to choose who gets left behind.",traits:{leadership:-2,morality:3,pragmatism:-3,courage:-1,emotionalControl:-1}}
-]},
-{
-id:4, question:"You need to retrieve medicine from a pharmacy two miles away. A dangerous area lies between your settlement and the pharmacy. You have never been there before. What do you do?",
-answers:[
-{text:"Go immediately. Someone has to do it.",traits:{courage:3,selfPreservation:-1,riskAppetite:3,independence:2,pragmatism:1}},
-{text:"Study the area first and plan the safest route.",traits:{courage:1,selfPreservation:2,strategy:3,pragmatism:3,riskAppetite:-1}},
-{text:"Send someone more experienced instead.",traits:{courage:-1,selfPreservation:2,strategy:1,independence:-1,riskAppetite:-1}},
-{text:"Go, but only with two other people.",traits:{courage:2,selfPreservation:1,strategy:1,pragmatism:2,riskAppetite:1}},
-{text:"Decide the medicine isn't worth the risk.",traits:{courage:-2,selfPreservation:3,strategy:1,pragmatism:2,riskAppetite:-3}}
-]},
-{
-id:5, question:"A lone survivor arrives at your settlement. They appear injured and exhausted and ask for shelter. You have no way of knowing whether they're telling the truth. What do you do?",
-answers:[
-{text:"Let them in. They clearly need help.",traits:{empathy:3,trust:3,morality:2,selfPreservation:-2,strategy:-1}},
-{text:"Let them stay somewhere isolated until we know more about them.",traits:{empathy:1,selfPreservation:3,strategy:2,morality:1}},
-{text:"Refuse them. We can't risk the group.",traits:{empathy:-1,trust:-3,selfPreservation:3,strategy:1}},
-{text:"Let them in but quietly search their belongings.",traits:{empathy:1,trust:-2,selfPreservation:2,strategy:2,morality:-1,manipulation:2}},
-{text:"Ask them questions first and judge their story.",traits:{empathy:2,trust:1,selfPreservation:1,strategy:3,morality:1}}
-]},
-{
-id:6, question:"Your group reaches a bridge. Only one person can cross at a time because the structure is unstable. A child is trapped on the other side. The bridge probably won't support another adult carrying them. What do you do?",
-answers:[
-{text:"Go get the child. I'll take the risk.",traits:{empathy:3,courage:3,morality:2,riskAppetite:3,pragmatism:-1}},
-{text:"Find another way around, even if it takes hours.",traits:{empathy:3,morality:3,strategy:2,riskAppetite:-1,leadership:2}},
-{text:"Send the strongest person.",traits:{empathy:1,courage:2,pragmatism:3,riskAppetite:1}},
-{text:"Tell the child to try crossing alone.",traits:{morality:-1,pragmatism:2,courage:1,riskAppetite:1}},
-{text:"Leave the child. We can't risk losing more people.",traits:{empathy:-2,morality:-2,pragmatism:3,riskAppetite:-3}}
-]},
-{
-id:7, question:"Your settlement's leader suddenly dies. Everyone looks toward you. You never asked for leadership. The settlement needs someone immediately. What do you do?",
-answers:[
-{text:"Take command. Someone has to keep everyone organized.",traits:{leadership:3,independence:2,charisma:1,strategy:1}},
-{text:"Ask the group to choose someone else.",traits:{leadership:-2,trust:1,emotionalControl:1}},
-{text:"Take temporary command until a better leader emerges.",traits:{leadership:2,strategy:3,independence:1,trust:1}},
-{text:"Tell everyone to work together without having a single leader.",traits:{leadership:1,independence:2,charisma:2,trust:2}},
-{text:"Take command, but make sure trusted people advise me.",traits:{leadership:3,charisma:2,strategy:3,trust:3,independence:1}}
-]},
-{
-id:8, question:"You finally capture the person responsible for killing someone you loved. But you discover their family had nothing to do with it. They are now completely helpless. You have control over what happens to them.",
-answers:[
-{text:"Leave the family alone. They aren't responsible.",traits:{morality:3,empathy:3,ruthlessness:-3,manipulation:-1,loyalty:1}},
-{text:"Keep them nearby as insurance against retaliation.",traits:{ruthlessness:1,manipulation:2,pragmatism:3,empathy:-1}},
-{text:"Release them, but warn them never to come back.",traits:{morality:2,empathy:1,ruthlessness:-1,pragmatism:1}},
-{text:"Use them to force the killer to surrender.",traits:{morality:-2,empathy:-2,ruthlessness:2,manipulation:3,pragmatism:3}},
-{text:"I don't care who they are. Their family chose their side.",traits:{morality:-3,empathy:-3,ruthlessness:3,loyalty:2,manipulation:1}}
-]},
-{
-id:9, question:"Your settlement is about to panic. You know that an attack is likely tomorrow. If you tell everyone the truth, some people may flee and make the settlement easier to attack. If you lie, you can keep everyone calm and organized. What do you do?",
-answers:[
-{text:"Tell everyone the truth. They deserve to decide for themselves.",traits:{morality:3,trust:3,manipulation:-2,leadership:1,charisma:1}},
-{text:"Tell only the people responsible for defense.",traits:{leadership:2,strategy:2,manipulation:1,emotionalControl:3,trust:-1}},
-{text:"Tell everyone that everything is under control, even if it isn't.",traits:{charisma:3,manipulation:3,leadership:3,strategy:2,morality:-2,trust:-3}},
-{text:"Give people enough information to prepare without causing panic.",traits:{morality:2,charisma:2,leadership:2,strategy:3,trust:1,emotionalControl:3}},
-{text:"Tell the lie now and explain everything after the danger passes.",traits:{manipulation:3,strategy:3,leadership:2,morality:-1,trust:-2}}
-]},
-{
-id:10, question:'You have one bullet left. A walker is about to attack your closest friend. At the same time, another person is trapped nearby and will also die if you don\'t help them. You can only save one. Your friend looks at you and says, "Save them." What do you do?',
-answers:[
-{text:"Save my friend. I can't let someone I love die.",traits:{loyalty:3,empathy:2,morality:-1,pragmatism:-1,emotionalControl:-2}},
-{text:"Do what my friend asked and save the stranger.",traits:{loyalty:2,empathy:3,morality:3,emotionalControl:2,pragmatism:-1}},
-{text:"Try to save both, even if there's a very high chance I fail.",traits:{loyalty:2,empathy:2,morality:1,riskAppetite:3,emotionalControl:-3,pragmatism:-2}},
-{text:"Save whoever I believe has the better chance of surviving afterward.",traits:{loyalty:1,pragmatism:3,morality:1,emotionalControl:3,riskAppetite:-1}},
-{text:"Freeze for a moment. I don't know if I could choose.",traits:{loyalty:1,empathy:1,pragmatism:-2,emotionalControl:-3,courage:-1}}
-]},
-{
-id:11, question:"Someone you trusted caused the death of a member of your group through a reckless decision. They admit what they did and say they want to make things right. What do you do?",
-answers:[
-{text:"Give them a chance. They can't undo it, but they can prove themselves.",traits:{empathy:2,loyalty:2,morality:1,trust:2,emotionalControl:2,ruthlessness:-1}},
-{text:"Keep them around, but never trust them again.",traits:{loyalty:1,morality:1,trust:-2,emotionalControl:3,ruthlessness:1,pragmatism:2}},
-{text:"Make them leave. Some things destroy trust permanently.",traits:{morality:2,trust:-3,ruthlessness:1,emotionalControl:2,independence:1}},
-{text:"Keep them because they're useful to the group.",traits:{pragmatism:3,morality:-2,empathy:-1,ruthlessness:1,emotionalControl:2}},
-{text:"Make them face consequences before deciding anything.",traits:{morality:2,pragmatism:2,ruthlessness:1,emotionalControl:3,trust:-1}}
-]},
-{
-id:12, question:"Your group is escaping a settlement that's about to be overrun. One person has to stay behind and operate the gate manually. Nobody volunteers. What do you do?",
-answers:[
-{text:"Stay behind myself.",traits:{courage:3,loyalty:3,empathy:2,riskAppetite:3,selfPreservation:-2}},
-{text:"Choose whoever has the best chance of surviving.",traits:{pragmatism:3,strategy:2,emotionalControl:3,morality:1}},
-{text:"Draw lots. Everyone should have an equal chance.",traits:{morality:3,trust:2,leadership:1,pragmatism:-1}},
-{text:"Order someone to do it. There's no time for arguments.",traits:{leadership:3,courage:2,pragmatism:2,ruthlessness:1,emotionalControl:2}},
-{text:"Look for another solution, even if it delays our escape.",traits:{empathy:3,morality:3,strategy:3,riskAppetite:-1,leadership:1}}
-]},
-{
-id:13, question:"You've been leading your group for months. One of your closest people openly challenges your decisions in front of everyone. What do you do?",
-answers:[
-{text:"Listen to their argument before responding.",traits:{empathy:2,trust:2,emotionalControl:3,leadership:1,independence:1}},
-{text:"Make it clear that the final decision is mine.",traits:{leadership:3,independence:2,charisma:1,emotionalControl:2,trust:-1}},
-{text:"Let the group decide who is right.",traits:{trust:3,morality:2,leadership:-1,independence:-1}},
-{text:"Privately confront them afterward.",traits:{strategy:2,emotionalControl:3,leadership:1,manipulation:1}},
-{text:"Ignore the challenge and continue with the plan.",traits:{leadership:2,independence:2,emotionalControl:3,trust:-2,empathy:-1}}
-]},
-{
-id:14, question:"Someone in your group has become increasingly unstable. They haven't actually hurt anyone yet, but several people are afraid of them. What do you do?",
-answers:[
-{text:"Remove them before something happens.",traits:{selfPreservation:3,pragmatism:3,ruthlessness:2,strategy:2,empathy:-2}},
-{text:"Keep an eye on them but give them a chance.",traits:{empathy:2,morality:2,trust:1,emotionalControl:2,selfPreservation:1}},
-{text:"Ask them directly what's happening.",traits:{empathy:3,trust:2,morality:2,emotionalControl:2}},
-{text:"Put restrictions on what they can do.",traits:{pragmatism:3,strategy:3,leadership:2,selfPreservation:2}},
-{text:"Do nothing until they actually become a threat.",traits:{trust:1,empathy:1,morality:-1,riskAppetite:2,selfPreservation:-1}}
-]},
 
 {
-id:15, question:"Your group has suffered several major failures. Food is running out, people are exhausted, and everyone is starting to believe survival is impossible. What is your reaction?",
-answers:[
-{text:"Keep everyone focused on the possibility of rebuilding.",traits:{hope:3,empathy:2,leadership:2,charisma:2,emotionalControl:2}},
-{text:"Stop pretending things will get better and focus only on surviving today.",traits:{pragmatism:3,selfPreservation:2,hope:-2,emotionalControl:3}},
-{text:"Look for somewhere completely new to start over.",traits:{hope:2,independence:2,strategy:3,riskAppetite:1}},
-{text:"Tell everyone that giving up isn't an option.",traits:{hope:3,leadership:3,charisma:2,courage:2}},
-{text:"Accept that some people won't make it and concentrate on those who can.",traits:{pragmatism:3,selfPreservation:2,morality:-1,emotionalControl:3,hope:-1}}
-]},
+    id: 1,
+    question:
+        "You find a backpack full of canned food while scavenging. What's your first move?",
+    answers: [
+        {
+            text: "Take what we need and keep moving.",
+            traits: ["selfPreservation", "pragmatism"]
+        },
+        {
+            text: "Check if there's enough to share with the group.",
+            traits: ["empathy", "loyalty"]
+        },
+        {
+            text: "Take everything. Who knows when we'll find food again?",
+            traits: ["selfPreservation", "riskAppetite"]
+        },
+        {
+            text: "Look around first. A stash like this might have a reason.",
+            traits: ["strategy", "selfPreservation"]
+        },
+        {
+            text: "Celebrate. For once, the apocalypse is actually giving us something.",
+            traits: ["hope", "charisma"]
+        }
+    ]
+},
+
 {
-id:16, question:"Your closest friend accidentally killed someone while defending themselves. Nobody else knows. They beg you not to tell anyone. What do you do?",
-answers:[
-{text:"Keep the secret. They trusted me.",traits:{loyalty:3,trust:2,morality:-1,empathy:2,independence:1}},
-{text:"Tell the leader privately.",traits:{morality:2,strategy:2,emotionalControl:3,trust:-1}},
-{text:"Convince my friend to confess themselves.",traits:{loyalty:2,morality:3,empathy:2,leadership:1,manipulation:-1}},
-{text:"Hide the evidence but make sure it never happens again.",traits:{loyalty:2,manipulation:2,strategy:3,morality:-2,pragmatism:2}},
-{text:"Tell everyone. Nobody should be above the rules.",traits:{morality:3,courage:2,trust:2,loyalty:-1,ruthlessness:1}}
-]},
+    id: 2,
+    question:
+        "A walker suddenly appears behind your group. What do you do?",
+    answers: [
+        {
+            text: "Deal with it before anyone else even notices.",
+            traits: ["courage", "emotionalControl"]
+        },
+        {
+            text: "Warn everyone and get the group moving.",
+            traits: ["leadership", "loyalty"]
+        },
+        {
+            text: "Freeze for half a second... then swing.",
+            traits: ["courage", "selfPreservation"]
+        },
+        {
+            text: "Let someone else handle it while I watch for more walkers.",
+            traits: ["strategy", "selfPreservation"]
+        },
+        {
+            text: "Make a joke afterward because nobody needs more panic.",
+            traits: ["charisma", "emotionalControl"]
+        }
+    ]
+},
+
 {
-id:17, question:"You discover a small settlement that has almost no weapons and is desperately short of food. Your group has enough supplies to help them—but taking control of their settlement would give your people an extremely secure base. What do you do?",
-answers:[
-{text:"Help them and leave them independent.",traits:{empathy:3,morality:3,trust:2,ruthlessness:-2,leadership:1}},
-{text:"Offer protection in exchange for cooperation.",traits:{leadership:2,pragmatism:3,charisma:2,manipulation:1}},
-{text:"Take control. Security comes first.",traits:{leadership:3,ruthlessness:3,pragmatism:3,manipulation:2,empathy:-2}},
-{text:"Negotiate a partnership where both groups benefit.",traits:{charisma:2,morality:2,leadership:2,trust:2,strategy:2}},
-{text:"Take what we need and leave before conflict develops.",traits:{selfPreservation:3,pragmatism:3,independence:2,morality:-1,riskAppetite:-1}}
-]},
+    id: 3,
+    question:
+        "Your group has one working car and five people. Unfortunately, six people need a ride.",
+    answers: [
+        {
+            text: "We figure out another way. Nobody gets left behind.",
+            traits: ["loyalty", "empathy"]
+        },
+        {
+            text: "The people most useful to the group go in the car.",
+            traits: ["pragmatism", "strategy"]
+        },
+        {
+            text: "I'll stay behind and catch up later.",
+            traits: ["independence", "loyalty"]
+        },
+        {
+            text: "Everyone gets in. We'll deal with the consequences later.",
+            traits: ["hope", "riskAppetite"]
+        },
+        {
+            text: "I'm driving. We'll find room somehow.",
+            traits: ["leadership", "courage"]
+        }
+    ]
+},
+
 {
-id:18, question:"Someone extremely important to you dies. Your group needs you immediately, but you are emotionally devastated. What do you do?",
-answers:[
-{text:"Put my feelings aside and get back to work.",traits:{emotionalControl:3,leadership:2,courage:2,loyalty:2,hope:1}},
-{text:"Take some time alone before returning.",traits:{emotionalControl:1,independence:2,empathy:2}},
-{text:"Stay with the group because I don't want them facing danger without me.",traits:{loyalty:3,empathy:2,courage:1,hope:2}},
-{text:"Become obsessed with finding whoever caused their death.",traits:{ruthlessness:3,loyalty:3,riskAppetite:2,emotionalControl:-2,manipulation:1}},
-{text:"I don't know if I could function normally for a while.",traits:{empathy:2,emotionalControl:-3,hope:-2,courage:-1}}
-]},
+    id: 4,
+    question:
+        "You meet a stranger who claims they have a safe camp nearby. What's your reaction?",
+    answers: [
+        {
+            text: "Great. Let's go. We could use some good news.",
+            traits: ["hope", "trust"]
+        },
+        {
+            text: "Sounds nice. Now tell me what you're not telling us.",
+            traits: ["strategy", "independence"]
+        },
+        {
+            text: "We stay here until we know more.",
+            traits: ["selfPreservation", "emotionalControl"]
+        },
+        {
+            text: "I'll talk to them. People usually reveal more than they realize.",
+            traits: ["charisma", "manipulation"]
+        },
+        {
+            text: "Give them a chance. Not everyone is out to get us.",
+            traits: ["empathy", "trust"]
+        }
+    ]
+},
+
 {
-id:19, question:"You discover a shortcut to safety. The route is dangerous, but taking it could save your group several days of travel. What do you choose?",
-answers:[
-{text:"Take it. We can't afford to waste time.",traits:{riskAppetite:3,courage:2,pragmatism:2,independence:2,selfPreservation:-1}},
-{text:"Investigate the route before deciding.",traits:{strategy:3,selfPreservation:2,pragmatism:2,riskAppetite:-1,emotionalControl:2}},
-{text:"Avoid it. A known route is safer.",traits:{selfPreservation:3,riskAppetite:-2,pragmatism:1,strategy:1}},
-{text:"Send two people ahead to test it.",traits:{strategy:3,pragmatism:2,leadership:1,riskAppetite:1}},
-{text:"Take it only if the group has no safer alternative.",traits:{pragmatism:3,strategy:2,selfPreservation:2,riskAppetite:-1}}
-]},
+    id: 5,
+    question:
+        "Someone in your group eats the last chocolate bar without telling anyone.",
+    answers: [
+        {
+            text: "Seriously? That's war.",
+            traits: ["ruthlessness", "charisma"]
+        },
+        {
+            text: "Laugh it off. It's a chocolate bar.",
+            traits: ["emotionalControl", "hope"]
+        },
+        {
+            text: "Ask why they did it before getting angry.",
+            traits: ["empathy", "morality"]
+        },
+        {
+            text: "Make sure they don't get near the food supply again.",
+            traits: ["strategy", "selfPreservation"]
+        },
+        {
+            text: "I'll make them wish they'd saved me a piece.",
+            traits: ["manipulation", "charisma"]
+        }
+    ]
+},
+
 {
-id:20, question:"You find two injured strangers. You have enough medicine to save only one. One is young and has a family waiting for them. The other is older but has valuable medical knowledge that could help your group survive. Who gets the medicine?",
-answers:[
-{text:"The younger person. They have more life ahead of them.",traits:{empathy:3,morality:2,hope:1,pragmatism:-1}},
-{text:"The medical expert. Saving them could save many others.",traits:{pragmatism:3,strategy:3,morality:1}},
-{text:"Whoever is in greater immediate danger.",traits:{morality:2,empathy:2,emotionalControl:2,pragmatism:2}},
-{text:"Let them decide who should receive it.",traits:{morality:3,trust:3,empathy:2,leadership:-1}},
-{text:"Split the medicine and try to save both.",traits:{empathy:3,courage:2,riskAppetite:2,hope:2,pragmatism:-2}}
-]},
+    id: 6,
+    question:
+        "You hear a gunshot somewhere in the woods. Your group wants to investigate.",
+    answers: [
+        {
+            text: "Let's go. Someone might need help.",
+            traits: ["courage", "empathy"]
+        },
+        {
+            text: "Absolutely not. That's how people die.",
+            traits: ["selfPreservation", "pragmatism"]
+        },
+        {
+            text: "We watch from a distance first.",
+            traits: ["strategy", "emotionalControl"]
+        },
+        {
+            text: "I'll go. If it's trouble, we'll know soon enough.",
+            traits: ["riskAppetite", "independence"]
+        },
+        {
+            text: "We go together. Nobody wanders off alone.",
+            traits: ["leadership", "loyalty"]
+        }
+    ]
+},
+
 {
-id:21, question:"You give your group an order during an attack. Someone ignores you, makes their own decision, and accidentally saves several people. What do you do afterward?",
-answers:[
-{text:"Punish them. Disobeying orders can get people killed.",traits:{leadership:3,pragmatism:2,ruthlessness:1,emotionalControl:2}},
-{text:"Admit that their decision was better this time.",traits:{morality:2,leadership:1,emotionalControl:3,independence:2}},
-{text:"Thank them, but make it clear that they can't ignore orders whenever they want.",traits:{leadership:3,pragmatism:2,emotionalControl:3,trust:1}},
-{text:"Change the way decisions are made so people can act independently when necessary.",traits:{independence:3,strategy:3,leadership:2,trust:2}},
-{text:"Forget about the disagreement. The important thing is that people survived.",traits:{pragmatism:3,emotionalControl:3,morality:1}}
-]},
+    id: 7,
+    question:
+        "Your best friend does something incredibly stupid and nearly gets everyone killed.",
+    answers: [
+        {
+            text: "They're my friend. We deal with it and move on.",
+            traits: ["loyalty", "empathy"]
+        },
+        {
+            text: "They get one warning. Next time, they're out.",
+            traits: ["pragmatism", "leadership"]
+        },
+        {
+            text: "I want to know exactly what happened first.",
+            traits: ["strategy", "emotionalControl"]
+        },
+        {
+            text: "I'll tear into them, but I'll still have their back.",
+            traits: ["loyalty", "courage"]
+        },
+        {
+            text: "Maybe it's time to remind everyone who's actually keeping us alive.",
+            traits: ["leadership", "charisma"]
+        }
+    ]
+},
+
 {
-id:22, question:"Your group captures an enemy who knows the location of a dangerous opposing faction. They refuse to talk. You have several ways to make them cooperate.",
-answers:[
-{text:"Threaten them but don't physically hurt them.",traits:{leadership:2,ruthlessness:1,manipulation:2,emotionalControl:2}},
-{text:"Offer them something they want in exchange for information.",traits:{pragmatism:3,charisma:2,manipulation:1,morality:1}},
-{text:"Try to convince them that helping us is in their interest.",traits:{charisma:3,manipulation:3,empathy:1,strategy:2}},
-{text:"Interrogate them aggressively if necessary.",traits:{ruthlessness:3,pragmatism:3,manipulation:2,morality:-2}},
-{text:"Let them go. We shouldn't become the kind of people we hate.",traits:{morality:3,empathy:2,ruthlessness:-3,independence:1}}
-]},
+    id: 8,
+    question:
+        "You find a house that looks completely abandoned. What are you checking first?",
+    answers: [
+        {
+            text: "Food and water.",
+            traits: ["selfPreservation", "pragmatism"]
+        },
+        {
+            text: "Windows, doors and possible escape routes.",
+            traits: ["strategy", "selfPreservation"]
+        },
+        {
+            text: "Signs that someone might still live here.",
+            traits: ["empathy", "morality"]
+        },
+        {
+            text: "Weapons.",
+            traits: ["courage", "riskAppetite"]
+        },
+        {
+            text: "A bathroom. At this point, that's treasure.",
+            traits: ["charisma", "hope"]
+        }
+    ]
+},
+
 {
-id:23, question:"Your group has enough food for five days. You discover that three more survivors have arrived. If everyone shares equally, everyone may become dangerously weak before help arrives. What do you do?",
-answers:[
-{text:"Share everything equally.",traits:{morality:3,empathy:3,loyalty:2,pragmatism:-1}},
-{text:"Prioritize children and vulnerable people.",traits:{empathy:3,morality:2,leadership:2,pragmatism:1}},
-{text:"Give more food to people doing essential work.",traits:{pragmatism:3,strategy:2,leadership:2}},
-{text:"Hide some of the food for an emergency.",traits:{selfPreservation:3,strategy:3,pragmatism:2,trust:-1}},
-{text:"Tell the newcomers there isn't enough and refuse them.",traits:{selfPreservation:3,pragmatism:3,empathy:-2,morality:-2}}
-]},
+    id: 9,
+    question:
+        "The group can't agree where to go next. Everyone starts arguing.",
+    answers: [
+        {
+            text: "I'll make the call and get everyone moving.",
+            traits: ["leadership", "courage"]
+        },
+        {
+            text: "Let everyone speak before deciding.",
+            traits: ["empathy", "loyalty"]
+        },
+        {
+            text: "Pick whichever option gives us the best chance of surviving.",
+            traits: ["strategy", "pragmatism"]
+        },
+        {
+            text: "Fine. I'll go my own way.",
+            traits: ["independence", "selfPreservation"]
+        },
+        {
+            text: "Calm everyone down first. Then we decide.",
+            traits: ["emotionalControl", "charisma"]
+        }
+    ]
+},
+
 {
-id:24, question:"Someone proves that one of your decisions could put the entire group in danger. You genuinely believe they are correct. What do you do?",
-answers:[
-{text:"Change the plan immediately.",traits:{emotionalControl:3,strategy:3,independence:1,morality:2}},
-{text:"Ask for more opinions before changing anything.",traits:{strategy:3,trust:2,emotionalControl:3,leadership:1}},
-{text:"Admit publicly that I was wrong.",traits:{morality:2,emotionalControl:3,leadership:2,independence:1}},
-{text:"Change the plan but avoid admitting the mistake.",traits:{pragmatism:2,manipulation:2,leadership:2,emotionalControl:3}},
-{text:"Keep the original plan because changing it now could create more problems.",traits:{independence:2,pragmatism:2,emotionalControl:2,riskAppetite:-1}}
-]},
+    id: 10,
+    question:
+        "A stranger offers your group a large supply of food... in exchange for your weapons.",
+    answers: [
+        {
+            text: "No weapons, no deal.",
+            traits: ["selfPreservation", "pragmatism"]
+        },
+        {
+            text: "Take the deal. We need the food.",
+            traits: ["riskAppetite", "pragmatism"]
+        },
+        {
+            text: "Pretend to agree and look for another way.",
+            traits: ["manipulation", "strategy"]
+        },
+        {
+            text: "Ask what happens if we refuse.",
+            traits: ["courage", "emotionalControl"]
+        },
+        {
+            text: "Try negotiating a better deal.",
+            traits: ["charisma", "leadership"]
+        }
+    ]
+},
+
 {
-id:25, question:"You discover that one of your closest friends has secretly been communicating with an enemy group. They haven't given them any important information yet. What is your first reaction?",
-answers:[
-{text:"Confront them privately.",traits:{loyalty:3,empathy:2,trust:2,emotionalControl:2}},
-{text:"Secretly investigate before confronting them.",traits:{strategy:3,selfPreservation:2,emotionalControl:3,trust:-1}},
-{text:"Tell the group immediately.",traits:{morality:3,leadership:2,trust:-1,courage:2}},
-{text:"Pretend I know nothing and use the information against the enemy.",traits:{manipulation:3,strategy:3,pragmatism:3,trust:-3,ruthlessness:1}},
-{text:"Assume there's a good reason and ask them what's going on.",traits:{empathy:3,trust:3,loyalty:2,morality:1}}
-]},
+    id: 11,
+    question:
+        "You have one free afternoon at a relatively safe camp. What are you doing?",
+    answers: [
+        {
+            text: "Sleeping. Obviously.",
+            traits: ["selfPreservation", "emotionalControl"]
+        },
+        {
+            text: "Training with a weapon.",
+            traits: ["courage", "riskAppetite"]
+        },
+        {
+            text: "Checking supplies and preparing for tomorrow.",
+            traits: ["strategy", "pragmatism"]
+        },
+        {
+            text: "Hanging out with everyone.",
+            traits: ["charisma", "loyalty"]
+        },
+        {
+            text: "Finding somewhere quiet and enjoying the fact that we're still alive.",
+            traits: ["hope", "independence"]
+        }
+    ]
+},
+
 {
-id:26, question:"You have the opportunity to become the unquestioned leader of a large community. Nobody could challenge you. You could probably make the community safer—but you'd also have enormous control over people's lives. What appeals to you most?",
-answers:[
-{text:"Having the power to protect everyone.",traits:{leadership:3,empathy:2,morality:2,charisma:2}},
-{text:"Having the ability to finally make decisions without resistance.",traits:{leadership:3,independence:3,ruthlessness:1,manipulation:1}},
-{text:"The opportunity doesn't interest me.",traits:{independence:2,leadership:-2,riskAppetite:-1}},
-{text:"I'd accept it, but create rules limiting my own power.",traits:{morality:3,leadership:2,strategy:2,emotionalControl:2}},
-{text:"I'd rather control things indirectly than be responsible for everything.",traits:{manipulation:3,strategy:3,leadership:1,charisma:2}}
-]},
+    id: 12,
+    question:
+        "A heavily armed group is blocking the road ahead. They haven't noticed you yet.",
+    answers: [
+        {
+            text: "Find another route.",
+            traits: ["selfPreservation", "pragmatism"]
+        },
+        {
+            text: "Watch them and figure out what they're doing.",
+            traits: ["strategy", "emotionalControl"]
+        },
+        {
+            text: "Talk our way through.",
+            traits: ["charisma", "manipulation"]
+        },
+        {
+            text: "Hit them before they can hit us.",
+            traits: ["ruthlessness", "riskAppetite"]
+        },
+        {
+            text: "Stay together and prepare for whatever happens.",
+            traits: ["leadership", "loyalty"]
+        }
+    ]
+},
+
 {
-id:27, question:"Your sibling has made a terrible mistake that could get the entire group killed. The group wants them expelled. Your sibling begs you to protect them. What do you do?",
-answers:[
-{text:"Protect my sibling. Family comes first.",traits:{loyalty:3,empathy:2,morality:-1,pragmatism:-1}},
-{text:"Support the group if my sibling genuinely endangered everyone.",traits:{morality:3,pragmatism:2,leadership:2,emotionalControl:3}},
-{text:"Find a compromise that keeps them with us under strict conditions.",traits:{loyalty:2,empathy:2,strategy:3,pragmatism:2,hope:1}},
-{text:"Help my sibling escape secretly.",traits:{loyalty:3,independence:2,manipulation:2,riskAppetite:2}},
-{text:"Let them face the consequences, even if it hurts.",traits:{morality:3,emotionalControl:3,loyalty:-1,pragmatism:2}}
-]},
+    id: 13,
+    question:
+        "Someone asks you, 'Do you really think things will ever go back to normal?'",
+    answers: [
+        {
+            text: "Yes. We just have to survive long enough.",
+            traits: ["hope", "morality"]
+        },
+        {
+            text: "Normal is gone. We need to build something new.",
+            traits: ["pragmatism", "leadership"]
+        },
+        {
+            text: "I don't think about it. Tomorrow is what matters.",
+            traits: ["selfPreservation", "emotionalControl"]
+        },
+        {
+            text: "Maybe not. But that doesn't mean we stop fighting.",
+            traits: ["courage", "hope"]
+        },
+        {
+            text: "Honestly? I'm starting to like the new rules.",
+            traits: ["independence", "riskAppetite"]
+        }
+    ]
+},
+
 {
-id:28, question:"A group that previously attacked you offers an alliance. They have resources your group desperately needs. You don't trust them. What do you do?",
-answers:[
-{text:"Accept. We need the resources.",traits:{pragmatism:3,riskAppetite:2,trust:1,strategy:1}},
-{text:"Refuse. Some enemies shouldn't be trusted.",traits:{selfPreservation:2,trust:-3,independence:2,riskAppetite:-1}},
-{text:"Accept temporarily while preparing for betrayal.",traits:{strategy:3,manipulation:2,pragmatism:3,trust:-2,emotionalControl:3}},
-{text:"Negotiate strict conditions before agreeing.",traits:{strategy:3,leadership:2,pragmatism:2,trust:0,morality:1}},
-{text:"Pretend to accept while secretly gathering information about them.",traits:{manipulation:3,strategy:3,ruthlessness:2,trust:-3,pragmatism:2}}
-]},
+    id: 14,
+    question:
+        "You catch someone secretly stealing medicine from the group's supplies.",
+    answers: [
+        {
+            text: "Ask who they need it for.",
+            traits: ["empathy", "morality"]
+        },
+        {
+            text: "Take it back and warn them.",
+            traits: ["leadership", "pragmatism"]
+        },
+        {
+            text: "Find out how long they've been stealing first.",
+            traits: ["strategy", "emotionalControl"]
+        },
+        {
+            text: "Make an example of them.",
+            traits: ["ruthlessness", "leadership"]
+        },
+        {
+            text: "Keep quiet and use the information later if necessary.",
+            traits: ["manipulation", "strategy"]
+        }
+    ]
+},
+
 {
-id:29, question:"You discover an escape route from a settlement controlled by a violent group. There is room for only half your people. If you wait for another opportunity, everyone might be trapped. What do you do?",
-answers:[
-{text:"Leave with whoever can escape first.",traits:{selfPreservation:3,pragmatism:3,loyalty:-1,riskAppetite:1}},
-{text:"Refuse to leave unless everyone can come.",traits:{loyalty:3,morality:3,empathy:3,hope:2,riskAppetite:-2}},
-{text:"Choose the people most likely to survive outside.",traits:{pragmatism:3,strategy:3,selfPreservation:2,empathy:-1}},
-{text:"Stay behind and help the others escape later.",traits:{loyalty:3,courage:3,empathy:2,riskAppetite:2,selfPreservation:-2}},
-{text:"Create a distraction so everyone has a chance to escape.",traits:{leadership:3,courage:3,strategy:3,hope:1,riskAppetite:3,loyalty:2}}
-]},
+    id: 15,
+    question:
+        "Walkers are surrounding your building and the only escape is across a shaky roof.",
+    answers: [
+        {
+            text: "I'm going first.",
+            traits: ["courage", "riskAppetite"]
+        },
+        {
+            text: "I'll figure out the safest route.",
+            traits: ["strategy", "selfPreservation"]
+        },
+        {
+            text: "Everyone crosses together.",
+            traits: ["loyalty", "leadership"]
+        },
+        {
+            text: "If someone falls, keep moving. Don't let everyone die.",
+            traits: ["pragmatism", "emotionalControl"]
+        },
+        {
+            text: "Well... this is going to be interesting.",
+            traits: ["riskAppetite", "charisma"]
+        }
+    ]
+},
+
 {
-id:30, question:"Your group is surrounded. What do you do?",
-answers:[
-{text:"Fight. We may die, but we refuse to surrender.",traits:{courage:3,loyalty:3,independence:2,riskAppetite:3,selfPreservation:-1}},
-{text:"Negotiate. Survival is more important than pride.",traits:{pragmatism:3,selfPreservation:3,charisma:2,emotionalControl:3,riskAppetite:-1}},
-{text:"Sacrifice a small group so the rest can escape.",traits:{leadership:3,pragmatism:3,strategy:3,ruthlessness:3,morality:-2}},
-{text:"Attempt an extremely dangerous escape route.",traits:{courage:3,riskAppetite:3,independence:2,strategy:1,hope:1,selfPreservation:-2}},
-{text:"Surrender temporarily and look for an opportunity later.",traits:{pragmatism:3,strategy:3,selfPreservation:2,emotionalControl:3,riskAppetite:-1}}
-]}
+    id: 16,
+    question:
+        "Someone new joins the group and immediately starts flirting with you.",
+    answers: [
+        {
+            text: "Flirt back. The apocalypse is no excuse to be boring.",
+            traits: ["charisma", "riskAppetite"]
+        },
+        {
+            text: "Keep things friendly. I don't trust them yet.",
+            traits: ["trust", "selfPreservation"]
+        },
+        {
+            text: "See what they want before deciding anything.",
+            traits: ["strategy", "manipulation"]
+        },
+        {
+            text: "Give them a chance. Life is short.",
+            traits: ["hope", "empathy"]
+        },
+        {
+            text: "Ignore it. We have bigger problems.",
+            traits: ["emotionalControl", "pragmatism"]
+        }
+    ]
+},
+
+{
+    id: 17,
+    question:
+        "You discover your group has been followed for several miles.",
+    answers: [
+        {
+            text: "Set a trap.",
+            traits: ["strategy", "ruthlessness"]
+        },
+        {
+            text: "Keep moving and avoid a fight.",
+            traits: ["selfPreservation", "pragmatism"]
+        },
+        {
+            text: "Turn around and confront them.",
+            traits: ["courage", "riskAppetite"]
+        },
+        {
+            text: "Find out who they are first.",
+            traits: ["strategy", "emotionalControl"]
+        },
+        {
+            text: "Let them think they're following us... for now.",
+            traits: ["manipulation", "independence"]
+        }
+    ]
+},
+
+{
+    id: 18,
+    question:
+        "Your group has to choose one person to lead a dangerous supply run.",
+    answers: [
+        {
+            text: "Me. At least I know what I'm getting everyone into.",
+            traits: ["leadership", "courage"]
+        },
+        {
+            text: "The person with the most experience.",
+            traits: ["trust", "pragmatism"]
+        },
+        {
+            text: "Whoever is best at getting in and out unnoticed.",
+            traits: ["strategy", "selfPreservation"]
+        },
+        {
+            text: "Someone who won't hesitate when things go bad.",
+            traits: ["riskAppetite", "ruthlessness"]
+        },
+        {
+            text: "Let's decide together.",
+            traits: ["loyalty", "empathy"]
+        }
+    ]
+},
+
+{
+    id: 19,
+    question:
+        "You find a working radio. You hear a voice asking for help.",
+    answers: [
+        {
+            text: "Answer immediately.",
+            traits: ["empathy", "hope"]
+        },
+        {
+            text: "Listen for a while before responding.",
+            traits: ["strategy", "selfPreservation"]
+        },
+        {
+            text: "Ask for their location and what they can offer us.",
+            traits: ["pragmatism", "charisma"]
+        },
+        {
+            text: "Ignore it. It could be a trap.",
+            traits: ["selfPreservation", "emotionalControl"]
+        },
+        {
+            text: "Respond, but don't tell them where we are.",
+            traits: ["trust", "strategy"]
+        }
+    ]
+},
+
+{
+    id: 20,
+    question:
+        "Be honest: what's your biggest apocalypse luxury?",
+    answers: [
+        {
+            text: "A hot shower.",
+            traits: ["hope", "emotionalControl"]
+        },
+        {
+            text: "A comfortable bed.",
+            traits: ["selfPreservation", "pragmatism"]
+        },
+        {
+            text: "Good food that isn't canned.",
+            traits: ["hope", "charisma"]
+        },
+        {
+            text: "A huge collection of weapons.",
+            traits: ["courage", "riskAppetite"]
+        },
+        {
+            text: "Five minutes where nobody asks me to solve anything.",
+            traits: ["independence", "emotionalControl"]
+        }
+    ]
+},
+
+{
+    id: 21,
+    question:
+        "A member of your group is bitten. Everyone knows what comes next.",
+    answers: [
+        {
+            text: "Stay with them. They're still one of us.",
+            traits: ["empathy", "loyalty"]
+        },
+        {
+            text: "Do what has to be done before they turn.",
+            traits: ["pragmatism", "emotionalControl"]
+        },
+        {
+            text: "Look for another option until the very last second.",
+            traits: ["hope", "morality"]
+        },
+        {
+            text: "Ask them what they want.",
+            traits: ["empathy", "morality"]
+        },
+        {
+            text: "Keep everyone safe first. Personal feelings come second.",
+            traits: ["selfPreservation", "leadership"]
+        }
+    ]
+},
+
+{
+    id: 22,
+    question:
+        "Someone from a rival group offers you information in exchange for a favor.",
+    answers: [
+        {
+            text: "Take the deal. Information is valuable.",
+            traits: ["pragmatism", "strategy"]
+        },
+        {
+            text: "Ask what happens if they betray us.",
+            traits: ["selfPreservation", "emotionalControl"]
+        },
+        {
+            text: "Try to get the information without giving anything back.",
+            traits: ["manipulation", "charisma"]
+        },
+        {
+            text: "Trust them if their story checks out.",
+            traits: ["trust", "hope"]
+        },
+        {
+            text: "Make them regret underestimating us.",
+            traits: ["ruthlessness", "courage"]
+        }
+    ]
+},
+
+{
+    id: 23,
+    question:
+        "You get one completely peaceful evening with your group. What happens?",
+    answers: [
+        {
+            text: "Everyone eats, drinks and tells stupid stories.",
+            traits: ["charisma", "hope"]
+        },
+        {
+            text: "I stay near the people I care about.",
+            traits: ["loyalty", "empathy"]
+        },
+        {
+            text: "I finally relax.",
+            traits: ["emotionalControl", "hope"]
+        },
+        {
+            text: "I'm still checking the perimeter.",
+            traits: ["selfPreservation", "strategy"]
+        },
+        {
+            text: "I start planning tomorrow's next move.",
+            traits: ["leadership", "strategy"]
+        }
+    ]
+},
+
+{
+    id: 24,
+    question:
+        "A dangerous person threatens someone you care about. They tell you to back off.",
+    answers: [
+        {
+            text: "I back off and find another way to protect them.",
+            traits: ["strategy", "selfPreservation"]
+        },
+        {
+            text: "They just made this personal.",
+            traits: ["loyalty", "riskAppetite"]
+        },
+        {
+            text: "Try talking them down.",
+            traits: ["charisma", "emotionalControl"]
+        },
+        {
+            text: "Threaten them right back.",
+            traits: ["courage", "ruthlessness"]
+        },
+        {
+            text: "Wait until they think they've won.",
+            traits: ["manipulation", "strategy"]
+        }
+    ]
+},
+
+{
+    id: 25,
+    question:
+        "You have to choose between saving a stranger or securing a huge supply of medicine for your group.",
+    answers: [
+        {
+            text: "Save the stranger. A life is a life.",
+            traits: ["morality", "empathy"]
+        },
+        {
+            text: "Take the medicine. It could save many more people.",
+            traits: ["pragmatism", "strategy"]
+        },
+        {
+            text: "Try to do both, even if it means taking a huge risk.",
+            traits: ["hope", "riskAppetite"]
+        },
+        {
+            text: "Let someone else make the call.",
+            traits: ["trust", "emotionalControl"]
+        },
+        {
+            text: "Depends. What can the stranger offer us?",
+            traits: ["pragmatism", "manipulation"]
+        }
+    ]
+},
+
+{
+    id: 26,
+    question:
+        "Your group discovers an abandoned amusement park that looks surprisingly safe.",
+    answers: [
+        {
+            text: "We're checking it out. Maybe there's food.",
+            traits: ["riskAppetite", "hope"]
+        },
+        {
+            text: "Nope. That's exactly how horror movies start.",
+            traits: ["selfPreservation", "emotionalControl"]
+        },
+        {
+            text: "I'll scout it first.",
+            traits: ["strategy", "independence"]
+        },
+        {
+            text: "Everyone stays together. Let's have some fun for once.",
+            traits: ["leadership", "charisma"]
+        },
+        {
+            text: "If there's a roller coaster, I'm going first.",
+            traits: ["courage", "riskAppetite"]
+        }
+    ]
+},
+
+{
+    id: 27,
+    question:
+        "Someone in the group constantly challenges your decisions.",
+    answers: [
+        {
+            text: "Let them speak. They might have a point.",
+            traits: ["empathy", "trust"]
+        },
+        {
+            text: "Tell them they can lead if they think they can do better.",
+            traits: ["leadership", "courage"]
+        },
+        {
+            text: "Figure out why they're really doing it.",
+            traits: ["strategy", "manipulation"]
+        },
+        {
+            text: "Ignore them and keep doing what works.",
+            traits: ["independence", "pragmatism"]
+        },
+        {
+            text: "Turn the disagreement into a joke.",
+            traits: ["charisma", "emotionalControl"]
+        }
+    ]
+},
+
+{
+    id: 28,
+    question:
+        "You discover someone in your group has secretly been helping a rival group.",
+    answers: [
+        {
+            text: "Hear them out before deciding anything.",
+            traits: ["empathy", "trust"]
+        },
+        {
+            text: "They're a traitor. They're out.",
+            traits: ["ruthlessness", "pragmatism"]
+        },
+        {
+            text: "Find out what information they gave away.",
+            traits: ["strategy", "selfPreservation"]
+        },
+        {
+            text: "Use them to feed the rival group false information.",
+            traits: ["manipulation", "strategy"]
+        },
+        {
+            text: "Give them one chance to prove themselves.",
+            traits: ["loyalty", "hope"]
+        }
+    ]
+},
+
+{
+    id: 29,
+    question:
+        "The group is exhausted, supplies are low and everyone is starting to lose hope. What do you do?",
+    answers: [
+        {
+            text: "Remind everyone how far we've already come.",
+            traits: ["hope", "leadership"]
+        },
+        {
+            text: "Stop wasting energy and focus only on survival.",
+            traits: ["pragmatism", "selfPreservation"]
+        },
+        {
+            text: "Come up with a new plan before things get worse.",
+            traits: ["strategy", "leadership"]
+        },
+        {
+            text: "Stay close to the people who need support.",
+            traits: ["empathy", "loyalty"]
+        },
+        {
+            text: "Take a dangerous chance. We can't stay like this forever.",
+            traits: ["riskAppetite", "courage"]
+        }
+    ]
+},
+
+{
+    id: 30,
+    question:
+        "It's late at night. Everyone is asleep. You hear something outside the camp.",
+    answers: [
+        {
+            text: "Grab a weapon and investigate.",
+            traits: ["courage", "riskAppetite"]
+        },
+        {
+            text: "Wake the others and prepare everyone.",
+            traits: ["leadership", "loyalty"]
+        },
+        {
+            text: "Stay hidden and figure out exactly what it is.",
+            traits: ["strategy", "selfPreservation"]
+        },
+        {
+            text: "Quietly go outside alone.",
+            traits: ["independence", "emotionalControl"]
+        },
+        {
+            text: "Wake someone I trust and deal with it together.",
+            traits: ["trust", "loyalty"]
+        }
+    ]
+}
+
 ];
+
 
 /* ------------------------------------------------------------
    Validation
    ------------------------------------------------------------ */
 
 function validateTWDData() {
+
     const errors = [];
-    const forbidden = ["authority", "humility", "stubbornness"];
+
+    const forbidden = [
+        "authority",
+        "humility",
+        "stubbornness",
+        "caution"
+    ];
+
 
     TWD_PERSONALITY_QUESTIONS.forEach(q => {
-        if (!q.id || !q.question || !Array.isArray(q.answers) || q.answers.length !== 5)
-            errors.push(`Q${q.id}: must have a question and exactly 5 answers.`);
+
+        if (
+            !q.id ||
+            !q.question ||
+            !Array.isArray(q.answers) ||
+            q.answers.length !== 5
+        ) {
+            errors.push(
+                `Q${q.id}: must have a question and exactly 5 answers.`
+            );
+        }
+
 
         q.answers.forEach((a, i) => {
-            Object.keys(a.traits || {}).forEach(trait => {
-                if (!TRAIT_KEYS.includes(trait))
-                    errors.push(`Q${q.id} answer ${i + 1}: undefined trait "${trait}".`);
-                if (forbidden.includes(trait))
-                    errors.push(`Q${q.id} answer ${i + 1}: forbidden trait "${trait}".`);
+
+            if (!Array.isArray(a.traits)) {
+
+                errors.push(
+                    `Q${q.id} answer ${i + 1}: traits must be an array.`
+                );
+
+                return;
+            }
+
+
+            a.traits.forEach(trait => {
+
+                if (!TRAIT_KEYS.includes(trait)) {
+
+                    errors.push(
+                        `Q${q.id} answer ${i + 1}: undefined trait "${trait}".`
+                    );
+
+                }
+
+
+                if (forbidden.includes(trait)) {
+
+                    errors.push(
+                        `Q${q.id} answer ${i + 1}: forbidden trait "${trait}".`
+                    );
+
+                }
+
             });
+
         });
+
     });
 
-    Object.entries(TWD_CHARACTERS).forEach(([id, character]) => {
-        if (character.scores.length !== TRAIT_KEYS.length)
-            errors.push(`${id}: character has ${character.scores.length} scores; expected ${TRAIT_KEYS.length}.`);
-    });
 
-    if (TWD_PERSONALITY_QUESTIONS.length !== 30)
-        errors.push(`Expected 30 questions; found ${TWD_PERSONALITY_QUESTIONS.length}.`);
+    Object.entries(TWD_CHARACTERS).forEach(
+        ([id, character]) => {
 
-    return { valid: errors.length === 0, errors };
+            if (
+                !Array.isArray(character.scores) ||
+                character.scores.length !== TRAIT_KEYS.length
+            ) {
+
+                errors.push(
+                    `${id}: character has ` +
+                    `${character.scores?.length || 0} scores; ` +
+                    `expected ${TRAIT_KEYS.length}.`
+                );
+
+            }
+
+        }
+    );
+
+
+    Object.entries(TWD_CHARACTERS).forEach(
+        ([id]) => {
+
+            const signature =
+                CHARACTER_SIGNATURES[id];
+
+
+            if (!signature) {
+
+                errors.push(
+                    `${id}: missing CHARACTER_SIGNATURES entry.`
+                );
+
+                return;
+            }
+
+
+            const signatureTraits = [
+                ...Object.keys(signature.primary || {}),
+                ...Object.keys(signature.secondary || {})
+            ];
+
+
+            signatureTraits.forEach(trait => {
+
+                if (!TRAIT_KEYS.includes(trait)) {
+
+                    errors.push(
+                        `${id}: signature contains undefined trait "${trait}".`
+                    );
+
+                }
+
+            });
+
+        }
+    );
+
+
+    if (
+        TWD_PERSONALITY_QUESTIONS.length !== 30
+    ) {
+
+        errors.push(
+            `Expected 30 questions; found ` +
+            `${TWD_PERSONALITY_QUESTIONS.length}.`
+        );
+
+    }
+
+
+    if (
+        Object.keys(TWD_CHARACTERS).length !== 19
+    ) {
+
+        errors.push(
+            `Expected 19 characters; found ` +
+            `${Object.keys(TWD_CHARACTERS).length}.`
+        );
+
+    }
+
+
+    return {
+        valid: errors.length === 0,
+        errors
+    };
 }
+
 
 /* ------------------------------------------------------------
    Personality calculation
    ------------------------------------------------------------ */
 
 function calculatePersonality(answerIndexes) {
+
     const rawScores = {};
     const maxScores = {};
     const minScores = {};
 
+
     TRAIT_KEYS.forEach(trait => {
+
         rawScores[trait] = 0;
         maxScores[trait] = 0;
         minScores[trait] = 0;
+
     });
+
 
     let answeredQuestions = 0;
 
-    TWD_PERSONALITY_QUESTIONS.forEach(question => {
-        const selectedIndex = answerIndexes?.[question.id];
 
-        if (selectedIndex === undefined || selectedIndex === null) return;
+    /* --------------------------------------------------------
+       FIXED TRAIT ACCUMULATION
 
-        const answer = question.answers[selectedIndex];
-        if (!answer) return;
+       Each answer contains an array such as:
 
-        answeredQuestions++;
+           ["empathy", "loyalty"]
 
-        Object.entries(answer.traits || {}).forEach(([trait, value]) => {
-            if (!TRAIT_KEYS.includes(trait)) return;
-            rawScores[trait] += Number(value) || 0;
-        });
-    });
+       Therefore each selected trait contributes 1 point.
 
-    /*
-     * Theoretical range is based on every question, treating an
-     * absent trait as zero. This prevents traits that appear in only
-     * some questions from being artificially advantaged.
-     */
-    TWD_PERSONALITY_QUESTIONS.forEach(question => {
-        TRAIT_KEYS.forEach(trait => {
-            const values = question.answers.map(answer => Number(answer.traits?.[trait]) || 0);
-            maxScores[trait] += Math.max(...values);
-            minScores[trait] += Math.min(...values);
-        });
-    });
+       The previous version incorrectly used Object.entries()
+       on this array, which produced:
+
+           0 -> "empathy"
+           1 -> "loyalty"
+
+       rather than incrementing the actual trait names.
+       -------------------------------------------------------- */
+
+    TWD_PERSONALITY_QUESTIONS.forEach(
+        question => {
+
+            const selectedIndex =
+                answerIndexes?.[question.id];
+
+
+            if (
+                selectedIndex === undefined ||
+                selectedIndex === null
+            ) {
+                return;
+            }
+
+
+            const answer =
+                question.answers[selectedIndex];
+
+
+            if (!answer) return;
+
+
+            answeredQuestions++;
+
+
+            (answer.traits || []).forEach(
+                trait => {
+
+                    if (!TRAIT_KEYS.includes(trait)) {
+                        return;
+                    }
+
+
+                    rawScores[trait] += 1;
+
+                }
+            );
+
+        }
+    );
+
+
+    /* --------------------------------------------------------
+       THEORETICAL RANGE
+
+       Each question can contribute either:
+
+       0 = trait absent from answer
+       1 = trait present in answer
+
+       Therefore min/max are calculated across every possible
+       answer for every trait.
+       -------------------------------------------------------- */
+
+    TWD_PERSONALITY_QUESTIONS.forEach(
+        question => {
+
+            TRAIT_KEYS.forEach(trait => {
+
+                const values =
+                    question.answers.map(
+                        answer =>
+                            Array.isArray(answer.traits) &&
+                            answer.traits.includes(trait)
+                                ? 1
+                                : 0
+                    );
+
+
+                maxScores[trait] +=
+                    Math.max(...values);
+
+
+                minScores[trait] +=
+                    Math.min(...values);
+
+            });
+
+        }
+    );
+
 
     const profile = {};
 
+
     TRAIT_KEYS.forEach(trait => {
-        const min = minScores[trait];
-        const max = maxScores[trait];
-        const raw = rawScores[trait];
+
+        const min =
+            minScores[trait];
+
+        const max =
+            maxScores[trait];
+
+        const raw =
+            rawScores[trait];
+
 
         if (max === min) {
-            profile[trait] = 65;
+
+            profile[trait] = 62;
+
             return;
         }
 
-        const normalized = ((raw - min) / (max - min)) * 100;
+
+        const normalized =
+            ((raw - min) /
+            (max - min)) * 100;
+
 
         /*
-         * Calibration:
-         * 50 theoretical percentile -> 65 displayed score.
-         *
-         * A 1.5x spread keeps meaningful differences between users
-         * while moving the center toward the ~65 level represented by
-         * the character matrix. Final results remain 5–95.
+         * Wider personality separation.
          */
-        let score = 65 + ((normalized - 50) * 1.5);
 
-        score = Math.max(5, Math.min(95, score));
-        profile[trait] = Math.round(score);
+        let score =
+            62 +
+            ((normalized - 50) * 2.0);
+
+
+        score =
+            Math.max(
+                5,
+                Math.min(
+                    95,
+                    score
+                )
+            );
+
+
+        profile[trait] =
+            Math.round(score);
+
     });
 
+
     return {
+
         profile,
+
         rawScores,
+
         minScores,
+
         maxScores,
+
         answeredQuestions,
-        completionPercent: Math.round((answeredQuestions / TWD_PERSONALITY_QUESTIONS.length) * 100)
+
+        completionPercent:
+            Math.round(
+                (
+                    answeredQuestions /
+                    TWD_PERSONALITY_QUESTIONS.length
+                ) * 100
+            )
+
     };
 }
+
+
+/* ------------------------------------------------------------
+   Helper: weighted trait similarity
+   ------------------------------------------------------------ */
+
+function getTraitSimilarity(
+    userScore,
+    characterScore
+) {
+
+    return Math.max(
+        0,
+        Math.min(
+            100,
+            100 -
+            Math.abs(
+                userScore -
+                characterScore
+            )
+        )
+    );
+}
+
 
 /* ------------------------------------------------------------
    Character matching
    ------------------------------------------------------------ */
 
-function calculateCharacterMatch(userProfile, character) {
+function calculateCharacterMatch(
+    userProfile,
+    character,
+    characterId = null
+) {
+
+    const signature =
+        characterId
+            ? CHARACTER_SIGNATURES[characterId]
+            : null;
+
+
+    /* ========================================================
+       NEW CHARACTER-SIGNATURE SYSTEM
+       ======================================================== */
+
+    if (signature) {
+
+        /* ----------------------------------------------------
+           1. SIGNATURE SCORE
+
+           Primary traits = strongest
+           Secondary traits = moderate
+           Remaining traits = weak background influence
+           ---------------------------------------------------- */
+
+        let signatureScore = 0;
+        let signatureWeightTotal = 0;
+
+
+        Object.entries(
+            signature.primary || {}
+        ).forEach(
+            ([trait, weight]) => {
+
+                const index =
+                    TRAIT_KEYS.indexOf(trait);
+
+                if (index === -1) return;
+
+
+                const userScore =
+                    Number(
+                        userProfile[trait] ?? 62
+                    );
+
+
+                const characterScore =
+                    Number(
+                        character.scores[index] ?? 62
+                    );
+
+
+                const similarity =
+                    getTraitSimilarity(
+                        userScore,
+                        characterScore
+                    );
+
+
+                const baseWeight =
+                    TRAIT_WEIGHTS[trait] ?? 1;
+
+
+                const finalWeight =
+                    weight *
+                    baseWeight;
+
+
+                signatureScore +=
+                    similarity *
+                    finalWeight;
+
+
+                signatureWeightTotal +=
+                    finalWeight;
+
+            }
+        );
+
+
+        Object.entries(
+            signature.secondary || {}
+        ).forEach(
+            ([trait, weight]) => {
+
+                const index =
+                    TRAIT_KEYS.indexOf(trait);
+
+                if (index === -1) return;
+
+
+                const userScore =
+                    Number(
+                        userProfile[trait] ?? 62
+                    );
+
+
+                const characterScore =
+                    Number(
+                        character.scores[index] ?? 62
+                    );
+
+
+                const similarity =
+                    getTraitSimilarity(
+                        userScore,
+                        characterScore
+                    );
+
+
+                const baseWeight =
+                    TRAIT_WEIGHTS[trait] ?? 1;
+
+
+                const finalWeight =
+                    weight *
+                    baseWeight;
+
+
+                signatureScore +=
+                    similarity *
+                    finalWeight;
+
+
+                signatureWeightTotal +=
+                    finalWeight;
+
+            }
+        );
+
+
+        /*
+         * Background traits.
+
+         * They matter, but only at 30% of their normal weight.
+         */
+
+        TRAIT_KEYS.forEach(
+            (trait, index) => {
+
+                const isPrimary =
+                    Object.prototype.hasOwnProperty.call(
+                        signature.primary || {},
+                        trait
+                    );
+
+
+                const isSecondary =
+                    Object.prototype.hasOwnProperty.call(
+                        signature.secondary || {},
+                        trait
+                    );
+
+
+                if (
+                    isPrimary ||
+                    isSecondary
+                ) {
+                    return;
+                }
+
+
+                const userScore =
+                    Number(
+                        userProfile[trait] ?? 62
+                    );
+
+
+                const characterScore =
+                    Number(
+                        character.scores[index] ?? 62
+                    );
+
+
+                const similarity =
+                    getTraitSimilarity(
+                        userScore,
+                        characterScore
+                    );
+
+
+                const baseWeight =
+                    TRAIT_WEIGHTS[trait] ?? 1;
+
+
+                const backgroundWeight =
+                    baseWeight *
+                    0.30;
+
+
+                signatureScore +=
+                    similarity *
+                    backgroundWeight;
+
+
+                signatureWeightTotal +=
+                    backgroundWeight;
+
+            }
+        );
+
+
+        signatureScore =
+            signatureWeightTotal > 0
+                ? signatureScore /
+                  signatureWeightTotal
+                : 0;
+
+
+        /* ----------------------------------------------------
+           2. OVERALL PERSONALITY SCORE
+
+           Every trait participates here.
+
+           This stops the signature from completely ignoring
+           the rest of the user's personality profile.
+           ---------------------------------------------------- */
+
+        let overallScore = 0;
+        let overallWeightTotal = 0;
+
+
+        TRAIT_KEYS.forEach(
+            (trait, index) => {
+
+                const userScore =
+                    Number(
+                        userProfile[trait] ?? 62
+                    );
+
+
+                const characterScore =
+                    Number(
+                        character.scores[index] ?? 62
+                    );
+
+
+                const similarity =
+                    getTraitSimilarity(
+                        userScore,
+                        characterScore
+                    );
+
+
+                const weight =
+                    TRAIT_WEIGHTS[trait] ?? 1;
+
+
+                overallScore +=
+                    similarity *
+                    weight;
+
+
+                overallWeightTotal +=
+                    weight;
+
+            }
+        );
+
+
+        overallScore =
+            overallWeightTotal > 0
+                ? overallScore /
+                  overallWeightTotal
+                : 0;
+
+
+        /* ----------------------------------------------------
+           3. PERSONALITY SHAPE
+
+           Compare traits relative to the user's own average.
+
+           Example:
+
+           User:
+           strategy = very high
+           empathy = low
+
+           Character:
+           strategy = very high
+           empathy = low
+
+           Even if their absolute scores are not identical,
+           the shape of the personality is similar.
+           ---------------------------------------------------- */
+
+        const userScores =
+            TRAIT_KEYS.map(
+                trait =>
+                    Number(
+                        userProfile[trait] ?? 62
+                    )
+            );
+
+
+        const characterScores =
+            character.scores.map(
+                value =>
+                    Number(
+                        value ?? 62
+                    )
+            );
+
+
+        const userAverage =
+            userScores.reduce(
+                (sum, value) =>
+                    sum + value,
+                0
+            ) /
+            userScores.length;
+
+
+        const characterAverage =
+            characterScores.reduce(
+                (sum, value) =>
+                    sum + value,
+                0
+            ) /
+            characterScores.length;
+
+
+        let shapeDifference = 0;
+        let shapeWeightTotal = 0;
+
+
+        TRAIT_KEYS.forEach(
+            (trait, index) => {
+
+                const userRelative =
+                    userScores[index] -
+                    userAverage;
+
+
+                const characterRelative =
+                    characterScores[index] -
+                    characterAverage;
+
+
+                let shapeWeight =
+                    0.20;
+
+
+                if (
+                    Object.prototype.hasOwnProperty.call(
+                        signature.primary || {},
+                        trait
+                    )
+                ) {
+
+                    shapeWeight =
+                        0.45;
+
+                } else if (
+                    Object.prototype.hasOwnProperty.call(
+                        signature.secondary || {},
+                        trait
+                    )
+                ) {
+
+                    shapeWeight =
+                        0.30;
+
+                }
+
+
+                shapeDifference +=
+                    Math.abs(
+                        userRelative -
+                        characterRelative
+                    ) *
+                    shapeWeight;
+
+
+                shapeWeightTotal +=
+                    shapeWeight;
+
+            }
+        );
+
+
+        const shapeSimilarity =
+            shapeWeightTotal > 0
+                ? Math.max(
+                    0,
+                    Math.min(
+                        100,
+                        100 -
+                        (
+                            shapeDifference /
+                            shapeWeightTotal
+                        )
+                    )
+                )
+                : 0;
+
+
+        /* ----------------------------------------------------
+           4. SIGNATURE ACTIVATION BONUS
+
+           This is deliberately deterministic.
+
+           If a user is extremely close to several defining
+           traits of a character, that character receives a
+           small additional boost.
+
+           Maximum intended influence is modest compared with
+           the main 60/25/15 scoring system.
+           ---------------------------------------------------- */
+
+        let signatureActivation =
+            0;
+
+
+        Object.entries(
+            signature.primary || {}
+        ).forEach(
+            ([trait, weight]) => {
+
+                const index =
+                    TRAIT_KEYS.indexOf(trait);
+
+                if (index === -1) return;
+
+
+                const userScore =
+                    Number(
+                        userProfile[trait] ?? 62
+                    );
+
+
+                const characterScore =
+                    Number(
+                        character.scores[index] ?? 62
+                    );
+
+
+                const difference =
+                    Math.abs(
+                        userScore -
+                        characterScore
+                    );
+
+
+                if (difference <= 6) {
+
+                    signatureActivation +=
+                        1.75 *
+                        weight;
+
+                } else if (difference <= 12) {
+
+                    signatureActivation +=
+                        0.85 *
+                        weight;
+
+                }
+
+            }
+        );
+
+
+        /*
+         * Prevent this extra mechanism from becoming dominant.
+         */
+
+        signatureActivation =
+            Math.min(
+                7,
+                signatureActivation
+            );
+
+
+        /* ----------------------------------------------------
+           5. FINAL MATCH
+
+           60% signature
+           25% overall profile
+           15% personality shape
+           + deterministic signature activation
+           ---------------------------------------------------- */
+
+        const combinedScore =
+            (
+                signatureScore *
+                0.60
+            ) +
+            (
+                overallScore *
+                0.25
+            ) +
+            (
+                shapeSimilarity *
+                0.15
+            ) +
+            signatureActivation;
+
+
+        return Math.max(
+            0,
+            Math.min(
+                100,
+                combinedScore
+            )
+        );
+    }
+
+
+    /* ========================================================
+       BACKWARD-COMPATIBILITY FALLBACK
+
+       Used only when characterId is not supplied.
+       ======================================================== */
 
     let absoluteDifference = 0;
     let shapeDifference = 0;
@@ -663,239 +2336,670 @@ function calculateCharacterMatch(userProfile, character) {
     const userScores = [];
     const characterScores = [];
 
-    TRAIT_KEYS.forEach((trait, index) => {
 
-        const userScore =
-            Number(userProfile[trait] ?? 65);
+    TRAIT_KEYS.forEach(
+        (trait, index) => {
 
-        const characterScore =
-            Number(character.scores[index] ?? 65);
+            const userScore =
+                Number(
+                    userProfile[trait] ?? 62
+                );
 
-        /*
-         * Traits that are clearly high or clearly low in the
-         * character are treated as signature traits.
-         *
-         * This prevents ordinary traits from overpowering
-         * the character's actual personality fingerprint.
-         */
-        let fingerprintWeight = 1.0;
 
-        if (characterScore >= 85 || characterScore <= 30) {
-            fingerprintWeight = 1.65;
-        } else if (characterScore >= 78 || characterScore <= 40) {
-            fingerprintWeight = 1.25;
-        } else {
-            fingerprintWeight = 0.75;
+            const characterScore =
+                Number(
+                    character.scores[index] ?? 62
+                );
+
+
+            let fingerprintWeight = 1.0;
+
+
+            if (
+                characterScore >= 85 ||
+                characterScore <= 30
+            ) {
+
+                fingerprintWeight = 1.65;
+
+            } else if (
+                characterScore >= 78 ||
+                characterScore <= 40
+            ) {
+
+                fingerprintWeight = 1.25;
+
+            } else {
+
+                fingerprintWeight = 0.75;
+
+            }
+
+
+            const baseWeight =
+                TRAIT_WEIGHTS[trait] ?? 1;
+
+
+            const weight =
+                baseWeight *
+                fingerprintWeight;
+
+
+            absoluteDifference +=
+                Math.abs(
+                    userScore -
+                    characterScore
+                ) *
+                weight;
+
+
+            userScores.push(
+                userScore
+            );
+
+
+            characterScores.push(
+                characterScore
+            );
+
+
+            weightTotal +=
+                weight;
+
         }
+    );
 
-        const baseWeight =
-            TRAIT_WEIGHTS[trait] ?? 1;
-
-        const weight =
-            baseWeight * fingerprintWeight;
-
-        absoluteDifference +=
-            Math.abs(userScore - characterScore) * weight;
-
-        userScores.push(userScore);
-        characterScores.push(characterScore);
-
-        weightTotal += weight;
-    });
-
-    /*
-     * Personality shape
-     *
-     * Compare traits relative to each person's own average.
-     * This helps distinguish people who may have similar overall
-     * scores but very different strengths and weaknesses.
-     */
 
     const userAverage =
-        userScores.reduce((a, b) => a + b, 0) /
+        userScores.reduce(
+            (a, b) => a + b,
+            0
+        ) /
         userScores.length;
 
+
     const characterAverage =
-        characterScores.reduce((a, b) => a + b, 0) /
+        characterScores.reduce(
+            (a, b) => a + b,
+            0
+        ) /
         characterScores.length;
 
-    TRAIT_KEYS.forEach((trait, index) => {
 
-        const characterScore = characterScores[index];
+    TRAIT_KEYS.forEach(
+        (trait, index) => {
 
-        let fingerprintWeight = 1.0;
+            const characterScore =
+                characterScores[index];
 
-        if (characterScore >= 85 || characterScore <= 30) {
-            fingerprintWeight = 1.65;
-        } else if (characterScore >= 78 || characterScore <= 40) {
-            fingerprintWeight = 1.25;
-        } else {
-            fingerprintWeight = 0.75;
+
+            let fingerprintWeight = 1.0;
+
+
+            if (
+                characterScore >= 85 ||
+                characterScore <= 30
+            ) {
+
+                fingerprintWeight = 1.65;
+
+            } else if (
+                characterScore >= 78 ||
+                characterScore <= 40
+            ) {
+
+                fingerprintWeight = 1.25;
+
+            } else {
+
+                fingerprintWeight = 0.75;
+
+            }
+
+
+            const baseWeight =
+                TRAIT_WEIGHTS[trait] ?? 1;
+
+
+            const weight =
+                baseWeight *
+                fingerprintWeight;
+
+
+            const userRelative =
+                userScores[index] -
+                userAverage;
+
+
+            const characterRelative =
+                characterScores[index] -
+                characterAverage;
+
+
+            shapeDifference +=
+                Math.abs(
+                    userRelative -
+                    characterRelative
+                ) *
+                weight;
+
         }
+    );
 
-        const baseWeight =
-            TRAIT_WEIGHTS[trait] ?? 1;
-
-        const weight =
-            baseWeight * fingerprintWeight;
-
-        const userRelative =
-            userScores[index] - userAverage;
-
-        const characterRelative =
-            characterScores[index] - characterAverage;
-
-        shapeDifference +=
-            Math.abs(userRelative - characterRelative) * weight;
-    });
 
     const absoluteScore =
-        absoluteDifference /
-        (100 * weightTotal);
+        weightTotal > 0
+            ? absoluteDifference /
+              (100 * weightTotal)
+            : 0;
+
 
     const shapeScore =
-        shapeDifference /
-        (100 * weightTotal);
+        weightTotal > 0
+            ? shapeDifference /
+              (100 * weightTotal)
+            : 0;
 
-    /*
-     * Actual trait similarity remains slightly more important,
-     * while personality shape gets enough influence to separate
-     * characters with similar overall averages.
-     */
+
     const combinedDifference =
-        (absoluteScore * 0.60) +
-        (shapeScore * 0.40);
+        (
+            absoluteScore *
+            0.60
+        ) +
+        (
+            shapeScore *
+            0.40
+        );
+
 
     const similarity =
-        100 - (combinedDifference * 100);
+        100 -
+        (
+            combinedDifference *
+            100
+        );
 
-    return Math.round(
-        Math.max(0, Math.min(100, similarity))
+
+    return Math.max(
+        0,
+        Math.min(
+            100,
+            similarity
+        )
     );
 }
+
 
 /* ------------------------------------------------------------
    Strongest / lowest traits
    ------------------------------------------------------------ */
 
-function getStrongestTraits(profile, count = 3) {
+function getStrongestTraits(
+    profile,
+    count = 3
+) {
+
     return TRAIT_KEYS
-        .map((trait, index) => ({
-            trait,
-            label: TWD_TRAITS[index],
-            score: profile[trait]
-        }))
-        .sort((a, b) => b.score - a.score)
-        .slice(0, count);
+        .map(
+            (trait, index) => ({
+                trait,
+                label: TWD_TRAITS[index],
+                score: profile[trait]
+            })
+        )
+        .sort(
+            (a, b) => {
+
+                if (b.score !== a.score) {
+                    return b.score - a.score;
+                }
+
+                return (
+                    TRAIT_KEYS.indexOf(a.trait) -
+                    TRAIT_KEYS.indexOf(b.trait)
+                );
+
+            }
+        )
+        .slice(
+            0,
+            count
+        );
 }
 
-function getLowestTraits(profile, count = 3) {
+
+function getLowestTraits(
+    profile,
+    count = 3
+) {
+
     return TRAIT_KEYS
-        .map((trait, index) => ({
-            trait,
-            label: TWD_TRAITS[index],
-            score: profile[trait]
-        }))
-        .sort((a, b) => a.score - b.score)
-        .slice(0, count);
+        .map(
+            (trait, index) => ({
+                trait,
+                label: TWD_TRAITS[index],
+                score: profile[trait]
+            })
+        )
+        .sort(
+            (a, b) => {
+
+                if (a.score !== b.score) {
+                    return a.score - b.score;
+                }
+
+                return (
+                    TRAIT_KEYS.indexOf(a.trait) -
+                    TRAIT_KEYS.indexOf(b.trait)
+                );
+
+            }
+        )
+        .slice(
+            0,
+            count
+        );
 }
+
 
 /* ------------------------------------------------------------
    Final result
    ------------------------------------------------------------ */
 
-function calculateFinalPersonality(answerIndexes) {
-    const personality = calculatePersonality(answerIndexes);
+function calculateFinalPersonality(
+    answerIndexes
+) {
 
-    const results = Object.entries(TWD_CHARACTERS)
-        .map(([id, character]) => ({
-            id,
-            name: character.name,
-            image: character.image,
-            similarity: calculateCharacterMatch(personality.profile, character)
-        }))
-        .sort((a, b) => b.similarity - a.similarity);
+    const personality =
+        calculatePersonality(
+            answerIndexes
+        );
 
-    const strongestTraits = getStrongestTraits(personality.profile, 3);
-    const lowestTraits = getLowestTraits(personality.profile, 3);
+
+    const results =
+        Object.entries(
+            TWD_CHARACTERS
+        )
+        .map(
+            ([id, character]) => {
+
+                /*
+                 * Main character-specific matching.
+                 */
+
+                const baseSimilarity =
+                    calculateCharacterMatch(
+                        personality.profile,
+                        character,
+                        id
+                    );
+
+
+                /*
+                 * Accessibility adjustment.
+
+                 * This remains deliberately modest.
+                 */
+
+                const accessibilityBonus =
+                    CHARACTER_ACCESSIBILITY[id] ?? 0;
+
+
+                const scoreBeforeDiversity =
+                    Math.min(
+                        100,
+                        baseSimilarity +
+                        accessibilityBonus
+                    );
+
+
+                return {
+                    id,
+                    name: character.name,
+                    image: character.image,
+
+                    /*
+                     * Keep precise score internally.
+                     * It will only be rounded after final
+                     * ranking has been completed.
+                     */
+
+                    rawSimilarity:
+                        scoreBeforeDiversity,
+
+                    similarity:
+                        Math.round(
+                            scoreBeforeDiversity
+                        )
+                };
+
+            }
+        );
+
+
+    /* --------------------------------------------------------
+       FIND CURRENT BEST SCORE
+       -------------------------------------------------------- */
+
+    const bestRawScore =
+        results.reduce(
+            (
+                best,
+                result
+            ) =>
+                Math.max(
+                    best,
+                    result.rawSimilarity
+                ),
+            0
+        );
+
+
+    /* --------------------------------------------------------
+       DETERMINISTIC NEAR-TIE DIVERSITY
+
+       If several characters are already extremely close to
+       first place, give the runner-up a small deterministic
+       boost.
+
+       This prevents the same handful of characters from
+       dominating every ambiguous profile.
+
+       It does NOT randomly select a character.
+
+       The same answers always produce the same result.
+       -------------------------------------------------------- */
+
+    results.forEach(result => {
+
+        const distance =
+            bestRawScore -
+            result.rawSimilarity;
+
+
+        let diversityBonus = 0;
+
+
+        if (distance <= 2) {
+
+            diversityBonus = 1.75;
+
+        } else if (distance <= 4) {
+
+            diversityBonus = 1.25;
+
+        } else if (distance <= 7) {
+
+            diversityBonus = 0.60;
+
+        }
+
+
+        result.finalSimilarity =
+            Math.min(
+                100,
+                result.rawSimilarity +
+                diversityBonus
+            );
+
+    });
+
+
+    /* --------------------------------------------------------
+       FINAL DETERMINISTIC SORT
+
+       1. Final score
+       2. Raw score
+       3. Character ID
+
+       Therefore identical answers always produce identical
+       ordering, even if two characters have exactly the same
+       score.
+       -------------------------------------------------------- */
+
+    results.sort(
+        (a, b) => {
+
+            if (
+                b.finalSimilarity !==
+                a.finalSimilarity
+            ) {
+
+                return (
+                    b.finalSimilarity -
+                    a.finalSimilarity
+                );
+
+            }
+
+
+            if (
+                b.rawSimilarity !==
+                a.rawSimilarity
+            ) {
+
+                return (
+                    b.rawSimilarity -
+                    a.rawSimilarity
+                );
+
+            }
+
+
+            return a.id.localeCompare(
+                b.id
+            );
+
+        }
+    );
+
+
+    /* --------------------------------------------------------
+       ROUND ONLY AFTER RANKING
+       -------------------------------------------------------- */
+
+    results.forEach(result => {
+
+        result.similarity =
+            Math.round(
+                result.finalSimilarity
+            );
+
+        delete result.rawSimilarity;
+        delete result.finalSimilarity;
+
+    });
+
+
+    const strongestTraits =
+        getStrongestTraits(
+            personality.profile,
+            3
+        );
+
+
+    const lowestTraits =
+        getLowestTraits(
+            personality.profile,
+            3
+        );
+
 
     return {
-        profile: personality.profile,
-        rawScores: personality.rawScores,
-        answeredQuestions: personality.answeredQuestions,
-        completionPercent: personality.completionPercent,
+
+        profile:
+            personality.profile,
+
+        rawScores:
+            personality.rawScores,
+
+        answeredQuestions:
+            personality.answeredQuestions,
+
+        completionPercent:
+            personality.completionPercent,
+
         results,
-        winner: results[0] || null,
-        second: results[1] || null,
-        third: results[2] || null,
+
+        winner:
+            results[0] || null,
+
+        second:
+            results[1] || null,
+
+        third:
+            results[2] || null,
+
         strongestTraits,
+
         lowestTraits
+
     };
 }
+
 
 /* ------------------------------------------------------------
    Completion / answer helpers
    ------------------------------------------------------------ */
 
-function isQuizComplete(answerIndexes) {
-    return TWD_PERSONALITY_QUESTIONS.every(q => {
-        const index = answerIndexes?.[q.id];
-        return Number.isInteger(index) && index >= 0 && index < q.answers.length;
-    });
+function isQuizComplete(
+    answerIndexes
+) {
+
+    return TWD_PERSONALITY_QUESTIONS.every(
+        q => {
+
+            const index =
+                answerIndexes?.[q.id];
+
+
+            return (
+                Number.isInteger(index) &&
+                index >= 0 &&
+                index < q.answers.length
+            );
+
+        }
+    );
 }
 
-function getUnansweredQuestions(answerIndexes) {
+
+function getUnansweredQuestions(
+    answerIndexes
+) {
+
     return TWD_PERSONALITY_QUESTIONS
-        .filter(q => {
-            const index = answerIndexes?.[q.id];
-            return !Number.isInteger(index) || index < 0 || index >= q.answers.length;
-        })
-        .map(q => q.id);
+        .filter(
+            q => {
+
+                const index =
+                    answerIndexes?.[q.id];
+
+
+                return (
+                    !Number.isInteger(index) ||
+                    index < 0 ||
+                    index >= q.answers.length
+                );
+
+            }
+        )
+        .map(
+            q => q.id
+        );
 }
+
 
 function createEmptyTraitScores() {
+
     const scores = {};
-    TRAIT_KEYS.forEach(trait => scores[trait] = 65);
+
+
+    TRAIT_KEYS.forEach(
+        trait => {
+
+            scores[trait] = 62;
+
+        }
+    );
+
+
     return scores;
 }
+
 
 /* ------------------------------------------------------------
    Automatic validation on load
    ------------------------------------------------------------ */
 
-const TWD_ENGINE_VALIDATION = validateTWDData();
+const TWD_ENGINE_VALIDATION =
+    validateTWDData();
+
 
 if (!TWD_ENGINE_VALIDATION.valid) {
-    console.error("TWD personality data validation failed:", TWD_ENGINE_VALIDATION.errors);
+
+    console.error(
+        "TWD personality data validation failed:",
+        TWD_ENGINE_VALIDATION.errors
+    );
+
 } else {
+
     console.log(
         `TWD Personality Engine loaded successfully: ` +
         `${TWD_PERSONALITY_QUESTIONS.length} questions, ` +
         `${Object.keys(TWD_CHARACTERS).length} characters, ` +
         `${TRAIT_KEYS.length} traits.`
     );
+
 }
 
-/*
-   Browser/global compatibility:
-   These names remain available to existing quiz code.
-*/
+
+/* ------------------------------------------------------------
+   Browser/global compatibility
+   ------------------------------------------------------------ */
+
 if (typeof window !== "undefined") {
-    Object.assign(window, {
-        TRAIT_KEYS,
-        TWD_TRAITS,
-        TRAIT_WEIGHTS,
-        TWD_CHARACTERS,
-        TWD_PERSONALITY_QUESTIONS,
-        TWD_ENGINE_VALIDATION,
-        createEmptyTraitScores,
-        calculatePersonality,
-        calculateCharacterMatch,
-        getStrongestTraits,
-        getLowestTraits,
-        calculateFinalPersonality,
-        isQuizComplete,
-        getUnansweredQuestions,
-        validateTWDData
-    });
+
+    Object.assign(
+        window,
+        {
+
+            TRAIT_KEYS,
+
+            TWD_TRAITS,
+
+            TRAIT_WEIGHTS,
+
+            TWD_CHARACTERS,
+
+            CHARACTER_SIGNATURES,
+
+            CHARACTER_ACCESSIBILITY,
+
+            TWD_PERSONALITY_QUESTIONS,
+
+            TWD_ENGINE_VALIDATION,
+
+            createEmptyTraitScores,
+
+            calculatePersonality,
+
+            calculateCharacterMatch,
+
+            getStrongestTraits,
+
+            getLowestTraits,
+
+            calculateFinalPersonality,
+
+            isQuizComplete,
+
+            getUnansweredQuestions,
+
+            validateTWDData
+
+        }
+    );
+
 }
