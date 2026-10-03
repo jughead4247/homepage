@@ -3023,15 +3023,14 @@ function calculateCharacterMatch(
 
 
     const accessibilityMultiplier =
-        0.55 +
-        (
-            0.45 *
-            Math.pow(
-                normalizedAccessibility,
-                1.8
-            )
-        );
-
+    0.80 +
+    (
+        0.20 *
+        Math.pow(
+            normalizedAccessibility,
+            1.5
+        )
+    );
 
     score *=
         accessibilityMultiplier;
