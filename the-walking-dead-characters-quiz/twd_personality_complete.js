@@ -2282,12 +2282,7 @@ function calculatePersonality(answerIndexes) {
             );
 
     });
-
-
-console.log("PROFILE:", userProfile);
-console.log("RAW:", personality.rawScores);
-console.log("MAX:", personality.maxScores);
-
+   
     return {
 
         profile,
@@ -3267,6 +3262,9 @@ function calculateFinalPersonality(
                     a.score
             );
 
+console.log("PROFILE:", userProfile);
+console.log("RAW:", personality.rawScores);
+console.log("MAX:", personality.maxScores);
 
     return {
 
