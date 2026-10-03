@@ -793,73 +793,83 @@ function renderResult(result) {
     }
 
     /* -------------------------
-       STRONGEST TRAITS
-       ------------------------- */
+   STRONGEST TRAITS
+   ------------------------- */
 
-    if (
-        Array.isArray(
-            result.strongestTraits
-        )
-    ) {
+if (
+    Array.isArray(
+        result.strongestTraits
+    )
+) {
 
-        renderTraitList(
-            strongestTraits,
-            result.strongestTraits
-        );
-    }
-
-    /* -------------------------
-       LOWEST TRAITS
-       ------------------------- */
-
-    if (
-        result.profile &&
-        lowestTraits
-    ) {
-
-        const lowest =
-            Object.entries(
-                result.profile
-            )
-            .map(
-                ([key, score]) => ({
-
-                    trait: key,
-
-                    label:
-                        window.TWD_TRAITS?.[key] ||
-                        key,
-
-                    score:
-                        Number(score)
-
-                })
-            )
+    const strongest =
+        result.strongestTraits
+            .slice()
             .sort(
                 (a, b) =>
-                    a.score - b.score
+                    Number(b.score) -
+                    Number(a.score)
             )
             .slice(0, 5);
 
-        renderTraitList(
-            lowestTraits,
-            lowest
-        );
-    }
+    renderTraitList(
+        strongestTraits,
+        strongest
+    );
+}
 
-    /* -------------------------
-       FULL PROFILE
-       ------------------------- */
 
-    if (
-        result.profile
-    ) {
+/* -------------------------
+   LOWEST TRAITS
+   ------------------------- */
 
-        renderFullProfile(
+if (
+    result.profile &&
+    lowestTraits
+) {
+
+    const lowest =
+        Object.entries(
             result.profile
-        );
-    }
+        )
+        .map(
+            ([key, score]) => ({
 
+                trait: key,
+
+                label:
+                    window.TWD_TRAITS?.[key] ||
+                    key,
+
+                score:
+                    Number(score)
+
+            })
+        )
+        .sort(
+            (a, b) =>
+                a.score - b.score
+        )
+        .slice(0, 5);
+
+    renderTraitList(
+        lowestTraits,
+        lowest
+    );
+}
+
+
+/* -------------------------
+   FULL PROFILE
+   ------------------------- */
+
+if (
+    result.profile
+) {
+
+    renderFullProfile(
+        result.profile
+    );
 }
 
 /* ============================================================
