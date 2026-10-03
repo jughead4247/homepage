@@ -3261,11 +3261,6 @@ function calculateFinalPersonality(
                     b.score -
                     a.score
             );
-
-console.log("===== PERSONALITY DEBUG =====");
-console.log("PROFILE:", userProfile);
-console.log("RAW:", personality.rawScores);
-console.log("MAX:", personality.maxScores);
    
     return {
 
