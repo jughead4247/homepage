@@ -48,10 +48,10 @@ const TWD_CHARACTERS = {
         name: "Rick Grimes",
         image: "images/rick.jpg",
         scores: [
-            82, 91, 72, 91,
-            76, 82, 68, 94,
-            70, 52, 78, 48,
-            91, 78, 63, 82
+            68, 94, 66, 94,
+            72, 82, 48, 96,
+            68, 46, 78, 32,
+            95, 80, 78, 82
         ]
     },
 
@@ -59,10 +59,10 @@ const TWD_CHARACTERS = {
         name: "Daryl Dixon",
         image: "images/daryl.jpg",
         scores: [
-            94, 91, 68, 95,
-            73, 87, 67, 67,
-            95, 34, 49, 38,
-            89, 76, 88, 84
+            95, 94, 72, 96,
+            70, 82, 54, 62,
+            97, 34, 42, 30,
+            88, 76, 91, 90
         ]
     },
 
@@ -70,10 +70,10 @@ const TWD_CHARACTERS = {
         name: "Carol Peletier",
         image: "images/carol.jpg",
         scores: [
-            94, 85, 66, 86,
-            61, 95, 87, 72,
-            92, 40, 62, 90,
-            95, 79, 82, 79
+            96, 84, 64, 84,
+            56, 96, 88, 68,
+            94, 36, 58, 94,
+            96, 72, 84, 80
         ]
     },
 
@@ -81,10 +81,10 @@ const TWD_CHARACTERS = {
         name: "Shane Walsh",
         image: "images/shane.jpg",
         scores: [
-            90, 92, 52, 70,
-            43, 93, 88, 82,
-            84, 39, 77, 68,
-            80, 57, 42, 92
+            86, 95, 44, 68,
+            34, 95, 91, 84,
+            82, 30, 76, 66,
+            80, 52, 42, 97
         ]
     },
 
@@ -92,10 +92,10 @@ const TWD_CHARACTERS = {
         name: "Glenn Rhee",
         image: "images/glenn.jpg",
         scores: [
-            61, 82, 94, 94,
-            93, 67, 24, 64,
-            63, 81, 78, 20,
-            72, 94, 76, 65
+            58, 84, 96, 95,
+            95, 66, 20, 58,
+            62, 88, 76, 18,
+            70, 95, 78, 68
         ]
     },
 
@@ -103,10 +103,10 @@ const TWD_CHARACTERS = {
         name: "Michonne",
         image: "images/michonne.jpg",
         scores: [
-            88, 93, 77, 91,
-            85, 84, 66, 84,
-            95, 47, 65, 42,
-            91, 82, 94, 72
+            86, 95, 76, 93,
+            86, 82, 58, 84,
+            97, 42, 58, 32,
+            93, 80, 96, 74
         ]
     },
 
@@ -114,10 +114,10 @@ const TWD_CHARACTERS = {
         name: "Maggie Greene",
         image: "images/maggie.jpg",
         scores: [
-            79, 88, 80, 95,
-            81, 84, 69, 88,
-            84, 53, 80, 39,
-            84, 91, 78, 77
+            76, 90, 84, 97,
+            84, 82, 60, 91,
+            84, 54, 80, 32,
+            86, 94, 80, 78
         ]
     },
 
@@ -125,10 +125,10 @@ const TWD_CHARACTERS = {
         name: "Hershel Greene",
         image: "images/hershel.jpg",
         scores: [
-            59, 73, 96, 91,
-            97, 65, 13, 72,
-            55, 87, 81, 10,
-            62, 88, 86, 36
+            54, 72, 98, 93,
+            98, 60, 10, 68,
+            50, 95, 78, 10,
+            64, 91, 89, 30
         ]
     },
 
@@ -136,10 +136,10 @@ const TWD_CHARACTERS = {
         name: "Abraham Ford",
         image: "images/abraham.jpg",
         scores: [
-            85, 96, 59, 83,
-            63, 89, 72, 87,
-            84, 49, 89, 31,
-            79, 71, 73, 97
+            82, 98, 54, 82,
+            58, 91, 72, 89,
+            82, 42, 92, 26,
+            78, 64, 72, 98
         ]
     },
 
@@ -147,10 +147,10 @@ const TWD_CHARACTERS = {
         name: "Eugene Porter",
         image: "images/eugene.jpg",
         scores: [
-            92, 42, 67, 78,
-            69, 84, 19, 45,
-            77, 45, 58, 72,
-            96, 74, 73, 25
+            94, 44, 66, 72,
+            62, 87, 16, 42,
+            78, 42, 58, 76,
+            98, 78, 72, 20
         ]
     },
 
@@ -158,10 +158,10 @@ const TWD_CHARACTERS = {
         name: "Negan",
         image: "images/negan.jpg",
         scores: [
-            87, 88, 48, 69,
-            38, 94, 94, 96,
-            75, 35, 96, 94,
-            88, 67, 84, 83
+            82, 90, 42, 62,
+            30, 97, 96, 98,
+            70, 30, 98, 97,
+            90, 62, 86, 88
         ]
     },
 
@@ -169,10 +169,10 @@ const TWD_CHARACTERS = {
         name: "The Governor",
         image: "images/governor.jpg",
         scores: [
-            94, 83, 25, 63,
-            18, 91, 97, 93,
-            85, 18, 91, 97,
-            89, 48, 61, 78
+            96, 82, 18, 54,
+            10, 94, 98, 96,
+            84, 12, 94, 98,
+            93, 42, 58, 80
         ]
     },
 
@@ -180,10 +180,10 @@ const TWD_CHARACTERS = {
         name: "Morgan Jones",
         image: "images/morgan.jpg",
         scores: [
-            68, 76, 93, 88,
-            91, 51, 38, 60,
-            66, 62, 55, 24,
-            68, 87, 36, 51
+            62, 72, 97, 90,
+            95, 48, 28, 54,
+            62, 68, 48, 18,
+            64, 94, 28, 42
         ]
     },
 
@@ -191,10 +191,10 @@ const TWD_CHARACTERS = {
         name: "Gabriel Stokes",
         image: "images/gabriel.jpg",
         scores: [
-            78, 57, 82, 77,
-            90, 68, 34, 58,
-            48, 60, 63, 37,
-            71, 95, 79, 41
+            70, 54, 87, 76,
+            93, 62, 24, 52,
+            44, 64, 58, 32,
+            68, 98, 82, 34
         ]
     },
 
@@ -202,10 +202,10 @@ const TWD_CHARACTERS = {
         name: "Ezekiel",
         image: "images/ezekiel.jpg",
         scores: [
-            64, 75, 87, 89,
-            79, 67, 27, 88,
-            59, 72, 96, 61,
-            75, 93, 74, 58
+            58, 72, 90, 91,
+            80, 62, 22, 95,
+            56, 74, 98, 54,
+            72, 97, 76, 58
         ]
     },
 
@@ -213,10 +213,10 @@ const TWD_CHARACTERS = {
         name: "Gregory",
         image: "images/gregory.jpg",
         scores: [
-            96, 19, 31, 28,
-            34, 76, 22, 54,
-            64, 27, 70, 87,
-            66, 43, 25, 12
+            97, 18, 26, 24,
+            30, 78, 18, 54,
+            62, 20, 76, 93,
+            64, 36, 24, 10
         ]
     },
 
@@ -224,10 +224,10 @@ const TWD_CHARACTERS = {
         name: "Gareth",
         image: "images/gareth.jpg",
         scores: [
-            91, 78, 8, 51,
-            11, 94, 96, 77,
-            84, 9, 62, 95,
-            91, 39, 88, 74
+            93, 80, 10, 46,
+            8, 97, 98, 76,
+            86, 8, 60, 97,
+            93, 34, 88, 74
         ]
     },
 
@@ -235,10 +235,10 @@ const TWD_CHARACTERS = {
         name: "Dawn Lerner",
         image: "images/dawn.jpg",
         scores: [
-            81, 69, 53, 71,
-            42, 86, 61, 91,
-            56, 35, 67, 73,
-            77, 55, 69, 48
+            78, 68, 48, 68,
+            38, 88, 54, 97,
+            52, 28, 72, 70,
+            80, 48, 72, 52
         ]
     },
 
@@ -246,10 +246,10 @@ const TWD_CHARACTERS = {
         name: "Bob Stookey",
         image: "images/bob.jpg",
         scores: [
-            61, 71, 94, 88,
-            89, 57, 17, 46,
-            61, 84, 71, 14,
-            64, 96, 87, 58
+            56, 72, 98, 91,
+            93, 56, 14, 44,
+            56, 97, 68, 8,
+            60, 97, 91, 50
         ]
     }
 };
@@ -671,28 +671,45 @@ function calculateCharacterMatch(userProfile, character) {
         const characterScore =
             Number(character.scores[index] ?? 65);
 
-        const weight =
+        /*
+         * Traits that are clearly high or clearly low in the
+         * character are treated as signature traits.
+         *
+         * This prevents ordinary traits from overpowering
+         * the character's actual personality fingerprint.
+         */
+        let fingerprintWeight = 1.0;
+
+        if (characterScore >= 85 || characterScore <= 30) {
+            fingerprintWeight = 1.65;
+        } else if (characterScore >= 78 || characterScore <= 40) {
+            fingerprintWeight = 1.25;
+        } else {
+            fingerprintWeight = 0.75;
+        }
+
+        const baseWeight =
             TRAIT_WEIGHTS[trait] ?? 1;
 
-        /*
-         * Primary comparison:
-         * How close are the actual trait values?
-         */
+        const weight =
+            baseWeight * fingerprintWeight;
+
         absoluteDifference +=
             Math.abs(userScore - characterScore) * weight;
 
-        /*
-         * Secondary comparison:
-         * How similar is the personality SHAPE?
-         *
-         * This compares each trait relative to the person's
-         * own overall personality level.
-         */
         userScores.push(userScore);
         characterScores.push(characterScore);
 
         weightTotal += weight;
     });
+
+    /*
+     * Personality shape
+     *
+     * Compare traits relative to each person's own average.
+     * This helps distinguish people who may have similar overall
+     * scores but very different strengths and weaknesses.
+     */
 
     const userAverage =
         userScores.reduce((a, b) => a + b, 0) /
@@ -704,8 +721,23 @@ function calculateCharacterMatch(userProfile, character) {
 
     TRAIT_KEYS.forEach((trait, index) => {
 
-        const weight =
+        const characterScore = characterScores[index];
+
+        let fingerprintWeight = 1.0;
+
+        if (characterScore >= 85 || characterScore <= 30) {
+            fingerprintWeight = 1.65;
+        } else if (characterScore >= 78 || characterScore <= 40) {
+            fingerprintWeight = 1.25;
+        } else {
+            fingerprintWeight = 0.75;
+        }
+
+        const baseWeight =
             TRAIT_WEIGHTS[trait] ?? 1;
+
+        const weight =
+            baseWeight * fingerprintWeight;
 
         const userRelative =
             userScores[index] - userAverage;
@@ -717,10 +749,6 @@ function calculateCharacterMatch(userProfile, character) {
             Math.abs(userRelative - characterRelative) * weight;
     });
 
-    /*
-     * Normalize both components.
-     */
-
     const absoluteScore =
         absoluteDifference /
         (100 * weightTotal);
@@ -730,13 +758,13 @@ function calculateCharacterMatch(userProfile, character) {
         (100 * weightTotal);
 
     /*
-     * 65% actual trait similarity
-     * 35% personality-shape similarity
+     * Actual trait similarity remains slightly more important,
+     * while personality shape gets enough influence to separate
+     * characters with similar overall averages.
      */
-
     const combinedDifference =
-        (absoluteScore * 0.65) +
-        (shapeScore * 0.35);
+        (absoluteScore * 0.60) +
+        (shapeScore * 0.40);
 
     const similarity =
         100 - (combinedDifference * 100);
