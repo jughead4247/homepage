@@ -1,89 +1,109 @@
 /* ============================================================
    THE WALKING DEAD — PERSONALITY QUIZ ENGINE
-   30 questions • 16 traits • 19 characters
+   v2 — CHARACTER-FIRST EDITION
 
-   GAME-DESIGN CALIBRATION
-   ------------------------------------------------------------
-   - theoretical min/max normalization per trait
-   - neutral/moderate profile centered around ~62
-   - wider profile spread
-   - character-specific signature matching
-   - overall personality matching
-   - personality-shape matching
-   - archetype matching
-   - deterministic signature activation
-   - deterministic archetype activation
-   - controlled character accessibility
-   - controlled diversity protection
-   - deterministic near-tie balancing
-   - final profile remains 5–95
+   30 questions
+   18 TWD-specific situations
+   12 general apocalypse / zombie situations
 
-   IMPORTANT:
-   This is intentionally designed as a FUN CHARACTER-MATCHING
-   QUIZ rather than a scientific personality assessment.
+   19 possible characters
 
-   MAIN DESIGN OBJECTIVE:
-   - All 19 characters must be capable of winning.
-   - Major characters should not disappear from results.
-   - Minor characters should still win when their archetype
-     genuinely fits the user's answers.
-   - Same answers always produce the same result.
-   ============================================================ */
+   Design goals:
+   - recognizable and enjoyable results
+   - every character has multiple routes to #1
+   - major characters are easier to reach
+   - supporting characters remain possible
+   - deterministic results
+   - no random result selection
+   - character affinity + personality traits
+   - strong character identity without making questions obvious
+   - built-in 100,000-run distribution simulator
+============================================================ */
 
 
 /* ============================================================
-   TRAITS
-   ============================================================ */
+   1. TRAITS
+============================================================ */
 
 const TRAIT_KEYS = [
-    "selfPreservation", "courage", "empathy", "loyalty",
-    "morality", "pragmatism", "ruthlessness", "leadership",
-    "independence", "trust", "charisma", "manipulation",
-    "strategy", "hope", "emotionalControl", "riskAppetite"
+    "survival",
+    "courage",
+    "compassion",
+    "loyalty",
+    "morality",
+    "pragmatism",
+    "ruthlessness",
+    "leadership",
+    "independence",
+    "trust",
+    "charisma",
+    "manipulation",
+    "strategy",
+    "hope",
+    "emotionalControl",
+    "riskTaking"
 ];
 
-const TWD_TRAITS = [
-    "Self-Preservation", "Courage", "Empathy", "Loyalty",
-    "Morality", "Pragmatism", "Ruthlessness", "Leadership",
-    "Independence", "Trust", "Charisma", "Manipulation",
-    "Strategy", "Hope", "Emotional Control", "Risk Appetite"
-];
-
-const TRAIT_WEIGHTS = {
-    selfPreservation: 1.0,
-    courage: 1.0,
-    empathy: 1.0,
-    loyalty: 1.0,
-    morality: 1.0,
-    pragmatism: 1.0,
-    ruthlessness: 0.9,
-    leadership: 1.0,
-    independence: 0.9,
-    trust: 0.8,
-    charisma: 0.8,
-    manipulation: 0.9,
-    strategy: 1.0,
-    hope: 0.9,
-    emotionalControl: 0.9,
-    riskAppetite: 0.9
+const TWD_TRAITS = {
+    survival: "Survival Instinct",
+    courage: "Courage",
+    compassion: "Compassion",
+    loyalty: "Loyalty",
+    morality: "Morality",
+    pragmatism: "Pragmatism",
+    ruthlessness: "Ruthlessness",
+    leadership: "Leadership",
+    independence: "Independence",
+    trust: "Trust",
+    charisma: "Charisma",
+    manipulation: "Manipulation",
+    strategy: "Strategy",
+    hope: "Hope",
+    emotionalControl: "Emotional Control",
+    riskTaking: "Risk Taking"
 };
 
 
 /* ============================================================
-   CHARACTER MATRIX
-   Order exactly matches TRAIT_KEYS.
-   ============================================================ */
+   2. TRAIT WEIGHTS
+============================================================ */
 
-const TWD_CHARACTERS = {
+const TRAIT_WEIGHTS = {
+    survival: 1.00,
+    courage: 1.00,
+    compassion: 0.95,
+    loyalty: 1.00,
+    morality: 0.90,
+    pragmatism: 1.00,
+    ruthlessness: 0.90,
+    leadership: 1.00,
+    independence: 0.95,
+    trust: 0.80,
+    charisma: 0.85,
+    manipulation: 0.90,
+    strategy: 1.00,
+    hope: 0.85,
+    emotionalControl: 0.90,
+    riskTaking: 0.90
+};
+
+
+/* ============================================================
+   3. CHARACTER PROFILES
+
+   Scores are in TRAIT_KEYS order.
+============================================================ */
+
+const CHARACTERS = {
 
     rick: {
         name: "Rick Grimes",
         image: "images/rick.jpg",
         scores: [
-            68, 94, 66, 94,
-            72, 82, 48, 96,
-            68, 46, 78, 32,
-            95, 80, 78, 82
+            76,94,72,96,
+            78,82,45,98,
+            70,48,82,34,
+            96,82,82,80
         ]
     },
 
@@ -91,10 +111,10 @@ const TWD_CHARACTERS = {
         name: "Daryl Dixon",
         image: "images/daryl.jpg",
         scores: [
-            95, 94, 72, 96,
-            70, 82, 54, 62,
-            97, 34, 42, 30,
-            88, 76, 91, 90
+            96,95,74,97,
+            72,84,55,64,
+            98,34,44,28,
+            88,78,94,91
         ]
     },
 
@@ -102,10 +122,10 @@ const TWD_CHARACTERS = {
         name: "Carol Peletier",
         image: "images/carol.jpg",
         scores: [
-            96, 84, 64, 84,
-            56, 96, 88, 68,
-            94, 36, 58, 94,
-            96, 72, 84, 80
+            97,85,67,86,
+            58,97,91,70,
+            95,38,60,96,
+            97,74,87,82
         ]
     },
 
@@ -113,10 +133,10 @@ const TWD_CHARACTERS = {
         name: "Shane Walsh",
         image: "images/shane.jpg",
         scores: [
-            86, 95, 44, 68,
-            34, 95, 91, 84,
-            82, 30, 76, 66,
-            80, 52, 42, 97
+            88,97,45,70,
+            36,97,93,86,
+            84,30,78,69,
+            82,54,43,98
         ]
     },
 
@@ -124,10 +144,10 @@ const TWD_CHARACTERS = {
         name: "Glenn Rhee",
         image: "images/glenn.jpg",
         scores: [
-            58, 84, 96, 95,
-            95, 66, 20, 58,
-            62, 88, 76, 18,
-            70, 95, 78, 68
+            60,86,97,97,
+            96,68,22,60,
+            64,91,77,20,
+            72,97,81,70
         ]
     },
 
@@ -135,10 +155,10 @@ const TWD_CHARACTERS = {
         name: "Michonne",
         image: "images/michonne.jpg",
         scores: [
-            86, 95, 76, 93,
-            86, 82, 58, 84,
-            97, 42, 58, 32,
-            93, 80, 96, 74
+            88,97,78,95,
+            87,84,58,86,
+            98,44,60,34,
+            94,82,97,77
         ]
     },
 
@@ -146,10 +166,10 @@ const TWD_CHARACTERS = {
         name: "Maggie Greene",
         image: "images/maggie.jpg",
         scores: [
-            76, 90, 84, 97,
-            84, 82, 60, 91,
-            84, 54, 80, 32,
-            86, 94, 80, 78
+            78,92,86,98,
+            88,84,61,94,
+            86,56,82,34,
+            88,95,83,80
         ]
     },
 
@@ -157,10 +177,10 @@ const TWD_CHARACTERS = {
         name: "Hershel Greene",
         image: "images/hershel.jpg",
         scores: [
-            54, 72, 98, 93,
-            98, 60, 10, 68,
-            50, 95, 78, 10,
-            64, 91, 89, 30
+            56,73,99,94,
+            99,62,12,70,
+            52,96,80,10,
+            65,93,92,32
         ]
     },
 
@@ -168,10 +188,10 @@ const TWD_CHARACTERS = {
         name: "Abraham Ford",
         image: "images/abraham.jpg",
         scores: [
-            82, 98, 54, 82,
-            58, 91, 72, 89,
-            82, 42, 92, 26,
-            78, 64, 72, 98
+            84,99,57,84,
+            62,93,73,91,
+            83,44,94,27,
+            80,67,75,99
         ]
     },
 
@@ -179,10 +199,10 @@ const TWD_CHARACTERS = {
         name: "Eugene Porter",
         image: "images/eugene.jpg",
         scores: [
-            94, 44, 66, 72,
-            62, 87, 16, 42,
-            78, 42, 58, 76,
-            98, 78, 72, 20
+            96,45,68,73,
+            64,91,18,44,
+            80,44,61,79,
+            99,81,76,22
         ]
     },
 
@@ -190,10 +210,10 @@ const TWD_CHARACTERS = {
         name: "Negan",
         image: "images/negan.jpg",
         scores: [
-            82, 90, 42, 62,
-            30, 97, 96, 98,
-            70, 30, 98, 97,
-            90, 62, 86, 88
+            84,92,43,65,
+            31,98,98,99,
+            73,31,99,99,
+            91,63,88,91
         ]
     },
 
@@ -201,10 +221,10 @@ const TWD_CHARACTERS = {
         name: "The Governor",
         image: "images/governor.jpg",
         scores: [
-            96, 82, 18, 54,
-            10, 94, 98, 96,
-            84, 12, 94, 98,
-            93, 42, 58, 80
+            97,84,20,56,
+            12,96,99,97,
+            86,14,96,99,
+            94,43,61,82
         ]
     },
 
@@ -212,10 +232,10 @@ const TWD_CHARACTERS = {
         name: "Morgan Jones",
         image: "images/morgan.jpg",
         scores: [
-            62, 72, 97, 90,
-            95, 48, 28, 54,
-            62, 68, 48, 18,
-            64, 94, 28, 42
+            64,74,98,92,
+            97,50,25,58,
+            64,71,50,18,
+            66,96,32,43
         ]
     },
 
@@ -223,10 +243,10 @@ const TWD_CHARACTERS = {
         name: "Gabriel Stokes",
         image: "images/gabriel.jpg",
         scores: [
-            70, 54, 87, 76,
-            93, 62, 24, 52,
-            44, 64, 58, 32,
-            68, 98, 82, 34
+            72,58,90,78,
+            94,64,25,56,
+            47,68,60,34,
+            70,99,84,36
         ]
     },
 
@@ -234,10 +254,10 @@ const TWD_CHARACTERS = {
         name: "Ezekiel",
         image: "images/ezekiel.jpg",
         scores: [
-            58, 72, 90, 91,
-            80, 62, 22, 95,
-            56, 74, 98, 54,
-            72, 97, 76, 58
+            61,75,93,93,
+            83,65,24,97,
+            58,77,99,55,
+            74,99,80,61
         ]
     },
 
@@ -245,10 +265,10 @@ const TWD_CHARACTERS = {
         name: "Gregory",
         image: "images/gregory.jpg",
         scores: [
-            97, 18, 26, 24,
-            30, 78, 18, 54,
-            62, 20, 76, 93,
-            64, 36, 24, 10
+            98,20,28,25,
+            31,81,20,55,
+            64,21,79,96,
+            64,38,25,12
         ]
     },
 
@@ -256,10 +276,10 @@ const TWD_CHARACTERS = {
         name: "Gareth",
         image: "images/gareth.jpg",
         scores: [
-            93, 80, 10, 46,
-            8, 97, 98, 76,
-            86, 8, 60, 97,
-            93, 34, 88, 74
+            94,82,12,47,
+            10,98,99,78,
+            88,10,62,99,
+            94,35,89,76
         ]
     },
 
@@ -267,10 +287,10 @@ const TWD_CHARACTERS = {
         name: "Dawn Lerner",
         image: "images/dawn.jpg",
         scores: [
-            78, 68, 48, 68,
-            38, 88, 54, 97,
-            52, 28, 72, 70,
-            80, 48, 72, 52
+            80,69,50,70,
+            41,90,57,98,
+            55,31,75,72,
+            81,51,75,55
         ]
     },
 
@@ -278,2448 +298,1931 @@ const TWD_CHARACTERS = {
         name: "Bob Stookey",
         image: "images/bob.jpg",
         scores: [
-            56, 72, 98, 91,
-            93, 56, 14, 44,
-            56, 97, 68, 8,
-            60, 97, 91, 50
+            58,74,99,93,
+            94,58,15,46,
+            58,98,70,10,
+            61,98,94,51
         ]
     }
 };
 
 
 /* ============================================================
-   CHARACTER SIGNATURES
-   ============================================================ */
+   4. CHARACTER IMPORTANCE / ACCESSIBILITY
 
-const CHARACTER_SIGNATURES = {
+   Higher = easier to reach.
 
-    rick: {
-        primary: {
-            leadership: 1.7,
-            courage: 1.6,
-            loyalty: 1.6,
-            strategy: 1.5
-        },
-        secondary: {
-            morality: 1.15,
-            hope: 1.15,
-            charisma: 1.10
-        }
-    },
-
-    daryl: {
-        primary: {
-            independence: 1.7,
-            selfPreservation: 1.6,
-            loyalty: 1.6,
-            courage: 1.5
-        },
-        secondary: {
-            emotionalControl: 1.2,
-            strategy: 1.15,
-            riskAppetite: 1.1
-        }
-    },
-
-    carol: {
-        primary: {
-            pragmatism: 1.7,
-            strategy: 1.6,
-            manipulation: 1.6,
-            selfPreservation: 1.5
-        },
-        secondary: {
-            independence: 1.2,
-            ruthlessness: 1.15,
-            emotionalControl: 1.1
-        }
-    },
-
-    shane: {
-        primary: {
-            courage: 1.7,
-            riskAppetite: 1.7,
-            pragmatism: 1.6,
-            ruthlessness: 1.5
-        },
-        secondary: {
-            leadership: 1.2,
-            independence: 1.15,
-            selfPreservation: 1.1
-        }
-    },
-
-    glenn: {
-        primary: {
-            empathy: 1.7,
-            morality: 1.7,
-            loyalty: 1.6,
-            trust: 1.5
-        },
-        secondary: {
-            hope: 1.2,
-            courage: 1.15,
-            emotionalControl: 1.1
-        }
-    },
-
-    michonne: {
-        primary: {
-            independence: 1.7,
-            courage: 1.6,
-            emotionalControl: 1.6,
-            strategy: 1.5
-        },
-        secondary: {
-            loyalty: 1.2,
-            selfPreservation: 1.15,
-            morality: 1.1
-        }
-    },
-
-    maggie: {
-        primary: {
-            loyalty: 1.7,
-            leadership: 1.6,
-            courage: 1.5,
-            hope: 1.5
-        },
-        secondary: {
-            empathy: 1.2,
-            morality: 1.15,
-            strategy: 1.1
-        }
-    },
-
-    hershel: {
-        primary: {
-            morality: 1.8,
-            empathy: 1.7,
-            trust: 1.6,
-            loyalty: 1.5
-        },
-        secondary: {
-            emotionalControl: 1.2,
-            hope: 1.15,
-            charisma: 1.1
-        }
-    },
-
-    abraham: {
-        primary: {
-            courage: 1.8,
-            riskAppetite: 1.7,
-            leadership: 1.6,
-            pragmatism: 1.5
-        },
-        secondary: {
-            charisma: 1.2,
-            loyalty: 1.15,
-            selfPreservation: 1.1
-        }
-    },
-
-    eugene: {
-        primary: {
-            strategy: 1.8,
-            selfPreservation: 1.6,
-            pragmatism: 1.5,
-            manipulation: 1.4
-        },
-        secondary: {
-            independence: 1.2,
-            charisma: 1.1,
-            emotionalControl: 1.1
-        }
-    },
-
-    negan: {
-        primary: {
-            charisma: 1.8,
-            manipulation: 1.8,
-            ruthlessness: 1.7,
-            leadership: 1.6
-        },
-        secondary: {
-            pragmatism: 1.25,
-            strategy: 1.15,
-            riskAppetite: 1.1
-        }
-    },
-
-    governor: {
-        primary: {
-            manipulation: 1.9,
-            ruthlessness: 1.8,
-            leadership: 1.6,
-            charisma: 1.6
-        },
-        secondary: {
-            selfPreservation: 1.25,
-            strategy: 1.2,
-            pragmatism: 1.1
-        }
-    },
-
-    morgan: {
-        primary: {
-            empathy: 1.8,
-            morality: 1.7,
-            hope: 1.6,
-            loyalty: 1.5
-        },
-        secondary: {
-            trust: 1.25,
-            emotionalControl: 1.1,
-            courage: 1.1
-        }
-    },
-
-    gabriel: {
-        primary: {
-            morality: 1.7,
-            hope: 1.7,
-            empathy: 1.5,
-            emotionalControl: 1.5
-        },
-        secondary: {
-            trust: 1.2,
-            loyalty: 1.15,
-            strategy: 1.1
-        }
-    },
-
-    ezekiel: {
-        primary: {
-            charisma: 1.8,
-            leadership: 1.7,
-            hope: 1.6,
-            loyalty: 1.5
-        },
-        secondary: {
-            empathy: 1.25,
-            morality: 1.15,
-            courage: 1.1
-        }
-    },
-
-    gregory: {
-        primary: {
-            selfPreservation: 1.8,
-            manipulation: 1.7,
-            charisma: 1.5,
-            pragmatism: 1.4
-        },
-        secondary: {
-            independence: 1.2,
-            strategy: 1.1,
-            trust: 0.8
-        }
-    },
-
-    gareth: {
-        primary: {
-            ruthlessness: 1.9,
-            manipulation: 1.8,
-            pragmatism: 1.7,
-            selfPreservation: 1.5
-        },
-        secondary: {
-            strategy: 1.3,
-            riskAppetite: 1.1,
-            leadership: 1.05
-        }
-    },
-
-    dawn: {
-        primary: {
-            leadership: 1.7,
-            pragmatism: 1.6,
-            selfPreservation: 1.5,
-            strategy: 1.4
-        },
-        secondary: {
-            manipulation: 1.15,
-            emotionalControl: 1.1,
-            charisma: 1.05
-        }
-    },
-
-    bob: {
-        primary: {
-            empathy: 1.8,
-            morality: 1.6,
-            trust: 1.6,
-            hope: 1.5
-        },
-        secondary: {
-            emotionalControl: 1.25,
-            loyalty: 1.2,
-            courage: 1.1
-        }
-    }
-};
-
-
-/* ============================================================
-   RESULT TIERS
-
-   These are used only by the balancing layer.
-
-   Tier 1:
-   highly recognizable / iconic characters
-
-   Tier 2:
-   major recurring characters
-
-   Tier 3:
-   secondary/niche characters
-
-   This does NOT prevent any character from winning.
-   ============================================================ */
-
-const CHARACTER_RESULT_TIERS = {
-
-    tier1: [
-        "rick",
-        "daryl",
-        "carol",
-        "michonne",
-        "maggie",
-        "glenn",
-        "negan",
-        "shane"
-    ],
-
-    tier2: [
-        "hershel",
-        "abraham",
-        "eugene",
-        "governor",
-        "morgan",
-        "ezekiel"
-    ],
-
-    tier3: [
-        "gabriel",
-        "gregory",
-        "gareth",
-        "dawn",
-        "bob"
-    ]
-};
-
-
-/* ============================================================
-   CHARACTER ACCESSIBILITY
-
-   IMPORTANT:
-
-   These values are deliberately larger than the old values.
-
-   They are NOT supposed to determine the result by themselves.
-
-   They simply prevent the mathematical matching system from
-   making certain characters almost impossible to reach.
-   ============================================================ */
+   This is intentional entertainment balancing.
+============================================================ */
 
 const CHARACTER_ACCESSIBILITY = {
 
     rick: 8.0,
     daryl: 8.0,
-    carol: 7.5,
-    shane: 7.0,
-    glenn: 6.5,
+    carol: 8.0,
+
     michonne: 7.5,
-    maggie: 7.0,
-    hershel: 6.5,
+    maggie: 7.5,
+    negan: 7.5,
+
+    shane: 7.0,
     abraham: 7.0,
-    eugene: 6.5,
-    negan: 8.0,
-    governor: 6.5,
-    morgan: 6.5,
-    gabriel: 5.0,
-    ezekiel: 7.0,
-    gregory: 4.5,
-    gareth: 5.5,
-    dawn: 4.5,
-    bob: 5.5
+    governor: 6.8,
+    ezekiel: 6.5,
+
+    glenn: 6.2,
+    eugene: 6.0,
+    hershel: 5.8,
+    morgan: 5.8,
+
+    gabriel: 4.8,
+    bob: 4.5,
+    gareth: 4.3,
+
+    gregory: 3.8,
+    dawn: 3.8
 };
 
 
 /* ============================================================
-   ARCHETYPE WEIGHTS
+   5. CHARACTER SIGNATURES
 
-   This is an additional matching layer.
+   These are deliberately distinctive.
+============================================================ */
 
-   The existing CHARACTER_SIGNATURES identify a character's
-   defining traits.
-
-   These archetypes give each character another recognizable
-   path to victory.
-
-   This is especially important for preventing the result pool
-   from collapsing into Glenn/Gabriel/Dawn/etc.
-   ============================================================ */
-
-const CHARACTER_ARCHETYPE_WEIGHTS = {
+const CHARACTER_SIGNATURES = {
 
     rick: {
-        leadership: 1.35,
-        courage: 1.25,
-        loyalty: 1.25,
-        strategy: 1.20,
-        morality: 0.90,
-        hope: 0.85
+        primary: ["leadership","courage","loyalty","strategy"],
+        secondary: ["morality","hope","charisma"]
     },
 
     daryl: {
-        independence: 1.35,
-        selfPreservation: 1.25,
-        loyalty: 1.25,
-        courage: 1.20,
-        emotionalControl: 0.95,
-        riskAppetite: 0.85
+        primary: ["independence","survival","loyalty","courage"],
+        secondary: ["emotionalControl","strategy","riskTaking"]
     },
 
     carol: {
-        pragmatism: 1.35,
-        strategy: 1.30,
-        manipulation: 1.25,
-        selfPreservation: 1.20,
-        independence: 0.95,
-        ruthlessness: 0.90
+        primary: ["pragmatism","strategy","manipulation","survival"],
+        secondary: ["independence","ruthlessness","emotionalControl"]
     },
 
     shane: {
-        courage: 1.35,
-        riskAppetite: 1.35,
-        pragmatism: 1.25,
-        ruthlessness: 1.20,
-        leadership: 0.90,
-        independence: 0.85
+        primary: ["courage","riskTaking","pragmatism","ruthlessness"],
+        secondary: ["leadership","independence","survival"]
     },
 
     glenn: {
-        empathy: 1.35,
-        morality: 1.30,
-        loyalty: 1.25,
-        trust: 1.20,
-        hope: 0.95,
-        courage: 0.85
+        primary: ["compassion","morality","loyalty","trust"],
+        secondary: ["hope","courage","emotionalControl"]
     },
 
     michonne: {
-        independence: 1.35,
-        courage: 1.25,
-        emotionalControl: 1.25,
-        strategy: 1.20,
-        loyalty: 0.95,
-        selfPreservation: 0.85
+        primary: ["independence","courage","emotionalControl","strategy"],
+        secondary: ["loyalty","survival","morality"]
     },
 
     maggie: {
-        loyalty: 1.35,
-        leadership: 1.25,
-        courage: 1.20,
-        hope: 1.15,
-        empathy: 0.95,
-        morality: 0.90
+        primary: ["loyalty","leadership","courage","hope"],
+        secondary: ["compassion","morality","strategy"]
     },
 
     hershel: {
-        morality: 1.40,
-        empathy: 1.30,
-        trust: 1.20,
-        loyalty: 1.15,
-        emotionalControl: 0.95,
-        hope: 0.90
+        primary: ["morality","compassion","trust","loyalty"],
+        secondary: ["emotionalControl","hope","charisma"]
     },
 
     abraham: {
-        courage: 1.35,
-        riskAppetite: 1.30,
-        leadership: 1.25,
-        pragmatism: 1.20,
-        charisma: 0.95,
-        loyalty: 0.85
+        primary: ["courage","riskTaking","leadership","pragmatism"],
+        secondary: ["charisma","loyalty","survival"]
     },
 
     eugene: {
-        strategy: 1.40,
-        selfPreservation: 1.25,
-        pragmatism: 1.20,
-        manipulation: 1.10,
-        independence: 0.95,
-        charisma: 0.80
+        primary: ["strategy","survival","pragmatism","manipulation"],
+        secondary: ["independence","charisma","emotionalControl"]
     },
 
     negan: {
-        charisma: 1.40,
-        manipulation: 1.35,
-        ruthlessness: 1.30,
-        leadership: 1.20,
-        pragmatism: 1.00,
-        strategy: 0.90
+        primary: ["charisma","manipulation","ruthlessness","leadership"],
+        secondary: ["pragmatism","strategy","riskTaking"]
     },
 
     governor: {
-        manipulation: 1.45,
-        ruthlessness: 1.35,
-        leadership: 1.20,
-        charisma: 1.15,
-        selfPreservation: 0.95,
-        strategy: 0.90
+        primary: ["manipulation","ruthlessness","leadership","charisma"],
+        secondary: ["survival","strategy","pragmatism"]
     },
 
     morgan: {
-        empathy: 1.35,
-        morality: 1.30,
-        hope: 1.25,
-        loyalty: 1.15,
-        trust: 1.00,
-        emotionalControl: 0.85
+        primary: ["compassion","morality","hope","loyalty"],
+        secondary: ["trust","emotionalControl","courage"]
     },
 
     gabriel: {
-        morality: 1.35,
-        hope: 1.35,
-        empathy: 1.20,
-        emotionalControl: 1.15,
-        trust: 0.95,
-        loyalty: 0.90
+        primary: ["morality","hope","compassion","emotionalControl"],
+        secondary: ["trust","loyalty","strategy"]
     },
 
     ezekiel: {
-        charisma: 1.40,
-        leadership: 1.30,
-        hope: 1.25,
-        loyalty: 1.15,
-        empathy: 1.00,
-        morality: 0.85
+        primary: ["charisma","leadership","hope","loyalty"],
+        secondary: ["compassion","morality","courage"]
     },
 
     gregory: {
-        selfPreservation: 1.40,
-        manipulation: 1.30,
-        charisma: 1.20,
-        pragmatism: 1.15,
-        independence: 0.90,
-        strategy: 0.85
+        primary: ["survival","manipulation","charisma","pragmatism"],
+        secondary: ["independence","strategy"]
     },
 
     gareth: {
-        ruthlessness: 1.45,
-        manipulation: 1.35,
-        pragmatism: 1.25,
-        selfPreservation: 1.15,
-        strategy: 1.00,
-        riskAppetite: 0.80
+        primary: ["ruthlessness","manipulation","pragmatism","survival"],
+        secondary: ["strategy","riskTaking","leadership"]
     },
 
     dawn: {
-        leadership: 1.30,
-        pragmatism: 1.25,
-        selfPreservation: 1.20,
-        strategy: 1.15,
-        manipulation: 0.90,
-        emotionalControl: 0.85
+        primary: ["leadership","pragmatism","survival","strategy"],
+        secondary: ["manipulation","emotionalControl","charisma"]
     },
 
     bob: {
-        empathy: 1.40,
-        morality: 1.30,
-        trust: 1.25,
-        hope: 1.20,
-        emotionalControl: 1.00,
-        loyalty: 0.95
+        primary: ["compassion","morality","trust","hope"],
+        secondary: ["emotionalControl","loyalty","courage"]
     }
 };
 
 
 /* ============================================================
-   QUESTIONS
-   ------------------------------------------------------------
-   YOUR EXISTING 30 QUESTIONS ARE KEPT UNCHANGED.
-   ============================================================ */
+   6. QUESTIONS
 
-const TWD_PERSONALITY_QUESTIONS = [
+   Each answer has:
+      traits: personality signals
+      affinity: hidden character-route signals
+
+   Approximately 18 TWD-specific + 12 general scenarios.
+
+   IMPORTANT:
+   The affinity is NOT shown to the user.
+============================================================ */
+
+const questions = [
+
+/* ------------------------------------------------------------
+   TWD 1 — Prison / leadership
+------------------------------------------------------------ */
 
 {
-    id: 1,
     question:
-        "You find a backpack full of canned food while scavenging. What's your first move?",
+        "Your group is living in a prison, and several survivors disagree about whether to stay or leave. What do you do?",
+
     answers: [
-        { text: "Take what we need and keep moving.", traits: ["selfPreservation", "pragmatism"] },
-        { text: "Check if there's enough to share with the group.", traits: ["empathy", "loyalty"] },
-        { text: "Take everything. Who knows when we'll find food again?", traits: ["selfPreservation", "riskAppetite"] },
-        { text: "Look around first. A stash like this might have a reason.", traits: ["strategy", "selfPreservation"] },
-        { text: "Celebrate. For once, the apocalypse is actually giving us something.", traits: ["hope", "charisma"] }
+        {
+            text: "Take responsibility and make a clear decision for the group.",
+            traits: ["leadership","courage"],
+            affinity: {rick:4, maggie:2}
+        },
+        {
+            text: "Scout the surrounding area yourself before deciding.",
+            traits: ["independence","strategy"],
+            affinity: {daryl:4, michonne:2}
+        },
+        {
+            text: "Look for a practical compromise that keeps everyone alive.",
+            traits: ["pragmatism","loyalty"],
+            affinity: {carol:3, hershel:2, rick:1}
+        },
+        {
+            text: "Push the group to leave before the situation becomes worse.",
+            traits: ["riskTaking","courage"],
+            affinity: {shane:4, abraham:2}
+        },
+        {
+            text: "Keep morale high and convince everyone that the group can make it work.",
+            traits: ["hope","charisma"],
+            affinity: {ezekiel:4, gabriel:1}
+        }
     ]
 },
 
+/* ------------------------------------------------------------
+   TWD 2 — Unknown survivor
+------------------------------------------------------------ */
+
 {
-    id: 2,
     question:
-        "A walker suddenly appears behind your group. What do you do?",
+        "A stranger appears outside your group's settlement asking for shelter. Nobody knows anything about them.",
+
     answers: [
-        { text: "Deal with it before anyone else even notices.", traits: ["courage", "emotionalControl"] },
-        { text: "Warn everyone and get the group moving.", traits: ["leadership", "loyalty"] },
-        { text: "Freeze for half a second... then swing.", traits: ["courage", "selfPreservation"] },
-        { text: "Let someone else handle it while I watch for more walkers.", traits: ["strategy", "selfPreservation"] },
-        { text: "Make a joke afterward because nobody needs more panic.", traits: ["charisma", "emotionalControl"] }
+        {
+            text: "Let them in, but keep someone watching them.",
+            traits: ["compassion","strategy"],
+            affinity: {rick:2, carol:3}
+        },
+        {
+            text: "Refuse until they prove they can be trusted.",
+            traits: ["survival","independence"],
+            affinity: {daryl:4, michonne:2}
+        },
+        {
+            text: "Give them a chance because everyone deserves one.",
+            traits: ["compassion","morality"],
+            affinity: {glenn:4, bob:2}
+        },
+        {
+            text: "Question them aggressively until you know what they want.",
+            traits: ["strategy","emotionalControl"],
+            affinity: {michonne:3, dawn:2, rick:1}
+        },
+        {
+            text: "Offer protection, but make it clear that your rules come first.",
+            traits: ["leadership","pragmatism"],
+            affinity: {negan:3, governor:3}
+        }
     ]
 },
 
+/* ------------------------------------------------------------
+   TWD 3 — Governor / Woodbury style
+------------------------------------------------------------ */
+
 {
-    id: 3,
     question:
-        "Your group has one working car and five people. Unfortunately, six people need a ride.",
+        "A powerful settlement offers your group safety, food and weapons, but you suspect its leader is hiding something.",
+
     answers: [
-        { text: "We figure out another way. Nobody gets left behind.", traits: ["loyalty", "empathy"] },
-        { text: "The people most useful to the group go in the car.", traits: ["pragmatism", "strategy"] },
-        { text: "I'll stay behind and catch up later.", traits: ["independence", "loyalty"] },
-        { text: "Everyone gets in. We'll deal with the consequences later.", traits: ["hope", "riskAppetite"] },
-        { text: "I'm driving. We'll find room somehow.", traits: ["leadership", "courage"] }
+        {
+            text: "Accept temporarily while quietly investigating the leader.",
+            traits: ["strategy","pragmatism"],
+            affinity: {rick:3, carol:3, eugene:1}
+        },
+        {
+            text: "Reject the offer. A suspicious leader is too dangerous.",
+            traits: ["independence","survival"],
+            affinity: {daryl:3, michonne:3}
+        },
+        {
+            text: "Try to establish a genuine relationship before judging them.",
+            traits: ["trust","compassion"],
+            affinity: {glenn:3, hershel:3}
+        },
+        {
+            text: "Study the leader and look for leverage in case things turn hostile.",
+            traits: ["manipulation","strategy"],
+            affinity: {carol:4, eugene:2}
+        },
+        {
+            text: "Take the deal. Security matters more than uncertainty.",
+            traits: ["pragmatism","survival"],
+            affinity: {gregory:3, dawn:2, governor:2}
+        }
     ]
 },
 
+/* ------------------------------------------------------------
+   TWD 4 — Shane / Rick conflict
+------------------------------------------------------------ */
+
 {
-    id: 4,
     question:
-        "You meet a stranger who claims they have a safe camp nearby. What's your reaction?",
+        "Your closest ally makes a decision you believe will endanger everyone. What do you do?",
+
     answers: [
-        { text: "Great. Let's go. We could use some good news.", traits: ["hope", "trust"] },
-        { text: "Sounds nice. Now tell me what you're not telling us.", traits: ["strategy", "independence"] },
-        { text: "We stay here until we know more.", traits: ["selfPreservation", "emotionalControl"] },
-        { text: "I'll talk to them. People usually reveal more than they realize.", traits: ["charisma", "manipulation"] },
-        { text: "Give them a chance. Not everyone is out to get us.", traits: ["empathy", "trust"] }
+        {
+            text: "Confront them directly, even if it damages the friendship.",
+            traits: ["courage","morality"],
+            affinity: {rick:4, michonne:1}
+        },
+        {
+            text: "Watch them carefully and wait for proof before acting.",
+            traits: ["strategy","emotionalControl"],
+            affinity: {daryl:3, carol:3}
+        },
+        {
+            text: "Tell them privately that the group comes before either of you.",
+            traits: ["loyalty","leadership"],
+            affinity: {maggie:4, rick:2}
+        },
+        {
+            text: "If they become a genuine threat, remove them before they hurt someone.",
+            traits: ["ruthlessness","pragmatism"],
+            affinity: {shane:4, carol:3}
+        },
+        {
+            text: "Try to understand why they made the decision before judging them.",
+            traits: ["compassion","trust"],
+            affinity: {glenn:3, hershel:3}
+        }
     ]
 },
 
+/* ------------------------------------------------------------
+   TWD 5 — Carol
+------------------------------------------------------------ */
+
 {
-    id: 5,
     question:
-        "Someone in your group eats the last chocolate bar without telling anyone.",
+        "Someone in your settlement is secretly planning to hurt one of the children. Nobody else believes you.",
+
     answers: [
-        { text: "Seriously? That's war.", traits: ["ruthlessness", "charisma"] },
-        { text: "Laugh it off. It's a chocolate bar.", traits: ["emotionalControl", "hope"] },
-        { text: "Ask why they did it before getting angry.", traits: ["empathy", "morality"] },
-        { text: "Make sure they don't get near the food supply again.", traits: ["strategy", "selfPreservation"] },
-        { text: "I'll make them wish they'd saved me a piece.", traits: ["manipulation", "charisma"] }
+        {
+            text: "Warn everyone and confront the person openly.",
+            traits: ["courage","leadership"],
+            affinity: {rick:3, maggie:2}
+        },
+        {
+            text: "Keep the information secret and quietly prepare a way to stop them.",
+            traits: ["strategy","emotionalControl"],
+            affinity: {carol:5, michonne:2}
+        },
+        {
+            text: "Talk to the person and try to understand what is driving them.",
+            traits: ["compassion","morality"],
+            affinity: {hershel:3, glenn:3}
+        },
+        {
+            text: "Get the child out of danger immediately and deal with the threat later.",
+            traits: ["survival","loyalty"],
+            affinity: {daryl:4, carol:3}
+        },
+        {
+            text: "Manipulate the person into revealing their intentions.",
+            traits: ["manipulation","strategy"],
+            affinity: {carol:4, governor:2, eugene:2}
+        }
     ]
 },
 
+/* ------------------------------------------------------------
+   TWD 6 — Hershel barn
+------------------------------------------------------------ */
+
 {
-    id: 6,
     question:
-        "You hear a gunshot somewhere in the woods. Your group wants to investigate.",
+        "Your group discovers infected people who were once members of a family. Some survivors believe they should be treated as people.",
+
     answers: [
-        { text: "Let's go. Someone might need help.", traits: ["courage", "empathy"] },
-        { text: "Absolutely not. That's how people die.", traits: ["selfPreservation", "pragmatism"] },
-        { text: "We watch from a distance first.", traits: ["strategy", "emotionalControl"] },
-        { text: "I'll go. If it's trouble, we'll know soon enough.", traits: ["riskAppetite", "independence"] },
-        { text: "We go together. Nobody wanders off alone.", traits: ["leadership", "loyalty"] }
+        {
+            text: "There is still a moral line you refuse to cross without certainty.",
+            traits: ["morality","compassion"],
+            affinity: {hershel:5, morgan:2}
+        },
+        {
+            text: "Accept reality and do whatever is necessary to protect the living.",
+            traits: ["pragmatism","survival"],
+            affinity: {daryl:3, shane:3}
+        },
+        {
+            text: "Try to find another solution even if it takes longer.",
+            traits: ["hope","morality"],
+            affinity: {glenn:3, bob:3}
+        },
+        {
+            text: "The group cannot survive if emotions control every decision.",
+            traits: ["emotionalControl","pragmatism"],
+            affinity: {michonne:3, rick:2, dawn:2}
+        },
+        {
+            text: "Protect the people who are still alive, whatever the emotional cost.",
+            traits: ["loyalty","courage"],
+            affinity: {maggie:4, abraham:2}
+        }
     ]
 },
 
+/* ------------------------------------------------------------
+   TWD 7 — Glenn
+------------------------------------------------------------ */
+
 {
-    id: 7,
     question:
-        "Your best friend does something incredibly stupid and nearly gets everyone killed.",
+        "A friend is trapped inside a building surrounded by walkers. Going after them could expose the entire group.",
+
     answers: [
-        { text: "They're my friend. We deal with it and move on.", traits: ["loyalty", "empathy"] },
-        { text: "They get one warning. Next time, they're out.", traits: ["pragmatism", "leadership"] },
-        { text: "I want to know exactly what happened first.", traits: ["strategy", "emotionalControl"] },
-        { text: "I'll tear into them, but I'll still have their back.", traits: ["loyalty", "courage"] },
-        { text: "Maybe it's time to remind everyone who's actually keeping us alive.", traits: ["leadership", "charisma"] }
+        {
+            text: "Go in. Leaving them behind is not acceptable.",
+            traits: ["loyalty","courage"],
+            affinity: {glenn:4, daryl:2}
+        },
+        {
+            text: "Organize a careful rescue with several people.",
+            traits: ["leadership","strategy"],
+            affinity: {rick:4, maggie:2}
+        },
+        {
+            text: "Find another entrance or distraction before taking the risk.",
+            traits: ["strategy","survival"],
+            affinity: {carol:3, eugene:3}
+        },
+        {
+            text: "If rescuing them risks everyone, the group must come first.",
+            traits: ["pragmatism","emotionalControl"],
+            affinity: {michonne:3, shane:3}
+        },
+        {
+            text: "Try something extremely risky if it gives them even a small chance.",
+            traits: ["riskTaking","compassion"],
+            affinity: {glenn:3, abraham:3}
+        }
     ]
 },
 
+/* ------------------------------------------------------------
+   TWD 8 — Alexandria
+------------------------------------------------------------ */
+
 {
-    id: 8,
     question:
-        "You find a house that looks completely abandoned. What are you checking first?",
+        "Your group reaches a peaceful settlement where most residents have never faced a serious walker attack.",
+
     answers: [
-        { text: "Food and water.", traits: ["selfPreservation", "pragmatism"] },
-        { text: "Windows, doors and possible escape routes.", traits: ["strategy", "selfPreservation"] },
-        { text: "Signs that someone might still live here.", traits: ["empathy", "morality"] },
-        { text: "Weapons.", traits: ["courage", "riskAppetite"] },
-        { text: "A bathroom. At this point, that's treasure.", traits: ["charisma", "hope"] }
+        {
+            text: "Teach them how dangerous the outside world really is.",
+            traits: ["leadership","survival"],
+            affinity: {rick:4, michonne:2}
+        },
+        {
+            text: "Keep your distance until you know whether they can handle themselves.",
+            traits: ["independence","emotionalControl"],
+            affinity: {daryl:4, carol:2}
+        },
+        {
+            text: "Help them adapt without destroying the community's sense of normal life.",
+            traits: ["compassion","hope"],
+            affinity: {maggie:3, glenn:3}
+        },
+        {
+            text: "Take advantage of the safety while quietly preparing an escape plan.",
+            traits: ["strategy","survival"],
+            affinity: {eugene:4, gregory:2}
+        },
+        {
+            text: "Build relationships and become one of the people holding the community together.",
+            traits: ["charisma","leadership"],
+            affinity: {ezekiel:4, rick:2}
+        }
     ]
 },
 
+/* ------------------------------------------------------------
+   TWD 9 — Saviors
+------------------------------------------------------------ */
+
 {
-    id: 9,
     question:
-        "The group can't agree where to go next. Everyone starts arguing.",
+        "A stronger group demands regular supplies from your settlement in exchange for leaving you alone.",
+
     answers: [
-        { text: "I'll make the call and get everyone moving.", traits: ["leadership", "courage"] },
-        { text: "Let everyone speak before deciding.", traits: ["empathy", "loyalty"] },
-        { text: "Pick whichever option gives us the best chance of surviving.", traits: ["strategy", "pragmatism"] },
-        { text: "Fine. I'll go my own way.", traits: ["independence", "selfPreservation"] },
-        { text: "Calm everyone down first. Then we decide.", traits: ["emotionalControl", "charisma"] }
+        {
+            text: "Refuse and prepare your people for a fight.",
+            traits: ["courage","leadership"],
+            affinity: {rick:3, shane:3}
+        },
+        {
+            text: "Pay temporarily while searching for a way to break free.",
+            traits: ["pragmatism","strategy"],
+            affinity: {carol:4, eugene:2}
+        },
+        {
+            text: "Negotiate directly and try to understand what they actually want.",
+            traits: ["charisma","strategy"],
+            affinity: {maggie:3, ezekiel:2, negan:2}
+        },
+        {
+            text: "Give them what they want if it keeps innocent people alive.",
+            traits: ["compassion","pragmatism"],
+            affinity: {hershel:3, gabriel:2}
+        },
+        {
+            text: "Find their weakness and make sure they regret threatening you.",
+            traits: ["ruthlessness","manipulation"],
+            affinity: {negan:4, carol:2, governor:2}
+        }
     ]
 },
 
+/* ------------------------------------------------------------
+   TWD 10 — Negan
+------------------------------------------------------------ */
+
 {
-    id: 10,
     question:
-        "A stranger offers your group a large supply of food... in exchange for your weapons.",
+        "An enemy leader tries to intimidate you by publicly humiliating one of your friends.",
+
     answers: [
-        { text: "No weapons, no deal.", traits: ["selfPreservation", "pragmatism"] },
-        { text: "Take the deal. We need the food.", traits: ["riskAppetite", "pragmatism"] },
-        { text: "Pretend to agree and look for another way.", traits: ["manipulation", "strategy"] },
-        { text: "Ask what happens if we refuse.", traits: ["courage", "emotionalControl"] },
-        { text: "Try negotiating a better deal.", traits: ["charisma", "leadership"] }
+        {
+            text: "Stay calm and refuse to give them the reaction they want.",
+            traits: ["emotionalControl","courage"],
+            affinity: {michonne:3, daryl:3}
+        },
+        {
+            text: "Challenge them openly, even if it makes things worse.",
+            traits: ["courage","riskTaking"],
+            affinity: {abraham:4, shane:3}
+        },
+        {
+            text: "Play along temporarily and look for a better opportunity.",
+            traits: ["strategy","manipulation"],
+            affinity: {carol:4, eugene:3}
+        },
+        {
+            text: "Use humor and confidence to take control of the conversation.",
+            traits: ["charisma","emotionalControl"],
+            affinity: {negan:5, ezekiel:2}
+        },
+        {
+            text: "Protect your friend regardless of the consequences.",
+            traits: ["loyalty","morality"],
+            affinity: {rick:3, maggie:3}
+        }
     ]
 },
 
+/* ------------------------------------------------------------
+   TWD 11 — Terminus
+------------------------------------------------------------ */
+
 {
-    id: 11,
     question:
-        "You have one free afternoon at a relatively safe camp. What are you doing?",
+        "You arrive at a settlement advertising itself as a safe haven, but something about the place feels wrong.",
+
     answers: [
-        { text: "Sleeping. Obviously.", traits: ["selfPreservation", "emotionalControl"] },
-        { text: "Training with a weapon.", traits: ["courage", "riskAppetite"] },
-        { text: "Checking supplies and preparing for tomorrow.", traits: ["strategy", "pragmatism"] },
-        { text: "Hanging out with everyone.", traits: ["charisma", "loyalty"] },
-        { text: "Finding somewhere quiet and enjoying the fact that we're still alive.", traits: ["hope", "independence"] }
+        {
+            text: "Enter cautiously and keep an escape route ready.",
+            traits: ["strategy","survival"],
+            affinity: {rick:3, daryl:3}
+        },
+        {
+            text: "Observe the settlement from outside before anyone enters.",
+            traits: ["independence","strategy"],
+            affinity: {michonne:4, carol:2}
+        },
+        {
+            text: "Give the people a chance unless you have actual evidence of danger.",
+            traits: ["trust","morality"],
+            affinity: {glenn:4, bob:2}
+        },
+        {
+            text: "Assume it is a trap and prepare to fight your way out.",
+            traits: ["survival","ruthlessness"],
+            affinity: {daryl:3, shane:3}
+        },
+        {
+            text: "Talk to the leaders and figure out what they really want.",
+            traits: ["charisma","manipulation"],
+            affinity: {eugene:3, negan:3, governor:2}
+        }
     ]
 },
 
+/* ------------------------------------------------------------
+   TWD 12 — Hilltop
+------------------------------------------------------------ */
+
 {
-    id: 12,
     question:
-        "A heavily armed group is blocking the road ahead. They haven't noticed you yet.",
+        "A settlement has food but poor defenses. Your group has fighters but limited supplies.",
+
     answers: [
-        { text: "Find another route.", traits: ["selfPreservation", "pragmatism"] },
-        { text: "Watch them and figure out what they're doing.", traits: ["strategy", "emotionalControl"] },
-        { text: "Talk our way through.", traits: ["charisma", "manipulation"] },
-        { text: "Hit them before they can hit us.", traits: ["ruthlessness", "riskAppetite"] },
-        { text: "Stay together and prepare for whatever happens.", traits: ["leadership", "loyalty"] }
+        {
+            text: "Create an alliance and divide responsibilities.",
+            traits: ["leadership","loyalty"],
+            affinity: {rick:3, maggie:4}
+        },
+        {
+            text: "Train their people to defend themselves.",
+            traits: ["leadership","strategy"],
+            affinity: {abraham:3, daryl:3}
+        },
+        {
+            text: "Trade protection for food.",
+            traits: ["pragmatism","strategy"],
+            affinity: {eugene:3, dawn:3}
+        },
+        {
+            text: "Use diplomacy and make both communities feel valued.",
+            traits: ["charisma","compassion"],
+            affinity: {ezekiel:4, hershel:2}
+        },
+        {
+            text: "Take control before another group exploits their weakness.",
+            traits: ["ruthlessness","leadership"],
+            affinity: {governor:4, negan:3}
+        }
     ]
 },
 
+/* ------------------------------------------------------------
+   TWD 13 — Whisperer infiltration
+------------------------------------------------------------ */
+
 {
-    id: 13,
     question:
-        "Someone asks you, 'Do you really think things will ever go back to normal?'",
+        "Someone inside your community may secretly be working for an enemy group.",
+
     answers: [
-        { text: "Yes. We just have to survive long enough.", traits: ["hope", "morality"] },
-        { text: "Normal is gone. We need to build something new.", traits: ["pragmatism", "leadership"] },
-        { text: "I don't think about it. Tomorrow is what matters.", traits: ["selfPreservation", "emotionalControl"] },
-        { text: "Maybe not. But that doesn't mean we stop fighting.", traits: ["courage", "hope"] },
-        { text: "Honestly? I'm starting to like the new rules.", traits: ["independence", "riskAppetite"] }
+        {
+            text: "Investigate quietly without accusing anyone prematurely.",
+            traits: ["strategy","emotionalControl"],
+            affinity: {carol:4, michonne:2}
+        },
+        {
+            text: "Confront suspicious people directly.",
+            traits: ["courage","leadership"],
+            affinity: {rick:3, shane:3}
+        },
+        {
+            text: "Protect everyone until you know the truth.",
+            traits: ["loyalty","compassion"],
+            affinity: {maggie:3, glenn:3}
+        },
+        {
+            text: "Use deception to expose the infiltrator.",
+            traits: ["manipulation","strategy"],
+            affinity: {carol:4, eugene:2}
+        },
+        {
+            text: "Assume betrayal is inevitable and prepare accordingly.",
+            traits: ["survival","pragmatism"],
+            affinity: {daryl:3, governor:3}
+        }
     ]
 },
 
+/* ------------------------------------------------------------
+   TWD 14 — Morgan
+------------------------------------------------------------ */
+
 {
-    id: 14,
     question:
-        "You catch someone secretly stealing medicine from the group's supplies.",
+        "An enemy who previously hurt your group is now helpless and asks you not to kill them.",
+
     answers: [
-        { text: "Ask who they need it for.", traits: ["empathy", "morality"] },
-        { text: "Take it back and warn them.", traits: ["leadership", "pragmatism"] },
-        { text: "Find out how long they've been stealing first.", traits: ["strategy", "emotionalControl"] },
-        { text: "Make an example of them.", traits: ["ruthlessness", "leadership"] },
-        { text: "Keep quiet and use the information later if necessary.", traits: ["manipulation", "strategy"] }
+        {
+            text: "Spare them. Killing someone helpless crosses a line.",
+            traits: ["morality","compassion"],
+            affinity: {morgan:5, hershel:3}
+        },
+        {
+            text: "Spare them, but make sure they can never threaten anyone again.",
+            traits: ["morality","pragmatism"],
+            affinity: {michonne:3, rick:2}
+        },
+        {
+            text: "Kill them before they get another opportunity.",
+            traits: ["ruthlessness","survival"],
+            affinity: {shane:3, governor:3, gareth:2}
+        },
+        {
+            text: "Let the group decide rather than making the choice yourself.",
+            traits: ["trust","morality"],
+            affinity: {gabriel:4, hershel:2}
+        },
+        {
+            text: "Use the situation to learn why they became your enemy.",
+            traits: ["compassion","strategy"],
+            affinity: {glenn:3, bob:3}
+        }
     ]
 },
 
+/* ------------------------------------------------------------
+   TWD 15 — Eugene
+------------------------------------------------------------ */
+
 {
-    id: 15,
     question:
-        "Walkers are surrounding your building and the only escape is across a shaky roof.",
+        "Your group needs to reach another settlement, but nobody knows the safest route.",
+
     answers: [
-        { text: "I'm going first.", traits: ["courage", "riskAppetite"] },
-        { text: "I'll figure out the safest route.", traits: ["strategy", "selfPreservation"] },
-        { text: "Everyone crosses together.", traits: ["loyalty", "leadership"] },
-        { text: "If someone falls, keep moving. Don't let everyone die.", traits: ["pragmatism", "emotionalControl"] },
-        { text: "Well... this is going to be interesting.", traits: ["riskAppetite", "charisma"] }
+        {
+            text: "Take the route with the fewest unknowns, even if it is longer.",
+            traits: ["strategy","survival"],
+            affinity: {eugene:5, daryl:2}
+        },
+        {
+            text: "Scout several routes and compare the risks.",
+            traits: ["strategy","emotionalControl"],
+            affinity: {michonne:3, eugene:3}
+        },
+        {
+            text: "Take the shortest route and deal with problems as they appear.",
+            traits: ["riskTaking","courage"],
+            affinity: {abraham:4, shane:3}
+        },
+        {
+            text: "Ask people who know the area rather than guessing.",
+            traits: ["trust","pragmatism"],
+            affinity: {glenn:3, hershel:2, maggie:2}
+        },
+        {
+            text: "Create a convincing story to obtain information from another group.",
+            traits: ["manipulation","charisma"],
+            affinity: {eugene:4, negan:3}
+        }
     ]
 },
 
+/* ------------------------------------------------------------
+   TWD 16 — Ezekiel
+------------------------------------------------------------ */
+
 {
-    id: 16,
     question:
-        "Someone new joins the group and immediately starts flirting with you.",
+        "Your people are frightened after losing several members. What do you do?",
+
     answers: [
-        { text: "Flirt back. The apocalypse is no excuse to be boring.", traits: ["charisma", "riskAppetite"] },
-        { text: "Keep things friendly. I don't trust them yet.", traits: ["trust", "selfPreservation"] },
-        { text: "See what they want before deciding anything.", traits: ["strategy", "manipulation"] },
-        { text: "Give them a chance. Life is short.", traits: ["hope", "empathy"] },
-        { text: "Ignore it. We have bigger problems.", traits: ["emotionalControl", "pragmatism"] }
+        {
+            text: "Give them a realistic plan and ask them to keep moving.",
+            traits: ["leadership","hope"],
+            affinity: {rick:3, maggie:3}
+        },
+        {
+            text: "Give them something to believe in and restore their morale.",
+            traits: ["charisma","hope"],
+            affinity: {ezekiel:5, gabriel:2}
+        },
+        {
+            text: "Let everyone grieve before making another major decision.",
+            traits: ["compassion","emotionalControl"],
+            affinity: {hershel:4, bob:3}
+        },
+        {
+            text: "Focus on practical survival rather than emotions.",
+            traits: ["pragmatism","survival"],
+            affinity: {daryl:3, carol:3}
+        },
+        {
+            text: "Turn their anger into motivation against the enemy.",
+            traits: ["leadership","riskTaking"],
+            affinity: {abraham:3, shane:3, negan:2}
+        }
     ]
 },
 
+/* ------------------------------------------------------------
+   TWD 17 — Dawn / hospital
+------------------------------------------------------------ */
+
 {
-    id: 17,
     question:
-        "You discover your group has been followed for several miles.",
+        "A settlement has strict rules and heavily armed guards. The rules keep people safe, but some are clearly unfair.",
+
     answers: [
-        { text: "Set a trap.", traits: ["strategy", "ruthlessness"] },
-        { text: "Keep moving and avoid a fight.", traits: ["selfPreservation", "pragmatism"] },
-        { text: "Turn around and confront them.", traits: ["courage", "riskAppetite"] },
-        { text: "Find out who they are first.", traits: ["strategy", "emotionalControl"] },
-        { text: "Let them think they're following us... for now.", traits: ["manipulation", "independence"] }
+        {
+            text: "Follow the rules temporarily while working to change them.",
+            traits: ["pragmatism","strategy"],
+            affinity: {rick:2, eugene:3, dawn:2}
+        },
+        {
+            text: "Challenge the leadership immediately.",
+            traits: ["courage","independence"],
+            affinity: {michonne:3, shane:3}
+        },
+        {
+            text: "Work within the system to protect the people being mistreated.",
+            traits: ["morality","strategy"],
+            affinity: {carol:3, maggie:3}
+        },
+        {
+            text: "Keep your head down. Surviving comes first.",
+            traits: ["survival","emotionalControl"],
+            affinity: {daryl:3, gregory:4}
+        },
+        {
+            text: "Take control of the system yourself.",
+            traits: ["leadership","ruthlessness"],
+            affinity: {dawn:4, governor:3}
+        }
     ]
 },
 
-{
-    id: 18,
-    question:
-        "Your group has to choose one person to lead a dangerous supply run.",
-    answers: [
-        { text: "Me. At least I know what I'm getting everyone into.", traits: ["leadership", "courage"] },
-        { text: "The person with the most experience.", traits: ["trust", "pragmatism"] },
-        { text: "Whoever is best at getting in and out unnoticed.", traits: ["strategy", "selfPreservation"] },
-        { text: "Someone who won't hesitate when things go bad.", traits: ["riskAppetite", "ruthlessness"] },
-        { text: "Let's decide together.", traits: ["loyalty", "empathy"] }
-    ]
-},
+/* ------------------------------------------------------------
+   TWD 18 — Gregory
+------------------------------------------------------------ */
 
 {
-    id: 19,
     question:
-        "You find a working radio. You hear a voice asking for help.",
+        "A powerful enemy asks you to hand over another member of your settlement in exchange for safety.",
+
     answers: [
-        { text: "Answer immediately.", traits: ["empathy", "hope"] },
-        { text: "Listen for a while before responding.", traits: ["strategy", "selfPreservation"] },
-        { text: "Ask for their location and what they can offer us.", traits: ["pragmatism", "charisma"] },
-        { text: "Ignore it. It could be a trap.", traits: ["selfPreservation", "emotionalControl"] },
-        { text: "Respond, but don't tell them where we are.", traits: ["trust", "strategy"] }
+        {
+            text: "Refuse. You don't sacrifice your people to save yourself.",
+            traits: ["loyalty","morality"],
+            affinity: {maggie:4, rick:3}
+        },
+        {
+            text: "Pretend to cooperate while searching for another solution.",
+            traits: ["manipulation","strategy"],
+            affinity: {carol:4, eugene:3}
+        },
+        {
+            text: "If one person must be sacrificed to save dozens, consider it.",
+            traits: ["pragmatism","survival"],
+            affinity: {gregory:4, governor:3}
+        },
+        {
+            text: "Try to negotiate a different price.",
+            traits: ["charisma","strategy"],
+            affinity: {negan:3, ezekiel:3}
+        },
+        {
+            text: "Attack before they can force the decision on you.",
+            traits: ["courage","riskTaking"],
+            affinity: {abraham:4, shane:3}
+        }
     ]
 },
-
-{
-    id: 20,
-    question:
-        "Be honest: what's your biggest apocalypse luxury?",
-    answers: [
-        { text: "A hot shower.", traits: ["hope", "emotionalControl"] },
-        { text: "A comfortable bed.", traits: ["selfPreservation", "pragmatism"] },
-        { text: "Good food that isn't canned.", traits: ["hope", "charisma"] },
-        { text: "A huge collection of weapons.", traits: ["courage", "riskAppetite"] },
-        { text: "Five minutes where nobody asks me to solve anything.", traits: ["independence", "emotionalControl"] }
-    ]
-},
-
-{
-    id: 21,
-    question:
-        "A member of your group is bitten. Everyone knows what comes next.",
-    answers: [
-        { text: "Stay with them. They're still one of us.", traits: ["empathy", "loyalty"] },
-        { text: "Do what has to be done before they turn.", traits: ["pragmatism", "emotionalControl"] },
-        { text: "Look for another option until the very last second.", traits: ["hope", "morality"] },
-        { text: "Ask them what they want.", traits: ["empathy", "morality"] },
-        { text: "Keep everyone safe first. Personal feelings come second.", traits: ["selfPreservation", "leadership"] }
-    ]
-},
-
-{
-    id: 22,
-    question:
-        "Someone from a rival group offers you information in exchange for a favor.",
-    answers: [
-        { text: "Take the deal. Information is valuable.", traits: ["pragmatism", "strategy"] },
-        { text: "Ask what happens if they betray us.", traits: ["selfPreservation", "emotionalControl"] },
-        { text: "Try to get the information without giving anything back.", traits: ["manipulation", "charisma"] },
-        { text: "Trust them if their story checks out.", traits: ["trust", "hope"] },
-        { text: "Make them regret underestimating us.", traits: ["ruthlessness", "courage"] }
-    ]
-},
-
-{
-    id: 23,
-    question:
-        "You get one completely peaceful evening with your group. What happens?",
-    answers: [
-        { text: "Everyone eats, drinks and tells stupid stories.", traits: ["charisma", "hope"] },
-        { text: "I stay near the people I care about.", traits: ["loyalty", "empathy"] },
-        { text: "I finally relax.", traits: ["emotionalControl", "hope"] },
-        { text: "I'm still checking the perimeter.", traits: ["selfPreservation", "strategy"] },
-        { text: "I start planning tomorrow's next move.", traits: ["leadership", "strategy"] }
-    ]
-},
-
-{
-    id: 24,
-    question:
-        "A dangerous person threatens someone you care about. They tell you to back off.",
-    answers: [
-        { text: "I back off and find another way to protect them.", traits: ["strategy", "selfPreservation"] },
-        { text: "They just made this personal.", traits: ["loyalty", "riskAppetite"] },
-        { text: "Try talking them down.", traits: ["charisma", "emotionalControl"] },
-        { text: "Threaten them right back.", traits: ["courage", "ruthlessness"] },
-        { text: "Wait until they think they've won.", traits: ["manipulation", "strategy"] }
-    ]
-},
-
-{
-    id: 25,
-    question:
-        "You have to choose between saving a stranger or securing a huge supply of medicine for your group.",
-    answers: [
-        { text: "Save the stranger. A life is a life.", traits: ["morality", "empathy"] },
-        { text: "Take the medicine. It could save many more people.", traits: ["pragmatism", "strategy"] },
-        { text: "Try to do both, even if it means taking a huge risk.", traits: ["hope", "riskAppetite"] },
-        { text: "Let someone else make the call.", traits: ["trust", "emotionalControl"] },
-        { text: "Depends. What can the stranger offer us?", traits: ["pragmatism", "manipulation"] }
-    ]
-},
-
-{
-    id: 26,
-    question:
-        "Your group discovers an abandoned amusement park that looks surprisingly safe.",
-    answers: [
-        { text: "We're checking it out. Maybe there's food.", traits: ["riskAppetite", "hope"] },
-        { text: "Nope. That's exactly how horror movies start.", traits: ["selfPreservation", "emotionalControl"] },
-        { text: "I'll scout it first.", traits: ["strategy", "independence"] },
-        { text: "Everyone stays together. Let's have some fun for once.", traits: ["leadership", "charisma"] },
-        { text: "If there's a roller coaster, I'm going first.", traits: ["courage", "riskAppetite"] }
-    ]
-},
-
-{
-    id: 27,
-    question:
-        "Someone in the group constantly challenges your decisions.",
-    answers: [
-        { text: "Let them speak. They might have a point.", traits: ["empathy", "trust"] },
-        { text: "Tell them they can lead if they think they can do better.", traits: ["leadership", "courage"] },
-        { text: "Figure out why they're really doing it.", traits: ["strategy", "manipulation"] },
-        { text: "Ignore them and keep doing what works.", traits: ["independence", "pragmatism"] },
-        { text: "Turn the disagreement into a joke.", traits: ["charisma", "emotionalControl"] }
-    ]
-},
-
-{
-    id: 28,
-    question:
-        "You discover someone in your group has secretly been helping a rival group.",
-    answers: [
-        { text: "Hear them out before deciding anything.", traits: ["empathy", "trust"] },
-        { text: "They're a traitor. They're out.", traits: ["ruthlessness", "pragmatism"] },
-        { text: "Find out what information they gave away.", traits: ["strategy", "selfPreservation"] },
-        { text: "Use them to feed the rival group false information.", traits: ["manipulation", "strategy"] },
-        { text: "Give them one chance to prove themselves.", traits: ["loyalty", "hope"] }
-    ]
-},
-
-{
-    id: 29,
-    question:
-        "The group is exhausted, supplies are low and everyone is starting to lose hope. What do you do?",
-    answers: [
-        { text: "Remind everyone how far we've already come.", traits: ["hope", "leadership"] },
-        { text: "Stop wasting energy and focus only on survival.", traits: ["pragmatism", "selfPreservation"] },
-        { text: "Come up with a new plan before things get worse.", traits: ["strategy", "leadership"] },
-        { text: "Stay close to the people who need support.", traits: ["empathy", "loyalty"] },
-        { text: "Take a dangerous chance. We can't stay like this forever.", traits: ["riskAppetite", "courage"] }
-    ]
-},
-
-{
-    id: 30,
-    question:
-        "It's late at night. Everyone is asleep. You hear something outside the camp.",
-    answers: [
-        { text: "Grab a weapon and investigate.", traits: ["courage", "riskAppetite"] },
-        { text: "Wake the others and prepare everyone.", traits: ["leadership", "loyalty"] },
-        { text: "Stay hidden and figure out exactly what it is.", traits: ["strategy", "selfPreservation"] },
-        { text: "Quietly go outside alone.", traits: ["independence", "emotionalControl"] },
-        { text: "Wake someone I trust and deal with it together.", traits: ["trust", "loyalty"] }
-    ]
-}];
 
 
 /* ============================================================
-   VALIDATION
-   ============================================================ */
+   GENERAL APOCALYPSE / ZOMBIE
+============================================================ */
 
-function validateTWDData() {
+/* 19 */
+{
+    question:
+        "You find a supermarket with enough food to support your group for weeks, but a large herd of walkers is moving nearby.",
+
+    answers: [
+        {
+            text: "Take only what you can carry and leave immediately.",
+            traits: ["survival","pragmatism"],
+            affinity: {daryl:3, carol:2, eugene:2}
+        },
+        {
+            text: "Risk staying longer because the supplies are too valuable.",
+            traits: ["riskTaking","pragmatism"],
+            affinity: {shane:3, abraham:3}
+        },
+        {
+            text: "Secure the building and create a defensive position.",
+            traits: ["strategy","leadership"],
+            affinity: {rick:4, dawn:2}
+        },
+        {
+            text: "Make sure everyone gets enough before taking anything for yourself.",
+            traits: ["compassion","loyalty"],
+            affinity: {glenn:4, bob:3}
+        },
+        {
+            text: "Use the herd as a distraction to gain access to other supplies.",
+            traits: ["strategy","riskTaking"],
+            affinity: {eugene:4, carol:3}
+        }
+    ]
+},
+
+/* 20 */
+{
+    question:
+        "You discover a survivor with a serious injury who cannot travel quickly.",
+
+    answers: [
+        {
+            text: "Slow the group down and carry them if necessary.",
+            traits: ["compassion","loyalty"],
+            affinity: {glenn:4, bob:3}
+        },
+        {
+            text: "Leave supplies and create a safe place for them before moving on.",
+            traits: ["pragmatism","compassion"],
+            affinity: {hershel:3, maggie:3}
+        },
+        {
+            text: "If they cannot keep up, the group must continue.",
+            traits: ["survival","pragmatism"],
+            affinity: {daryl:3, shane:3, gregory:2}
+        },
+        {
+            text: "Organize the group so different people take turns helping them.",
+            traits: ["leadership","loyalty"],
+            affinity: {rick:4, maggie:3}
+        },
+        {
+            text: "Ask the injured survivor what they want rather than deciding for them.",
+            traits: ["morality","independence"],
+            affinity: {michonne:3, morgan:3}
+        }
+    ]
+},
+
+/* 21 */
+{
+    question:
+        "You have enough ammunition for only one serious fight.",
+
+    answers: [
+        {
+            text: "Avoid every unnecessary confrontation.",
+            traits: ["strategy","emotionalControl"],
+            affinity: {daryl:3, eugene:3}
+        },
+        {
+            text: "Save it for the biggest threat.",
+            traits: ["pragmatism","strategy"],
+            affinity: {rick:3, michonne:3}
+        },
+        {
+            text: "Use it now to eliminate a dangerous enemy.",
+            traits: ["ruthlessness","courage"],
+            affinity: {shane:3, governor:3, gareth:2}
+        },
+        {
+            text: "Use it only if innocent people are directly threatened.",
+            traits: ["morality","loyalty"],
+            affinity: {maggie:3, hershel:3}
+        },
+        {
+            text: "Create a trap that lets you win without wasting ammunition.",
+            traits: ["strategy","manipulation"],
+            affinity: {carol:4, eugene:3}
+        }
+    ]
+},
+
+/* 22 */
+{
+    question:
+        "Your group reaches a river. The bridge is damaged, but crossing it would save several days of travel.",
+
+    answers: [
+        {
+            text: "Find another route. A dangerous shortcut isn't worth the risk.",
+            traits: ["survival","emotionalControl"],
+            affinity: {daryl:3, hershel:2, eugene:2}
+        },
+        {
+            text: "Inspect the bridge carefully and cross if the risk is manageable.",
+            traits: ["strategy","courage"],
+            affinity: {michonne:4, rick:2}
+        },
+        {
+            text: "Cross immediately. Every day matters.",
+            traits: ["riskTaking","courage"],
+            affinity: {abraham:4, shane:3}
+        },
+        {
+            text: "Have the strongest people secure the crossing for everyone.",
+            traits: ["leadership","loyalty"],
+            affinity: {rick:3, maggie:3}
+        },
+        {
+            text: "Find a way to turn the dangerous crossing into an advantage.",
+            traits: ["strategy","pragmatism"],
+            affinity: {carol:3, eugene:4}
+        }
+    ]
+},
+
+/* 23 */
+{
+    question:
+        "A stranger offers your group a large amount of food but refuses to explain where it came from.",
+
+    answers: [
+        {
+            text: "Accept it, but investigate quietly.",
+            traits: ["pragmatism","strategy"],
+            affinity: {carol:4, eugene:2}
+        },
+        {
+            text: "Refuse. If you don't know the source, you don't know the danger.",
+            traits: ["survival","independence"],
+            affinity: {daryl:4, michonne:2}
+        },
+        {
+            text: "Ask questions and give them a chance to explain.",
+            traits: ["trust","compassion"],
+            affinity: {glenn:4, hershel:2}
+        },
+        {
+            text: "Take the food. Survival sometimes requires uncomfortable choices.",
+            traits: ["pragmatism","survival"],
+            affinity: {gregory:4, governor:2}
+        },
+        {
+            text: "Use the offer to negotiate for even more information.",
+            traits: ["charisma","manipulation"],
+            affinity: {negan:4, ezekiel:2}
+        }
+    ]
+},
+
+/* 24 */
+{
+    question:
+        "Your settlement has enough food for two months, but winter could last four.",
+
+    answers: [
+        {
+            text: "Immediately impose strict rationing.",
+            traits: ["pragmatism","leadership"],
+            affinity: {rick:3, dawn:3}
+        },
+        {
+            text: "Search for new food sources before restricting everyone.",
+            traits: ["strategy","riskTaking"],
+            affinity: {daryl:3, abraham:3}
+        },
+        {
+            text: "Make sure the vulnerable receive enough even if others get less.",
+            traits: ["compassion","morality"],
+            affinity: {hershel:4, bob:3}
+        },
+        {
+            text: "Use diplomacy to establish a trade relationship with another settlement.",
+            traits: ["charisma","strategy"],
+            affinity: {maggie:4, ezekiel:3}
+        },
+        {
+            text: "Keep the shortage secret until you know how serious it will become.",
+            traits: ["manipulation","survival"],
+            affinity: {carol:4, gregory:3}
+        }
+    ]
+},
+
+/* 25 */
+{
+    question:
+        "You discover a small group living peacefully in a remote cabin. They have no idea how bad the outside world has become.",
+
+    answers: [
+        {
+            text: "Warn them and offer to help them prepare.",
+            traits: ["compassion","leadership"],
+            affinity: {rick:3, maggie:3}
+        },
+        {
+            text: "Leave them alone. Their survival isn't your responsibility.",
+            traits: ["independence","emotionalControl"],
+            affinity: {daryl:4, michonne:2}
+        },
+        {
+            text: "Invite them to join your community.",
+            traits: ["hope","trust"],
+            affinity: {ezekiel:4, glenn:3}
+        },
+        {
+            text: "Assess whether their supplies could help your group.",
+            traits: ["pragmatism","survival"],
+            affinity: {eugene:3, gregory:4}
+        },
+        {
+            text: "Approach carefully and determine whether they could become a threat.",
+            traits: ["strategy","survival"],
+            affinity: {carol:4, rick:2}
+        }
+    ]
+},
+
+/* 26 */
+{
+    question:
+        "Someone in your group steals medicine intended for another survivor.",
+
+    answers: [
+        {
+            text: "Demand that they return it immediately.",
+            traits: ["morality","leadership"],
+            affinity: {rick:3, maggie:3}
+        },
+        {
+            text: "Find out why they stole it before deciding what to do.",
+            traits: ["compassion","strategy"],
+            affinity: {morgan:4, hershel:3}
+        },
+        {
+            text: "Punish them severely so nobody tries it again.",
+            traits: ["ruthlessness","leadership"],
+            affinity: {negan:4, governor:3}
+        },
+        {
+            text: "Quietly replace the medicine and monitor the person afterward.",
+            traits: ["strategy","emotionalControl"],
+            affinity: {carol:4, michonne:2}
+        },
+        {
+            text: "If the medicine was genuinely needed, let the person keep it.",
+            traits: ["compassion","morality"],
+            affinity: {bob:4, gabriel:3}
+        }
+    ]
+},
+
+/* 27 */
+{
+    question:
+        "A massive walker herd is approaching your settlement and there is no time to evacuate everyone.",
+
+    answers: [
+        {
+            text: "Take command and organize everyone into specific roles.",
+            traits: ["leadership","strategy"],
+            affinity: {rick:5, maggie:2}
+        },
+        {
+            text: "Find the most dangerous point and deal with it personally.",
+            traits: ["courage","riskTaking"],
+            affinity: {abraham:4, shane:3}
+        },
+        {
+            text: "Find a hidden escape route for the people who cannot fight.",
+            traits: ["strategy","compassion"],
+            affinity: {carol:4, daryl:3}
+        },
+        {
+            text: "Stay with the people who are frightened and keep them calm.",
+            traits: ["hope","compassion"],
+            affinity: {ezekiel:4, bob:3}
+        },
+        {
+            text: "Use the herd's movement to create a trap.",
+            traits: ["strategy","manipulation"],
+            affinity: {eugene:3, michonne:3, carol:2}
+        }
+    ]
+},
+
+/* 28 */
+{
+    question:
+        "You find an abandoned military vehicle with weapons, fuel and medical supplies.",
+
+    answers: [
+        {
+            text: "Take everything useful and leave before someone else arrives.",
+            traits: ["survival","pragmatism"],
+            affinity: {daryl:3, eugene:3}
+        },
+        {
+            text: "Secure the area first. The supplies may be bait.",
+            traits: ["strategy","emotionalControl"],
+            affinity: {michonne:4, carol:2}
+        },
+        {
+            text: "Take the supplies but leave something useful for another survivor.",
+            traits: ["compassion","morality"],
+            affinity: {glenn:4, bob:3}
+        },
+        {
+            text: "Use the weapons to strengthen your settlement's position.",
+            traits: ["leadership","strategy"],
+            affinity: {rick:3, maggie:3}
+        },
+        {
+            text: "Take the weapons first. Whoever controls them has leverage.",
+            traits: ["ruthlessness","pragmatism"],
+            affinity: {negan:4, governor:3}
+        }
+    ]
+},
+
+/* 29 */
+{
+    question:
+        "A member of your group wants to leave because they believe your settlement has become too dangerous.",
+
+    answers: [
+        {
+            text: "Try to convince them to stay, but respect their decision.",
+            traits: ["loyalty","trust"],
+            affinity: {maggie:3, glenn:3}
+        },
+        {
+            text: "Ask them to explain exactly what they think is wrong.",
+            traits: ["strategy","compassion"],
+            affinity: {rick:3, hershel:3}
+        },
+        {
+            text: "Let them go. Everyone has to make their own survival choices.",
+            traits: ["independence","emotionalControl"],
+            affinity: {daryl:4, michonne:2}
+        },
+        {
+            text: "Stop them if their departure could expose the settlement.",
+            traits: ["pragmatism","survival"],
+            affinity: {dawn:3, governor:3}
+        },
+        {
+            text: "Offer them a deal that gives them a reason to stay.",
+            traits: ["charisma","manipulation"],
+            affinity: {negan:3, ezekiel:3, gregory:2}
+        }
+    ]
+},
+
+/* 30 */
+{
+    question:
+        "You have one night to decide whether to attack an enemy camp before they discover your location.",
+
+    answers: [
+        {
+            text: "Attack before they can become a bigger threat.",
+            traits: ["courage","riskTaking"],
+            affinity: {shane:4, abraham:3}
+        },
+        {
+            text: "Gather more information. Attacking blind is too dangerous.",
+            traits: ["strategy","emotionalControl"],
+            affinity: {daryl:3, michonne:3, eugene:2}
+        },
+        {
+            text: "Find a way to disable the camp without killing anyone.",
+            traits: ["morality","compassion"],
+            affinity: {morgan:4, hershel:3}
+        },
+        {
+            text: "Create a plan that forces them to leave without realizing you caused it.",
+            traits: ["manipulation","strategy"],
+            affinity: {carol:5, governor:2}
+        },
+        {
+            text: "Bring everyone together and make the decision as a group.",
+            traits: ["leadership","loyalty"],
+            affinity: {rick:4, maggie:3, ezekiel:2}
+        }
+    ]
+}
+
+];
+
+
+/* ============================================================
+   7. VALIDATION
+============================================================ */
+
+function validateQuiz() {
 
     const errors = [];
 
-    const forbidden = [
-        "authority",
-        "humility",
-        "stubbornness",
-        "caution"
-    ];
-
-
-    if (TWD_PERSONALITY_QUESTIONS.length !== 30) {
-
-        errors.push(
-            `Expected 30 questions; found ${TWD_PERSONALITY_QUESTIONS.length}.`
-        );
-
+    if (questions.length !== 30) {
+        errors.push(`Expected 30 questions, found ${questions.length}.`);
     }
 
+    const characterIds = Object.keys(CHARACTERS);
 
-    if (Object.keys(TWD_CHARACTERS).length !== 19) {
-
-        errors.push(
-            `Expected 19 characters; found ${Object.keys(TWD_CHARACTERS).length}.`
-        );
-
+    if (characterIds.length !== 19) {
+        errors.push(`Expected 19 characters, found ${characterIds.length}.`);
     }
 
+    questions.forEach((q, qi) => {
 
-    TWD_PERSONALITY_QUESTIONS.forEach(question => {
-
-        if (
-            !question.id ||
-            !question.question ||
-            !Array.isArray(question.answers) ||
-            question.answers.length !== 5
-        ) {
-
-            errors.push(
-                `Q${question.id}: must have exactly 5 answers.`
-            );
-
+        if (!q.question || typeof q.question !== "string") {
+            errors.push(`Question ${qi + 1}: missing question text.`);
         }
 
+        if (!Array.isArray(q.answers) || q.answers.length !== 5) {
+            errors.push(
+                `Question ${qi + 1}: expected exactly 5 answers.`
+            );
+            return;
+        }
 
-        question.answers.forEach((answer, index) => {
+        q.answers.forEach((answer, ai) => {
 
-            if (!Array.isArray(answer.traits)) {
-
+            if (!answer.text) {
                 errors.push(
-                    `Q${question.id} answer ${index + 1}: traits must be an array.`
+                    `Question ${qi + 1}, answer ${ai + 1}: missing text.`
                 );
-
-                return;
             }
 
+            if (!Array.isArray(answer.traits) ||
+                answer.traits.length < 2) {
 
-            answer.traits.forEach(trait => {
+                errors.push(
+                    `Question ${qi + 1}, answer ${ai + 1}: invalid traits.`
+                );
+            }
+
+            (answer.traits || []).forEach(trait => {
 
                 if (!TRAIT_KEYS.includes(trait)) {
-
                     errors.push(
-                        `Q${question.id}: undefined trait "${trait}".`
+                        `Question ${qi + 1}, answer ${ai + 1}: unknown trait "${trait}".`
                     );
-
                 }
+            });
 
+            if (!answer.affinity ||
+                typeof answer.affinity !== "object") {
 
-                if (forbidden.includes(trait)) {
+                errors.push(
+                    `Question ${qi + 1}, answer ${ai + 1}: missing affinity.`
+                );
 
-                    errors.push(
-                        `Q${question.id}: forbidden trait "${trait}".`
-                    );
+            } else {
 
-                }
+                Object.keys(answer.affinity).forEach(id => {
 
+                    if (!CHARACTERS[id]) {
+                        errors.push(
+                            `Question ${qi + 1}, answer ${ai + 1}: unknown character "${id}".`
+                        );
+                    }
+
+                });
+
+            }
+
+        });
+
+    });
+
+    characterIds.forEach(id => {
+
+        const character = CHARACTERS[id];
+
+        if (!Array.isArray(character.scores) ||
+            character.scores.length !== TRAIT_KEYS.length) {
+
+            errors.push(
+                `${id}: expected ${TRAIT_KEYS.length} trait scores.`
+            );
+        }
+
+        if (!CHARACTER_SIGNATURES[id]) {
+            errors.push(`${id}: missing signature.`);
+        }
+
+        if (CHARACTER_ACCESSIBILITY[id] === undefined) {
+            errors.push(`${id}: missing accessibility.`);
+        }
+
+    });
+
+    const affinityCounts = {};
+
+    characterIds.forEach(id => {
+        affinityCounts[id] = 0;
+    });
+
+    questions.forEach(q => {
+
+        q.answers.forEach(answer => {
+
+            Object.keys(answer.affinity || {}).forEach(id => {
+                affinityCounts[id]++;
             });
 
         });
 
     });
 
+    characterIds.forEach(id => {
 
-    Object.entries(TWD_CHARACTERS).forEach(
-        ([id, character]) => {
-
-            if (
-                !Array.isArray(character.scores) ||
-                character.scores.length !== TRAIT_KEYS.length
-            ) {
-
-                errors.push(
-                    `${id}: expected ${TRAIT_KEYS.length} scores; ` +
-                    `found ${character.scores?.length || 0}.`
-                );
-
-            }
-
-        }
-    );
-
-
-    Object.keys(TWD_CHARACTERS).forEach(id => {
-
-        const signature =
-            CHARACTER_SIGNATURES[id];
-
-        if (!signature) {
-
+        if (affinityCounts[id] < 3) {
             errors.push(
-                `${id}: missing CHARACTER_SIGNATURES entry.`
+                `${id}: only ${affinityCounts[id]} affinity routes.`
             );
-
-            return;
-        }
-
-
-        [
-            ...Object.keys(signature.primary || {}),
-            ...Object.keys(signature.secondary || {})
-        ].forEach(trait => {
-
-            if (!TRAIT_KEYS.includes(trait)) {
-
-                errors.push(
-                    `${id}: signature contains undefined trait "${trait}".`
-                );
-
-            }
-
-        });
-
-
-        if (
-            !CHARACTER_ARCHETYPE_WEIGHTS[id]
-        ) {
-
-            errors.push(
-                `${id}: missing CHARACTER_ARCHETYPE_WEIGHTS entry.`
-            );
-
-        }
-
-
-        if (
-            typeof CHARACTER_ACCESSIBILITY[id] !== "number"
-        ) {
-
-            errors.push(
-                `${id}: missing CHARACTER_ACCESSIBILITY entry.`
-            );
-
         }
 
     });
 
+    if (errors.length) {
 
-    return {
-        valid: errors.length === 0,
-        errors
-    };
+        console.error(
+            "TWD QUIZ VALIDATION FAILED",
+            errors
+        );
+
+        return false;
+    }
+
+    console.log(
+        `%cTHE WALKING DEAD QUIZ VALIDATION PASSED`,
+        "font-weight:bold;"
+    );
+
+    console.log(
+        `Questions: ${questions.length}`
+    );
+
+    console.log(
+        `Characters: ${characterIds.length}`
+    );
+
+    console.log(
+        "All characters have multiple affinity routes."
+    );
+
+    return true;
 }
 
 
 /* ============================================================
-   PERSONALITY CALCULATION
-   ============================================================ */
+   8. ANSWER PROFILE
+============================================================ */
 
 function calculatePersonality(answerIndexes) {
 
     const rawScores = {};
-    const maxScores = {};
-    const minScores = {};
 
     TRAIT_KEYS.forEach(trait => {
-
         rawScores[trait] = 0;
-        maxScores[trait] = 0;
-        minScores[trait] = 0;
-
     });
 
+    const characterAffinity = {};
+
+    Object.keys(CHARACTERS).forEach(id => {
+        characterAffinity[id] = 0;
+    });
 
     let answeredQuestions = 0;
 
+    answerIndexes.forEach((answerIndex, questionIndex) => {
 
-    /* --------------------------------------------------------
-       SELECTED ANSWERS
-       -------------------------------------------------------- */
+        const question = questions[questionIndex];
 
-    TWD_PERSONALITY_QUESTIONS.forEach(question => {
+        if (!question) return;
 
-        const selectedIndex =
-            answerIndexes?.[question.id];
-
-
-        if (
-            selectedIndex === undefined ||
-            selectedIndex === null
-        ) {
-            return;
-        }
-
-
-        const answer =
-            question.answers[selectedIndex];
-
+        const answer = question.answers[answerIndex];
 
         if (!answer) return;
 
-
         answeredQuestions++;
 
+        (answer.traits || []).forEach(trait => {
 
-        answer.traits.forEach(trait => {
-
-            if (
-                TRAIT_KEYS.includes(trait)
-            ) {
-
-                rawScores[trait] += 1;
-
+            if (rawScores[trait] !== undefined) {
+                rawScores[trait]++;
             }
 
         });
 
-    });
+        Object.entries(answer.affinity || {}).forEach(
+            ([characterId, value]) => {
 
+                if (characterAffinity[characterId] !== undefined) {
+                    characterAffinity[characterId] += Number(value) || 0;
+                }
 
-    /* --------------------------------------------------------
-       THEORETICAL MINIMUM / MAXIMUM
-       -------------------------------------------------------- */
-
-    TWD_PERSONALITY_QUESTIONS.forEach(question => {
-
-        TRAIT_KEYS.forEach(trait => {
-
-            const values =
-                question.answers.map(answer =>
-                    answer.traits.includes(trait)
-                        ? 1
-                        : 0
-                );
-
-
-            maxScores[trait] +=
-                Math.max(...values);
-
-
-            minScores[trait] +=
-                Math.min(...values);
-
-        });
+            }
+        );
 
     });
 
 
-    /* --------------------------------------------------------
-       NORMALIZED PROFILE
-       -------------------------------------------------------- */
+    /*
+       Normalize trait scores to 0–100.
 
-    const profile = {};
+       Each trait can appear a different number of times
+       in the question bank, so we calculate actual
+       theoretical minimum/maximum values.
+    */
 
+    const minScores = {};
+    const maxScores = {};
 
     TRAIT_KEYS.forEach(trait => {
 
-        const min =
-            minScores[trait];
+        let min = 0;
+        let max = 0;
 
-        const max =
-            maxScores[trait];
+        questions.forEach(question => {
 
-        const raw =
-            rawScores[trait];
+            let present = false;
+
+            question.answers.forEach(answer => {
+
+                if ((answer.traits || []).includes(trait)) {
+                    present = true;
+                }
+
+            });
+
+            if (present) {
+                max++;
+            }
+
+        });
+
+        minScores[trait] = min;
+        maxScores[trait] = max;
+
+    });
 
 
-        if (max === min) {
+    const profile = {};
 
-            profile[trait] = 62;
+    TRAIT_KEYS.forEach(trait => {
 
-            return;
+        const raw = rawScores[trait];
+        const max = maxScores[trait];
+
+        let normalized = 50;
+
+        if (max > 0) {
+            normalized = (raw / max) * 100;
         }
 
-
-        const normalized =
-            (
-                (raw - min) /
-                (max - min)
-            ) * 100;
-
-
-        /*
-         * Center around 62 and widen the profile.
-         */
-
-        let score =
-            62 +
-            (
-                (normalized - 50) *
-                2.0
-            );
-
-
-        score =
-            Math.max(
-                5,
-                Math.min(
-                    95,
-                    score
-                )
-            );
-
-
-        profile[trait] =
-            Math.round(score);
+        profile[trait] = Math.round(
+            Math.max(0, Math.min(100, normalized))
+        );
 
     });
 
 
     return {
-
         profile,
-
         rawScores,
-
         minScores,
-
         maxScores,
-
+        characterAffinity,
         answeredQuestions,
-
         completionPercent:
             Math.round(
-                (
-                    answeredQuestions /
-                    TWD_PERSONALITY_QUESTIONS.length
-                ) * 100
+                (answeredQuestions / questions.length) * 100
             )
-
     };
 }
 
 
 /* ============================================================
-   TRAIT SIMILARITY
-   ============================================================ */
+   9. TRAIT SIMILARITY
+============================================================ */
 
-function getTraitSimilarity(
-    userScore,
-    characterScore
-) {
+function getTraitSimilarity(userValue, characterValue) {
+
+    const difference =
+        Math.abs(
+            Number(userValue) -
+            Number(characterValue)
+        );
 
     return Math.max(
         0,
-        Math.min(
-            100,
-            100 -
-            Math.abs(
-                userScore -
-                characterScore
-            )
-        )
+        100 - difference
     );
 }
 
 
 /* ============================================================
-   OVERALL SIMILARITY
-   ============================================================ */
+   10. CORE SIGNATURE MATCH
+============================================================ */
 
-function calculateOverallSimilarity(
+function calculateCoreSignatureScore(
+    userProfile,
+    character,
+    signature
+) {
+
+    const primary = signature.primary || [];
+
+    if (!primary.length) return 50;
+
+    let total = 0;
+    let weightTotal = 0;
+
+    primary.forEach((trait, index) => {
+
+        const traitIndex =
+            TRAIT_KEYS.indexOf(trait);
+
+        if (traitIndex === -1) return;
+
+        const userValue =
+            Number(userProfile[trait] ?? 50);
+
+        const characterValue =
+            Number(character.scores[traitIndex] ?? 50);
+
+        const similarity =
+            getTraitSimilarity(
+                userValue,
+                characterValue
+            );
+
+        /*
+           First traits are slightly more important.
+        */
+
+        const weight =
+            1.35 -
+            (index * 0.08);
+
+        total += similarity * weight;
+        weightTotal += weight;
+
+    });
+
+    return weightTotal
+        ? total / weightTotal
+        : 50;
+}
+
+
+/* ============================================================
+   11. SECONDARY MATCH
+============================================================ */
+
+function calculateSecondaryScore(
+    userProfile,
+    character,
+    signature
+) {
+
+    const secondary =
+        signature.secondary || [];
+
+    if (!secondary.length) return 50;
+
+    let total = 0;
+    let weightTotal = 0;
+
+    secondary.forEach(trait => {
+
+        const index =
+            TRAIT_KEYS.indexOf(trait);
+
+        if (index === -1) return;
+
+        const similarity =
+            getTraitSimilarity(
+                Number(userProfile[trait] ?? 50),
+                Number(character.scores[index] ?? 50)
+            );
+
+        total += similarity;
+        weightTotal++;
+
+    });
+
+    return weightTotal
+        ? total / weightTotal
+        : 50;
+}
+
+
+/* ============================================================
+   12. OVERALL TRAIT MATCH
+============================================================ */
+
+function calculateOverallTraitScore(
     userProfile,
     character
 ) {
 
     let total = 0;
-    let totalWeight = 0;
-
+    let weightTotal = 0;
 
     TRAIT_KEYS.forEach((trait, index) => {
-
-        const userScore =
-            Number(
-                userProfile[trait] ?? 62
-            );
-
-
-        const characterScore =
-            Number(
-                character.scores[index] ?? 62
-            );
-
 
         const weight =
-            TRAIT_WEIGHTS[trait] ?? 1;
-
-
-        total +=
-            getTraitSimilarity(
-                userScore,
-                characterScore
-            ) *
-            weight;
-
-
-        totalWeight +=
-            weight;
-
-    });
-
-
-    return totalWeight > 0
-        ? total / totalWeight
-        : 0;
-}
-
-
-/* ============================================================
-   SIGNATURE SIMILARITY
-   ============================================================ */
-
-function calculateSignatureSimilarity(
-    userProfile,
-    character,
-    characterId
-) {
-
-    const signature =
-        CHARACTER_SIGNATURES[characterId];
-
-
-    if (!signature) {
-
-        return calculateOverallSimilarity(
-            userProfile,
-            character
-        );
-
-    }
-
-
-    let total = 0;
-    let totalWeight = 0;
-
-
-    TRAIT_KEYS.forEach((trait, index) => {
-
-        let signatureWeight =
-            0.30;
-
-
-        if (
-            Object.prototype.hasOwnProperty.call(
-                signature.primary || {},
-                trait
-            )
-        ) {
-
-            signatureWeight =
-                signature.primary[trait];
-
-        }
-
-        else if (
-            Object.prototype.hasOwnProperty.call(
-                signature.secondary || {},
-                trait
-            )
-        ) {
-
-            signatureWeight =
-                signature.secondary[trait] *
-                0.55;
-
-        }
-
-
-        const traitWeight =
-            TRAIT_WEIGHTS[trait] ?? 1;
-
-
-        const finalWeight =
-            signatureWeight *
-            traitWeight;
-
+            TRAIT_WEIGHTS[trait] || 1;
 
         const similarity =
             getTraitSimilarity(
-                Number(
-                    userProfile[trait] ?? 62
-                ),
-                Number(
-                    character.scores[index] ?? 62
-                )
+                Number(userProfile[trait] ?? 50),
+                Number(character.scores[index] ?? 50)
             );
 
-
-        total +=
-            similarity *
-            finalWeight;
-
-
-        totalWeight +=
-            finalWeight;
+        total += similarity * weight;
+        weightTotal += weight;
 
     });
 
-
-    return totalWeight > 0
-        ? total / totalWeight
-        : 0;
+    return weightTotal
+        ? total / weightTotal
+        : 50;
 }
 
 
 /* ============================================================
-   ARCHETYPE MATCH
-   ============================================================ */
+   13. SIGNATURE ACTIVATION
 
-function calculateArchetypeMatch(
-    userProfile,
-    character,
-    characterId
-) {
+   Non-linear.
 
-    const archetype =
-        CHARACTER_ARCHETYPE_WEIGHTS[characterId];
-
-
-    if (!archetype) {
-        return 0;
-    }
-
-
-    let total = 0;
-    let totalWeight = 0;
-
-
-    Object.entries(archetype).forEach(
-        ([trait, weight]) => {
-
-            const index =
-                TRAIT_KEYS.indexOf(trait);
-
-
-            if (index === -1) {
-                return;
-            }
-
-
-            const traitWeight =
-                TRAIT_WEIGHTS[trait] ?? 1;
-
-
-            const finalWeight =
-                weight *
-                traitWeight;
-
-
-            const similarity =
-                getTraitSimilarity(
-                    Number(
-                        userProfile[trait] ?? 62
-                    ),
-                    Number(
-                        character.scores[index] ?? 62
-                    )
-                );
-
-
-            total +=
-                similarity *
-                finalWeight;
-
-
-            totalWeight +=
-                finalWeight;
-
-        }
-    );
-
-
-    return totalWeight > 0
-        ? total / totalWeight
-        : 0;
-}
-
-
-/* ============================================================
-   PROFILE DISTINCTIVENESS
-   ============================================================ */
-
-function calculateProfileDistinctiveness(
-    userProfile
-) {
-
-    let totalDeviation = 0;
-
-
-    TRAIT_KEYS.forEach(trait => {
-
-        totalDeviation +=
-            Math.abs(
-                Number(
-                    userProfile[trait] ?? 62
-                ) - 62
-            );
-
-    });
-
-
-    return Math.min(
-        1,
-        totalDeviation /
-        (
-            TRAIT_KEYS.length *
-            28
-        )
-    );
-}
-
-
-/* ============================================================
-   ACCESSIBILITY BONUS
-   ============================================================ */
-
-function calculateAccessibilityBonus(
-    characterId,
-    userProfile
-) {
-
-    const base =
-        CHARACTER_ACCESSIBILITY[characterId] ?? 0;
-
-
-    const distinctiveness =
-        calculateProfileDistinctiveness(
-            userProfile
-        );
-
-
-    /*
-       Accessibility matters more for moderate profiles.
-
-       Highly distinctive profiles are allowed to reach niche
-       characters based more heavily on actual matching.
-    */
-
-    const accessibilityWeight =
-        1 -
-        (
-            distinctiveness *
-            0.55
-        );
-
-
-    return (
-        base *
-        accessibilityWeight
-    );
-}
-
-
-/* ============================================================
-   SIGNATURE ACTIVATION
-   ============================================================ */
+   Matching 3–4 defining traits is deliberately valuable.
+============================================================ */
 
 function calculateSignatureActivation(
     userProfile,
     character,
-    characterId
+    signature
 ) {
 
-    const signature =
-        CHARACTER_SIGNATURES[characterId];
+    const primary =
+        signature.primary || [];
+
+    let veryClose = 0;
+    let close = 0;
+    let moderate = 0;
+
+    primary.forEach(trait => {
+
+        const index =
+            TRAIT_KEYS.indexOf(trait);
+
+        if (index === -1) return;
+
+        const difference =
+            Math.abs(
+                Number(userProfile[trait] ?? 50) -
+                Number(character.scores[index] ?? 50)
+            );
+
+        if (difference <= 8) {
+            veryClose++;
+        } else if (difference <= 15) {
+            close++;
+        } else if (difference <= 24) {
+            moderate++;
+        }
+
+    });
 
 
-    if (!signature) {
-        return 0;
+    let bonus = 0;
+
+    /*
+       Two defining traits matching strongly.
+    */
+
+    if (veryClose >= 2) {
+        bonus += 5;
     }
 
+    /*
+       Three defining traits matching strongly.
+    */
 
-    let activation = 0;
+    if (veryClose >= 3) {
+        bonus += 7;
+    }
+
+    /*
+       All four defining traits.
+    */
+
+    if (veryClose >= 4) {
+        bonus += 8;
+    }
+
+    /*
+       Three reasonably close traits.
+    */
+
+    if (close + veryClose >= 3) {
+        bonus += 4;
+    }
+
+    /*
+       Four reasonably close traits.
+    */
+
+    if (close + veryClose >= 4) {
+        bonus += 4;
+    }
+
+    /*
+       A weaker but still recognizable profile.
+    */
+
+    if (
+        moderate + close + veryClose >= 4 &&
+        veryClose >= 1
+    ) {
+        bonus += 2;
+    }
+
+    return Math.min(24, bonus);
+}
 
 
-    Object.entries(
-        signature.primary || {}
-    ).forEach(
-        ([trait, weight]) => {
+/* ============================================================
+   14. CHARACTER ROUTE MATCH
 
-            const index =
-                TRAIT_KEYS.indexOf(trait);
+   Direct hidden affinity is intentionally important,
+   but not enough by itself.
+============================================================ */
 
+function calculateAffinityScore(
+    characterId,
+    characterAffinity
+) {
 
-            if (index === -1) {
-                return;
-            }
+    const raw =
+        Number(
+            characterAffinity?.[characterId] || 0
+        );
 
+    /*
+       Maximum normal route is roughly 30–50.
 
-            const userScore =
-                Number(
-                    userProfile[trait] ?? 62
-                );
-
-
-            const characterScore =
-                Number(
-                    character.scores[index] ?? 62
-                );
-
-
-            const difference =
-                Math.abs(
-                    userScore -
-                    characterScore
-                );
-
-
-            if (difference <= 5) {
-
-                activation +=
-                    2.50 *
-                    weight;
-
-            }
-
-            else if (difference <= 10) {
-
-                activation +=
-                    1.40 *
-                    weight;
-
-            }
-
-            else if (difference <= 16) {
-
-                activation +=
-                    0.55 *
-                    weight;
-
-            }
-
-        }
-    );
-
+       Convert to a controlled 0–100 contribution.
+    */
 
     return Math.min(
-        12,
-        activation
+        100,
+        raw * 3.5
     );
 }
 
 
 /* ============================================================
-   ARCHETYPE ACTIVATION
-   ============================================================ */
-
-function calculateArchetypeActivation(
-    userProfile,
-    characterId
-) {
-
-    const archetype =
-        CHARACTER_ARCHETYPE_WEIGHTS[characterId];
-
-
-    if (!archetype) {
-        return 0;
-    }
-
-
-    const traits =
-        Object.entries(archetype)
-            .sort(
-                (a, b) =>
-                    b[1] - a[1]
-            )
-            .slice(0, 4);
-
-
-    let activation = 0;
-
-
-    traits.forEach(
-        ([trait, weight], index) => {
-
-            const value =
-                Number(
-                    userProfile[trait] ?? 62
-                );
-
-
-            const threshold =
-                index === 0
-                    ? 82
-                    : index === 1
-                        ? 78
-                        : index === 2
-                            ? 74
-                            : 70;
-
-
-            if (value >= threshold) {
-
-                activation +=
-                    (
-                        value -
-                        threshold +
-                        1
-                    ) *
-                    0.055 *
-                    weight;
-
-            }
-
-        }
-    );
-
-
-    return Math.min(
-        5,
-        activation
-    );
-}
-
-
-/* ============================================================
-   CHARACTER MATCH
-   ============================================================ */
+   15. FINAL CHARACTER MATCH
+============================================================ */
 
 function calculateCharacterMatch(
     userProfile,
     character,
-    characterId = null
+    characterId,
+    characterAffinity
 ) {
-
-    /*
-       Backward-compatible fallback if no ID is supplied.
-    */
-
-    if (!characterId) {
-
-        let difference = 0;
-        let totalWeight = 0;
-
-
-        TRAIT_KEYS.forEach(
-            (trait, index) => {
-
-                const userScore =
-                    Number(
-                        userProfile[trait] ?? 62
-                    );
-
-
-                const characterScore =
-                    Number(
-                        character.scores[index] ?? 62
-                    );
-
-
-                let fingerprintWeight;
-
-
-                if (
-                    characterScore >= 85 ||
-                    characterScore <= 30
-                ) {
-
-                    fingerprintWeight = 1.65;
-
-                }
-
-                else if (
-                    characterScore >= 78 ||
-                    characterScore <= 40
-                ) {
-
-                    fingerprintWeight = 1.25;
-
-                }
-
-                else {
-
-                    fingerprintWeight = 0.75;
-
-                }
-
-
-                const weight =
-                    (
-                        TRAIT_WEIGHTS[trait] ?? 1
-                    ) *
-                    fingerprintWeight;
-
-
-                difference +=
-                    Math.abs(
-                        userScore -
-                        characterScore
-                    ) *
-                    weight;
-
-
-                totalWeight +=
-                    weight;
-
-            }
-        );
-
-
-        return totalWeight > 0
-            ? Math.max(
-                0,
-                Math.min(
-                    100,
-                    100 -
-                    (
-                        difference /
-                        totalWeight
-                    )
-                )
-            )
-            : 0;
-    }
-
-
-    /*
-       --------------------------------------------------------
-       1. SIGNATURE
-       --------------------------------------------------------
-    */
-
-    const signatureScore =
-        calculateSignatureSimilarity(
-            userProfile,
-            character,
-            characterId
-        );
-
-
-    /*
-       --------------------------------------------------------
-       2. OVERALL
-       --------------------------------------------------------
-    */
-
-    const overallScore =
-        calculateOverallSimilarity(
-            userProfile,
-            character
-        );
-
-
-    /*
-       --------------------------------------------------------
-       3. SHAPE
-       --------------------------------------------------------
-    */
-
-    const userScores =
-        TRAIT_KEYS.map(
-            trait =>
-                Number(
-                    userProfile[trait] ?? 62
-                )
-        );
-
-
-    const characterScores =
-        character.scores.map(
-            score =>
-                Number(
-                    score ?? 62
-                )
-        );
-
-
-    const userAverage =
-        userScores.reduce(
-            (sum, value) =>
-                sum + value,
-            0
-        ) /
-        userScores.length;
-
-
-    const characterAverage =
-        characterScores.reduce(
-            (sum, value) =>
-                sum + value,
-            0
-        ) /
-        characterScores.length;
-
 
     const signature =
         CHARACTER_SIGNATURES[characterId];
 
-
-    let shapeDifference = 0;
-    let shapeWeightTotal = 0;
-
-
-    TRAIT_KEYS.forEach(
-        (trait, index) => {
-
-            let weight =
-                0.20;
-
-
-            if (
-                Object.prototype.hasOwnProperty.call(
-                    signature.primary || {},
-                    trait
-                )
-            ) {
-
-                weight =
-                    0.45 *
-                    signature.primary[trait];
-
-            }
-
-            else if (
-                Object.prototype.hasOwnProperty.call(
-                    signature.secondary || {},
-                    trait
-                )
-            ) {
-
-                weight =
-                    0.30 *
-                    signature.secondary[trait];
-
-            }
-
-
-            const userRelative =
-                userScores[index] -
-                userAverage;
-
-
-            const characterRelative =
-                characterScores[index] -
-                characterAverage;
-
-
-            shapeDifference +=
-                Math.abs(
-                    userRelative -
-                    characterRelative
-                ) *
-                weight;
-
-
-            shapeWeightTotal +=
-                weight;
-
-        }
-    );
-
-
-    const shapeSimilarity =
-        shapeWeightTotal > 0
-            ? Math.max(
-                0,
-                Math.min(
-                    100,
-                    100 -
-                    (
-                        shapeDifference /
-                        shapeWeightTotal
-                    )
-                )
-            )
-            : 0;
-
-
-    /*
-       --------------------------------------------------------
-       4. ARCHETYPE
-       --------------------------------------------------------
-    */
-
-    const archetypeScore =
-        calculateArchetypeMatch(
+    const coreScore =
+        calculateCoreSignatureScore(
             userProfile,
             character,
-            characterId
+            signature
         );
 
+    const secondaryScore =
+        calculateSecondaryScore(
+            userProfile,
+            character,
+            signature
+        );
 
-    /*
-       --------------------------------------------------------
-       5. SIGNATURE ACTIVATION
-       --------------------------------------------------------
-    */
+    const overallScore =
+        calculateOverallTraitScore(
+            userProfile,
+            character
+        );
 
-    const signatureActivation =
+    const affinityScore =
+        calculateAffinityScore(
+            characterId,
+            characterAffinity
+        );
+
+    const activation =
         calculateSignatureActivation(
             userProfile,
             character,
-            characterId
+            signature
         );
 
 
     /*
-       --------------------------------------------------------
-       6. ARCHETYPE ACTIVATION
-       --------------------------------------------------------
+       CHARACTER-FIRST BALANCE
+
+       Core signature:
+       35%
+
+       Hidden answer route:
+       30%
+
+       Overall personality:
+       20%
+
+       Secondary personality:
+       10%
+
+       Small remaining component:
+       5%
     */
 
-    const archetypeActivation =
-        calculateArchetypeActivation(
-            userProfile,
-            characterId
-        );
+    let score =
+        coreScore * 0.35 +
+        affinityScore * 0.30 +
+        overallScore * 0.20 +
+        secondaryScore * 0.10 +
+        50 * 0.05;
 
 
     /*
-       --------------------------------------------------------
-       MAIN MATCH
-
-       Signature       43%
-       Overall         22%
-       Archetype       23%
-       Shape            12%
-
-       Then controlled activation bonuses.
-
-       This is intentionally different from the old
-       60 / 25 / 15 system.
-
-       The archetype layer gives each character a recognizable
-       route to first place.
-       --------------------------------------------------------
+       Signature activation.
     */
 
-    const rawMatch =
-        (
-            signatureScore *
-            0.43
-        ) +
-        (
-            overallScore *
-            0.22
-        ) +
-        (
-            archetypeScore *
-            0.23
-        ) +
-        (
-            shapeSimilarity *
-            0.12
-        );
+    score += activation;
 
 
     /*
-       Accessibility is deliberately kept separate.
+       Accessibility makes major characters somewhat easier
+       to reach, but cannot rescue a terrible match.
     */
 
-    const accessibilityBonus =
-        calculateAccessibilityBonus(
-            characterId,
-            userProfile
-        );
+    score +=
+        CHARACTER_ACCESSIBILITY[characterId] || 0;
 
 
     /*
-       Activation bonuses.
+       Hard cap.
     */
-
-    const finalScore =
-        rawMatch +
-        accessibilityBonus +
-        signatureActivation +
-        archetypeActivation;
-
 
     return Math.min(
         100,
-        Math.max(
-            0,
-            finalScore
-        )
+        Math.max(0, score)
     );
 }
 
 
 /* ============================================================
-   DIVERSITY PROTECTION
-   ============================================================ */
-
-function calculateDiversityProtection(
-    characterId,
-    rawScore,
-    allRawScores
-) {
-
-    const tier =
-        CHARACTER_RESULT_TIERS.tier1.includes(
-            characterId
-        )
-            ? 1
-            : CHARACTER_RESULT_TIERS.tier2.includes(
-                characterId
-            )
-                ? 2
-                : 3;
-
-
-    const bestScore =
-        Math.max(
-            ...Object.values(
-                allRawScores
-            )
-        );
-
-
-    const gap =
-        bestScore -
-        rawScore;
-
-
-    /*
-       Tier 3 characters can receive the strongest protection,
-       but ONLY when they are already genuinely close.
-
-       Therefore this does not turn a bad match into a winner.
-    */
-
-    if (tier === 3) {
-
-        if (gap <= 1.5) return 4.0;
-        if (gap <= 3.0) return 3.0;
-        if (gap <= 5.0) return 2.0;
-        if (gap <= 7.0) return 1.0;
-
-        return 0;
-    }
-
-
-    if (tier === 2) {
-
-        if (gap <= 1.5) return 2.0;
-        if (gap <= 3.0) return 1.4;
-        if (gap <= 5.0) return 0.8;
-
-        return 0;
-    }
-
-
-    /*
-       Tier 1 receives only a small near-tie protection.
-    */
-
-    if (gap <= 1.5) {
-        return 0.75;
-    }
-
-
-    return 0;
-}
-
-
-/* ============================================================
-   NEAR-TIE BALANCING
-   ============================================================ */
-
-function applyNearTieBalancing(
-    results
-) {
-
-    if (!results.length) {
-        return;
-    }
-
-
-    const best =
-        Math.max(
-            ...results.map(
-                result =>
-                    result.rawSimilarity
-            )
-        );
-
-
-    results.forEach(result => {
-
-        const gap =
-            best -
-            result.rawSimilarity;
-
-
-        const isTier1 =
-            CHARACTER_RESULT_TIERS.tier1.includes(
-                result.id
-            );
-
-
-        const isTier2 =
-            CHARACTER_RESULT_TIERS.tier2.includes(
-                result.id
-            );
-
-
-        let bonus = 0;
-
-
-        if (gap <= 1.25) {
-
-            if (isTier1) {
-                bonus = 1.60;
-            }
-
-            else if (isTier2) {
-                bonus = 1.15;
-            }
-
-            else {
-                bonus = 0.65;
-            }
-
-        }
-
-        else if (gap <= 2.5) {
-
-            if (isTier1) {
-                bonus = 1.00;
-            }
-
-            else if (isTier2) {
-                bonus = 0.70;
-            }
-
-            else {
-                bonus = 0.40;
-            }
-
-        }
-
-        else if (gap <= 4.0) {
-
-            if (isTier1) {
-                bonus = 0.50;
-            }
-
-            else if (isTier2) {
-                bonus = 0.30;
-            }
-
-        }
-
-
-        result.diversityBonus =
-            bonus;
-
-
-        result.finalSimilarity =
-            Math.min(
-                100,
-                result.rawSimilarity +
-                bonus
-            );
-
-    });
-
-}
-
-
-/* ============================================================
-   STRONGEST TRAITS
-   ============================================================ */
-
-function getStrongestTraits(
-    profile,
-    count = 3
-) {
-
-    return TRAIT_KEYS
-        .map(
-            (trait, index) => ({
-
-                trait,
-
-                label:
-                    TWD_TRAITS[index],
-
-                score:
-                    profile[trait]
-
-            })
-        )
-        .sort(
-            (a, b) => {
-
-                if (
-                    b.score !==
-                    a.score
-                ) {
-
-                    return (
-                        b.score -
-                        a.score
-                    );
-
-                }
-
-
-                return (
-                    TRAIT_KEYS.indexOf(a.trait) -
-                    TRAIT_KEYS.indexOf(b.trait)
-                );
-
-            }
-        )
-        .slice(
-            0,
-            count
-        );
-}
-
-
-/* ============================================================
-   LOWEST TRAITS
-   ============================================================ */
-
-function getLowestTraits(
-    profile,
-    count = 3
-) {
-
-    return TRAIT_KEYS
-        .map(
-            (trait, index) => ({
-
-                trait,
-
-                label:
-                    TWD_TRAITS[index],
-
-                score:
-                    profile[trait]
-
-            })
-        )
-        .sort(
-            (a, b) => {
-
-                if (
-                    a.score !==
-                    b.score
-                ) {
-
-                    return (
-                        a.score -
-                        b.score
-                    );
-
-                }
-
-
-                return (
-                    TRAIT_KEYS.indexOf(a.trait) -
-                    TRAIT_KEYS.indexOf(b.trait)
-                );
-
-            }
-        )
-        .slice(
-            0,
-            count
-        );
-}
-
-
-/* ============================================================
-   FINAL PERSONALITY RESULT
-   ============================================================ */
+   16. CHARACTER RESULT
+============================================================ */
 
 function calculateFinalPersonality(
     answerIndexes
@@ -2730,204 +2233,107 @@ function calculateFinalPersonality(
             answerIndexes
         );
 
+    const userProfile =
+        personality.profile;
 
-    /*
-       Calculate every character.
-    */
-
-    const rawResults =
-        Object.entries(
-            TWD_CHARACTERS
-        )
-        .map(
-            ([id, character]) => {
-
-                const baseSimilarity =
-                    calculateCharacterMatch(
-                        personality.profile,
-                        character,
-                        id
-                    );
+    const characterAffinity =
+        personality.characterAffinity;
 
 
-                /*
-                   Accessibility is already incorporated into
-                   calculateCharacterMatch().
-                */
+    const results = Object.entries(CHARACTERS)
+        .map(([id, character]) => {
 
-                return {
-
+            const rawScore =
+                calculateCharacterMatch(
+                    userProfile,
+                    character,
                     id,
-
-                    name:
-                        character.name,
-
-                    image:
-                        character.image,
-
-                    rawSimilarity:
-                        baseSimilarity,
-
-                    finalSimilarity:
-                        baseSimilarity,
-
-                    diversityBonus:
-                        0
-
-                };
-
-            }
-        );
-
-
-    /*
-       Store raw scores for diversity protection.
-    */
-
-    const allRawScores = {};
-
-
-    rawResults.forEach(result => {
-
-        allRawScores[result.id] =
-            result.rawSimilarity;
-
-    });
-
-
-    /*
-       Apply controlled protection for characters that are
-       already close to first place.
-    */
-
-    rawResults.forEach(result => {
-
-        result.diversityBonus =
-            calculateDiversityProtection(
-                result.id,
-                result.rawSimilarity,
-                allRawScores
-            );
-
-
-        result.finalSimilarity =
-            Math.min(
-                100,
-                result.rawSimilarity +
-                result.diversityBonus
-            );
-
-    });
-
-
-    /*
-       Additional deterministic near-tie balancing.
-
-       This is deliberately small.
-    */
-
-    applyNearTieBalancing(
-        rawResults
-    );
-
-
-    /*
-       Sort BEFORE rounding.
-    */
-
-    rawResults.sort(
-        (a, b) => {
-
-            if (
-                b.finalSimilarity !==
-                a.finalSimilarity
-            ) {
-
-                return (
-                    b.finalSimilarity -
-                    a.finalSimilarity
+                    characterAffinity
                 );
 
-            }
+            return {
+                id,
+                name: character.name,
+                image: character.image,
+
+                score: rawScore,
+
+                affinity:
+                    characterAffinity[id] || 0,
+
+                coreSignature:
+                    calculateCoreSignatureScore(
+                        userProfile,
+                        character,
+                        CHARACTER_SIGNATURES[id]
+                    ),
+
+                overall:
+                    calculateOverallTraitScore(
+                        userProfile,
+                        character
+                    )
+            };
+
+        });
 
 
-            if (
-                b.rawSimilarity !==
-                a.rawSimilarity
-            ) {
+    /*
+       Small deterministic near-match bonus.
 
-                return (
-                    b.rawSimilarity -
-                    a.rawSimilarity
-                );
+       This makes close alternatives feel competitive,
+       but does NOT use randomness.
+    */
 
-            }
+    results.sort((a, b) => {
 
-
-            /*
-               Final deterministic tie breaker.
-            */
-
-            return (
-                a.id.localeCompare(
-                    b.id
-                )
-            );
-
+        if (b.score !== a.score) {
+            return b.score - a.score;
         }
-    );
+
+        if (b.affinity !== a.affinity) {
+            return b.affinity - a.affinity;
+        }
+
+        return a.id.localeCompare(b.id);
+
+    });
 
 
     /*
-       Create public result objects.
-
-       Keep the same structure your existing result page is
-       likely already expecting:
-       id / name / image / similarity
+       Keep the top three.
     */
 
-    const results =
-        rawResults.map(result => ({
-
-            id:
-                result.id,
-
-            name:
-                result.name,
-
-            image:
-                result.image,
-
-            similarity:
-                Math.round(
-                    result.finalSimilarity
-                )
-
-        }));
+    const winner = results[0] || null;
+    const second = results[1] || null;
+    const third = results[2] || null;
 
 
     /*
-       Strongest / lowest traits.
+       Trait summary.
     */
 
     const strongestTraits =
-        getStrongestTraits(
-            personality.profile,
-            3
-        );
-
-
-    const lowestTraits =
-        getLowestTraits(
-            personality.profile,
-            3
-        );
+        TRAIT_KEYS
+            .map(trait => ({
+                id: trait,
+                name: TWD_TRAITS[trait],
+                score: userProfile[trait]
+            }))
+            .sort((a, b) => b.score - a.score);
 
 
     return {
 
-        profile:
-            personality.profile,
+        winner,
+
+        second,
+
+        third,
+
+        results,
+
+        profile: userProfile,
 
         rawScores:
             personality.rawScores,
@@ -2938,318 +2344,384 @@ function calculateFinalPersonality(
         maxScores:
             personality.maxScores,
 
+        characterAffinity,
+
+        strongestTraits,
+
         answeredQuestions:
             personality.answeredQuestions,
 
         completionPercent:
-            personality.completionPercent,
-
-        results,
-
-        winner:
-            results[0] || null,
-
-        second:
-            results[1] || null,
-
-        third:
-            results[2] || null,
-
-        strongestTraits,
-
-        lowestTraits
+            personality.completionPercent
 
     };
 }
 
 
 /* ============================================================
-   DEBUG / TESTING FUNCTION
-   ------------------------------------------------------------
+   17. DETERMINISTIC SEEDED RANDOM
 
-   This is useful while testing the distribution.
+   Used ONLY by the simulator.
 
-   Example:
+   The actual quiz result NEVER uses randomness.
+============================================================ */
 
-       const debug =
-           getCharacterDistribution(answerIndexes);
+function createSeededRandom(seed) {
 
-       console.table(debug);
+    let value =
+        Number(seed) >>> 0;
 
-   It does NOT affect normal quiz operation.
-   ============================================================ */
+    return function () {
 
-function getCharacterDistribution(
-    answerIndexes
-) {
+        value += 0x6D2B79F5;
 
-    const personality =
-        calculatePersonality(
-            answerIndexes
-        );
+        let t = value;
 
+        t =
+            Math.imul(
+                t ^ (t >>> 15),
+                t | 1
+            );
 
-    const output =
-        Object.entries(
-            TWD_CHARACTERS
-        )
-        .map(
-            ([id, character]) => {
+        t ^=
+            t +
+            Math.imul(
+                t ^ (t >>> 7),
+                t | 61
+            );
 
-                const signature =
-                    calculateSignatureSimilarity(
-                        personality.profile,
-                        character,
-                        id
-                    );
+        return (
+            (t ^ (t >>> 14)) >>> 0
+        ) / 4294967296;
 
+    };
 
-                const overall =
-                    calculateOverallSimilarity(
-                        personality.profile,
-                        character
-                    );
-
-
-                const archetype =
-                    calculateArchetypeMatch(
-                        personality.profile,
-                        character,
-                        id
-                    );
-
-
-                const match =
-                    calculateCharacterMatch(
-                        personality.profile,
-                        character,
-                        id
-                    );
-
-
-                return {
-
-                    id,
-
-                    name:
-                        character.name,
-
-                    final:
-                        Number(
-                            match.toFixed(2)
-                        ),
-
-                    signature:
-                        Number(
-                            signature.toFixed(2)
-                        ),
-
-                    overall:
-                        Number(
-                            overall.toFixed(2)
-                        ),
-
-                    archetype:
-                        Number(
-                            archetype.toFixed(2)
-                        ),
-
-                    accessibility:
-                        Number(
-                            calculateAccessibilityBonus(
-                                id,
-                                personality.profile
-                            ).toFixed(2)
-                        )
-
-                };
-
-            }
-        )
-        .sort(
-            (a, b) =>
-                b.final -
-                a.final
-        );
-
-
-    return output;
 }
 
 
 /* ============================================================
-   COMPLETION HELPERS
-   ============================================================ */
+   18. SIMULATION
+============================================================ */
 
-function isQuizComplete(
-    answerIndexes
+function simulateTWDResults(
+    simulations = 100000,
+    seed = 20261003
 ) {
 
-    return TWD_PERSONALITY_QUESTIONS.every(
-        question => {
+    const random =
+        createSeededRandom(seed);
 
-            const index =
-                answerIndexes?.[
-                    question.id
-                ];
+    const counts = {};
+    const secondCounts = {};
+    const thirdCounts = {};
+    const scoreTotals = {};
+
+    Object.keys(CHARACTERS).forEach(id => {
+
+        counts[id] = 0;
+        secondCounts[id] = 0;
+        thirdCounts[id] = 0;
+        scoreTotals[id] = 0;
+
+    });
 
 
-            return (
-                Number.isInteger(index) &&
-                index >= 0 &&
-                index <
-                    question.answers.length
+    for (
+        let simulation = 0;
+        simulation < simulations;
+        simulation++
+    ) {
+
+        const answers = [];
+
+        for (
+            let q = 0;
+            q < questions.length;
+            q++
+        ) {
+
+            answers.push(
+                Math.floor(
+                    random() * 5
+                )
             );
 
         }
-    );
-}
 
 
-function getUnansweredQuestions(
-    answerIndexes
-) {
-
-    return TWD_PERSONALITY_QUESTIONS
-        .filter(
-            question => {
-
-                const index =
-                    answerIndexes?.[
-                        question.id
-                    ];
+        const result =
+            calculateFinalPersonality(
+                answers
+            );
 
 
-                return (
-                    !Number.isInteger(index) ||
-                    index < 0 ||
-                    index >=
-                        question.answers.length
-                );
-
-            }
-        )
-        .map(
-            question =>
-                question.id
-        );
-}
-
-
-/* ============================================================
-   EMPTY TRAIT PROFILE
-   ============================================================ */
-
-function createEmptyTraitScores() {
-
-    const scores = {};
-
-
-    TRAIT_KEYS.forEach(
-        trait => {
-
-            scores[trait] = 62;
-
+        if (result.winner) {
+            counts[result.winner.id]++;
+            scoreTotals[result.winner.id] +=
+                result.winner.score;
         }
-    );
+
+        if (result.second) {
+            secondCounts[result.second.id]++;
+        }
+
+        if (result.third) {
+            thirdCounts[result.third.id]++;
+        }
+
+    }
 
 
-    return scores;
-}
+    const rows =
+        Object.keys(CHARACTERS)
+            .map(id => {
 
+                const character =
+                    CHARACTERS[id];
 
-/* ============================================================
-   AUTOMATIC VALIDATION
-   ============================================================ */
+                return {
 
-const TWD_ENGINE_VALIDATION =
-    validateTWDData();
+                    Character:
+                        character.name,
 
+                    ID: id,
 
-if (!TWD_ENGINE_VALIDATION.valid) {
+                    "#1":
+                        counts[id],
 
-    console.error(
-        "TWD personality data validation failed:",
-        TWD_ENGINE_VALIDATION.errors
-    );
+                    "% #1":
+                        (
+                            counts[id] /
+                            simulations *
+                            100
+                        ).toFixed(2) + "%",
 
-} else {
+                    "#2":
+                        secondCounts[id],
+
+                    "#3":
+                        thirdCounts[id],
+
+                    "Average winning score":
+                        counts[id]
+                            ? (
+                                scoreTotals[id] /
+                                counts[id]
+                            ).toFixed(2)
+                            : "—"
+
+                };
+
+            })
+            .sort(
+                (a, b) =>
+                    b["#1"] - a["#1"]
+            );
+
 
     console.log(
-        "TWD Personality Engine loaded successfully: " +
-        `${TWD_PERSONALITY_QUESTIONS.length} questions, ` +
-        `${Object.keys(TWD_CHARACTERS).length} characters, ` +
-        `${TRAIT_KEYS.length} traits.`
+        "\n=================================================="
     );
 
+    console.log(
+        "THE WALKING DEAD — RESULT DISTRIBUTION"
+    );
+
+    console.log(
+        "=================================================="
+    );
+
+    console.log(
+        `Simulations: ${simulations}`
+    );
+
+    console.log(
+        `Seed: ${seed}`
+    );
+
+    console.log(
+        `Characters appearing: ${
+            rows.filter(r => r["#1"] > 0).length
+        } / 19`
+    );
+
+    console.log(
+        "\nDistribution:"
+    );
+
+    console.table(rows);
+
+
+    const zeroWins =
+        rows.filter(
+            row => row["#1"] === 0
+        );
+
+    if (zeroWins.length) {
+
+        console.warn(
+            "CHARACTERS WITH ZERO WINS:"
+        );
+
+        console.table(zeroWins);
+
+    } else {
+
+        console.log(
+            "%cALL 19 CHARACTERS CAN WIN.",
+            "color:green;font-weight:bold;"
+        );
+
+    }
+
+
+    /*
+       Concentration warning.
+    */
+
+    const topTwo =
+        rows[0]["#1"] +
+        rows[1]["#1"];
+
+    const topTwoPercent =
+        topTwo /
+        simulations *
+        100;
+
+    console.log(
+        `Top two characters combined: ${
+            topTwoPercent.toFixed(2)
+        }%`
+    );
+
+
+    if (topTwoPercent > 55) {
+
+        console.warn(
+            "WARNING: result distribution is heavily concentrated."
+        );
+
+    } else if (topTwoPercent > 45) {
+
+        console.warn(
+            "NOTICE: result distribution is moderately concentrated."
+        );
+
+    } else {
+
+        console.log(
+            "%cDistribution concentration looks healthy.",
+            "color:green;font-weight:bold;"
+        );
+
+    }
+
+
+    window.TWD_SIMULATION_RESULTS = {
+        seed,
+        simulations,
+        rows,
+        zeroWins
+    };
+
+    return window.TWD_SIMULATION_RESULTS;
 }
 
 
 /* ============================================================
-   BROWSER GLOBALS
-   ============================================================ */
+   19. EASY BROWSER TEST
+============================================================ */
 
-if (typeof window !== "undefined") {
+function testTWDQuiz() {
 
-    Object.assign(
-        window,
-        {
+    /*
+       Example deterministic answer set.
+       All A answers.
+    */
 
-            TRAIT_KEYS,
+    const answers =
+        questions.map(() => 0);
 
-            TWD_TRAITS,
+    const result =
+        calculateFinalPersonality(
+            answers
+        );
 
-            TRAIT_WEIGHTS,
-
-            TWD_CHARACTERS,
-
-            CHARACTER_SIGNATURES,
-
-            CHARACTER_ACCESSIBILITY,
-
-            CHARACTER_RESULT_TIERS,
-
-            CHARACTER_ARCHETYPE_WEIGHTS,
-
-            TWD_PERSONALITY_QUESTIONS,
-
-            TWD_ENGINE_VALIDATION,
-
-            createEmptyTraitScores,
-
-            calculatePersonality,
-
-            getTraitSimilarity,
-
-            calculateOverallSimilarity,
-
-            calculateSignatureSimilarity,
-
-            calculateArchetypeMatch,
-
-            calculateSignatureActivation,
-
-            calculateArchetypeActivation,
-
-            calculateCharacterMatch,
-
-            calculateDiversityProtection,
-
-            getStrongestTraits,
-
-            getLowestTraits,
-
-            calculateFinalPersonality,
-
-            getCharacterDistribution,
-
-            isQuizComplete,
-
-            getUnansweredQuestions,
-
-            validateTWDData
-
-        }
+    console.log(
+        "TWD TEST RESULT"
     );
 
+    console.table([
+        result.winner,
+        result.second,
+        result.third
+    ]);
+
+    return result;
 }
+
+
+/* ============================================================
+   20. EXPOSE GLOBALS
+============================================================ */
+
+window.TWD_TRAITS =
+    TWD_TRAITS;
+
+window.TWD_TRAIT_KEYS =
+    TRAIT_KEYS;
+
+window.TWD_CHARACTERS =
+    CHARACTERS;
+
+window.TWD_CHARACTER_SIGNATURES =
+    CHARACTER_SIGNATURES;
+
+window.TWD_QUESTIONS =
+    questions;
+
+window.calculatePersonality =
+    calculatePersonality;
+
+window.calculateCharacterMatch =
+    calculateCharacterMatch;
+
+window.calculateFinalPersonality =
+    calculateFinalPersonality;
+
+window.validateTWDQuiz =
+    validateQuiz;
+
+window.simulateTWDResults =
+    simulateTWDResults;
+
+window.testTWDQuiz =
+    testTWDQuiz;
+
+
+/* ============================================================
+   21. RUN VALIDATION
+============================================================ */
+
+validateQuiz();
+
+
+/*
+   Uncomment this in the browser console to run:
+
+   simulateTWDResults(100000, 20261003);
+
+   Or simply:
+
+   simulateTWDResults();
+*/
+
+
+console.log(
+    "%cTWD Personality Quiz v2 loaded.",
+    "font-weight:bold;"
+);
+
+console.log(
+    "Run simulateTWDResults() to test the distribution."
+);
