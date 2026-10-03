@@ -2879,75 +2879,20 @@ function calculateAffinityScore(
 
 ============================================================ */
 
-function calculateRouteIdentityBonus(
-    characterId,
-    rawAffinity
-) {
+function calculateRouteIdentityBonus(characterId, rawAffinity) {
+    const maximum = Number(CHARACTER_AFFINITY_MAX[characterId] || 0);
+    if (maximum <= 0) return 0;
 
-    const maximum =
-        Number(
-            CHARACTER_AFFINITY_MAX[
-                characterId
-            ] || 0
-        );
+    const ratio = Math.max(0, Math.min(1,
+        (Number(rawAffinity) || 0) / maximum
+    ));
 
-
-    if (maximum <= 0) {
-
-        return 0;
-
-    }
-
-
-    const ratio =
-        Math.max(
-            0,
-            Math.min(
-                1,
-                (
-                    Number(rawAffinity) || 0
-                ) / maximum
-            )
-        );
-
-
-    if (ratio >= 0.72) {
-
-        return 5.0;
-
-    }
-
-
-    if (ratio >= 0.58) {
-
-        return 4.0;
-
-    }
-
-
-    if (ratio >= 0.44) {
-
-        return 2.5;
-
-    }
-
-
-    if (ratio >= 0.30) {
-
-        return 1.25;
-
-    }
-
-
-    if (ratio >= 0.18) {
-
-        return 0.35;
-
-    }
-
-
+    if (ratio >= 0.72) return 3.5;
+    if (ratio >= 0.58) return 2.75;
+    if (ratio >= 0.44) return 1.75;
+    if (ratio >= 0.30) return 0.85;
+    if (ratio >= 0.18) return 0.20;
     return 0;
-
 }
 
 /* ============================================================
@@ -3039,11 +2984,11 @@ function calculateCharacterMatch(
 
 
     let score =
-    (coreScore * 0.30) +
-    (affinityScore * 0.40) +
-    (overallScore * 0.14) +
-    (secondaryScore * 0.10) +
-    (50 * 0.06);
+    (coreScore * 0.36) +
+    (affinityScore * 0.25) +
+    (overallScore * 0.17) +
+    (secondaryScore * 0.12) +
+    (50 * 0.10);
 
 
     score +=
