@@ -105,219 +105,410 @@ const TRAIT_WEIGHTS = {
 
 
 /* ============================================================
-   3. CHARACTER PROFILES
+   3. CHARACTER PROFILES — BALANCED v4
 
-   Scores are in TRAIT_KEYS order.
+   Trait order MUST remain:
+   courage,
+   leadership,
+   compassion,
+   strategy,
+   morality,
+   pragmatism,
+   riskTaking,
+   survival,
+   independence,
+   trust,
+   charisma,
+   manipulation,
+   loyalty,
+   hope,
+   emotionalControl,
+   ruthlessness
+
+   v4 goals:
+   - Reduce overly broad characters such as Rick/Eugene/Carol
+   - Make each character's personality pattern more distinctive
+   - Give minor characters legitimate trait pathways
+   - Preserve major-character accessibility through scoring,
+     rather than making their trait profiles universally compatible
 ============================================================ */
 
 const CHARACTERS = {
+
+    /* --------------------------------------------------------
+       RICK GRIMES
+       Leadership + loyalty + strategy + responsibility.
+       Slightly less universally high than before.
+    -------------------------------------------------------- */
 
     rick: {
         name: "Rick Grimes",
         image: "images/rick.jpg",
         scores: [
-            76,94,72,96,
-            78,82,45,98,
-            70,48,82,34,
-            96,82,82,80
+            78,94,72,95,
+            82,84,42,92,
+            62,52,82,42,
+            98,84,86,72
         ]
     },
+
+
+    /* --------------------------------------------------------
+       DARYL DIXON
+       Independent survivor, loyal underneath, highly capable,
+       emotionally controlled but not naturally authoritative.
+    -------------------------------------------------------- */
 
     daryl: {
         name: "Daryl Dixon",
         image: "images/daryl.jpg",
         scores: [
-            96,95,74,97,
-            72,84,55,64,
-            98,34,44,28,
-            88,78,94,91
+            96,82,68,91,
+            72,82,58,98,
+            99,34,42,30,
+            94,72,91,86
         ]
     },
+
+
+    /* --------------------------------------------------------
+       CAROL PELETIER
+       Extremely adaptive and strategic, but not simply "good
+       at everything." High manipulation/pragmatism are defining.
+    -------------------------------------------------------- */
 
     carol: {
         name: "Carol Peletier",
         image: "images/carol.jpg",
         scores: [
-            97,85,67,86,
-            58,97,91,70,
-            95,38,60,96,
-            97,74,87,82
+            88,78,62,94,
+            55,96,72,95,
+            94,35,58,94,
+            88,68,96,91
         ]
     },
+
+
+    /* --------------------------------------------------------
+       SHANE WALSH
+       Direct, aggressive, protective, impulsive and willing
+       to cross moral boundaries.
+    -------------------------------------------------------- */
 
     shane: {
         name: "Shane Walsh",
         image: "images/shane.jpg",
         scores: [
-            88,97,45,70,
-            36,97,93,86,
-            84,30,78,69,
-            82,54,43,98
+            94,91,42,68,
+            30,94,96,89,
+            78,25,72,78,
+            76,42,48,98
         ]
     },
+
+
+    /* --------------------------------------------------------
+       GLENN RHEE
+       Compassionate, loyal, trusting, courageous and hopeful.
+       Less generic leadership than before.
+    -------------------------------------------------------- */
 
     glenn: {
         name: "Glenn Rhee",
         image: "images/glenn.jpg",
         scores: [
-            60,86,97,97,
-            96,68,22,60,
-            64,91,77,20,
-            72,97,81,70
+            72,68,98,82,
+            94,64,42,68,
+            58,94,70,18,
+            96,91,82,48
         ]
     },
+
+
+    /* --------------------------------------------------------
+       MICHONNE
+       Independent, disciplined, courageous and emotionally
+       controlled. Strong strategic thinking.
+    -------------------------------------------------------- */
 
     michonne: {
         name: "Michonne",
         image: "images/michonne.jpg",
         scores: [
-            88,97,78,95,
-            87,84,58,86,
-            98,44,60,34,
-            94,82,97,77
+            91,82,74,94,
+            82,82,52,92,
+            98,42,58,48,
+            94,76,98,72
         ]
     },
+
+
+    /* --------------------------------------------------------
+       MAGGIE GREENE
+       Leadership + loyalty + courage + hope.
+       Strong community-oriented leader rather than generic
+       high scores everywhere.
+    -------------------------------------------------------- */
 
     maggie: {
         name: "Maggie Greene",
         image: "images/maggie.jpg",
         scores: [
-            78,92,86,98,
-            88,84,61,94,
-            86,56,82,34,
-            88,95,83,80
+            86,91,84,88,
+            90,78,55,88,
+            68,82,80,38,
+            94,92,82,68
         ]
     },
+
+
+    /* --------------------------------------------------------
+       HERSHEL GREENE
+       Strong morality, compassion, trust and emotional
+       stability. Low aggression and risk-taking.
+    -------------------------------------------------------- */
 
     hershel: {
         name: "Hershel Greene",
         image: "images/hershel.jpg",
         scores: [
-            56,73,99,94,
-            99,62,12,70,
-            52,96,80,10,
-            65,93,92,32
+            48,62,99,82,
+            99,58,10,64,
+            42,97,76,12,
+            88,94,96,18
         ]
     },
+
+
+    /* --------------------------------------------------------
+       ABRAHAM FORD
+       Courage, risk-taking, leadership, survival and directness.
+    -------------------------------------------------------- */
 
     abraham: {
         name: "Abraham Ford",
         image: "images/abraham.jpg",
         scores: [
-            84,99,57,84,
-            62,93,73,91,
-            83,44,94,27,
-            80,67,75,99
+            97,91,54,76,
+            54,92,94,93,
+            72,40,84,40,
+            82,60,76,96
         ]
     },
+
+
+    /* --------------------------------------------------------
+       EUGENE PORTER
+       
+       IMPORTANT v4 CHANGE:
+       Much narrower profile.
+
+       Eugene should strongly match:
+       - strategy
+       - intelligence/planning
+       - pragmatism
+       - independence
+       - emotional control
+
+       He should NOT broadly match every survival/leadership/
+       manipulation answer.
+    -------------------------------------------------------- */
 
     eugene: {
         name: "Eugene Porter",
         image: "images/eugene.jpg",
         scores: [
-            96,45,68,73,
-            64,91,18,44,
-            80,44,61,79,
-            99,81,76,22
+            48,38,42,99,
+            58,95,18,72,
+            88,28,58,72,
+            58,34,94,24
         ]
     },
+
+
+    /* --------------------------------------------------------
+       NEGAN
+       Charisma + manipulation + dominance + ruthlessness.
+       Strong risk-taking, but strategic rather than simply
+       universally competent.
+    -------------------------------------------------------- */
 
     negan: {
         name: "Negan",
         image: "images/negan.jpg",
         scores: [
-            84,92,43,65,
-            31,98,98,99,
-            73,31,99,99,
-            91,63,88,91
+            78,96,28,82,
+            18,91,82,91,
+            76,24,99,99,
+            72,46,94,99
         ]
     },
+
+
+    /* --------------------------------------------------------
+       THE GOVERNOR
+       Highly manipulative, controlling, ruthless and strategic.
+       Very low compassion/morality.
+    -------------------------------------------------------- */
 
     governor: {
         name: "The Governor",
         image: "images/governor.jpg",
         scores: [
-            97,84,20,56,
-            12,96,99,97,
-            86,14,96,99,
-            94,43,61,82
+            86,91,18,84,
+            10,92,82,92,
+            82,12,94,99,
+            70,28,82,99
         ]
     },
+
+
+    /* --------------------------------------------------------
+       MORGAN JONES
+       
+       IMPORTANT v4 CHANGE:
+       Much more philosophically distinctive.
+
+       Very high:
+       morality / compassion / hope / loyalty /
+       trust / emotional control
+
+       Low:
+       ruthlessness / manipulation / risk-taking
+    -------------------------------------------------------- */
 
     morgan: {
         name: "Morgan Jones",
         image: "images/morgan.jpg",
         scores: [
-            64,74,98,92,
-            97,50,25,58,
-            64,71,50,18,
-            66,96,32,43
+            56,42,98,48,
+            99,34,18,42,
+            54,91,36,12,
+            92,99,94,10
         ]
     },
+
+
+    /* --------------------------------------------------------
+       GABRIEL STOKES
+       
+       IMPORTANT v4 CHANGE:
+       Stronger and more distinctive moral/spiritual profile.
+
+       Gabriel should be reachable by people who repeatedly
+       choose mercy, morality, faith/hope and restraint.
+    -------------------------------------------------------- */
 
     gabriel: {
         name: "Gabriel Stokes",
         image: "images/gabriel.jpg",
         scores: [
-            72,58,90,78,
-            94,64,25,56,
-            47,68,60,34,
-            70,99,84,36
+            42,48,92,58,
+            99,46,12,38,
+            38,94,54,18,
+            84,98,91,10
         ]
     },
+
+
+    /* --------------------------------------------------------
+       EZEKIEL
+       Charismatic leader with optimism, loyalty and theatrical
+       confidence. Less generic survival competence.
+    -------------------------------------------------------- */
 
     ezekiel: {
         name: "Ezekiel",
         image: "images/ezekiel.jpg",
         scores: [
-            61,75,93,93,
-            83,65,24,97,
-            58,77,99,55,
-            74,99,80,61
+            66,91,86,72,
+            82,62,32,72,
+            52,82,99,62,
+            88,99,78,42
         ]
     },
+
+
+    /* --------------------------------------------------------
+       GREGORY
+       Self-preservation, manipulation, cowardice, social
+       maneuvering and opportunism.
+    -------------------------------------------------------- */
 
     gregory: {
         name: "Gregory",
         image: "images/gregory.jpg",
         scores: [
-            98,20,28,25,
-            31,81,20,55,
-            64,21,79,96,
-            64,38,25,12
+            24,28,22,42,
+            22,91,18,78,
+            76,22,86,96,
+            28,18,34,54
         ]
     },
+
+
+    /* --------------------------------------------------------
+       GARETH
+       
+       IMPORTANT v4 CHANGE:
+       Very distinctive antagonist profile.
+
+       Extremely high:
+       ruthlessness / manipulation / pragmatism / survival
+
+       Very low:
+       compassion / morality / trust / hope / loyalty
+
+       This gives Gareth a legitimate route when the player
+       consistently chooses those answers.
+    -------------------------------------------------------- */
 
     gareth: {
         name: "Gareth",
         image: "images/gareth.jpg",
         scores: [
-            94,82,12,47,
-            10,98,99,78,
-            88,10,62,99,
-            94,35,89,76
+            82,48,8,84,
+            6,97,78,96,
+            82,8,72,99,
+            16,6,82,99
         ]
     },
+
+
+    /* --------------------------------------------------------
+       DAWN LERNER
+       
+       Distinctive authority/order/control profile.
+       She should not simply compete with Rick for generic
+       leadership answers.
+    -------------------------------------------------------- */
 
     dawn: {
         name: "Dawn Lerner",
         image: "images/dawn.jpg",
         scores: [
-            80,69,50,70,
-            41,90,57,98,
-            55,31,75,72,
-            81,51,75,55
+            58,94,32,91,
+            38,88,36,82,
+            46,26,64,76,
+            54,32,88,68
         ]
     },
+
+
+    /* --------------------------------------------------------
+       BOB STOOKEY
+       Compassion, morality, trust, hope and emotional
+       resilience. Less leadership and combat-oriented.
+    -------------------------------------------------------- */
 
     bob: {
         name: "Bob Stookey",
         image: "images/bob.jpg",
         scores: [
-            58,74,99,93,
-            94,58,15,46,
-            58,98,70,10,
-            61,98,94,51
+            52,42,99,62,
+            97,48,18,48,
+            42,98,62,10,
+            91,96,96,14
         ]
     }
 };
