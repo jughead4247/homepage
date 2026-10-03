@@ -1130,7 +1130,7 @@ function renderFullProfile(
                 );
 
             value.textContent =
-                Math.round(score);
+    `${Math.round(score)}%`;
 
             label.append(
                 name,
