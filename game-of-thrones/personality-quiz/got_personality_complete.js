@@ -2497,18 +2497,17 @@ function calculateAllCharacterMatches(
 ) {
 
     return Object.keys(CHARACTERS)
-        .map(id => ({
-            id,
-            name:
-                CHARACTERS[id].name,
-            score:
-                calculateCharacterMatch(
-                    id,
-                    personality
-                ),
-            character:
-                CHARACTERS[id]
-        }))
+        
+.map(id => ({
+    id,
+    name: CHARACTERS[id].name,
+    image: CHARACTERS[id].image || "",
+    score: calculateCharacterMatch(
+        id,
+        personality
+    ),
+    character: CHARACTERS[id]
+}))
         .sort(
             (a, b) => {
 
