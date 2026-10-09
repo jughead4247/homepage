@@ -110,6 +110,7 @@ const CHARACTERS = {
 
     jon: {
     name: "Jon Snow",
+    image: "/images/jon.jpg",
     traits: {
         honor:96,
         courage:94,
@@ -140,6 +141,7 @@ const CHARACTERS = {
 
     daenerys: {
     name: "Daenerys Targaryen",
+    image: "/images/daenerys.jpg",
     traits: {
         honor:35,
         courage:89,
@@ -169,6 +171,7 @@ const CHARACTERS = {
 
     tyrion: {
         name: "Tyrion Lannister",
+        image: "/images/tyrion.jpg",
         traits: {
             honor:42,
             courage:44,
@@ -198,6 +201,7 @@ const CHARACTERS = {
 
     cersei: {
     name: "Cersei Lannister",
+    image: "/images/cersei.jpg",
     traits: {
         honor:20,
         courage:45,
@@ -227,6 +231,7 @@ const CHARACTERS = {
 
     jaime: {
         name: "Jaime Lannister",
+        image: "/images/jaime.jpg",
         traits: {
             honor:88,
             courage:96,
@@ -256,6 +261,7 @@ const CHARACTERS = {
 
     arya: {
     name: "Arya Stark",
+    image: "/images/arya.jpg",
     traits: {
         honor:35,
         courage:91,
@@ -283,11 +289,37 @@ const CHARACTERS = {
 },
 
 
-    sansa: { name: "Sansa Stark", traits: { honor:45, courage:45, loyalty:48, compassion:48, morality:48, pragmatism:78, ruthlessness:40, ambition:45, leadership:72, independence:45, intelligence:82, strategy:97, manipulation:45, charisma:48, pride:48, determination:45, riskTaking:45, selfPreservation:95, emotionalControl:92, curiosity:45 }, description: "A survivor who learns to navigate power through patience, political awareness and practical judgment." },
+    sansa: { 
+        name: "Sansa Stark",
+        image: "/images/sansa.jpg",
+        traits: { 
+            honor:45, 
+            courage:45, 
+            loyalty:48, 
+            compassion:48, 
+            morality:48, 
+            pragmatism:78, 
+            ruthlessness:40, 
+            ambition:45, 
+            leadership:72, 
+            independence:45, 
+            intelligence:82, 
+            strategy:97, 
+            manipulation:45, 
+            charisma:48, 
+            pride:48, 
+            determination:45, 
+            riskTaking:45, 
+            selfPreservation:95, 
+            emotionalControl:92, 
+            curiosity:45 
+        }, description: 
+              "A survivor who learns to navigate power through patience, political awareness and practical judgment." },
 
 
     ned: {
     name: "Ned Stark",
+    image: "/images/ned.jpg",
     traits: {
         honor:99,
         courage:82,
@@ -317,6 +349,7 @@ const CHARACTERS = {
 
     robb: {
     name: "Robb Stark",
+    image: "/images/robb.jpg",
     traits: {
         honor:84,
         courage:94,
@@ -346,6 +379,7 @@ const CHARACTERS = {
 
     catelyn: {
         name: "Catelyn Stark",
+        image: "/images/catelyn.jpg",
         traits: {
             honor:82,
             courage:45,
@@ -375,6 +409,7 @@ const CHARACTERS = {
 
     joffrey: {
         name: "Joffrey Baratheon",
+        image: "/images/joffrey.jpg",
         traits: {
             honor:12,
             courage:28,
@@ -404,6 +439,7 @@ const CHARACTERS = {
 
     tywin: {
     name: "Tywin Lannister",
+    image: "/images/tywin.jpg",
     traits: {
         honor:42,
         courage:48,
@@ -433,6 +469,7 @@ const CHARACTERS = {
 
     robert: {
         name: "Robert Baratheon",
+        image: "/images/robert.jpg",
         traits: {
             honor:58,
             courage:99,
@@ -462,6 +499,7 @@ const CHARACTERS = {
 
     stannis: {
     name: "Stannis Baratheon",
+    image: "/images/stannis.jpg",
     traits: {
         honor:97,
         courage:81,
@@ -491,6 +529,7 @@ const CHARACTERS = {
 
     theon: {
         name: "Theon Greyjoy",
+        image: "/images/theon.jpg",
         traits: {
             honor:42,
             courage:48,
@@ -520,6 +559,7 @@ const CHARACTERS = {
 
     ramsay: {
     name: "Ramsay Bolton",
+    image: "/images/ramsay.jpg",
     traits: {
         honor:8,
         courage:83,
@@ -549,6 +589,7 @@ const CHARACTERS = {
 
     littlefinger: {
     name: "Petyr Baelish",
+    image: "/images/littlefinger.jpg",
     traits: {
         honor:8,
         courage:25,
@@ -578,6 +619,7 @@ const CHARACTERS = {
 
     varys: {
     name: "Varys",
+    image: "/images/varys.jpg",
     traits: {
         honor:45,
         courage:32,
@@ -606,6 +648,7 @@ const CHARACTERS = {
 
     bronn: {
         name: "Bronn",
+        image: "/images/bronn.jpg",
         traits: {
             honor:18,
             courage:48,
@@ -635,6 +678,7 @@ const CHARACTERS = {
 
     hound: {
     name: "The Hound",
+    image: "/images/hound.jpg",
     traits: {
         honor:33,
         courage:97,
@@ -664,6 +708,7 @@ const CHARACTERS = {
 
     brienne: {
     name: "Brienne of Tarth",
+    image: "/images/brienne.jpg",
     traits: {
         honor:96,
         courage:94,
@@ -693,6 +738,7 @@ const CHARACTERS = {
 
     samwell: {
         name: "Samwell Tarly",
+        image: "/images/samwell.jpg",
         traits: {
             honor:48,
             courage:48,
@@ -722,6 +768,7 @@ const CHARACTERS = {
 
     tormund: {
     name: "Tormund Giantsbane",
+    image: "/images/tormund.jpg",
     traits: {
         honor:42,
         courage:94,
@@ -751,6 +798,7 @@ const CHARACTERS = {
 
     ygritte: {
     name: "Ygritte",
+    image: "/images/ygritte.jpg",
     traits: {
         honor:30,
         courage:92,
@@ -780,6 +828,7 @@ const CHARACTERS = {
 
     davos: {
         name: "Davos Seaworth",
+        image: "/images/davos.jpg",
         traits: {
             honor:82,
             courage:48,
@@ -809,6 +858,7 @@ const CHARACTERS = {
 
     melisandre: {
         name: "Melisandre",
+        image: "/images/melisandre.jpg",
         traits: {
             honor:28,
             courage:48,
@@ -836,11 +886,12 @@ const CHARACTERS = {
     },
 
 
-    jorah: { name: "Jorah Mormont", traits: { honor:92, courage:84, loyalty:99, compassion:48, morality:48, pragmatism:78, ruthlessness:28, ambition:35, leadership:48, independence:40, intelligence:48, strategy:48, manipulation:20, charisma:45, pride:45, determination:97, riskTaking:45, selfPreservation:48, emotionalControl:64, curiosity:35 }, description: "A devoted protector whose loyalty and determination repeatedly overcome fear, shame and self-interest." },
+    jorah: { name: "Jorah Mormont", image: "/images/jorah.jpg", traits: { honor:92, courage:84, loyalty:99, compassion:48, morality:48, pragmatism:78, ruthlessness:28, ambition:35, leadership:48, independence:40, intelligence:48, strategy:48, manipulation:20, charisma:45, pride:45, determination:97, riskTaking:45, selfPreservation:48, emotionalControl:64, curiosity:35 }, description: "A devoted protector whose loyalty and determination repeatedly overcome fear, shame and self-interest." },
 
 
     oberyn: {
     name: "Oberyn Martell",
+    image: "/images/oberyn.jpg",
     traits: {
         honor:42,
         courage:94,
@@ -870,6 +921,7 @@ const CHARACTERS = {
 
     margaery: {
         name: "Margaery Tyrell",
+        image: "/images/margaery.jpg",
         traits: {
             honor:42,
             courage:38,
@@ -899,6 +951,7 @@ const CHARACTERS = {
 
     drogo: {
     name: "Khal Drogo",
+    image: "/images/drogo.jpg",
     traits: {
         honor:48,
         courage:94,
@@ -928,6 +981,7 @@ const CHARACTERS = {
 
     viserys: {
         name: "Viserys Targaryen",
+        image: "/images/viserys.jpg",
         traits: {
             honor:12,
             courage:22,
@@ -957,6 +1011,7 @@ const CHARACTERS = {
 
     nightKing: {
     name: "The Night King",
+    image: "/images/nightking.jpg",
     traits: {
         honor:5,
         courage:84,
@@ -986,6 +1041,7 @@ const CHARACTERS = {
 
     mance: {
         name: "Mance Rayder",
+        image: "/images/mance.jpg",
         traits: {
             honor:48,
             courage:83,
@@ -3377,43 +3433,68 @@ function renderResults() {
        this code will automatically use it.
     */
 
-    if (winnerImageElement) {
+    
+if (winnerImageElement) {
 
-        const image =
-            winner.character?.image ||
-            winner.image ||
-            winnerImageElement.getAttribute(
-                "data-image"
-            );
+    const image =
+        winner.character?.image ||
+        winner.image ||
+        winnerImageElement.getAttribute("data-image") ||
+        "";
 
+    const imageWrap =
+        winnerImageElement.closest(".winner-image-wrap");
 
-        if (image) {
+    // Clear old handlers before rendering a new result.
+    winnerImageElement.onload = null;
+    winnerImageElement.onerror = null;
 
-            winnerImageElement.src =
-                image;
+    if (!image) {
 
-            winnerImageElement.alt =
-                winner.name;
+        winnerImageElement.removeAttribute("src");
+        winnerImageElement.alt = "";
+        winnerImageElement.style.display = "none";
 
-            winnerImageElement.style.display =
-                "block";
-
-        } else {
-
-            winnerImageElement.removeAttribute(
-                "src"
-            );
-
-            winnerImageElement.alt =
-                "";
-
-            winnerImageElement.style.display =
-                "none";
-
+        if (imageWrap) {
+            imageWrap.style.display = "none";
         }
 
-    }
+    } else {
 
+        winnerImageElement.alt =
+            `${winner.name} character portrait`;
+
+        winnerImageElement.decoding = "async";
+        winnerImageElement.style.display = "block";
+
+        if (imageWrap) {
+            imageWrap.style.display = "";
+        }
+
+        winnerImageElement.onload = () => {
+            winnerImageElement.style.display = "block";
+
+            if (imageWrap) {
+                imageWrap.style.display = "";
+            }
+        };
+
+        winnerImageElement.onerror = () => {
+            winnerImageElement.onload = null;
+            winnerImageElement.onerror = null;
+
+            winnerImageElement.removeAttribute("src");
+            winnerImageElement.alt = "";
+            winnerImageElement.style.display = "none";
+
+            if (imageWrap) {
+                imageWrap.style.display = "none";
+            }
+        };
+
+        winnerImageElement.src = image;
+    }
+}
 
     /* -------------------------------
        Top 3 Matches
@@ -3445,123 +3526,72 @@ function renderResults() {
 TOP 3 MATCHES
 ============================================================ */
 
-function renderTopMatches(
-    matches
-) {
+
+function renderTopMatches(matches) {
 
     if (!topMatchesElement) {
         return;
     }
 
+    topMatchesElement.innerHTML = "";
 
-    topMatchesElement.innerHTML =
-        "";
+    matches.forEach((match, index) => {
 
+        const row = document.createElement("div");
+        row.className = "match-item";
 
-    matches.forEach(
-        (match, index) => {
+        const rank = document.createElement("div");
+        rank.className = "match-rank";
+        rank.textContent = `#${index + 1}`;
 
-            const row =
-                document.createElement(
-                    "div"
-                );
+        const thumb = document.createElement("img");
+        thumb.className = "match-thumb";
+        thumb.alt = `${match.name} character portrait`;
+        thumb.loading = "lazy";
+        thumb.decoding = "async";
+        thumb.style.display = "none";
 
-            row.className =
-                "match-item";
+        const image =
+            match.character?.image ||
+            match.image ||
+            "";
 
+        if (image) {
 
-            const rank =
-                document.createElement(
-                    "div"
-                );
+            thumb.onload = () => {
+                thumb.style.display = "block";
+            };
 
-            rank.className =
-                "match-rank";
+            thumb.onerror = () => {
+                thumb.onload = null;
+                thumb.onerror = null;
 
-            rank.textContent =
-                `#${index + 1}`;
+                thumb.removeAttribute("src");
+                thumb.style.display = "none";
+            };
 
-
-            const thumb =
-                document.createElement(
-                    "img"
-                );
-
-            thumb.className =
-                "match-thumb";
-
-            thumb.alt =
-                match.name;
-
-            thumb.loading =
-                "lazy";
-
-
-            const image =
-                match.character?.image ||
-                match.image ||
-                "";
-
-
-            if (image) {
-
-                thumb.src =
-                    image;
-
-                thumb.style.display =
-                    "block";
-
-            } else {
-
-                thumb.style.display =
-                    "none";
-
-            }
-
-
-            const name =
-                document.createElement(
-                    "div"
-                );
-
-            name.className =
-                "match-name";
-
-            name.textContent =
-                match.name;
-
-
-            const percent =
-                document.createElement(
-                    "div"
-                );
-
-            percent.className =
-                "match-percent";
-
-            percent.textContent =
-                `${Math.round(
-                    match.score
-                )}%`;
-
-
-            row.append(
-                rank,
-                thumb,
-                name,
-                percent
-            );
-
-
-            topMatchesElement.appendChild(
-                row
-            );
-
+            thumb.src = image;
         }
-    );
 
+        const name = document.createElement("div");
+        name.className = "match-name";
+        name.textContent = match.name;
+
+        const percent = document.createElement("div");
+        percent.className = "match-percent";
+        percent.textContent =
+            `${Math.round(match.score)}%`;
+
+        row.append(
+            rank,
+            thumb,
+            name,
+            percent
+        );
+
+        topMatchesElement.appendChild(row);
+    });
 }
-
 
 /* ============================================================
 TRAIT RESULTS
@@ -4370,1289 +4400,4 @@ if (
             }
         );
 
-}
-
-/* ============================================================
-GOT PERSONALITY QUIZ
-UNIFIED SIMULATION / DIAGNOSTIC TOOL
-
-This section is for development only.
-
-It does NOT run automatically.
-
-Run from the browser console:
-
-    runGOTSimulation(100000)
-
-Optional different seed:
-
-    runGOTSimulation(100000, 12345)
-
-Remove this entire section before production release.
-============================================================ */
-
-function runGOTSimulation(
-    simulationCount = 100000,
-    seedValue = 20261006
-) {
-
-    const SIMULATIONS =
-        Math.max(
-            1,
-            Math.floor(
-                Number(simulationCount) || 100000
-            )
-        );
-
-    const INITIAL_SEED =
-        Number(seedValue) || 20261006;
-
-    let seed =
-        INITIAL_SEED;
-
-
-    /* ========================================================
-       RANDOM NUMBER GENERATOR
-    ======================================================== */
-
-    function random() {
-
-        seed |= 0;
-
-        seed =
-            (
-                seed +
-                0x6D2B79F5
-            ) | 0;
-
-        let t =
-            Math.imul(
-                seed ^
-                (seed >>> 15),
-                1 | seed
-            );
-
-        t +=
-            Math.imul(
-                t ^
-                (t >>> 7),
-                61 | t
-            ) ^ t;
-
-        return (
-            (
-                t ^
-                (t >>> 14)
-            ) >>> 0
-        ) / 4294967296;
-
-    }
-
-
-    /* ========================================================
-       VALIDATION
-    ======================================================== */
-
-    if (
-        !Array.isArray(questions) ||
-        !CHARACTERS ||
-        typeof calculatePersonality !== "function" ||
-        typeof calculateRouteProfile !== "function" ||
-        typeof calculateAllCharacterMatches !== "function"
-    ) {
-
-        console.error(
-            "GOT simulation cannot start. " +
-            "Quiz engine is unavailable."
-        );
-
-        return null;
-
-    }
-
-
-    const characterIds =
-        Object.keys(CHARACTERS);
-
-    const routeIds =
-        Object.keys(ROUTES);
-
-
-    if (
-        questions.length !== 50 ||
-        characterIds.length !== 33 ||
-        TRAIT_KEYS.length !== 20 ||
-        routeIds.length !== 10
-    ) {
-
-        console.error(
-            "Unexpected GOT quiz structure.",
-            {
-                questions:
-                    questions.length,
-
-                characters:
-                    characterIds.length,
-
-                traits:
-                    TRAIT_KEYS.length,
-
-                routes:
-                    routeIds.length
-            }
-        );
-
-        return null;
-
-    }
-
-
-    /* ========================================================
-       CHARACTER STORAGE
-    ======================================================== */
-
-    const stats = {};
-
-
-    characterIds.forEach(
-        id => {
-
-            let coreTraits = 0;
-            let secondaryTraits = 0;
-            let minorTraits = 0;
-            let zeroTraits = 0;
-
-
-            TRAIT_KEYS.forEach(
-                trait => {
-
-                    const value =
-                        getCharacterTraitValue(
-                            CHARACTERS[id],
-                            trait
-                        );
-
-
-                    if (value >= 85) {
-
-                        coreTraits++;
-
-                    } else if (value >= 50) {
-
-                        secondaryTraits++;
-
-                    } else if (value > 0) {
-
-                        minorTraits++;
-
-                    } else {
-
-                        zeroTraits++;
-
-                    }
-
-                }
-            );
-
-
-            stats[id] = {
-
-                name:
-                    CHARACTERS[id].name,
-
-                wins: 0,
-
-                top3: 0,
-
-                rankTotal: 0,
-
-                scoreTotal: 0,
-
-                coreTotal: 0,
-
-                secondaryTotal: 0,
-
-                minorTotal: 0,
-
-                overallTotal: 0,
-
-                primaryRouteTotal: 0,
-
-                secondaryRouteTotal: 0,
-
-                contradictionTotal: 0,
-
-                bestRank: Infinity,
-
-                bestScore: -Infinity,
-
-                coreTraits,
-
-                secondaryTraits,
-
-                minorTraits,
-
-                zeroTraits
-
-            };
-
-        }
-    );
-
-
-    /* ========================================================
-       TRAIT FREQUENCY
-    ======================================================== */
-
-    const traitSelections = {};
-    const traitProfileTotals = {};
-
-
-    TRAIT_KEYS.forEach(
-        trait => {
-
-            traitSelections[trait] =
-                0;
-
-            traitProfileTotals[trait] =
-                0;
-
-        }
-    );
-
-
-    /* ========================================================
-       ROUTE FREQUENCY
-    ======================================================== */
-
-    const routeSelections = {};
-    const routeProfileTotals = {};
-
-
-    routeIds.forEach(
-        route => {
-
-            routeSelections[route] =
-                0;
-
-            routeProfileTotals[route] =
-                0;
-
-        }
-    );
-
-
-    /* ========================================================
-       GLOBAL STATS
-    ======================================================== */
-
-    
-let totalWinnerMargin = 0;
-
-let exactTies = 0;
-
-const nearTieCounts = {
-    under025: 0,
-    under050: 0,
-    under100: 0,
-    under200: 0
-};
-
-
-    /* ========================================================
-       TIMER
-    ======================================================== */
-
-    const startTime =
-        performance.now();
-
-
-    /* ========================================================
-       MAIN SIMULATION
-    ======================================================== */
-
-    for (
-        let simulation = 0;
-        simulation < SIMULATIONS;
-        simulation++
-    ) {
-
-
-        /* ----------------------------------------------------
-           RANDOM ANSWERS
-        ---------------------------------------------------- */
-
-        const answerIndexes =
-            new Array(
-                questions.length
-            );
-
-
-        for (
-            let q = 0;
-            q < questions.length;
-            q++
-        ) {
-
-            const answerIndex =
-                Math.floor(
-                    random() * 5
-                );
-
-
-            answerIndexes[q] =
-                answerIndex;
-
-
-            const answer =
-                questions[q]
-                    .answers[
-                        answerIndex
-                    ];
-
-
-            /* -----------------------------------------------
-               TRAIT SELECTION
-            ----------------------------------------------- */
-
-            if (
-                answer &&
-                Array.isArray(answer.traits)
-            ) {
-
-                answer.traits.forEach(
-                    trait => {
-
-                        if (
-                            Object.prototype
-                                .hasOwnProperty
-                                .call(
-                                    traitSelections,
-                                    trait
-                                )
-                        ) {
-
-                            traitSelections[
-                                trait
-                            ]++;
-
-                        }
-
-                    }
-                );
-
-            }
-
-
-            /* -----------------------------------------------
-               ROUTE SELECTION
-            ----------------------------------------------- */
-
-            if (
-                answer &&
-                answer.route &&
-                Object.prototype
-                    .hasOwnProperty
-                    .call(
-                        routeSelections,
-                        answer.route
-                    )
-            ) {
-
-                routeSelections[
-                    answer.route
-                ]++;
-
-            }
-
-        }
-
-
-        /* ----------------------------------------------------
-           ACTUAL PERSONALITY ENGINE
-        ---------------------------------------------------- */
-
-        const personality =
-            calculatePersonality(
-                answerIndexes
-            );
-
-
-        personality.routeProfile =
-            calculateRouteProfile(
-                personality
-            );
-
-
-        /* ----------------------------------------------------
-           RECORD PROFILE AVERAGES
-        ---------------------------------------------------- */
-
-        TRAIT_KEYS.forEach(
-            trait => {
-
-                traitProfileTotals[
-                    trait
-                ] +=
-                    Number(
-                        personality.profile[
-                            trait
-                        ]
-                    ) || 0;
-
-            }
-        );
-
-
-        routeIds.forEach(
-            route => {
-
-                routeProfileTotals[
-                    route
-                ] +=
-                    Number(
-                        personality.routeProfile[
-                            route
-                        ]
-                    ) || 0;
-
-            }
-        );
-
-
-        /* ----------------------------------------------------
-           ACTUAL CHARACTER MATCH ENGINE
-        ---------------------------------------------------- */
-
-        const matches =
-            calculateAllCharacterMatches(
-                personality
-            );
-
-
-        if (
-            !Array.isArray(matches) ||
-            matches.length !==
-                characterIds.length
-        ) {
-
-            console.error(
-                `Simulation ${
-                    simulation + 1
-                } returned an invalid character ranking.`
-            );
-
-            continue;
-
-        }
-
-
-        const winner =
-            matches[0];
-
-        const second =
-            matches[1];
-
-
-        const margin =
-            second
-                ? winner.score -
-                  second.score
-                : winner.score;
-
-
-        totalWinnerMargin +=
-            margin;
-
-
-        if (
-            margin === 0
-        ) {
-
-            exactTies++;
-
-        }
-
-        
-if (margin < 0.25) nearTieCounts.under025++;
-if (margin < 0.50) nearTieCounts.under050++;
-if (margin < 1.00) nearTieCounts.under100++;
-if (margin < 2.00) nearTieCounts.under200++;
-
-
-        /* ----------------------------------------------------
-           COMPONENT ANALYSIS
-        ---------------------------------------------------- */
-
-        characterIds.forEach(
-            id => {
-
-                const character =
-                    CHARACTERS[id];
-
-
-                const item =
-                    stats[id];
-
-
-                const matchIndex =
-                    matches.findIndex(
-                        match =>
-                            match.id === id
-                    );
-
-
-                const rank =
-                    matchIndex + 1;
-
-
-                const actualScore =
-                    matches[
-                        matchIndex
-                    ]?.score || 0;
-
-
-                const core =
-                    calculateCoreFit(
-                        character,
-                        personality.profile
-                    );
-
-
-                const secondary =
-                    calculateSecondaryFit(
-                        character,
-                        personality.profile
-                    );
-
-
-                const minor =
-                    calculateMinorFit(
-                        character,
-                        personality.profile
-                    );
-
-
-                const overall =
-                    calculateOverallTraitFit(
-                        character,
-                        personality.profile
-                    );
-
-
-                const routes =
-                    calculateCharacterRouteFit(
-                        id,
-                        personality
-                    );
-
-
-                const contradiction =
-                    calculateContradictionPenalty(
-                        character,
-                        personality.profile
-                    );
-
-
-                item.rankTotal +=
-                    rank;
-
-
-                item.scoreTotal +=
-                    actualScore;
-
-
-                item.coreTotal +=
-                    core;
-
-
-                item.secondaryTotal +=
-                    secondary;
-
-
-                item.minorTotal +=
-                    minor;
-
-
-                item.overallTotal +=
-                    overall;
-
-
-                item.primaryRouteTotal +=
-                    routes.primary;
-
-
-                item.secondaryRouteTotal +=
-                    routes.secondary;
-
-
-                item.contradictionTotal +=
-                    contradiction;
-
-
-                if (
-                    rank <= 3
-                ) {
-
-                    item.top3++;
-
-                }
-
-
-                if (
-                    rank < item.bestRank
-                ) {
-
-                    item.bestRank =
-                        rank;
-
-                }
-
-
-                if (
-                    actualScore >
-                    item.bestScore
-                ) {
-
-                    item.bestScore =
-                        actualScore;
-
-                }
-
-
-                if (
-                    rank === 1
-                ) {
-
-                    item.wins++;
-
-                }
-
-            }
-        );
-
-    }
-
-
-    /* ========================================================
-       CHARACTER RESULTS
-    ======================================================== */
-
-    const characterResults =
-        characterIds
-            .map(id => {
-
-                const item =
-                    stats[id];
-
-
-                return {
-
-                    Character:
-                        item.name,
-
-                    Wins:
-                        item.wins,
-
-                    "Win %":
-                        Number(
-                            (
-                                item.wins /
-                                SIMULATIONS *
-                                100
-                            ).toFixed(3)
-                        ),
-
-                    "Top 3 %":
-                        Number(
-                            (
-                                item.top3 /
-                                SIMULATIONS *
-                                100
-                            ).toFixed(3)
-                        ),
-
-                    "Avg Rank":
-                        Number(
-                            (
-                                item.rankTotal /
-                                SIMULATIONS
-                            ).toFixed(2)
-                        ),
-
-                    "Avg Score":
-                        Number(
-                            (
-                                item.scoreTotal /
-                                SIMULATIONS
-                            ).toFixed(2)
-                        ),
-
-                    "Avg Core":
-                        Number(
-                            (
-                                item.coreTotal /
-                                SIMULATIONS
-                            ).toFixed(2)
-                        ),
-
-                    "Avg Secondary":
-                        Number(
-                            (
-                                item.secondaryTotal /
-                                SIMULATIONS
-                            ).toFixed(2)
-                        ),
-
-                    "Avg Minor":
-                        Number(
-                            (
-                                item.minorTotal /
-                                SIMULATIONS
-                            ).toFixed(2)
-                        ),
-
-                    "Avg Overall":
-                        Number(
-                            (
-                                item.overallTotal /
-                                SIMULATIONS
-                            ).toFixed(2)
-                        ),
-
-                    "Avg Primary Route":
-                        Number(
-                            (
-                                item.primaryRouteTotal /
-                                SIMULATIONS
-                            ).toFixed(2)
-                        ),
-
-                    "Avg Secondary Route":
-                        Number(
-                            (
-                                item.secondaryRouteTotal /
-                                SIMULATIONS
-                            ).toFixed(2)
-                        ),
-
-                    "Avg Contradiction":
-                        Number(
-                            (
-                                item.contradictionTotal /
-                                SIMULATIONS
-                            ).toFixed(2)
-                        ),
-
-                    "Best Rank":
-                        item.bestRank === Infinity
-                            ? "—"
-                            : item.bestRank,
-
-                    "Best Score":
-                        item.bestScore === -Infinity
-                            ? 0
-                            : Number(
-                                item.bestScore.toFixed(2)
-                            ),
-
-                    "Core Traits":
-                        item.coreTraits,
-
-                    "Secondary Traits":
-                        item.secondaryTraits,
-
-                    "Minor Traits":
-                        item.minorTraits,
-
-                    "Zero Traits":
-                        item.zeroTraits
-
-                };
-
-            })
-            .sort(
-                (a, b) =>
-                    b.Wins -
-                    a.Wins
-            );
-
-
-    /* ========================================================
-       TRAIT RESULTS
-    ======================================================== */
-
-    const traitResults =
-        TRAIT_KEYS
-            .map(trait => ({
-
-                Trait:
-                    TRAITS[trait],
-
-                "Selection %":
-                    Number(
-                        (
-                            traitSelections[trait] /
-                            (
-                                SIMULATIONS *
-                                questions.length
-                            ) *
-                            100
-                        ).toFixed(3)
-                    ),
-
-                "Average Profile":
-                    Number(
-                        (
-                            traitProfileTotals[trait] /
-                            SIMULATIONS
-                        ).toFixed(2)
-                    )
-
-            }))
-            .sort(
-                (a, b) =>
-                    b["Selection %"] -
-                    a["Selection %"]
-            );
-
-
-    /* ========================================================
-       ROUTE RESULTS
-    ======================================================== */
-
-    const routeResults =
-        routeIds
-            .map(route => ({
-
-                Route:
-                    ROUTES[route],
-
-                "Selection %":
-                    Number(
-                        (
-                            routeSelections[route] /
-                            (
-                                SIMULATIONS *
-                                questions.length
-                            ) *
-                            100
-                        ).toFixed(3)
-                    ),
-
-                "Average Profile":
-                    Number(
-                        (
-                            routeProfileTotals[route] /
-                            SIMULATIONS
-                        ).toFixed(2)
-                    )
-
-            }))
-            .sort(
-                (a, b) =>
-                    b["Selection %"] -
-                    a["Selection %"]
-            );
-
-
-    /* ========================================================
-       SUMMARY
-    ======================================================== */
-
-    const elapsed =
-        performance.now() -
-        startTime;
-
-
-    const summary = {
-
-        simulations:
-            SIMULATIONS,
-
-        questions:
-            questions.length,
-
-        characters:
-            characterIds.length,
-
-        traits:
-            TRAIT_KEYS.length,
-
-        routes:
-            routeIds.length,
-
-        seed:
-            INITIAL_SEED,
-
-        runtimeMs:
-            Number(
-                elapsed.toFixed(2)
-            ),
-
-        profilesPerSecond:
-            Math.round(
-                SIMULATIONS /
-                (
-                    elapsed /
-                    1000
-                )
-            ),
-
-        averageWinnerMargin:
-            Number(
-                (
-                    totalWinnerMargin /
-                    SIMULATIONS
-                ).toFixed(3)
-            ),
-
-        exactTies:
-            exactTies,
-
-        exactTiePercent:
-            Number(
-                (
-                    exactTies /
-                    SIMULATIONS *
-                    100
-                ).toFixed(3)
-            ),
-
-            
-nearTieUnder025Percent: Number(
-    (
-        nearTieCounts.under025 /
-        SIMULATIONS *
-        100
-    ).toFixed(2)
-),
-
-nearTieUnder050Percent: Number(
-    (
-        nearTieCounts.under050 /
-        SIMULATIONS *
-        100
-    ).toFixed(2)
-),
-
-nearTieUnder100Percent: Number(
-    (
-        nearTieCounts.under100 /
-        SIMULATIONS *
-        100
-    ).toFixed(2)
-),
-
-nearTieUnder200Percent: Number(
-    (
-        nearTieCounts.under200 /
-        SIMULATIONS *
-        100
-    ).toFixed(2)
-),
-
-        reachableCharacters:
-            characterResults.filter(
-                item =>
-                    item.Wins > 0
-            ).length,
-
-        allCharactersReachable:
-            characterResults.every(
-                item =>
-                    item.Wins > 0
-            )
-
-    };
-
-
-    /* ========================================================
-       OUTPUT
-    ======================================================== */
-
-    console.log(
-        "=============================================="
-    );
-
-    console.log(
-        "GOT PERSONALITY SIMULATION COMPLETE"
-    );
-
-    console.log(
-        "=============================================="
-    );
-
-    console.log(
-        "SUMMARY"
-    );
-
-    console.table([
-        summary
-    ]);
-
-
-    console.log(
-        "CHARACTER RESULTS"
-    );
-
-    console.table(
-        characterResults
-    );
-
-
-    console.log(
-        "TRAIT DISTRIBUTION"
-    );
-
-    console.table(
-        traitResults
-    );
-
-
-    console.log(
-        "ROUTE DISTRIBUTION"
-    );
-
-    console.table(
-        routeResults
-    );
-
-
-    /* ========================================================
-       SAVE RESULTS
-    ======================================================== */
-
-    const results = {
-
-        summary,
-
-        characters:
-            characterResults,
-
-        traits:
-            traitResults,
-
-        routes:
-            routeResults
-
-    };
-
-
-    window.GOT_SIMULATION_RESULTS =
-        results;
-
-
-    console.log(
-        "Results saved to:"
-    );
-
-    console.log(
-        "window.GOT_SIMULATION_RESULTS"
-    );
-
-
-    return results;
-
-}
-
-
-/* ============================================================
-CONSOLE ACCESS
-============================================================ */
-
-window.runGOTSimulation =
-    runGOTSimulation;
-
-    
-function runGOTPenaltyComparison(
-    simulationCount = 25000,
-    seedValue = 20261006
-) {
-    const SIMULATIONS = Math.max(
-        1,
-        Math.floor(Number(simulationCount) || 25000)
-    );
-
-    const INITIAL_SEED = Number(seedValue) || 20261006;
-    let seed = INITIAL_SEED;
-
-    function random() {
-        seed |= 0;
-        seed = (seed + 0x6D2B79F5) | 0;
-
-        let t = Math.imul(
-            seed ^ (seed >>> 15),
-            1 | seed
-        );
-
-        t += Math.imul(
-            t ^ (t >>> 7),
-            61 | t
-        ) ^ t;
-
-        return ((t ^ (t >>> 14)) >>> 0) / 4294967296;
-    }
-
-    const ids = Object.keys(CHARACTERS);
-    const winsWith = Object.fromEntries(ids.map(id => [id, 0]));
-    const winsWithout = Object.fromEntries(ids.map(id => [id, 0]));
-
-    const nearTiesWith = { lt025: 0, lt050: 0, lt100: 0, lt200: 0 };
-    const nearTiesWithout = { lt025: 0, lt050: 0, lt100: 0, lt200: 0 };
-
-    let winnerChanges = 0;
-    let marginWithTotal = 0;
-    let marginWithoutTotal = 0;
-
-    function recordMargin(counters, margin) {
-        if (margin < 0.25) counters.lt025++;
-        if (margin < 0.50) counters.lt050++;
-        if (margin < 1.00) counters.lt100++;
-        if (margin < 2.00) counters.lt200++;
-    }
-
-    function sortMatches(matches) {
-        return matches.sort((a, b) => {
-            if (b.score !== a.score) return b.score - a.score;
-            return a.name.localeCompare(b.name);
-        });
-    }
-
-    const started = performance.now();
-
-    for (let s = 0; s < SIMULATIONS; s++) {
-        const answers = questions.map(question =>
-            Math.floor(random() * question.answers.length)
-        );
-
-        const personality = calculatePersonality(answers);
-        personality.routeProfile = calculateRouteProfile(personality);
-
-        const withPenalty = [];
-        const withoutPenalty = [];
-
-        for (const id of ids) {
-            const character = CHARACTERS[id];
-
-            const core = calculateCoreFit(character, personality.profile);
-            const secondary = calculateSecondaryFit(character, personality.profile);
-            const minor = calculateMinorFit(character, personality.profile);
-            const overall = calculateOverallTraitFit(character, personality.profile);
-            const routes = calculateCharacterRouteFit(id, personality);
-
-            const baseScore =
-                core * 0.40 +
-                secondary * 0.20 +
-                minor * 0.05 +
-                routes.primary * 0.15 +
-                routes.secondary * 0.10 +
-                overall * 0.10;
-
-            const penalty = calculateContradictionPenalty(
-                character,
-                personality.profile
-            );
-
-            withPenalty.push({
-                id,
-                name: character.name,
-                score: clamp(baseScore - penalty)
-            });
-
-            withoutPenalty.push({
-                id,
-                name: character.name,
-                score: clamp(baseScore)
-            });
-        }
-
-        sortMatches(withPenalty);
-        sortMatches(withoutPenalty);
-
-        const winnerWith = withPenalty[0];
-        const winnerWithout = withoutPenalty[0];
-
-        winsWith[winnerWith.id]++;
-        winsWithout[winnerWithout.id]++;
-
-        if (winnerWith.id !== winnerWithout.id) {
-            winnerChanges++;
-        }
-
-        const marginWith =
-            withPenalty[0].score - withPenalty[1].score;
-
-        const marginWithout =
-            withoutPenalty[0].score - withoutPenalty[1].score;
-
-        marginWithTotal += marginWith;
-        marginWithoutTotal += marginWithout;
-
-        recordMargin(nearTiesWith, marginWith);
-        recordMargin(nearTiesWithout, marginWithout);
-    }
-
-    const characterResults = ids.map(id => ({
-        Character: CHARACTERS[id].name,
-        "Wins with penalty": winsWith[id],
-        "Win % with penalty": +(winsWith[id] / SIMULATIONS * 100).toFixed(3),
-        "Wins without penalty": winsWithout[id],
-        "Win % without penalty": +(winsWithout[id] / SIMULATIONS * 100).toFixed(3),
-        "Change in win %": +(
-            (winsWithout[id] - winsWith[id]) /
-            SIMULATIONS * 100
-        ).toFixed(3)
-    })).sort((a, b) =>
-        b["Wins with penalty"] - a["Wins with penalty"]
-    );
-
-    function makeSummary(counters, averageMargin) {
-        return {
-            "Average winner margin": +averageMargin.toFixed(3),
-            "Margin < 0.25 %": +(counters.lt025 / SIMULATIONS * 100).toFixed(2),
-            "Margin < 0.50 %": +(counters.lt050 / SIMULATIONS * 100).toFixed(2),
-            "Margin < 1.00 %": +(counters.lt100 / SIMULATIONS * 100).toFixed(2),
-            "Margin < 2.00 %": +(counters.lt200 / SIMULATIONS * 100).toFixed(2)
-        };
-    }
-
-    const results = {
-        simulations: SIMULATIONS,
-        seed: INITIAL_SEED,
-        winnerChanges,
-        winnerChangePercent: +(winnerChanges / SIMULATIONS * 100).toFixed(2),
-        withPenalty: makeSummary(
-            nearTiesWith,
-            marginWithTotal / SIMULATIONS
-        ),
-        withoutPenalty: makeSummary(
-            nearTiesWithout,
-            marginWithoutTotal / SIMULATIONS
-        ),
-        characters: characterResults,
-        runtimeMs: +(performance.now() - started).toFixed(0)
-    };
-
-    window.GOT_PENALTY_COMPARISON = results;
-
-    console.log("CONTRADICTION PENALTY COMPARISON");
-    console.table([{
-        Simulations: results.simulations,
-        Seed: results.seed,
-        "Winner changes": results.winnerChanges,
-        "Winner changes %": results.winnerChangePercent,
-        RuntimeMs: results.runtimeMs
-    }]);
-
-    console.log("WITH CONTRADICTION PENALTY");
-    console.table([results.withPenalty]);
-
-    console.log("WITHOUT CONTRADICTION PENALTY");
-    console.table([results.withoutPenalty]);
-
-    console.log("CHARACTER WIN-RATE COMPARISON");
-    console.table(results.characters);
-
-    return results;
 }
