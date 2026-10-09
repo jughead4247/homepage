@@ -258,7 +258,7 @@ const quizzes = [
             "The Walking Dead characters TWD characters Rick Grimes Daryl Dixon Michonne Negan Carol Peletier Maggie Rhee Glenn Rhee Carl Grimes Judith Shane Hershel Governor Merle Abraham Eugene Rosita Sasha Tara Ezekiel Alpha Beta Lydia Dwight Morgan Walking Dead survivors zombies walkers",
 
         url:
-            "https://apocalypsequizzes.com/walking-dead-characters-quiz/"
+            "https://apocalypsequizzes.com/the-walking-dead-characters-quiz/"
     },
 
 
