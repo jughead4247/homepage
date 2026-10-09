@@ -3257,102 +3257,71 @@ function startQuiz() {
 }
 
 
+
+
 /* ============================================================
-SUBMIT QUIZ
+SUBMIT QUIZ — GAME OF THRONES
 ============================================================ */
 
 function submitQuiz() {
 
-    if (
-        !allQuestionsAnswered()
-    ) {
+    if (!allQuestionsAnswered()) {
 
-        const firstMissing =
-            answerIndexes.findIndex(
-                value =>
-                    !Number.isInteger(
-                        value
-                    )
-            );
+        const firstMissing = answerIndexes.findIndex(
+            (value, index) => {
+                const question = questions[index];
 
+                return (
+                    !Number.isInteger(value) ||
+                    value < 0 ||
+                    !question ||
+                    value < 0 ||
+                    value >= question.answers.length
+                );
+            }
+        );
 
-        if (
-            firstMissing >= 0
-        ) {
-
-            currentQuestion =
-                firstMissing;
-
+        if (firstMissing >= 0) {
+            currentQuestion = firstMissing;
             renderQuestion();
-
         }
 
         return;
-
     }
-
 
     if (submitButton) {
-
-        submitButton.disabled =
-            true;
-
+        submitButton.disabled = true;
     }
-
 
     try {
 
+        // Use the original GOT scoring engine.
         latestPersonality =
-            calculatePersonality(
-                answerIndexes
-            );
-
+            calculatePersonality(answerIndexes);
 
         latestPersonality.routeProfile =
-            calculateRouteProfile(
-                latestPersonality
-            );
-
+            calculateRouteProfile(latestPersonality);
 
         latestMatches =
-            calculateAllCharacterMatches(
-                latestPersonality
-            );
-
+            calculateAllCharacterMatches(latestPersonality);
 
         if (
-            !latestMatches.length
+            !Array.isArray(latestMatches) ||
+            latestMatches.length === 0
         ) {
-
             throw new Error(
-                "No character matches were returned."
+                "No Game of Thrones character matches returned."
             );
-
         }
 
-
+        // Original GOT renderer expects no arguments.
         renderResults();
 
+        showScreen(resultScreen);
 
-        showScreen(
-            resultScreen
-        );
-
-
-        /*
-           Restore information cards
-           after the quiz is complete.
-        */
-
-        homeInfo?.classList.remove(
-            "hidden"
-        );
-
-
-        suggestionsCard?.classList.remove(
-            "hidden"
-        );
-
+        // Restore the information and suggested quiz sections.
+        homeInfo?.classList.remove("hidden");
+        suggestionsCard?.classList.remove("hidden");
 
     } catch (error) {
 
@@ -3361,85 +3330,109 @@ function submitQuiz() {
             error
         );
 
-
         if (submitButton) {
-
-            submitButton.disabled =
-                false;
-
+            submitButton.disabled = false;
         }
-
 
         alert(
             "There was a problem calculating your result. Please refresh the page and try again."
         );
-
     }
-
 }
 
 
+
 /* ============================================================
-RESULT
+RESULT RENDERING — GAME OF THRONES
 ============================================================ */
 
-function renderResult(result) {
+function renderResults() {
 
-    const winner =
-        result.winner;
+    const winner = latestMatches[0];
 
     if (!winner) {
+        console.error("No winning character available.");
         return;
     }
 
-    if (resultTitle) {
-        resultTitle.textContent =
+    // Result title
+    if (resultTitleElement) {
+        resultTitleElement.textContent =
             `You are most like ${winner.name}`;
     }
 
-    if (winnerImage) {
+    // Result description
+    if (resultDescriptionElement) {
+        resultDescriptionElement.textContent =
+            `${winner.name} ${QUIZ_CONFIG.resultDescription}`;
+    }
 
-        if (winner.image) {
-            winnerImage.src =
-                winner.image;
+    // Winner portrait
+    if (winnerImageElement) {
 
-            winnerImage.alt =
-                winner.name;
+        const image =
+            winner.character?.image ||
+            winner.image ||
+            "";
+
+        const imageWrap =
+            winnerImageElement.closest(".winner-image-wrap");
+
+        // Remove handlers from any previous image.
+        winnerImageElement.onload = null;
+        winnerImageElement.onerror = null;
+
+        if (!image) {
+
+            winnerImageElement.removeAttribute("src");
+            winnerImageElement.alt = "";
+            winnerImageElement.style.display = "none";
+
+            if (imageWrap) {
+                imageWrap.style.display = "none";
+            }
+
         } else {
-            winnerImage.removeAttribute("src");
-            winnerImage.alt = "";
+
+            winnerImageElement.alt =
+                `${winner.name} character portrait`;
+
+            winnerImageElement.decoding = "async";
+            winnerImageElement.style.display = "block";
+
+            if (imageWrap) {
+                imageWrap.style.display = "";
+            }
+
+            winnerImageElement.onerror = () => {
+
+                winnerImageElement.onload = null;
+                winnerImageElement.onerror = null;
+
+                winnerImageElement.removeAttribute("src");
+                winnerImageElement.alt = "";
+                winnerImageElement.style.display = "none";
+
+                if (imageWrap) {
+                    imageWrap.style.display = "none";
+                }
+
+                console.warn(
+                    `Character image could not load: ${image}`
+                );
+            };
+
+            winnerImageElement.src = image;
         }
     }
 
-    if (resultDescription) {
+    // Top three character matches
+    renderTopMatches(latestMatches.slice(0, 3));
 
-        resultDescription.textContent =
-            `${winner.name} ${config.resultDescription || "is your closest personality match."}`;
+    // Strongest traits, lowest traits and full profile
+    if (latestPersonality?.profile) {
+        renderTraitResults(latestPersonality.profile);
     }
-
-    if (Array.isArray(result.results)) {
-
-        renderTopMatches(
-            result.results.slice(0, 3)
-        );
-    }
-
-
-
-    /* -------------------------------
-       Strongest / Lowest Traits
-    ------------------------------- */
-
-    if (
-        latestPersonality?.profile
-    ) {
-
-        renderTraitResults(
-            latestPersonality.profile
-        );
-
-    }
-
 }
 
 
@@ -3447,70 +3440,77 @@ function renderResult(result) {
 TOP 3 MATCHES
 ============================================================ */
 
-
 function renderTopMatches(matches) {
 
-    if (!topMatches) {
+    if (!topMatchesElement) {
         return;
     }
 
-    topMatches.innerHTML = "";
+    topMatchesElement.innerHTML = "";
 
-    matches.forEach(
-        (match, index) => {
+    matches.forEach((match, index) => {
 
-            const row =
-                document.createElement("div");
+        const row = document.createElement("div");
+        row.className = "match-item";
 
-            row.className =
-                "match-item";
+        const rank = document.createElement("div");
+        rank.className = "match-rank";
+        rank.textContent = `#${index + 1}`;
 
-            const rank =
-                document.createElement("div");
+        // Character thumbnail
+        const thumb = document.createElement("img");
+        thumb.className = "match-thumb";
+        thumb.alt = `${match.name} character portrait`;
+        thumb.loading = "lazy";
+        thumb.decoding = "async";
+        thumb.style.display = "none";
 
-            rank.className =
-                "match-rank";
+        const image =
+            match.character?.image ||
+            match.image ||
+            "";
 
-            rank.textContent =
-                `#${index + 1}`;
+        if (image) {
 
-            const image =
-                document.createElement("img");
+            thumb.onload = () => {
+                thumb.style.display = "block";
+            };
 
-            image.className =
-                "match-thumb";
+            thumb.onerror = () => {
+                thumb.onload = null;
+                thumb.onerror = null;
 
-            if (match.image) {
-                image.src =
-                    match.image;
-            }
+                thumb.removeAttribute("src");
+                thumb.style.display = "none";
 
-            image.alt =
-                match.name;
+                console.warn(
+                    `Thumbnail could not load: ${image}`
+                );
+            };
 
-            image.loading =
-                "lazy";
-
-            const name =
-                document.createElement("div");
-
-            name.className =
-                "match-name";
-
-            name.textContent =
-                match.name;
-
-            row.append(
-                rank,
-                image,
-                name
-            );
-
-            topMatches.appendChild(row);
+            thumb.src = image;
         }
-    );
-}
 
+        // Character name
+        const name = document.createElement("div");
+        name.className = "match-name";
+        name.textContent = match.name;
+
+        // Match score
+        const percent = document.createElement("div");
+        percent.className = "match-percent";
+        percent.textContent = `${Math.round(match.score)}%`;
+
+        row.append(
+            rank,
+            thumb,
+            name,
+            percent
+        );
+
+        topMatchesElement.appendChild(row);
+    });
+}
 
 /* ============================================================
 TRAIT RESULTS
@@ -4320,4 +4320,3 @@ if (
         );
 
 }
-
