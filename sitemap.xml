@@ -61,6 +61,10 @@
         <loc>https://apocalypsequizzes.com/walking-dead-knowledge/</loc>
     </url>
 
+    <url>
+        <loc>https://apocalypsequizzes.com/walking-dead-characters-quiz/</loc>
+    </url>
+
     <!-- The 100 Knowledge Quiz -->
     <url>
         <loc>https://apocalypsequizzes.com/the-100-knowledge/</loc>
@@ -69,6 +73,10 @@
     <!-- Resident Evil Quiz -->
     <url>
         <loc>https://apocalypsequizzes.com/resident-evil-quiz/</loc>
+    </url>
+    
+    <url>
+        <loc>https://apocalypsequizzes.com/resident-evil/2026/</loc>
     </url>
 
     <!-- Love and Monsters Quiz -->
@@ -79,11 +87,6 @@
     <!-- iZombie Quiz -->
     <url>
         <loc>https://apocalypsequizzes.com/izombie-quiz/</loc>
-    </url>
-
-    <!-- The Walking Dead Characters Quiz -->
-    <url>
-        <loc>https://apocalypsequizzes.com/walking-dead-characters-quiz/</loc>
     </url>
 
     <!-- Plague Outbreak Survival Quiz -->
@@ -176,7 +179,6 @@
         <loc>https://apocalypsequizzes.com/a-quiet-place-quiz/</loc>
     </url>
 
-    <!-- A Quiet Place part II -->
     <url>
         <loc>https://apocalypsequizzes.com/a-quiet-place-part-II-quiz/</loc>
     </url>
@@ -186,12 +188,11 @@
         <loc>https://apocalypsequizzes.com/war-of-the-worlds-quiz/</loc>
     </url>
 
-    <!-- Mad Max-Fury Roads  -->
+    <!-- Mad Max -->
     <url>
         <loc>https://apocalypsequizzes.com/mad-max-fury-road-quiz/</loc>
     </url>
 
-    <!-- Furiosa: A Mad Max Saga -->
     <url>
         <loc>https://apocalypsequizzes.com/furiosa-a-mad-max-saga-quiz/</loc>
     </url>
@@ -201,12 +202,10 @@
         <loc>https://apocalypsequizzes.com/the-maze-runner-quiz/</loc>
     </url>
 
-    <!-- Maze Runner: The Scorch Trails -->
     <url>
         <loc>https://apocalypsequizzes.com/maze-runner-the-scorch-trials-quiz/</loc>
     </url>
 
-    <!-- Maze Runner: The Death Cure -->
     <url>
         <loc>https://apocalypsequizzes.com/maze-runner-the-death-cure-quiz/</loc>
     </url>
@@ -216,17 +215,14 @@
         <loc>https://apocalypsequizzes.com/the-hunger-games-quiz/</loc>
     </url>
 
-    <!-- The Hunger Games: Catching Fire -->
     <url>
         <loc>https://apocalypsequizzes.com/the-hunger-games-catching-fire-quiz/</loc>
     </url>
     
-    <!-- The Hunger Games: Mockingjay part 1 -->
     <url>
         <loc>https://apocalypsequizzes.com/the-hunger-games-mockingjay-part-1-quiz/</loc>
     </url>
 
-    <!-- The Hunger Games: Mockingjay part 2 -->
     <url>
         <loc>https://apocalypsequizzes.com/the-hunger-games-mockingjay-part-2-quiz/</loc>
     </url>
@@ -241,47 +237,40 @@
         <loc>https://apocalypsequizzes.com/zombieland-quiz/</loc>
     </url>
 
-    <!-- Zombieland Double Tap Quiz -->
     <url>
         <loc>https://apocalypsequizzes.com/zombieland-double-tap-quiz/</loc>
     </url>
 
-    <!-- Alice in Borderland S1 -->
+    <!-- Alice in Borderland -->
     <url>
         <loc>https://apocalypsequizzes.com/alice-in-borderland-s1-trivia/</loc>
     </url>
 
-    <!-- Alice in Borderland S2 -->
     <url>
         <loc>https://apocalypsequizzes.com/alice-in-borderland-s2-trivia/</loc>
     </url>
 
-    <!-- Alice in Borderland S3 -->
     <url>
         <loc>https://apocalypsequizzes.com/alice-in-borderland-s3-trivia/</loc>
     </url>
 
-    <!-- Alice in Borderland Games -->
     <url>
         <loc>https://apocalypsequizzes.com/alice-in-borderland-games-trivia/</loc>
     </url>
 
-    <!-- Rise of the Planet of the Apes -->
+    <!-- Planet of the Apes -->
     <url>
         <loc>https://apocalypsequizzes.com/rise-of-the-planet-of-the-apes-quiz/</loc>
     </url>
 
-    <!-- Dawn of the Planet of the Apes -->
     <url>
         <loc>https://apocalypsequizzes.com/dawn-of-the-planet-of-the-apes-quiz/</loc>
     </url>
 
-    <!-- War for the Planet of the Apes -->
     <url>
         <loc>https://apocalypsequizzes.com/war-for-the-planet-of-the-apes-quiz/</loc>
     </url>
 
-    <!-- Kingdom of the Planet of the Apes -->
     <url>
         <loc>https://apocalypsequizzes.com/kingdom-of-the-planet-of-the-apes-quiz/</loc>
     </url>
