@@ -110,7 +110,7 @@ const CHARACTERS = {
 
     jon: {
     name: "Jon Snow",
-    image: "images/jon.png",
+    image: "../images/jon.png",
     traits: {
         honor:96,
         courage:94,
@@ -141,7 +141,7 @@ const CHARACTERS = {
 
     daenerys: {
     name: "Daenerys Targaryen",
-    image: "images/daenerys.png",
+    image: "../images/daenerys.png",
     traits: {
         honor:35,
         courage:89,
@@ -171,7 +171,7 @@ const CHARACTERS = {
 
     tyrion: {
         name: "Tyrion Lannister",
-        image: "images/tyrion.png",
+        image: "../images/tyrion.png",
         traits: {
             honor:42,
             courage:44,
@@ -201,7 +201,7 @@ const CHARACTERS = {
 
     cersei: {
     name: "Cersei Lannister",
-    image: "images/cersei.png",
+    image: "../images/cersei.png",
     traits: {
         honor:20,
         courage:45,
@@ -231,7 +231,7 @@ const CHARACTERS = {
 
     jaime: {
         name: "Jaime Lannister",
-        image: "images/jaime.png",
+        image: "../images/jaime.png",
         traits: {
             honor:88,
             courage:96,
@@ -261,7 +261,7 @@ const CHARACTERS = {
 
     arya: {
     name: "Arya Stark",
-    image: "images/arya.png",
+    image: "../images/arya.png",
     traits: {
         honor:35,
         courage:91,
@@ -291,7 +291,7 @@ const CHARACTERS = {
 
     sansa: { 
         name: "Sansa Stark",
-        image: "images/sansa.png",
+        image: "../images/sansa.png",
         traits: { 
             honor:45, 
             courage:45, 
@@ -319,7 +319,7 @@ const CHARACTERS = {
 
     ned: {
     name: "Ned Stark",
-    image: "images/ned.png",
+    image: "../images/ned.png",
     traits: {
         honor:99,
         courage:82,
@@ -349,7 +349,7 @@ const CHARACTERS = {
 
     robb: {
     name: "Robb Stark",
-    image: "images/robb.png",
+    image: "../images/robb.png",
     traits: {
         honor:84,
         courage:94,
@@ -379,7 +379,7 @@ const CHARACTERS = {
 
     catelyn: {
         name: "Catelyn Stark",
-        image: "images/catelyn.png",
+        image: "../images/catelyn.png",
         traits: {
             honor:82,
             courage:45,
@@ -409,7 +409,7 @@ const CHARACTERS = {
 
     joffrey: {
         name: "Joffrey Baratheon",
-        image: "images/joffrey.png",
+        image: "../images/joffrey.png",
         traits: {
             honor:12,
             courage:28,
@@ -439,7 +439,7 @@ const CHARACTERS = {
 
     tywin: {
     name: "Tywin Lannister",
-    image: "images/tywin.png",
+    image: "../images/tywin.png",
     traits: {
         honor:42,
         courage:48,
@@ -469,7 +469,7 @@ const CHARACTERS = {
 
     robert: {
         name: "Robert Baratheon",
-        image: "images/robert.png",
+        image: "../images/robert.png",
         traits: {
             honor:58,
             courage:99,
@@ -499,7 +499,7 @@ const CHARACTERS = {
 
     stannis: {
     name: "Stannis Baratheon",
-    image: "images/stannis.png",
+    image: "../images/stannis.png",
     traits: {
         honor:97,
         courage:81,
@@ -529,7 +529,7 @@ const CHARACTERS = {
 
     theon: {
         name: "Theon Greyjoy",
-        image: "images/theon.png",
+        image: "../images/theon.png",
         traits: {
             honor:42,
             courage:48,
@@ -559,7 +559,7 @@ const CHARACTERS = {
 
     ramsay: {
     name: "Ramsay Bolton",
-    image: "images/ramsay.png",
+    image: "../images/ramsay.png",
     traits: {
         honor:8,
         courage:83,
@@ -589,7 +589,7 @@ const CHARACTERS = {
 
     littlefinger: {
     name: "Petyr Baelish",
-    image: "images/littlefinger.png",
+    image: "../images/littlefinger.png",
     traits: {
         honor:8,
         courage:25,
@@ -619,7 +619,7 @@ const CHARACTERS = {
 
     varys: {
     name: "Varys",
-    image: "images/varys.png",
+    image: "../images/varys.png",
     traits: {
         honor:45,
         courage:32,
@@ -648,7 +648,7 @@ const CHARACTERS = {
 
     bronn: {
         name: "Bronn",
-        image: "images/bronn.png",
+        image: "../images/bronn.png",
         traits: {
             honor:18,
             courage:48,
@@ -678,7 +678,7 @@ const CHARACTERS = {
 
     hound: {
     name: "The Hound",
-    image: "images/hound.png",
+    image: "../images/hound.png",
     traits: {
         honor:33,
         courage:97,
@@ -708,7 +708,7 @@ const CHARACTERS = {
 
     brienne: {
     name: "Brienne of Tarth",
-    image: "images/brienne.png",
+    image: "../images/brienne.png",
     traits: {
         honor:96,
         courage:94,
@@ -738,7 +738,7 @@ const CHARACTERS = {
 
     samwell: {
         name: "Samwell Tarly",
-        image: "images/samwell.png",
+        image: "../images/samwell.png",
         traits: {
             honor:48,
             courage:48,
@@ -768,7 +768,7 @@ const CHARACTERS = {
 
     tormund: {
     name: "Tormund Giantsbane",
-    image: "images/tormund.png",
+    image: "../images/tormund.png",
     traits: {
         honor:42,
         courage:94,
@@ -798,7 +798,7 @@ const CHARACTERS = {
 
     ygritte: {
     name: "Ygritte",
-    image: "images/ygritte.png",
+    image: "../images/ygritte.png",
     traits: {
         honor:30,
         courage:92,
@@ -828,7 +828,7 @@ const CHARACTERS = {
 
     davos: {
         name: "Davos Seaworth",
-        image: "images/davos.png",
+        image: "../images/davos.png",
         traits: {
             honor:82,
             courage:48,
@@ -858,7 +858,7 @@ const CHARACTERS = {
 
     melisandre: {
         name: "Melisandre",
-        image: "images/melisandre.png",
+        image: "../images/melisandre.png",
         traits: {
             honor:28,
             courage:48,
@@ -886,12 +886,12 @@ const CHARACTERS = {
     },
 
 
-    jorah: { name: "Jorah Mormont", image: "images/jorah.png", traits: { honor:92, courage:84, loyalty:99, compassion:48, morality:48, pragmatism:78, ruthlessness:28, ambition:35, leadership:48, independence:40, intelligence:48, strategy:48, manipulation:20, charisma:45, pride:45, determination:97, riskTaking:45, selfPreservation:48, emotionalControl:64, curiosity:35 }, description: "A devoted protector whose loyalty and determination repeatedly overcome fear, shame and self-interest." },
+    jorah: { name: "Jorah Mormont", image: "../images/jorah.png", traits: { honor:92, courage:84, loyalty:99, compassion:48, morality:48, pragmatism:78, ruthlessness:28, ambition:35, leadership:48, independence:40, intelligence:48, strategy:48, manipulation:20, charisma:45, pride:45, determination:97, riskTaking:45, selfPreservation:48, emotionalControl:64, curiosity:35 }, description: "A devoted protector whose loyalty and determination repeatedly overcome fear, shame and self-interest." },
 
 
     oberyn: {
     name: "Oberyn Martell",
-    image: "images/oberyn.png",
+    image: "../images/oberyn.png",
     traits: {
         honor:42,
         courage:94,
@@ -921,7 +921,7 @@ const CHARACTERS = {
 
     margaery: {
         name: "Margaery Tyrell",
-        image: "images/margaery.png",
+        image: "../images/margaery.png",
         traits: {
             honor:42,
             courage:38,
@@ -951,7 +951,7 @@ const CHARACTERS = {
 
     drogo: {
     name: "Khal Drogo",
-    image: "images/drogo.png",
+    image: "../images/drogo.png",
     traits: {
         honor:48,
         courage:94,
@@ -981,7 +981,7 @@ const CHARACTERS = {
 
     viserys: {
         name: "Viserys Targaryen",
-        image: "images/viserys.png",
+        image: "../images/viserys.png",
         traits: {
             honor:12,
             courage:22,
@@ -1011,7 +1011,7 @@ const CHARACTERS = {
 
     nightKing: {
     name: "The Night King",
-    image: "images/nightking.png",
+    image: "../images/nightking.png",
     traits: {
         honor:5,
         courage:84,
@@ -1041,7 +1041,7 @@ const CHARACTERS = {
 
     mance: {
         name: "Mance Rayder",
-        image: "images/mance.png",
+        image: "../images/mance.png",
         traits: {
             honor:48,
             courage:83,
@@ -3360,11 +3360,21 @@ function renderResults() {
             `You are most like ${winner.name}`;
     }
 
-    // Result description
-    if (resultDescriptionElement) {
-        resultDescriptionElement.textContent =
-            `${winner.name} ${QUIZ_CONFIG.resultDescription}`;
-    }
+    /* --------------------------------------------------------
+RESULT DESCRIPTION — CHARACTER-SPECIFIC
+-------------------------------------------------------- */
+
+if (resultDescriptionElement) {
+
+    const characterDescription =
+        winner.character?.description ||
+        CHARACTERS[winner.id]?.description;
+
+    resultDescriptionElement.textContent =
+        characterDescription ||
+        `${winner.name} ${QUIZ_CONFIG.resultDescription}`;
+
+}
 
     // Winner portrait
     if (winnerImageElement) {
