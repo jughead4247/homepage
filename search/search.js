@@ -205,20 +205,31 @@ const quizzes = [
             "https://apocalypsequizzes.com/silo-quiz/"
     },
 
-
     {
-        title: "Resident Evil Quiz",
+        title: "Resident Evil (2002) Quiz",
 
         description:
-            "Test your knowledge of Resident Evil, zombies, monsters, characters, and its dangerous world.",
+            "Test your knowledge of Resident Evil (2002), Alice's awakening, Umbrella Corporation, the Hive, the Red Queen, the T-virus outbreak, Spence Parks, Matt Addison, and the terrifying events inside the underground facility.",
 
         categories:
-            "Resident Evil RE biohazard zombie horror survival horror video game movie Raccoon City Leon Kennedy Claire Redfield Jill Valentine Chris Redfield Albert Wesker Ada Wong Ethan Winters Umbrella Corporation T-virus G-virus virus outbreak zombies Nemesis Tyrant STARS Spencer Mansion",
+            "Resident Evil Resident Evil 2002 Resident Evil 2002 quiz original Resident Evil movie 2002 film Paul W S Anderson Milla Jovovich Alice Umbrella Corporation Hive Red Queen T-virus Spence Parks Matt Addison Lisa Addison Rain Ocampo Kaplan James Shade One J.D. infected Dobermans Licker laser corridor underground train Raccoon City biological outbreak horror movie quiz movie trivia survival horror science fiction sci-fi zombies mutant creature",
 
         url:
             "https://apocalypsequizzes.com/resident-evil-quiz/"
     },
 
+    {
+        title: "Game of Thrones Season 1 Quiz",
+
+        description:
+            "Test your knowledge of Game of Thrones Season 1, including Ned Stark, the Stark and Lannister families, Daenerys Targaryen, the Night's Watch, King's Landing, the Wall, and the major events that begin the fight for the Iron Throne.",
+
+        categories:
+            "Game of Thrones Game of Thrones Season 1 Game of Thrones Season 1 quiz HBO fantasy series season 1 trivia Ned Stark Eddard Stark Jon Snow Arya Stark Sansa Stark Bran Stark Robb Stark Catelyn Stark Tyrion Lannister Cersei Lannister Jaime Lannister Robert Baratheon Joffrey Baratheon Daenerys Targaryen Viserys Targaryen Khal Drogo Jorah Mormont House Stark House Lannister House Targaryen Night's Watch the Wall Castle Black Winterfell King's Landing Westeros Essos Dothraki Iron Throne direwolves political intrigue fantasy TV show trivia",
+
+        url:
+            "https://apocalypsequizzes.com/game-of-thrones/season-1-quiz/"
+    },
 
     {
         title: "Love and Monsters Quiz",
@@ -261,6 +272,18 @@ const quizzes = [
             "https://apocalypsequizzes.com/the-walking-dead-characters-quiz/"
     },
 
+        {
+        title: "Game of Thrones Personality Quiz",
+
+        description:
+            "Discover which Game of Thrones character matches your personality. Answer 50 difficult choices involving loyalty, honor, power, leadership, survival, morality, strategy, and betrayal to find your closest character matches from Westeros.",
+
+        categories:
+            "Game of Thrones Game of Thrones Personality Quiz Game of Thrones personality test which Game of Thrones character are you Game of Thrones character quiz character match personality quiz Jon Snow Daenerys Targaryen Tyrion Lannister Cersei Lannister Jaime Lannister Arya Stark Sansa Stark Eddard Stark Ned Stark Robb Stark Catelyn Stark Joffrey Baratheon Tywin Lannister Robert Baratheon Stannis Baratheon Theon Greyjoy Ramsay Bolton Petyr Baelish Littlefinger Varys Bronn Sandor Clegane The Hound Brienne of Tarth Samwell Tarly Tormund Giantsbane Ygritte Davos Seaworth Melisandre Jorah Mormont Oberyn Martell Westeros fictional character personality traits honor loyalty courage compassion ambition leadership intelligence strategy cunning manipulation power morality survival self-preservation fantasy TV series HBO",
+
+        url:
+            "https://apocalypsequizzes.com/game-of-thrones/personality-quiz/"
+    },
 
     {
         title: "Plague Outbreak Survival Quiz",
@@ -289,6 +312,18 @@ const quizzes = [
             "https://apocalypsequizzes.com/westworld-quiz/"
     },
 
+    {
+        title: "Alice in Borderland Season 1 Quiz",
+
+        description:
+            "Test your knowledge of Alice in Borderland Season 1, its characters, games, story, and mysterious world.",
+
+        categories:
+            "Alice in Borderland Alice in Borderland Season 1 TV show series Arisu Ryohei Arisu Usagi Yuzuha Chishiya Shuntaro Chishiya Karube Daikichi Segawa Chota Morita Kuina Hikari Niragi Shibuki Ann Rizuna Aguni Morizono Hatter Mira Kano Last Boss games Borderland visas playing cards Beach survival dystopian survival",
+
+        url:
+            "https://apocalypsequizzes.com/alice-in-borderland-s1-trivia/"
+    },
 
     {
         title: "The Last of Us Quiz",
@@ -303,6 +338,18 @@ const quizzes = [
             "https://apocalypsequizzes.com/last-of-us-quiz/"
     },
 
+        {
+        title: "Game of Thrones Season 2 Quiz",
+
+        description:
+            "Test your knowledge of Game of Thrones Season 2, including Robb Stark's war, Tyrion Lannister in King's Landing, Arya at Harrenhal, Jon Snow beyond the Wall, Theon Greyjoy's attack on Winterfell, Daenerys in Qarth, and the Battle of the Blackwater.",
+
+        categories:
+            "Game of Thrones Game of Thrones Season 2 Game of Thrones Season 2 quiz HBO fantasy series season 2 trivia Robb Stark Tyrion Lannister Arya Stark Jon Snow Daenerys Targaryen Theon Greyjoy Stannis Baratheon Renly Baratheon Melisandre Davos Seaworth Brienne of Tarth Joffrey Baratheon Cersei Lannister Tywin Lannister House Stark House Lannister House Greyjoy House Baratheon King's Landing Winterfell Harrenhal Qarth Iron Islands the Wall Night's Watch Battle of the Blackwater War of the Five Kings A Clash of Kings Iron Throne Westeros Essos fantasy TV show trivia",
+
+        url:
+            "https://apocalypsequizzes.com/game-of-thrones/season-2-quiz/"
+    },
 
     {
         title: "Fallout TV Show Quiz",
@@ -373,6 +420,18 @@ const quizzes = [
             "https://apocalypsequizzes.com/jericho-quiz/"
     },
 
+        {
+        title: "Game of Thrones Female Character Quiz",
+
+        description:
+            "Discover which Game of Thrones female character matches your personality. Answer 35 difficult choices involving loyalty, honor, ambition, leadership, strategy, survival, relationships, and power to find your closest character matches among 16 women from Westeros.",
+
+        categories:
+            "Game of Thrones Game of Thrones Female Character Quiz Game of Thrones Female Personality Quiz female character personality test which Game of Thrones female character are you Game of Thrones character quiz personality quiz Daenerys Targaryen Cersei Lannister Arya Stark Sansa Stark Catelyn Stark Brienne of Tarth Ygritte Melisandre Margaery Tyrell Yara Greyjoy Olenna Tyrell Ellaria Sand Missandei Meera Reed Gilly Lyanna Mormont Westeros House Stark House Lannister House Targaryen female characters fictional character match honor courage loyalty compassion morality pragmatism ruthlessness ambition leadership independence intelligence strategy manipulation charisma determination self-preservation adaptability protectiveness power survival relationships fantasy TV series HBO",
+
+        url:
+            "https://apocalypsequizzes.com/game-of-thrones/female-personality-quiz/"
+    },
 
     {
         title: "Snowpiercer Quiz",
@@ -403,20 +462,6 @@ const quizzes = [
 
 
     {
-        title: "Alice in Borderland Season 1 Quiz",
-
-        description:
-            "Test your knowledge of Alice in Borderland Season 1, its characters, games, story, and mysterious world.",
-
-        categories:
-            "Alice in Borderland Alice in Borderland Season 1 TV show series Arisu Ryohei Arisu Usagi Yuzuha Chishiya Shuntaro Chishiya Karube Daikichi Segawa Chota Morita Kuina Hikari Niragi Shibuki Ann Rizuna Aguni Morizono Hatter Mira Kano Last Boss games Borderland visas playing cards Beach survival dystopian survival",
-
-        url:
-            "https://apocalypsequizzes.com/alice-in-borderland-s1-trivia/"
-    },
-
-
-    {
         title: "Alice in Borderland Season 2 Quiz",
 
         description:
@@ -443,6 +488,18 @@ const quizzes = [
             "https://apocalypsequizzes.com/alice-in-borderland-s3-trivia/"
     },
 
+        {
+        title: "Game of Thrones Season 8 Quiz",
+
+        description:
+            "Test your knowledge of Game of Thrones Season 8, including the Battle of Winterfell, the Night King, Arya Stark, Daenerys Targaryen, Rhaegal, the Golden Company, the destruction of King's Landing, and the fate of the Iron Throne.",
+
+        categories:
+            "Game of Thrones Game of Thrones Season 8 Game of Thrones Season 8 quiz final season HBO fantasy series season 8 trivia Arya Stark Jon Snow Daenerys Targaryen Sansa Stark Bran Stark Jaime Lannister Cersei Lannister Tyrion Lannister Brienne of Tarth Samwell Tarly The Hound Night King White Walkers Army of the Dead Battle of Winterfell Rhaegal Drogon Viserion Golden Company Missandei Grey Worm King's Landing Dragonpit Iron Throne The Bells The Last of the Starks The Long Night Winterfell series finale Westeros fantasy TV show trivia",
+
+        url:
+            "https://apocalypsequizzes.com/game-of-thrones/season-8-quiz/"
+    },
 
     {
         title: "Alice in Borderland Games Quiz",
@@ -527,6 +584,18 @@ const quizzes = [
             "https://apocalypsequizzes.com/edge-of-tomorrow-quiz/"
     },
 
+    { 
+        title: "Resident Evil (2026) Quiz", 
+        
+        description: 
+            "Test your knowledge of Resident Evil (2026), Bryan, Umbrella Corporation, Raccoon City, the hospital outbreak, terrifying mutations, and hidden video-game references.", 
+        
+        categories: 
+            "Resident Evil Resident Evil 2026 Resident Evil movie Resident Evil 2026 quiz horror movie quiz Bryan Umbrella Corporation Raccoon City hospital outbreak zombies infected creatures mutations bioweapons survival horror apocalypse video game references science fiction action horror film", 
+             
+        url: 
+            "https://apocalypsequizzes.com/resident-evil/2026/" 
+    },
 
     {
         title: "The Tomorrow War Quiz",
@@ -817,6 +886,46 @@ const quizzes = [
 
         url:
             "https://apocalypsequizzes.com/daybreak-quiz/"
+    },
+
+
+    {
+        title: "Oblivion Quiz",
+
+        description:
+            "Test your knowledge of Oblivion, its characters, the mysterious post-apocalyptic world, advanced technology, and the secrets behind humanity's survival.",
+
+        categories:
+            "Oblivion Oblivion movie Oblivion quiz movie quiz science fiction sci-fi post-apocalyptic apocalypse futuristic world survival humanity technology mysteries action adventure film",
+
+        url:
+            "https://apocalypsequizzes.com/oblivion-quiz/"
+    },
+
+    {
+        title: "Moonfall Quiz",
+
+        description:
+            "Test your knowledge of Moonfall, the mysterious lunar disaster, the Moon's hidden secrets, the threat to Earth, and humanity's fight for survival.",
+
+        categories:
+            "Moonfall Moonfall movie Moonfall quiz movie quiz Roland Emmerich Halle Berry Patrick Wilson John Bradley K C Houseman Jo Fowler Brian Harper conspiracy Moon disaster falling Moon lunar anomaly Earth destruction space NASA astronauts aliens artificial intelligence apocalypse survival science fiction sci-fi action adventure film",
+
+        url:
+            "https://apocalypsequizzes.com/moonfall-quiz/"
+    },
+
+    {
+        title: "Elysium Quiz",
+
+        description:
+            "Test your knowledge of Elysium, Max Da Costa, the space station, the dystopian Earth, advanced medical technology, and the fight for equality.",
+
+        categories:
+            "Elysium Elysium movie Elysium quiz movie quiz Neill Blomkamp Matt Damon Max Da Costa Jodie Foster Jessica Delacourt Sharlto Copley Kruger Alice Braga Frey Diego Luna Spider Elysium space station dystopian Earth futuristic society class inequality medical technology Med-Bays exoskeletons robots Armadyne John Carlyle dystopia survival science fiction sci-fi action thriller film",
+
+        url:
+            "https://apocalypsequizzes.com/elysium-quiz/"
     },
 
 
