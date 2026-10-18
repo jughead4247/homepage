@@ -1,906 +1,1175 @@
 const questions = [
-
+    // 1
     {
-        question: "The outbreak has just begun. You wake up to no mobile network, sirens, neighbors shouting, and reports of violent attacks. You hear screaming outside. What do you do?",
+        question: "Infected are moving below your apartment. The doors are secure. What first?",
         answers: [
-            ["Look outside", 3, null],
-            ["Secure your home", 5, null],
-            ["Leave immediately", 2, null],
-            ["Check the rooftop", 3, null]
+            ["Secure entry points, reduce noise and light, monitor trusted updates", 5, 4],
+            ["Go outside to watch the infected", 2, 2],
+            ["Shout instructions from a window", 1, 2],
+            ["Open windows to hear the street", 2, 2]
         ]
     },
 
+    // 2
     {
-        question: "You have 30 minutes before the electricity goes out. What is most important?",
+        question: "You must evacuate in 20 minutes. What do you pack first?",
         answers: [
-            ["Clothes", 1, null],
-            ["Food, water, medicine, and tools", 5, null],
-            ["Valuables", 0, null],
-            ["Whatever fits in your bag", 3, null]
+            ["Water, medicines, first aid, ID, phone and radio", 5, 4],
+            ["Clothes before essentials", 3, 2],
+            ["Valuables and bulky items", 2, 2],
+            ["Search for extra comforts", 2, 2]
         ]
     },
 
+    // 3
     {
-        question: "You hear pounding on a door downstairs. What do you do?",
+        question: "You hear groans and pounding behind your locked door. What first?",
         answers: [
-            ["Barricade and observe", 5, null],
-            ["Help the neighbors", 3, 5],
-            ["Leave immediately", 4, 2],
-            ["Check the rooftop", 3, null]
+            ["Keep it shut; assess through a peephole, camera or barrier", 5, 4],
+            ["Open it slightly while holding the edge", 2, 3],
+            ["Stand at the door and shout questions", 2, 2],
+            ["Enter the unverified hallway", 1, 2]
         ]
     },
 
+    // 4
     {
-        question: "Your neighbor is asking for help, but you don't know if they're infected. What do you do?",
+        question: "A neighbor with a bloody sleeve asks to enter during a bite-spread outbreak. What do you do?",
         answers: [
-            ["Open the door", 1, 4],
-            ["Shoot through the door", 0, 0],
-            ["Assess them from safety", 5, 5],
-            ["Ignore them", 3, 2]
+            ["Speak through a barrier; ask about bites and offer safe help", 5, 5],
+            ["Let them in before checking the wound", 2, 3],
+            ["Assume blood means infection and refuse all contact", 3, 1],
+            ["Leave them outside without guidance or supplies", 2, 1]
         ]
     },
 
+    // 5
     {
-        question: "The power is out, and you hear screams outside. What do you do?",
+        question: "Power fails as infected move outside. You have a radio and partly charged phones. What first?",
         answers: [
-            ["Investigate", 1, 3],
-            ["Stay inside", 5, 3],
-            ["Turn on the lights", 0, null],
-            ["Search for survivors", 2, 5]
+            ["Secure doors, cover lights, check updates and save battery", 5, 4],
+            ["Shine a bright torch through the window", 2, 2],
+            ["Start a vehicle to check nearby power", 1, 2],
+            ["Keep calling everyone despite network overload", 2, 2]
         ]
     },
 
+    // 6
     {
-        question: "Something hits your neighbor's door, and the sound is now outside your floor. What do you do?",
+        question: "Smoke enters your flat. The main exit is smoky; the second stairwell is clear. What do you do?",
         answers: [
-            ["Stay silent", 5, null],
-            ["Prepare to fight", 3, null],
-            ["Move to the rooftop", 4, null],
-            ["Escape through the balcony", 2, null]
+            ["Stay inside and wait", 2, 3],
+            ["Use the clear stairwell and avoid smoke", 5, 4],
+            ["Take the elevator", 0, 2],
+            ["Go to the roof without checking the route", 3, 3]
         ]
     },
 
+    // 7
     {
-        question: "You hear 3–4 people moving toward your floor. What do you do?",
+        question: "A walker is found inside your sealed compound. Nobody saw it enter. What first?",
         answers: [
-            ["Stay silent", 5, null],
-            ["Announce yourself", 3, 4],
-            ["Ambush them", 2, 1],
-            ["Escape to the rooftop", 4, 3]
+            ["Isolate the area and check entry points from safety", 5, 4],
+            ["Crowd around it to identify it", 1, 2],
+            ["Move it through the sleeping area", 1, 1],
+            ["Accuse the nearest resident of opening the gate", 1, 1]
         ]
     },
 
+    // 8
     {
-        question: "Unknown people outside know you're inside and ask, \"How many people are inside?\" What do you say?",
+        question: "Infected block the stairwell, and boxes obstruct your backup exit. What do you do?",
         answers: [
-            ["\"Two.\"", 2, 3],
-            ["\"More than you.\"", 3, 2],
-            ["\"Enough.\"", 4, 3],
-            ["Stay silent", 5, 3]
+            ["Clear the backup route if safe; move people from the threatened door", 5, null],
+            ["Open the stairwell to count the infected", 1, null],
+            ["Put more supplies beside the blocked exit", 2, null],
+            ["Wait until the main door fails", 1, null]
         ]
     },
 
+    // 9
     {
-        question: "An infected person suddenly lunges at you. How do you react?",
+        question: "A walker rushes you in a narrow corridor. A side room is behind you. What now?",
         answers: [
-            ["Attack immediately", 3, 2],
-            ["Step aside and attack", 5, 2],
-            ["Create distance", 4, 3],
-            ["Swing wildly", 1, 1]
+            ["Retreat into the clear room and use the doorway as a barrier", 5, 3],
+            ["Backpedal without checking your footing", 2, 2],
+            ["Freeze and hope it stops", 0, 2],
+            ["Swing wildly while staying in the corridor", 2, 1]
         ]
     },
 
+    // 10
     {
-        question: "You can take only three priority categories. What do you choose?",
+        question: "A teammate becomes confused and unsteady in hot weather. What first?",
         answers: [
-            ["Food and water", 4, null],
-            ["Medical supplies", 4, null],
-            ["Weapons", 3, null],
-            ["Balanced supplies", 5, null]
+            ["Move them to shade, cool them and seek urgent medical help", 5, null],
+            ["Make them keep walking", 0, null],
+            ["Give salt tablets without assessment", 2, null],
+            ["Feed them a large meal and resume walking", 1, null]
         ]
     },
 
+    // 11
     {
-        question: "You have 10 liters of water for three people. What do you do?",
+        question: "Three people have 10 L of water and no refill in hot weather. Best plan?",
         answers: [
-            ["Drink freely", 1, 1],
-            ["Ration it", 5, 4],
-            ["Give most to one person", 2, 2],
-            ["Throw some away", 0, 0]
+            ["Conserve water and find a safe refill", 5, null],
+            ["Stop drinking completely", 0, null],
+            ["Drink freely and worry later", 2, null],
+            ["Assume nearby stream water is safe", 2, null]
         ]
     },
 
+    // 12
     {
-        question: "One member is using much more food and water than everyone else. What do you do?",
+        question: "A group member secretly takes extra food. What do you do?",
         answers: [
-            ["Let them", 1, 1],
-            ["Confront them", 3, 3],
-            ["Set rations", 5, 5],
-            ["Give them less", 2, 1]
+            ["Ignore it", 2, 2],
+            ["Humiliate them publicly", 3, 1],
+            ["Check their needs and set fair rations", 5, 5],
+            ["Secretly cut their food", 3, 1]
         ]
     },
 
+    // 13
     {
-        question: "Your group needs a leader. Who would you support?",
+        question: "Your food will last two days, and resupply is uncertain. What first?",
         answers: [
-            ["Strongest", 3, 2],
-            ["Most experienced", 5, 4],
-            ["Most trusted", 4, 5],
-            ["Most strategic", 4, 3]
+            ["Delay planning", 2, null],
+            ["Count supplies, ration fairly and plan resupply", 5, null],
+            ["Send everyone out searching", 3, null],
+            ["Hide food from the group", 2, null]
         ]
     },
 
+    // 14
     {
-        question: "One group member is becoming aggressive toward others. How do you handle the situation?",
+        question: "An injured member needs extra calories, but food is limited. What is fairest?",
         answers: [
-            ["Confront them", 3, 3],
-            ["Avoid them", 2, 2],
-            ["Talk privately", 5, 5],
-            ["Remove them", 4, 1]
+            ["Give unlimited extra food", 3, 3],
+            ["Give everyone identical portions", 4, 3],
+            ["Balance recovery needs with group supplies", 5, 5],
+            ["Secretly reduce their portion", 0, 0]
         ]
     },
 
+    // 15
     {
-        question: "Your best friend from before the outbreak has become unstable and is no longer fit for the group. What do you do?",
+        question: "You need a leader for watches, supplies and travel. What matters most?",
         answers: [
-            ["Give another chance", 2, 5],
-            ["Talk to them", 4, 5],
-            ["Restrict their role", 5, 3],
-            ["Remove them", 5, 1]
+            ["Sound judgment and reliability", 5, 5],
+            ["Physical strength alone", 3, 2],
+            ["Popularity alone", 3, 4],
+            ["Making every decision alone", 3, 1]
         ]
     },
 
+    // 16
     {
-        question: "One group member refuses to follow safety rules. What do you do?",
+        question: "A member wants to run a generator in a closed room. What is safest?",
         answers: [
-            ["Ignore them", 1, 2],
-            ["Set rules and consequences", 5, 5],
-            ["Abandon them", 3, 1],
-            ["Let them decide", 2, 3]
+            ["Keep it off; use battery lights", 4, null],
+            ["Run it outdoors, away from doors and vents", 5, null],
+            ["Use an attached garage with its door open", 0, null],
+            ["Connect it to house wiring without isolating mains power", 0, null]
         ]
     },
 
+    // 17
     {
-        question: "Two members start arguing loudly while zombies are nearby. What do you prioritize?",
+        question: "Your vehicle has limited space for a trip through infected territory. What do you pack?",
         answers: [
-            ["Let them argue", 1, 2],
-            ["Keep everyone quiet", 5, 4],
-            ["Leave them behind", 3, 0],
-            ["Shout louder", 0, 0]
+            ["Water, medical supplies, navigation, repair kit and some fuel", 5, null],
+            ["Weapons and ammunition instead of water and repair gear", 2, null],
+            ["Furniture and valuables before essentials", 1, null],
+            ["Bulky barricade materials that are hard to carry", 2, null]
         ]
     },
 
+    // 18
     {
-        question: "Two members strongly disagree about where to go. What do you do?",
+        question: "Two members argue loudly as a horde approaches. Your covered exit is nearby. What first?",
         answers: [
-            ["Let everyone vote", 4, 5],
-            ["Decide yourself", 3, 2],
-            ["Hear both sides and assess the risks", 5, 5],
-            ["Let them decide", 2, 3]
+            ["Quiet everyone and move together; settle the dispute later", 5, 4],
+            ["Shout louder to give orders", 1, 2],
+            ["Split up and let each side choose a route", 1, 2],
+            ["Stay until the argument is settled", 2, 3]
         ]
     },
 
+    // 19
     {
-        question: "You discover that someone has been secretly stealing supplies to feed their family. What do you do?",
+        question: "Food arrives while the storeroom floor is damp. Where should it go?",
         answers: [
-            ["Punish them", 3, 1],
-            ["Forgive them", 2, 5],
-            ["Fix the ration system", 5, 5],
-            ["Restrict their access", 4, 2]
+            ["Store it dry, raised off the floor and with airflow", 5, null],
+            ["Stack bags against the damp wall", 2, null],
+            ["Seal damp bags tightly and leave them", 1, null],
+            ["Leave food open beside the sleeping area", 2, null]
         ]
     },
 
+    // 20
     {
-        question: "A member secretly takes extra food. What is the biggest problem?",
+        question: "Rain leaks into the sleeping room. You have one tarp. What first?",
         answers: [
-            ["Lost food", 3, 2],
-            ["Loss of trust", 5, 5],
-            ["Their hunger", 3, 4],
-            ["The container", 1, 1]
+            ["Move people clear and protect them; repair safely", 5, 5],
+            ["Climb onto the wet roof alone", 1, 2],
+            ["Leave beds under the leak", 2, 2],
+            ["Block the only exit with the tarp", 0, 1]
         ]
     },
 
+    // 21
     {
-        question: "You have only one packet of chips left. Who gets it?",
+        question: "A child calls for help inside a building with infected nearby. What first?",
         answers: [
-            ["Elderly person", 3, 4],
-            ["Pregnant woman", 4, 4],
-            ["7-year-old child", 4, 5],
-            ["Group leader", 5, 2]
+            ["Observe from cover, find exits and plan a quiet rescue", 5, 5],
+            ["Rush inside alone", 2, 4],
+            ["Shout repeatedly to guide the child", 2, 3],
+            ["Leave without checking safer rescue options", 3, 1]
         ]
     },
 
+    // 22
     {
-        question: "You can save only one: a 5-year-old child or an elderly man. Who do you save?",
+        question: "Floodwater rises. One person is reachable; another is behind unstable debris. What now?",
         answers: [
-            ["The child", 4, 5],
-            ["The elderly man", 3, 4],
-            ["Whoever is closer", 5, 3],
-            ["Try to save both", 2, 5]
+            ["Help the reachable person and call for help", 5, 4],
+            ["Enter the unstable area anyway", 2, 3],
+            ["Choose by age, not access or danger", 3, 2],
+            ["Wait until both routes flood", 0, 1]
         ]
     },
 
+    // 23
     {
-        question: "You can save only one: your doctor or your leader. Who do you save?",
+        question: "A ceiling panel is falling toward a teammate. What do you do?",
         answers: [
-            ["Doctor", 5, 4],
-            ["Leader", 4, 3],
-            ["Whoever is closer", 3, 3],
-            ["Try to save both", 2, 5]
+            ["Warn them and help them move clear if safe", 5, 4],
+            ["Run under it to grab their belongings", 0, 2],
+            ["Freeze and wait", 0, 2],
+            ["Drag them by an injured limb without checking safety", 1, 2]
         ]
     },
 
+    // 24
     {
-        question: "You hear a child crying for help inside a building surrounded by zombies. What do you do?",
+        question: "A teammate wants to use a car alarm to lure infected away. Other survivors are nearby. What first?",
         answers: [
-            ["Rescue alone", 2, 5],
-            ["Take the whole group", 2, 4],
-            ["Send two people", 5, 5],
-            ["Leave the child", 4, 0]
+            ["Check herd movement and others' positions; coordinate a safe diversion", 5, 5],
+            ["Trigger the alarm immediately", 2, 2],
+            ["Have people shout from different places", 1, 2],
+            ["Let one teammate try it alone", 2, 2]
         ]
     },
 
+    // 25
     {
-        question: "Three zombies are blocking your route. What do you do?",
+        question: "A friend damages the only working radio and hides it. What do you do?",
         answers: [
-            ["Observe them", 4, 3],
-            ["Distract them", 3, 3],
-            ["Kill the nearest one", 4, 1],
-            ["Move between them", 5, 3]
+            ["Keep it secret", 2, 3],
+            ["Report it, check repairs and speak privately", 5, 5],
+            ["Shame them before checking the damage", 3, 1],
+            ["Discard it without telling anyone", 2, 1]
         ]
     },
 
+    // 26
     {
-        question: "Several zombies are nearby but haven't noticed you. What do you do?",
+        question: "A teammate has a fresh bite. What should happen first?",
         answers: [
-            ["Take a longer route", 5, 3],
-            ["Run", 2, 2],
-            ["Wait", 4, 3],
-            ["Distract them", 2, 2]
+            ["Move them to a separate area and follow exposure protocol", 5, null],
+            ["Hide the bite so they can stay with everyone", 1, null],
+            ["Abandon them immediately", 1, null],
+            ["Let them mix with everyone while you debate", 1, null]
         ]
     },
 
+    // 27
     {
-        question: "You discover zombies are attracted to loud sounds. What do you do?",
+        question: "A stranger asks for food. Supplies are limited, but no danger is visible. What do you do?",
         answers: [
-            ["Use the car horn", 0, 2],
-            ["Fire your gun", 0, 1],
-            ["Stay quiet", 5, 4],
-            ["Play music", 1, 2]
+            ["Invite them straight inside", 2, 4],
+            ["Assess safely and offer help if possible", 5, 5],
+            ["Threaten them", 2, 0],
+            ["Give away all remaining food", 2, 4]
         ]
     },
 
+    // 28
     {
-        question: "You reach a road filled with abandoned vehicles. What do you do?",
+        question: "A stranger offers medicine with unknown contents and expiry. What do you do?",
         answers: [
-            ["Search the vehicles", 3, 3],
-            ["Take one", 2, 2],
-            ["Find a less exposed route", 5, 4],
-            ["Stay on the road", 1, 2]
+            ["Check it and reject unverifiable medicine", 5, 5],
+            ["Accept it because medicine is useful", 2, 3],
+            ["Discard all medicines, even verified supplies", 3, 2],
+            ["Attack them and take it", 2, 0]
         ]
     },
 
+    // 29
     {
-        question: "You find a parked car with the keys inside. What do you check first?",
+        question: "Two members accuse each other of stealing medicine, but there is no proof. What now?",
         answers: [
-            ["Radio", 2, null],
-            ["Fuel, condition, and surroundings", 5, null],
-            ["Glove compartment", 3, null],
-            ["Paint", 0, null]
+            ["Punish the person you distrust", 2, 1],
+            ["Separate them, check facts and protect medical supplies", 5, 5],
+            ["Let the loudest person decide", 2, 2],
+            ["Ignore the dispute", 3, 2]
         ]
     },
 
+    // 30
     {
-        question: "You need to travel a long distance. Which route would you choose?",
+        question: "A survivor says motionless infected become harmless after hours. What is safest?",
         answers: [
-            ["Highway", 2, null],
-            ["Back roads", 4, null],
-            ["Rural routes", 5, null],
-            ["Change routes frequently", 3, null]
+            ["Treat the claim as unverified; observe from cover and keep an escape route", 5, 4],
+            ["Walk among them because they are still", 1, 2],
+            ["Approach and throw something to test them", 1, 2],
+            ["Cross through them before they move", 1, 2]
         ]
     },
 
+    // 31
     {
-        question: "Choose your main mode of transportation.",
+        question: "You find an abandoned car near infected. The key is inside, but the cabin and exit are unclear. What first?",
         answers: [
-            ["Car", 4, null],
-            ["Truck", 5, null],
-            ["Motorcycle", 3, null],
-            ["On foot", 2, null]
+            ["Check the cabin, access, alarm risk and escape route from cover", 5, null],
+            ["Start it immediately", 2, null],
+            ["Search the glove box before checking surroundings", 1, null],
+            ["Send one person to inspect it alone", 1, null]
         ]
     },
 
+    // 32
     {
-        question: "You can take only one small utility item. Which do you choose?",
+        question: "Your flashlight fails in a stairwell. Groans come from below, and your group is unseen. What now?",
         answers: [
-            ["Knife", 5, null],
-            ["Flashlight", 4, null],
-            ["Matches", 3, null],
-            ["Rope", 3, null]
+            ["Back away quietly along the known route", 5, null],
+            ["Sweep the beam around to find the source", 2, null],
+            ["Go down before the light fails", 1, null],
+            ["Call out to check how close they are", 1, null]
         ]
     },
 
+    // 33
     {
-        question: "You find a friendly dog following your group. What do you do?",
+        question: "A horde blocks the main road. A side road may bypass it, but its condition is unknown. What now?",
         answers: [
-            ["Keep it", 4, 5],
-            ["Shoo it away", 5, 3],
-            ["Feed it and leave", 3, 4],
-            ["Kill it for food", 3, 0]
+            ["Observe from cover; verify the side road and fallback", 5, null],
+            ["Drive through the horde's edge", 1, null],
+            ["Take the side road without checking it", 2, null],
+            ["Sound the horn to move the infected", 1, null]
         ]
     },
 
+    // 34
     {
-        question: "You find an apparently abandoned house. What do you do?",
+        question: "Your vehicle may not fit the narrow tracks. Walking to a fallback is possible. What guides you?",
         answers: [
-            ["Check the rooms", 3, null],
-            ["Search thoroughly", 4, null],
-            ["Observe from outside first", 5, null],
-            ["Enter immediately", 1, null]
+            ["Keep the vehicle at all costs", 3, null],
+            ["Compare route, fuel, load and terrain", 5, null],
+            ["Abandon it without essentials", 2, null],
+            ["Split into vehicles without a plan", 2, null]
         ]
     },
 
+    // 35
     {
-        question: "You spot a small pharmacy that appears abandoned. What do you do?",
+        question: "At dusk, you find a house with its door open and blood inside. Infected are nearby. What do you do?",
         answers: [
-            ["Enter quickly", 2, null],
-            ["Ignore it", 3, null],
-            ["Observe it first", 5, null],
-            ["Break in", 1, null]
+            ["Assess from cover, check for movement and locate exits", 5, null],
+            ["Enter quickly and lock the door", 2, null],
+            ["Assume the blood is old and settle in", 1, null],
+            ["Shout from the doorway to check for people", 1, null]
         ]
     },
 
+    // 36
     {
-        question: "Four armed people are looting a pharmacy. What do you do?",
+        question: "A pharmacy fridge has been warm since a blackout. What about medicines needing refrigeration?",
         answers: [
-            ["Wait for them to leave", 5, 3],
-            ["Change route", 4, 4],
-            ["Observe them", 5, 3],
-            ["Approach them", 2, 4]
+            ["Discard every medicine, including those stored safely", 3, null],
+            ["Set them aside and seek verified storage guidance or alternatives", 5, null],
+            ["Cool them now and assume they are safe", 2, null],
+            ["Judge safety by colour alone", 0, null]
         ]
     },
 
+    // 37
     {
-        question: "A stranger approaches your shelter asking for food. What do you do?",
+        question: "A medical fridge has 45 minutes of backup power. The only generator's noise attracts infected. What first?",
         answers: [
-            ["Give them food", 3, 5],
-            ["Tell them to leave", 4, 2],
-            ["Assess them from safety", 5, 5],
-            ["Invite them inside", 1, 4]
+            ["Use insulated boxes while finding a safe generator site and escape route", 5, null],
+            ["Start the generator in the exposed yard", 1, null],
+            ["Leave medicines in the warming fridge while debating", 1, null],
+            ["Run the generator inside the sleeping area", 0, null]
         ]
     },
 
+    // 38
     {
-        question: "Another survivor offers to trade supplies. What do you do?",
+        question: "Some cans are intact; others are swollen or leaking. What do you do?",
         answers: [
-            ["Trade carefully", 5, 5],
-            ["Trust them", 2, 4],
-            ["Trade whatever they want", 1, 2],
-            ["Refuse", 3, 3]
+            ["Eat every can", 0, null],
+            ["Keep sound cans and discard damaged ones", 5, null],
+            ["Discard all cans, including intact ones", 3, null],
+            ["Choose by label alone", 2, null]
         ]
     },
 
+    // 39
     {
-        question: "A survivor claims to know a safe shelter. What do you do?",
+        question: "A stream smells of fuel and has an oily sheen. What do you do?",
         answers: [
-            ["Trust them", 1, 4],
-            ["Assume they're dangerous", 3, 2],
-            ["Verify their information", 5, 5],
-            ["Give them supplies", 1, 5]
+            ["Boil it and drink", 2, null],
+            ["Avoid it; boiling cannot remove fuel contamination", 5, null],
+            ["Use it to wash food and dishes", 1, null],
+            ["Leave it unmarked for others", 0, null]
         ]
     },
 
+    // 40
     {
-        question: "You find a warehouse with possible food, but hear movement inside. What do you do?",
+        question: "Your vehicle stalls, and repeated starts attract infected. You are not surrounded. What now?",
         answers: [
-            ["Rush inside", 1, 1],
-            ["Observe and plan", 5, 4],
-            ["Set it on fire", 0, 0],
-            ["Send the weakest person", 0, 0]
+            ["Stop starting it; reduce noise and assess a safe exit", 5, null],
+            ["Keep turning the key until it starts", 1, null],
+            ["Sound the horn to warn others", 1, null],
+            ["Have everyone scatter in different directions", 1, null]
         ]
     },
 
+    // 41
     {
-        question: "You find a large amount of canned food, but carrying it all will slow you down. What do you do?",
+        question: "Heavy rain limits visibility. The shoulder is unstable, but high ground is nearby. What now?",
         answers: [
-            ["Take everything", 2, 2],
-            ["Take what you can carry", 4, 4],
-            ["Prioritize valuable supplies", 5, 5],
-            ["Leave it", 3, 3]
+            ["Keep driving fast", 0, null],
+            ["Stop on safe high ground and wait", 5, null],
+            ["Use the unstable shoulder", 2, null],
+            ["Send people ahead on foot", 2, null]
         ]
     },
 
+    // 42
     {
-        question: "Your group needs water and finds a stream outside town. What do you do?",
+        question: "A damaged bridge lies ahead. Infected approach from the far side. What is safest?",
         answers: [
-            ["Drink it", 1, 2],
-            ["Treat it first", 5, 4],
-            ["Take enough for today", 3, 3],
-            ["Avoid it", 4, 3]
+            ["Stop, avoid the damaged bridge and find a verified fallback", 5, null],
+            ["Drive across before the horde arrives", 1, null],
+            ["Send someone across to test it while others wait on it", 1, null],
+            ["Use repeated horn blasts to move the infected", 1, null]
         ]
     },
 
+    // 43
     {
-        question: "Your food supply is running low. What do you do?",
+        question: "Fuel is low. The known station is surrounded by infected, but a checkpoint is within range. What do you do?",
         answers: [
-            ["Reduce portions and find more", 5, 4],
-            ["Eat normally", 1, 2],
-            ["Send everyone searching", 2, 3],
-            ["Save most of it", 4, 3]
+            ["Head to the checkpoint and seek a safer fuel plan", 5, null],
+            ["Drive through the infected to reach the station", 2, null],
+            ["Send someone alone to siphon fuel", 1, null],
+            ["Circle the station while burning more fuel", 1, null]
         ]
     },
 
+    // 44
     {
-        question: "You have enough food for only 5 of your 8 group members. What do you do?",
+        question: "Useful supplies lie across an infected street. You have enough essentials for several days. What now?",
         answers: [
-            ["Equal rations", 4, 5],
-            ["Send people for food", 3, 3],
-            ["Prioritize vulnerable members", 5, 5],
-            ["Leave some behind", 2, 0]
+            ["Mark the cache; return with a safe route and fallback", 5, null],
+            ["Cross now before the cache disappears", 2, null],
+            ["Send the fastest person alone", 1, null],
+            ["Create a diversion without checking where infected may go", 1, null]
         ]
     },
 
+    // 45
     {
-        question: "You find a large military supply cache in a zombie-infested area. What do you do?",
+        question: "At dusk, your route forks. The last infected sighting was near one branch. What do you do?",
         answers: [
-            ["Take the risk", 2, 2],
-            ["Leave it", 4, 3],
-            ["Send a scout", 5, 4],
-            ["Wait", 3, 3]
+            ["Check the report's age, choose carefully and keep a fallback", 5, null],
+            ["Choose randomly to save daylight", 2, null],
+            ["Split up to check both branches", 1, null],
+            ["Trust the oldest report as current", 1, null]
         ]
     },
 
+    // 46
     {
-        question: "Heavy rain has made the roads dangerous. What do you do?",
+        question: "A teammate has a minor burn from hot water. What first?",
         answers: [
-            ["Continue", 1, 2],
-            ["Wait safely", 5, 4],
-            ["Take an unfamiliar shortcut", 2, 2],
-            ["Split the group", 1, 1]
+            ["Cool with clean running water and protect the burn", 5, null],
+            ["Apply butter or grease", 0, null],
+            ["Break the blisters", 0, null],
+            ["Cover it with dirty cloth", 2, null]
         ]
     },
 
+    // 47
     {
-        question: "Your vehicle breaks down far from your destination. What do you do?",
+        question: "A friend admits to a bite from hours ago and now has a fever. They want to return to shared quarters. What do you do?",
         answers: [
-            ["Stay with it", 2, 3],
-            ["Take supplies and continue on foot", 5, 4],
-            ["Walk to the nearest town", 3, 3],
-            ["Repair it", 3, 3]
+            ["Follow exposure protocol, separate them safely and arrange care", 5, null],
+            ["Let them return because they are conscious", 1, null],
+            ["Assume they are beyond help and abandon them", 1, null],
+            ["Hide the exposure from everyone", 1, null]
         ]
     },
 
+    // 48
     {
-        question: "You're low on fuel. You can reach a town for supplies or head toward a guaranteed water source. Which do you choose?",
+        question: "Two people want to share a prescription drug, but its safety is unclear. What do you do?",
         answers: [
-            ["Town", 3, 3],
-            ["Water", 5, 4],
-            ["Split the group", 2, 2],
-            ["Search first", 4, 4]
+            ["Split the tablets equally", 0, null],
+            ["Use as prescribed and seek medical advice", 5, null],
+            ["Double the dose for the sicker person", 0, null],
+            ["Stop all medicines without checking", 2, null]
         ]
     },
 
+    // 49
     {
-        question: "Your vehicle may cause a bridge to collapse. What do you do?",
+        question: "New food is placed in front of older stock. How do you prevent waste?",
         answers: [
-            ["Cross quickly", 1, 2],
-            ["Continue on foot", 4, 3],
-            ["Find another route", 5, 4],
-            ["Test it first", 3, 3]
+            ["Remove labels to simplify sorting", 1, null],
+            ["Date stock and use the oldest safe food first", 5, null],
+            ["Open packages to guess their age", 2, null],
+            ["Use new deliveries first because they're easier to reach", 2, null]
         ]
     },
 
+    // 50
     {
-        question: "Your wife becomes pregnant while you're still traveling. What do you do?",
+        question: "Without a sewer, where should a latrine go if a stream may supply drinking water?",
         answers: [
-            ["Find a doctor", 5, 5],
-            ["Find a community", 4, 5],
-            ["Settle somewhere safe", 4, 5],
-            ["Continue traveling", 2, 2]
+            ["Beside the stream", 0, null],
+            ["Downhill, away from water and food areas", 5, null],
+            ["Inside the food store", 0, null],
+            ["Anywhere, if lightly covered", 3, null]
         ]
     },
 
+    // 51
     {
-        question: "A member has a deep, bleeding wound and you suspect a zombie bite. What do you do?",
+        question: "People dip shared cups into the drinking-water barrel. What rule helps most?",
         answers: [
-            ["Use medical supplies", 4, 4],
-            ["Use makeshift bandages", 3, 3],
-            ["Quarantine and observe", 5, 3],
-            ["Treat and quarantine", 5, 5]
+            ["Let each person dip their own cup", 2, null],
+            ["Use a clean tap or ladle; keep cups and hands out", 5, null],
+            ["Leave the barrel uncovered for easy refilling", 2, null],
+            ["Add detergent to the drinking water", 0, null]
         ]
     },
 
+    // 52
     {
-        question: "You can treat either one critically injured person or three mildly injured people. What do you choose?",
+        question: "After a horde escape, one person has severe bleeding, another a suspected bite and another a minor ankle injury. What first?",
         answers: [
-            ["Critical patient", 4, 3],
-            ["Three patients", 5, 5],
-            ["Divide medicine", 2, 4],
-            ["Group vote", 3, 5]
+            ["Secure the area, control severe bleeding and isolate the exposure safely", 5, null],
+            ["Treat the ankle first because they can explain events", 1, null],
+            ["Ignore the bleeding until the bite is assessed", 1, null],
+            ["Crowd around the suspected bite to inspect it", 1, null]
         ]
     },
 
+    // 53
     {
-        question: "Your best fighter is becoming reckless and putting everyone at risk. What do you do?",
+        question: "Used dressings lie beside clean first-aid supplies. What now?",
         answers: [
-            ["Remove combat duties", 5, 4],
-            ["Confront them", 4, 4],
-            ["Keep them", 2, 2],
-            ["Monitor them", 3, 3]
+            ["Reuse them if they look clean", 0, null],
+            ["Separate waste; clean hands and surfaces before restocking", 5, null],
+            ["Rinse them in the drinking-water basin", 0, null],
+            ["Leave them beside the kit until later", 2, null]
         ]
     },
 
+    // 54
     {
-        question: "A trusted member makes a mistake that attracts zombies and gets someone injured. What do you do?",
+        question: "Someone has a severe allergic reaction and trouble breathing. Their prescribed auto-injector is available. What first?",
         answers: [
-            ["Forgive them", 2, 5],
-            ["Remove responsibilities", 5, 4],
-            ["Punish them", 3, 1],
-            ["Let the group decide", 4, 5]
+            ["Use it as directed and get emergency help", 5, 5],
+            ["Wait for breathing to improve", 0, 2],
+            ["Give food and make them walk", 0, 2],
+            ["Use an unknown medicine", 0, 2]
         ]
     },
 
+    // 55
     {
-        question: "A trusted member secretly hides a zombie bite. What do you do?",
+        question: "Water was stored uncovered near animal waste. You can boil it and use clean containers. Best plan?",
         answers: [
-            ["Isolate them", 5, 4],
-            ["Question them first", 3, 4],
-            ["Let the group decide", 3, 5],
-            ["Expel them", 4, 1]
+            ["Drink it untreated if it looks clear", 2, null],
+            ["Treat it and store it in clean, covered containers", 5, null],
+            ["Add random amounts of chemicals", 0, null],
+            ["Discard it without checking if safe treatment is possible", 3, null]
         ]
     },
 
+    // 56
     {
-        question: "A member wants to leave the group with their share of supplies. What do you do?",
+        question: "The same two people always take the longest night watches. What is fairest?",
         answers: [
-            ["Let them take everything", 1, 3],
-            ["Give a fair share", 5, 5],
-            ["Convince them to stay", 3, 4],
-            ["Don't let them leave", 2, 0]
+            ["Keep the same rota to avoid arguments", 2, 2],
+            ["Rotate shifts, protect rest and train backups", 5, 5],
+            ["Keep everyone awake all night", 0, 1],
+            ["Give every shift to the novice", 2, 2]
         ]
     },
 
+    // 57
     {
-        question: "A grieving member has stopped contributing to the group. What do you do?",
+        question: "After a friend becomes infected, a reliable teammate is distressed and cannot stand watch. What do you do?",
         answers: [
-            ["Give them time", 4, 5],
-            ["Force them back", 2, 1],
-            ["Reduce responsibilities", 5, 4],
-            ["Remove them", 3, 1]
+            ["Check their safety, support them and temporarily reassign duties", 5, 5],
+            ["Force them onto watch to prove their worth", 2, 1],
+            ["Call them weak and unreliable", 1, 0],
+            ["Leave them alone indefinitely without checking on them", 2, 2]
         ]
     },
 
+    // 58
     {
-        question: "You discover your leader is secretly keeping extra food. What do you do?",
+        question: "A member cannot hear the watch-change bell. What should the group do?",
         answers: [
-            ["Confront privately", 4, 5],
-            ["Expose them", 3, 4],
-            ["Remove them", 5, 3],
-            ["Keep quiet", 1, 1]
+            ["Blame them for missing it", 2, 1],
+            ["Add visual or tactile signals and brief everyone", 5, 5],
+            ["Exclude them from useful duties", 3, 1],
+            ["Remove all warning systems", 0, 2]
         ]
     },
 
+    // 59
     {
-        question: "You receive a radio message claiming there is a safe settlement 50 km away. What do you do?",
+        question: "Rats appear near the food store. What is the best response?",
         answers: [
-            ["Leave immediately", 2, 3],
-            ["Ignore it", 3, 2],
-            ["Gather information first", 5, 4],
-            ["Send everyone separately", 1, 2]
+            ["Leave food open to watch the rats", 0, null],
+            ["Seal food, clean spills and secure waste", 5, null],
+            ["Trap rats nearby but ignore hygiene", 3, null],
+            ["Store food unsealed in sleeping bags", 2, null]
         ]
     },
 
+    // 60
     {
-        question: "Another large group is approaching your location. What do you do?",
+        question: "A pipe wastes 25% of your water daily. Rain is due next week and the roof is intact. What first?",
         answers: [
-            ["Hide and observe", 5, 4],
-            ["Confront them", 1, 1],
-            ["Run", 3, 2],
-            ["Approach them openly", 3, 5]
+            ["Repair and test the pipe", 5, null],
+            ["Reinforce the roof first", 3, null],
+            ["Split the crew so neither task gets done", 3, null],
+            ["Wait until water is nearly gone", 0, null]
         ]
     },
 
+    // 61
     {
-        question: "Another large community approaches your territory, but you don't know whether they're friendly. What do you do?",
+        question: "A rescue message gives a bridge route, but it's 40 minutes old and infected can move. What first?",
         answers: [
-            ["Attack", 1, 1],
-            ["Let them in", 2, 5],
-            ["Communicate and observe", 5, 5],
-            ["Abandon the settlement", 3, 2]
+            ["Check the time, verify the route and prepare a fallback", 5, null],
+            ["Treat it as a current all-clear and leave", 2, null],
+            ["Ignore all rescue messages", 2, null],
+            ["Transmit your exact location continuously", 1, null]
         ]
     },
 
+    // 62
     {
-        question: "You discover that another group may be occupying a location you planned to use as a base. What do you do?",
+        question: "Gunfire attracts nearby infected. Your wall is holding, but residents want to shoot at a passing group. What should the leader do?",
         answers: [
-            ["Confront them", 2, 2],
-            ["Find another location", 5, 4],
-            ["Observe them first", 5, 5],
-            ["Offer to share it", 4, 5]
+            ["Avoid needless firing; track them from cover and prepare for a breach", 5, 4],
+            ["Fire now to reduce their numbers", 2, 2],
+            ["Send a guard outside to attack quietly", 1, 2],
+            ["Shout and bang metal to drive them away", 1, 2]
         ]
     },
 
+    // 63
     {
-        question: "Where would you establish your base?",
+        question: "Another group occupies your fallback base as a horde approaches. You have a second possible site. What do you do?",
         answers: [
-            ["Supermarket", 2, null],
-            ["Farmhouse", 4, null],
-            ["Police station", 5, null],
-            ["Mountain settlement", 5, null]
+            ["Avoid forced entry; communicate safely and use the fallback", 5, 4],
+            ["Try to seize the base", 2, 1],
+            ["Debate beside the main road", 1, 2],
+            ["Split up to confront them and scout alone", 1, 1]
         ]
     },
 
+    // 64
     {
-        question: "Your settlement can shelter only half of the people asking for help. Who do you accept?",
+        question: "A settlement demands your weapons before entry, but its rules are unclear. What do you do?",
         answers: [
-            ["Most vulnerable", 4, 5],
-            ["Most useful", 5, 2],
-            ["Families", 4, 4],
-            ["Nobody", 2, 1]
+            ["Surrender them without asking", 3, 3],
+            ["Refuse and threaten the guards", 2, 1],
+            ["Ask about weapon storage and rules", 5, 5],
+            ["Pretend to agree while planning an attack", 3, 0]
         ]
     },
 
+    // 65
     {
-        question: "A settlement demands your weapons before letting you enter. What do you do?",
+        question: "Residents fear retaliation for reporting unsafe rules. What should the settlement establish?",
         answers: [
-            ["Surrender", 2, 3],
-            ["Refuse", 3, 3],
-            ["Negotiate", 5, 5],
-            ["Pretend to agree", 4, 2]
+            ["Let the leader handle complaints privately without records", 3, 2],
+            ["Create protected reporting and fair reviews", 5, 5],
+            ["Encourage public accusations before checking facts", 2, 2],
+            ["Punish anyone who questions decisions", 0, 0]
         ]
     },
 
+    // 66
     {
-        question: "You finally reach a settlement claiming to be safe. What do you do?",
+        question: "Residents ignore horde alerts and leave the outer gate unsecured. How restore readiness?",
         answers: [
-            ["Enter immediately", 2, 3],
-            ["Observe it first", 5, 4],
-            ["Ask about rules and resources", 5, 5],
-            ["Leave", 3, 3]
+            ["Run realistic drills, clarify alerts and fix gate procedures", 5, 4],
+            ["Wait for a real breach", 1, 2],
+            ["Keep everyone on patrol despite fatigue", 2, 2],
+            ["Punish every false alarm without reviewing the system", 2, 1]
         ]
     },
 
+    // 67
     {
-        question: "The settlement offers you a permanent place to stay. What matters most?",
+        question: "Infected press against a cracking wall. An inner barrier and fallback room are ready. What first?",
         answers: [
-            ["Comfort", 2, 2],
-            ["Food", 4, 4],
-            ["Security, leadership, resources, and rules", 5, 5],
-            ["Friendly people", 3, 5]
+            ["Move people away, secure the inner barrier and reinforce safely", 5, null],
+            ["Send someone outside to repair the wall", 1, null],
+            ["Gather everyone beside the crack", 1, null],
+            ["Wait for collapse before opening the fallback", 1, null]
         ]
     },
 
+    // 68
     {
-        question: "Your settlement has been safe for months, and people are becoming careless. What do you do?",
+        question: "A fire nears your storehouse. The vehicle can carry medical supplies or seeds. How decide?",
         answers: [
-            ["Increase restrictions", 3, 2],
-            ["Let them relax", 2, 4],
-            ["Regular drills", 5, 4],
-            ["Wait for danger", 1, 1]
+            ["Weigh urgency, future value and fire risk", 5, null],
+            ["Take the nearest box without checking", 3, null],
+            ["Load both even if escape is blocked", 2, null],
+            ["Block the exit while deciding", 0, null]
         ]
     },
 
+    // 69
     {
-        question: "Your settlement's walls can no longer withstand a major attack. What do you do?",
+        question: "An experienced hunter wants a shortcut through a building. Infected groan behind closed doors, and the far exit is unseen. What do you decide?",
         answers: [
-            ["Reinforce them", 4, 4],
-            ["Build new walls", 5, 4],
-            ["Relocate", 3, 3],
-            ["Create escape routes", 5, 5]
+            ["Choose a visible route with a known retreat", 5, 4],
+            ["Follow the hunter because experience makes it safe", 2, 3],
+            ["Split up and open several doors at once", 1, 2],
+            ["Make noise to draw infected away without checking exits", 1, 2]
         ]
     },
 
+    // 70
     {
-        question: "Your settlement is attacked. You can defend only the food storage or the medical center. Which do you protect?",
+        question: "Residents disagree: expand the settlement or protect existing food and water. What is the best process?",
         answers: [
-            ["Food storage", 4, 3],
-            ["Medical center", 5, 5],
-            ["Split defenders", 3, 4],
-            ["Evacuate supplies", 4, 4]
+            ["Let the loudest person decide", 2, 2],
+            ["Compare evidence, costs and risks openly", 5, 5],
+            ["Expand immediately", 3, 2],
+            ["Keep the plan secret", 2, 1]
         ]
     },
 
+    // 71
     {
-        question: "A skilled hunter refuses to follow group rules. What do you do?",
+        question: "New families need shelter, but beds and water are limited. What do you do?",
         answers: [
-            ["Give privileges", 3, 2],
-            ["Same rules", 5, 5],
-            ["Limited independence", 4, 4],
-            ["Ask them to leave", 3, 2]
+            ["Accept everyone regardless of capacity", 3, 4],
+            ["Reject everyone automatically", 3, 1],
+            ["Assess needs and offer staged help or options", 5, 5],
+            ["Accept only people who can fight", 4, 1]
         ]
     },
 
+    // 72
     {
-        question: "One group member is extremely useful but constantly challenges your leadership. What do you do?",
+        question: "A captured raider claims their group drove a horde toward you. They have lied before. What first?",
         answers: [
-            ["Remove them", 3, 2],
-            ["Ignore them", 2, 2],
-            ["Give them responsibility", 5, 4],
-            ["Work with them", 5, 5]
+            ["Alert sentries, check evidence from cover and prepare a fallback", 5, 4],
+            ["Threaten them until they repeat the story", 2, 0],
+            ["Ignore the warning entirely", 1, 2],
+            ["Send someone alone to check the horde", 1, 3]
         ]
     },
 
+    // 73
     {
-        question: "You can broadcast your location to ask for help, but dangerous people may hear it. What do you do?",
+        question: "An experimental treatment may have slowed zombification once. A bitten adult volunteers, but evidence is weak. What is ethical?",
         answers: [
-            ["Broadcast", 2, 4],
-            ["Stay silent", 5, 3],
-            ["Fake location", 4, 2],
-            ["Send a coded message", 5, 4]
+            ["Explain uncertainty, seek qualified oversight and consent, maintain precautions", 5, 5],
+            ["Administer it immediately because they volunteered", 3, 3],
+            ["Force it on every exposed person", 2, 0],
+            ["Hide the reported case", 1, 1]
         ]
     },
 
+    // 74
     {
-        question: "You discover a possible cure, but testing it could be dangerous. Who decides whether it is used?",
+        question: "A horde approaches a neighbor's bridge. Your radio battery is low. What warning should you send?",
         answers: [
-            ["Doctor", 5, 4],
-            ["Leader", 3, 3],
-            ["Patient", 2, 5],
-            ["Entire group", 4, 5]
+            ["Send a brief alert with time, direction, route risk and confidence", 5, 5],
+            ["Transmit continuously until the battery dies", 2, 3],
+            ["Send only 'danger everywhere'", 2, 2],
+            ["Stay silent until your own gate is threatened", 1, 1]
         ]
     },
 
+    // 75
     {
-        question: "A captured enemy claims to have information about a much larger hostile group. What do you do?",
+        question: "A survivor wants to search alone for a missing relative in an infected area. What should the group do?",
         answers: [
-            ["Trade freedom for information", 4, 4],
-            ["Keep and question them", 5, 2],
-            ["Don't trust them", 3, 3],
-            ["Use the information and imprison them", 4, 1]
+            ["Check the last location and plan a safe route, support and fallback", 5, 5],
+            ["Let them leave without a plan", 1, 3],
+            ["Forbid any search or discussion", 3, 1],
+            ["Send several people separately to search", 1, 3]
         ]
     },
 
+    // 76
     {
-        question: "You discover zombies have become faster than before. What do you do?",
+        question: "Two reports disagree about a horde's route. What information helps most?",
         answers: [
-            ["Keep the same strategy", 0, 2],
-            ["Change your plans", 5, 4],
-            ["Travel only during daylight", 4, 3],
-            ["Take more risks", 1, 1]
+            ["Compare report times and direction; observe safely and keep a fallback", 5, null],
+            ["Trust the more confident reporter", 2, null],
+            ["Assume the horde is between both routes", 1, null],
+            ["Use the older report because it has circulated longer", 1, null]
         ]
     },
 
+    // 77
     {
-        question: "The zombies are behaving differently than before. What do you assume?",
+        question: "Your noise diversion keeps attracting infected from new directions. What now?",
         answers: [
-            ["Nothing changed", 1, 2],
-            ["The situation is evolving", 5, 4],
-            ["They're becoming friendly", 0, 4],
-            ["They'll disappear", 0, 1]
+            ["Stop the lure, reduce noise, regroup and use the fallback", 5, null],
+            ["Make a louder diversion", 1, null],
+            ["Split up without a meeting point", 1, null],
+            ["Keep luring while debating in the open", 1, null]
         ]
     },
 
+    // 78
     {
-        question: "Your shelter has been discovered by a large group of zombies. You have two escape routes. What matters most?",
+        question: "A storm may isolate your settlement, and a horde approaches the only bridge. What now?",
         answers: [
-            ["Which looks better", 1, 2],
-            ["Threats and destination", 5, 4],
-            ["Which is shorter", 2, 2],
-            ["Flip a coin", 0, 1]
+            ["Move vulnerable people and essentials to a secure fallback while routes are open", 5, null],
+            ["Wait for the storm and reassess at the bridge", 1, null],
+            ["Send everyone across without checking the bridge", 1, null],
+            ["Assume the weather will stop the horde", 1, null]
         ]
     },
 
+    // 79
     {
-        question: "You hear that a remote island may be unaffected. You have one chance to reach it. What do you do?",
+        question: "Only one person can repair the settlement's water pump. How reduce this risk?",
         answers: [
-            ["Go", 3, 3],
-            ["Stay", 4, 3],
-            ["Send scouts", 5, 4],
-            ["Gather information", 5, 4]
+            ["Keep the skill to that person alone", 2, null],
+            ["Document the work and train a backup", 5, null],
+            ["Dismantle the pump in an emergency", 2, null],
+            ["Wait for failure before learning", 2, null]
         ]
     },
 
+    // 80
     {
-        question: "You discover a large amount of supplies, but taking them will slow the group and increase the risk of being caught. What do you do?",
+        question: "Fuel is scarce. A family reports infected blocking their road, but a nearby shelter has radio contact. What do you do?",
         answers: [
-            ["Take everything", 2, 2],
-            ["Take only essentials", 4, 4],
-            ["Take high-value supplies", 5, 5],
-            ["Leave everything", 3, 3]
+            ["Coordinate with the nearby shelter and share a safe route or signal", 5, 5],
+            ["Spend remaining fuel attempting the blocked route", 2, 4],
+            ["Tell the family to manage alone", 1, 1],
+            ["Drive to a distant town for fuel before replying", 1, 2]
         ]
     },
 
+    // 81
     {
-        question: "A member of your group has become emotionally unstable after losing someone close to them. What do you do?",
+        question: "Food production is falling and wild supplies are scarce. What should your settlement prioritize?",
         answers: [
-            ["Give them time", 4, 5],
-            ["Keep them busy", 4, 3],
-            ["Watch them closely", 5, 3],
-            ["Remove them", 2, 1]
+            ["Buy or seize more weapons", 3, 2],
+            ["Improve food, water, seeds and storage", 5, 5],
+            ["Explore unknown land without checking risks", 3, 3],
+            ["Return to a city without a plan", 2, 2]
         ]
     },
 
+    // 82
     {
-        question: "Your group has a chance to rescue another group, but doing so will consume most of your remaining fuel. What do you do?",
+        question: "Children born after the outbreak know little of the old world. What should they learn?",
         answers: [
-            ["Rescue them", 3, 5],
-            ["Leave them", 4, 2],
-            ["Limited rescue", 5, 5],
-            ["Contact them first", 5, 4]
+            ["Combat and survival only", 4, 2],
+            ["Survival, literacy, health and history", 5, 5],
+            ["Old-world stories only", 3, 3],
+            ["Nothing until they can work", 2, 1]
         ]
     },
 
+    // 83
     {
-        question: "Your group discovers that another large group is approaching your location. You don't know their intentions. What do you do?",
+        question: "An overflowing waste pit may drain toward your well in rain. What first?",
         answers: [
-            ["Hide and observe", 5, 4],
-            ["Prepare to attack", 2, 1],
-            ["Contact them", 4, 5],
-            ["Leave", 3, 3]
+            ["Ignore it until illness appears", 0, null],
+            ["Block runoff, contain waste and protect the well", 5, null],
+            ["Dump waste into the stream", 0, null],
+            ["Drain the overflow toward the stream", 0, null]
         ]
     },
 
+    // 84
     {
-        question: "Children born after the outbreak have never seen the old world. What should they learn?",
+        question: "Two settlements want to trade, but one is much larger. What makes a durable deal?",
         answers: [
-            ["Survival only", 4, 3],
-            ["History and survival", 5, 5],
-            ["Forget the old world", 2, 1],
-            ["Military skills", 4, 3]
+            ["Accept any terms for one shipment", 3, 3],
+            ["Set quantities, duties and dispute rules", 5, 5],
+            ["Give critical supplies to prove trust", 2, 4],
+            ["Reject every agreement", 3, 2]
         ]
     },
 
+    // 85
     {
-        question: "Years into the outbreak, your settlement is stable but resources are becoming harder to find. What should you focus on?",
+        question: "Crops keep failing despite adequate rain. Expanding fields costs labour. What first?",
         answers: [
-            ["Better weapons", 3, 2],
-            ["Food and water production", 5, 5],
-            ["Explore farther", 3, 4],
-            ["Move again", 2, 3]
+            ["Plant more of the same crop", 3, null],
+            ["Check soil and crops; test new varieties", 5, null],
+            ["Abandon farming for scavenging", 2, null],
+            ["Use all saved seed immediately", 2, null]
         ]
     },
 
+    // 86
     {
-        question: "Your group has survived for years. What should become your biggest priority?",
+        question: "Another settlement offers to merge, but its needs and risks are unclear. What do you do?",
         answers: [
-            ["Expansion", 2, 2],
-            ["Sustainable survival", 5, 5],
-            ["Finding other survivors", 4, 4],
-            ["Returning to cities", 2, 3]
+            ["Merge immediately", 3, 4],
+            ["Reject it because it is unfamiliar", 3, 2],
+            ["Assess risks and start with limited cooperation", 5, 5],
+            ["Demand all its supplies before talks", 2, 0]
         ]
     },
 
+    // 87
     {
-        question: "A member of your group secretly takes extra medicine for their family. What do you do?",
+        question: "Settlement maps disagree after route changes. What should you do?",
         answers: [
-            ["Punish them", 3, 1],
-            ["Forgive them", 2, 5],
-            ["Set stricter rules", 5, 4],
-            ["Give them less access", 4, 3]
+            ["Let each team use its own version", 2, null],
+            ["Keep a dated master, log changes and share verified copies", 5, null],
+            ["Rely on memory to resolve differences", 3, null],
+            ["Delete old maps without recording changes", 2, null]
         ]
     },
 
+    // 88
     {
-        question: "Your settlement has limited resources, but a doctor arrives asking for protection in exchange for medical knowledge. What do you do?",
+        question: "Your settlement has surplus seeds after a good harvest. Best use?",
         answers: [
-            ["Accept them", 4, 5],
-            ["Refuse them", 2, 2],
-            ["Test their knowledge first", 5, 4],
-            ["Trade protection for medicine", 5, 5]
+            ["Eat every seed", 2, null],
+            ["Save viable seeds, store them well and trade the surplus", 5, null],
+            ["Mix seeds and store them damp", 0, null],
+            ["Give away all seed stock", 2, null]
         ]
     },
 
+    // 89
     {
-        question: "A group member discovers that their family may still be alive far away. Leaving could endanger the entire group. What do you do?",
+        question: "One infected circles the same fence section at dusk. Residents want more patrols everywhere. What do you do?",
         answers: [
-            ["Let them go", 3, 5],
-            ["Stop them", 2, 1],
-            ["Send a small team", 5, 5],
-            ["Search for information first", 5, 4]
+            ["Track its pattern, reinforce that section and adjust watch coverage", 5, 4],
+            ["Ignore it because one infected is no threat", 2, 2],
+            ["Send a guard outside to study it closely", 1, 2],
+            ["Abandon the entire perimeter without checking other defenses", 1, 2]
         ]
     },
 
+    // 90
     {
-        question: "After years of survival, you discover a functioning community offering a chance to rebuild civilization. What do you do?",
+        question: "Neighboring settlements use different radio schedules and horde warnings. What should they establish first?",
         answers: [
-            ["Join them", 4, 5],
-            ["Stay independent", 3, 3],
-            ["Investigate first", 5, 4],
-            ["Send representatives", 5, 5]
+            ["A tested shared alert format for time, direction, risk and confirmation", 5, 5],
+            ["Adopt one settlement's code without testing or training", 3, 2],
+            ["Use unstructured warnings that each settlement interprets alone", 2, 2],
+            ["Broadcast every unverified rumour on every channel", 1, 1]
         ]
     }
-
 ];
+
+// ===============================
+// QUESTION DATA VALIDATION
+// ===============================
+// Keep the data structure predictable so edits to the question bank cannot
+// silently break scoring. Validation logs problems for the developer but does
+// not interrupt the quiz for visitors.
+
+function validateQuestionData() {
+
+    const issues = [];
+    const seenQuestions = new Set();
+
+    if (!Array.isArray(questions) || questions.length === 0) {
+        issues.push("The question bank is empty or invalid.");
+        console.error("Quiz data validation failed:", issues);
+        return issues;
+    }
+
+    questions.forEach((question, questionIndex) => {
+
+        const questionNumber = questionIndex + 1;
+
+        if (!question || typeof question !== "object") {
+            issues.push(`Question ${questionNumber} is not a valid object.`);
+            return;
+        }
+
+        if (typeof question.question !== "string" || !question.question.trim()) {
+            issues.push(`Question ${questionNumber} has no valid question text.`);
+        } else {
+            const normalizedQuestion = question.question.trim().toLowerCase().replace(/\s+/g, " ");
+            if (seenQuestions.has(normalizedQuestion)) {
+                issues.push(`Question ${questionNumber} duplicates an earlier question stem.`);
+            }
+            seenQuestions.add(normalizedQuestion);
+        }
+
+        if (!Array.isArray(question.answers) || question.answers.length !== 4) {
+            issues.push(`Question ${questionNumber} must have exactly four answer options.`);
+            return;
+        }
+
+        const seenAnswers = new Set();
+        const moralityScoredFlags = [];
+
+        question.answers.forEach((answer, answerIndex) => {
+
+            const optionLabel = `Question ${questionNumber}, option ${answerIndex + 1}`;
+
+            if (!Array.isArray(answer) || answer.length < 3) {
+                issues.push(`${optionLabel} must contain label, survival score, and morality score.`);
+                return;
+            }
+
+            if (typeof answer[0] !== "string" || !answer[0].trim()) {
+                issues.push(`${optionLabel} has no valid label.`);
+            } else {
+                const normalizedAnswer = answer[0].trim().toLowerCase().replace(/\s+/g, " ");
+                if (seenAnswers.has(normalizedAnswer)) {
+                    issues.push(`${optionLabel} duplicates another option in the same question.`);
+                }
+                seenAnswers.add(normalizedAnswer);
+            }
+
+            if (!Number.isFinite(answer[1]) || answer[1] < 0 || answer[1] > 5) {
+                issues.push(`${optionLabel} has an invalid survival score; expected a number from 0 to 5.`);
+            }
+
+            const moralityValue = answer[2];
+            const moralityIsScored = moralityValue !== null && moralityValue !== undefined;
+            moralityScoredFlags.push(moralityIsScored);
+
+            if (moralityIsScored && (!Number.isFinite(moralityValue) || moralityValue < 0 || moralityValue > 5)) {
+                issues.push(`${optionLabel} has an invalid morality score; use null or a number from 0 to 5.`);
+            }
+
+        });
+
+        // Each question must either score morality for all four options or for none.
+        // A mixture would make unscored options act like a hidden zero-point penalty.
+        if (moralityScoredFlags.some(Boolean) && moralityScoredFlags.some(value => !value)) {
+            issues.push(`Question ${questionNumber} mixes scored and unscored morality options.`);
+        }
+
+    });
+
+    if (issues.length > 0) {
+        console.error("Quiz data validation found issues:", issues);
+    } else {
+        console.info(`Quiz data validation passed: ${questions.length} questions, four options each.`);
+    }
+
+    return issues;
+
+}
+
+
+const QUESTION_DATA_ISSUES = validateQuestionData();
+
+
+// ===============================
+// SCORE BOUNDS — DERIVED FROM QUESTIONS
+// ===============================
+// The question array is the source of truth for scoring limits.
+// Each percentage is normalized between the lowest and highest
+// totals achievable by selecting one answer per question.
+// This keeps 0% and 100% attainable if the array is edited later.
+//
+// A question with all-null morality values does not affect the morality range.
+// Validation flags mixed scored/unscored options to avoid hidden zero penalties.
+
+function calculateScoreBounds(scoreIndex) {
+
+    return questions.reduce(
+        (bounds, question) => {
+
+            const answers =
+                question && Array.isArray(question.answers)
+                    ? question.answers
+                    : [];
+
+            const values = answers.map(answer => {
+
+                const value = Array.isArray(answer)
+                    ? answer[scoreIndex]
+                    : null;
+
+                return Number.isFinite(value)
+                    ? value
+                    : 0;
+
+            });
+
+            if (values.length === 0) {
+                return bounds;
+            }
+
+            bounds.min += Math.min(...values);
+            bounds.max += Math.max(...values);
+
+            return bounds;
+
+        },
+        { min: 0, max: 0 }
+    );
+
+}
+
+
+const SURVIVAL_SCORE_BOUNDS =
+    calculateScoreBounds(1);
+
+const MORALITY_SCORE_BOUNDS =
+    calculateScoreBounds(2);
+
+
+function scoreToPercentage(score, bounds) {
+
+    if (!Number.isFinite(score) || !bounds ||
+        !Number.isFinite(bounds.min) || !Number.isFinite(bounds.max)) {
+        return 0;
+    }
+
+    const range = bounds.max - bounds.min;
+
+    if (range <= 0) {
+        return 0;
+    }
+
+    const boundedScore = Math.min(
+        bounds.max,
+        Math.max(bounds.min, score)
+    );
+
+    return Math.round(
+        ((boundedScore - bounds.min) / range) * 100
+    );
+
+}
+
 
 // ===============================
 // QUIZ STATE
@@ -947,7 +1216,7 @@ const progressBar = document.getElementById("progress-bar");
 startButton.addEventListener("click", startQuiz);
 restartButton.addEventListener("click", restartQuiz);
 shareButton.addEventListener("click", shareResult);
-challengeButton.addEventListener("click", shareResult);
+challengeButton.addEventListener("click", challengeFriends);
 
 backButton.addEventListener("click", previousQuestion);
 nextButton.addEventListener("click", nextQuestion);
@@ -1337,8 +1606,9 @@ function showResult() {
     // ===============================
 
     const survivalPercentage =
-        Math.round(
-            (survivalScore / 450) * 100
+        scoreToPercentage(
+            survivalScore,
+            SURVIVAL_SCORE_BOUNDS
         );
 
 
@@ -1347,8 +1617,9 @@ function showResult() {
     // ===============================
 
     const moralityPercentage =
-        Math.round(
-            (moralityScore / 394) * 100
+        scoreToPercentage(
+            moralityScore,
+            MORALITY_SCORE_BOUNDS
         );
 
 
@@ -1552,76 +1823,129 @@ function restartQuiz() {
 
 
 // ===============================
-// SHARE
+// SHARE + CHALLENGE
 // ===============================
+
+const QUIZ_URL =
+    "https://apocalypsequizzes.com/ultimate-zombie-survival-test/";
+
+
+async function shareOrCopy(shareData) {
+
+    // Prefer the native sharing interface on supported devices.
+    if (navigator.share) {
+
+        try {
+            await navigator.share({
+                title: shareData.title,
+                text: shareData.text,
+                url: shareData.url
+            });
+            return;
+
+        } catch (error) {
+
+            // Cancellation is an intentional user action; do not show an alert.
+            if (error && error.name === "AbortError") {
+                return;
+            }
+
+            // If native sharing fails, try copying the same content instead.
+            console.warn("Native sharing was unavailable; trying copy fallback.", error);
+
+        }
+
+    }
+
+    const textToCopy = `${shareData.text}\n\n${shareData.url}`;
+
+    if (navigator.clipboard && typeof navigator.clipboard.writeText === "function") {
+
+        try {
+            await navigator.clipboard.writeText(textToCopy);
+            alert("Your message has been copied. You can now share it with your friends.");
+            return;
+        } catch (error) {
+            console.warn("Clipboard API failed; trying the manual copy fallback.", error);
+        }
+
+    }
+
+    // Older-browser fallback for pages where Clipboard API is not available.
+    const copyField = document.createElement("textarea");
+    copyField.value = textToCopy;
+    copyField.setAttribute("readonly", "");
+    copyField.style.position = "fixed";
+    copyField.style.left = "-9999px";
+    document.body.appendChild(copyField);
+    copyField.select();
+
+    let copied = false;
+
+    try {
+        copied = Boolean(document.execCommand && document.execCommand("copy"));
+    } catch (error) {
+        copied = false;
+    }
+
+    copyField.remove();
+
+    if (copied) {
+        alert("Your message has been copied. You can now share it with your friends.");
+    } else {
+        window.prompt("Copy this message to share it:", textToCopy);
+    }
+
+}
+
 
 async function shareResult() {
 
     const title =
-        document.getElementById("result-title")
-            .textContent;
+        document.getElementById("result-title").textContent;
 
     const survival =
-        document.getElementById("survival-time")
-            .textContent;
+        document.getElementById("survival-time").textContent;
 
     const finalScore =
-        document.getElementById("final-score")
-            .textContent;
-
-
-    const quizUrl =
-        "https://apocalypsequizzes.com/ultimate-zombie-survival-test/";
-
+        document.getElementById("final-score").textContent;
 
     const shareText =
         `🧟 I scored ${finalScore}% on The Ultimate Zombie Apocalypse Survival Test!\n\n` +
-        `${title}\n` +
+        `Result: ${title}\n` +
         `Estimated survival: ${survival}\n\n` +
         `How long would YOU survive?`;
 
+    await shareOrCopy({
+        title: "The Ultimate Zombie Apocalypse Survival Test",
+        text: shareText,
+        url: QUIZ_URL
+    });
 
-    const shareData = {
-
-        title:
-            "The Ultimate Zombie Apocalypse Survival Test",
-
-        text:
-            shareText,
-
-        url:
-            quizUrl
-
-    };
+}
 
 
-    try {
+async function challengeFriends() {
 
-        if (navigator.share) {
+    const title =
+        document.getElementById("result-title").textContent;
 
-            await navigator.share(shareData);
+    const survival =
+        document.getElementById("survival-time").textContent;
 
-        } else {
+    const finalScore =
+        document.getElementById("final-score").textContent;
 
-            await navigator.clipboard.writeText(
-                shareText +
-                "\n\n" +
-                quizUrl
-            );
+    const challengeText =
+        `🧟 I scored ${finalScore}% on The Ultimate Zombie Apocalypse Survival Test!\n\n` +
+        `My result: ${title} (${survival})\n\n` +
+        `Think you can make better survival decisions? Take the test and challenge me!`;
 
-            alert(
-                "Your result has been copied! You can paste it anywhere."
-            );
-
-        }
-
-    } catch (error) {
-
-        console.log(
-            "Sharing cancelled."
-        );
-
-    }
+    await shareOrCopy({
+        title: "Can you beat my zombie survival score?",
+        text: challengeText,
+        url: QUIZ_URL
+    });
 
 }
 
