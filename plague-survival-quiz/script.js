@@ -5,8 +5,8 @@ const questions = [
         answers: [
             ["Use flea repellent and avoid sick or dead animals.", 5, null],
             ["Wear a mask but still handle rodents and carcasses.", 1, null],
-            ["Take leftover antibiotics just in case.", 0, null],
-            ["Ignore the warning unless someone becomes ill.", 0, null]
+            ["Take leftover antibiotics just in case, with current information.", 0, null],
+            ["Ignore the warning unless someone becomes ill, without further information.", 0, null]
         ]
     },
 
@@ -14,10 +14,10 @@ const questions = [
     {
         question: "A person with suspected pneumonic plague is coughing and asks for help. What do you do?",
         answers: [
-            ["Move closer and help without precautions.", 1, 4],
+            ["Move closer and help without precautions, as the situation develops.", 1, 4],
             ["Keep back, call for medical help, and offer safer aid.", 5, 5],
-            ["Tell them to leave and alert nobody.", 1, 0],
-            ["Offer leftover antibiotics and carry on as normal.", 0, 2]
+            ["Tell them to leave and alert nobody, based on current guidance.", 1, 0],
+            ["Offer leftover antibiotics and carry on as normal, before acting further.", 0, 2]
         ]
     },
 
@@ -27,8 +27,8 @@ const questions = [
         answers: [
             ["Act on their request without seeking medical help.", 0, 1],
             ["Stay with them, offer comfort, and seek urgent care.", 5, 5],
-            ["Leave immediately to avoid possible exposure.", 1, 0],
-            ["Give unprescribed medicine to ease their pain.", 0, 2]
+            ["Leave immediately to avoid possible exposure, as circumstances permit.", 1, 0],
+            ["Give unprescribed medicine to ease their pain, as circumstances permit.", 0, 2]
         ]
     },
 
@@ -47,10 +47,10 @@ const questions = [
     {
         question: "A relative dies with suspected plague. What should you do first?",
         answers: [
-            ["Handle and bury the body yourself immediately.", 1, 2],
+            ["Handle and bury the body yourself immediately, if conditions allow.", 1, 2],
             ["Notify health officials and avoid direct contact until advised.", 5, 5],
             ["Burn the body without guidance or suitable facilities.", 0, 1],
-            ["Leave without reporting the death to anyone.", 1, 0]
+            ["Leave without reporting the death to anyone, before acting further.", 1, 0]
         ]
     },
 
@@ -69,10 +69,10 @@ const questions = [
     {
         question: "People fleeing an infected city reach your village asking for help. What do you do?",
         answers: [
-            ["Bring everyone indoors immediately, without assessing risks.", 1, 5],
-            ["Refuse all help, even food or information.", 3, 0],
+            ["Bring everyone indoors immediately, without assessing risks, while keeping risks in mind.", 1, 5],
+            ["Refuse all help, even food or information, after checking the available facts.", 3, 0],
             ["Offer safe supplies and connect them with health services or a reception point.", 5, 5],
-            ["Force them to leave without telling them where to seek help.", 0, 0]
+            ["Force them to leave without telling them where to seek help, without further information.", 0, 0]
         ]
     },
 
@@ -80,10 +80,10 @@ const questions = [
     {
         question: "Which statement about the Black Death's spread is most accurate?",
         answers: [
-            ["Rat fleas alone explain every outbreak.", 0, null],
+            ["Rat fleas alone explain every outbreak, if conditions allow.", 0, null],
             ["Infected fleas played a role, but historical routes remain debated.", 5, null],
-            ["The disease spread only through drinking water.", 0, null],
-            ["Mosquitoes were the main vector across Europe.", 0, null]
+            ["The disease spread only through drinking water, based on current guidance.", 0, null],
+            ["Mosquitoes were the main vector across Europe, before making a decision.", 0, null]
         ]
     },
 
@@ -93,7 +93,7 @@ const questions = [
         answers: [
             ["The share of diagnosed cases that result in death.", 5, null],
             ["How quickly a disease spreads through a population.", 0, null],
-            ["The average time before symptoms begin.", 0, null],
+            ["The average time before symptoms begin, as circumstances permit.", 0, null],
             ["The number of new cases reported each day.", 0, null]
         ]
     },
@@ -103,9 +103,9 @@ const questions = [
         question: "What does a disease's R₀ (R-naught) estimate?",
         answers: [
             ["Average infections caused by one case in a susceptible population.", 5, null],
-            ["The average incubation period.", 0, null],
+            ["The average incubation period, after checking the available facts.", 0, null],
             ["The share of infected people who become severely ill.", 0, null],
-            ["The share of cases that result in death.", 0, null]
+            ["The share of cases that result in death, without further information.", 0, null]
         ]
     },
 
@@ -124,8 +124,8 @@ const questions = [
     {
         question: "You feel unwell during an outbreak. A local school is being used as a response centre. What do you do?",
         answers: [
-            ["Go there without contacting anyone first.", 2, 4],
-            ["Continue your normal routine and ignore symptoms.", 0, 0],
+            ["Go there without contacting anyone first, where possible and safe.", 2, 4],
+            ["Continue your normal routine and ignore symptoms, without further information.", 0, 0],
             ["Contact health services, limit contact, and follow their advice.", 5, 5],
             ["Go to work and see whether you feel worse.", 0, 0]
         ]
@@ -146,10 +146,10 @@ const questions = [
     {
         question: "You find expensive clothes that may have belonged to someone who died during the outbreak. What do you do?",
         answers: [
-            ["Wear them immediately without checking their history.", 0, 0],
+            ["Wear them immediately without checking their history, if conditions allow.", 0, 0],
             ["Wash them and assume every possible risk is gone.", 2, 3],
             ["Avoid handling them until you can follow health guidance.", 5, 5],
-            ["Burn them yourself as a precaution.", 1, 1]
+            ["Burn them yourself as a precaution, before making a decision.", 1, 1]
         ]
     },
 
@@ -157,10 +157,10 @@ const questions = [
     {
         question: "You need to wash, but a dead body was seen in the river two days ago. What do you do?",
         answers: [
-            ["Bathe there because the body has drifted away.", 0, 0],
-            ["Avoid the river and seek a safer water source.", 5, 5],
+            ["Bathe there because the body has drifted away, where possible and safe.", 0, 0],
+            ["Avoid the river and seek a safer water source, without further information.", 5, 5],
             ["Boil river water and assume it is safe for every use.", 2, 2],
-            ["Wait a few days, then use it without checking.", 1, 0]
+            ["Wait a few days, then use it without checking, as circumstances permit.", 1, 0]
         ]
     },
 
@@ -179,10 +179,10 @@ const questions = [
     {
         question: "Your well may be contaminated, but a safer source supplies only half your needs. What do you do?",
         answers: [
-            ["Keep using the well without checking its safety.", 0, 0],
-            ["Reduce handwashing and sanitation indefinitely.", 1, 0],
+            ["Keep using the well without checking its safety, as the situation develops.", 0, 0],
+            ["Reduce handwashing and sanitation indefinitely, rather than guessing about the risk.", 1, 0],
             ["Prioritize confirmed-safe water and seek official advice on shortages and treatment.", 5, 5],
-            ["Mix both sources without testing or treatment guidance.", 0, 0]
+            ["Mix both sources without testing or treatment guidance, before making a decision.", 0, 0]
         ]
     },
 
@@ -192,8 +192,8 @@ const questions = [
         answers: [
             ["Distance alone, regardless of the patient's condition.", 2, null],
             ["Urgency, exposure risk, and medical or emergency guidance.", 5, null],
-            ["Whether the patient is already unconscious.", 2, null],
-            ["Avoid all hospitals, whatever the emergency.", 0, null]
+            ["Whether the patient is already unconscious, if conditions allow.", 2, null],
+            ["Avoid all hospitals, whatever the emergency, as circumstances permit.", 0, null]
         ]
     },
 
@@ -201,7 +201,7 @@ const questions = [
     {
         question: "Leaders want power to restrict movement during suspected outbreaks. What safeguards matter most?",
         answers: [
-            ["Unlimited authority with no review.", 0, 0],
+            ["Unlimited authority with no review, given the circumstances.", 0, 0],
             ["A public vote before every urgent action.", 2, 4],
             ["Clear triggers, time limits, oversight, and review.", 5, 5],
             ["Different unwritten rules for each neighborhood.", 2, 1]
@@ -223,10 +223,10 @@ const questions = [
     {
         question: "You need fuel, but the only open station has a long crowd. What should you do?",
         answers: [
-            ["Join the queue without considering the risk.", 2, null],
+            ["Join the queue without considering the risk, with current information.", 2, null],
             ["Look for a safer source and avoid unnecessary crowding.", 5, null],
-            ["Push ahead before the fuel runs out.", 0, null],
-            ["Wait nearby indefinitely without checking alternatives.", 2, null]
+            ["Push ahead before the fuel runs out, if conditions allow.", 0, null],
+            ["Wait nearby indefinitely without checking alternatives, for the time being.", 2, null]
         ]
     },
 
@@ -234,10 +234,10 @@ const questions = [
     {
         question: "Your elderly neighbor can no longer manage alone and asks to stay with you. Supplies are limited. What do you do?",
         answers: [
-            ["Bring them in immediately without planning for care.", 2, 5],
-            ["Refuse all help because supplies are limited.", 3, 0],
+            ["Bring them in immediately without planning for care, given the circumstances.", 2, 5],
+            ["Refuse all help because supplies are limited, without further information.", 3, 0],
             ["Assess safe support options and arrange shelter or supplies where possible.", 5, 5],
-            ["Send them away without checking other assistance.", 1, 0]
+            ["Send them away without checking other assistance, while keeping risks in mind.", 1, 0]
         ]
     },
 
@@ -245,9 +245,9 @@ const questions = [
     {
         question: "You find a frightened child alone beside an abandoned vehicle. You don't know where their parents are. What do you do?",
         answers: [
-            ["Take the child along without contacting anyone.", 2, 3],
-            ["Search nearby alone before securing the child.", 2, 3],
-            ["Leave the child and continue your journey.", 0, 0],
+            ["Take the child along without contacting anyone, if conditions allow.", 2, 3],
+            ["Search nearby alone before securing the child, as circumstances permit.", 2, 3],
+            ["Leave the child and continue your journey, given the circumstances.", 0, 0],
             ["Move the child to safety and contact trusted authorities.", 5, 5]
         ]
     },
@@ -256,8 +256,8 @@ const questions = [
     {
         question: "A supermarket seems abandoned, but you hear movement inside and need food. What do you do?",
         answers: [
-            ["Enter immediately and search the aisles.", 1, 1],
-            ["Avoid it without assessing whether safer options exist.", 3, 3],
+            ["Enter immediately and search the aisles, before making a decision.", 1, 1],
+            ["Avoid it without assessing whether safer options exist, if conditions allow.", 3, 3],
             ["Keep your distance, call out, and assess the risk before approaching.", 5, 5],
             ["Enter through a rear door without checking who is inside.", 1, 1]
         ]
@@ -278,10 +278,10 @@ const questions = [
     {
         question: "Only one dose of a critical medicine remains. One patient is your friend; the other is more likely to benefit. What do you do?",
         answers: [
-            ["Give it to your friend because you know them.", 2, 1],
+            ["Give it to your friend because you know them, as the situation develops.", 2, 1],
             ["Use fair medical criteria and give it to the patient most likely to benefit.", 5, 5],
-            ["Let both families decide without medical advice.", 2, 3],
-            ["Choose randomly without checking urgency or likely benefit.", 1, 2]
+            ["Let both families decide without medical advice, when it is safe to do so.", 2, 3],
+            ["Choose randomly without checking urgency or likely benefit, after checking the available facts.", 1, 2]
         ]
     },
 
@@ -289,10 +289,10 @@ const questions = [
     {
         question: "Your vehicle can take either your friend or a parent and child, but not all three. What do you do?",
         answers: [
-            ["Choose your friend without assessing the others' needs.", 3, 2],
+            ["Choose your friend without assessing the others' needs, where possible and safe.", 3, 2],
             ["Prioritize the parent and child, and seek help for your friend.", 5, 5],
-            ["Choose whoever arrived first, regardless of urgency.", 3, 3],
-            ["Leave without helping either party.", 0, 0]
+            ["Choose whoever arrived first, regardless of urgency, after checking the available facts.", 3, 3],
+            ["Leave without helping either party, rather than guessing about the risk.", 0, 0]
         ]
     },
 
@@ -300,8 +300,8 @@ const questions = [
     {
         question: "Healthy-looking people arrive from an infected city and ask to enter your settlement. What do you do?",
         answers: [
-            ["Admit everyone immediately without assessing risk.", 1, 5],
-            ["Refuse them all and offer no assistance.", 3, 0],
+            ["Admit everyone immediately without assessing risk, given the circumstances.", 1, 5],
+            ["Refuse them all and offer no assistance, before acting further.", 3, 0],
             ["Contact health services and arrange appropriate screening or precautions.", 5, 5],
             ["Give no information and send them away at once.", 2, 1]
         ]
@@ -311,10 +311,10 @@ const questions = [
     {
         question: "A storm is coming. Your shelter holds four, and three of you are inside. A stranger asks to enter, but may have been exposed. What do you do?",
         answers: [
-            ["Let them in immediately with close contact.", 1, 5],
-            ["Leave your shelter without checking safer options.", 0, 3],
+            ["Let them in immediately with close contact, when it is safe to do so.", 1, 5],
+            ["Leave your shelter without checking safer options, rather than guessing about the risk.", 0, 3],
             ["Speak from a safe distance, assess risk, and seek a safe way to help.", 5, 5],
-            ["Refuse them and provide no information or supplies.", 3, 1]
+            ["Refuse them and provide no information or supplies, after checking the available facts.", 3, 1]
         ]
     },
 
@@ -322,7 +322,7 @@ const questions = [
     {
         question: "A hungry parent secretly took food to feed their children. What should your settlement do?",
         answers: [
-            ["Punish them immediately without hearing their reasons.", 2, 1],
+            ["Punish them immediately without hearing their reasons, with current information.", 2, 1],
             ["Ignore the issue and leave ration rules unclear.", 2, 3],
             ["Provide fair food support and address the breach transparently.", 5, 5],
             ["Demand the food back and offer no support.", 2, 1]
@@ -333,7 +333,7 @@ const questions = [
     {
         question: "An apparently abandoned house contains food, medicine, and family photographs. No immediate danger is visible. What do you do?",
         answers: [
-            ["Take everything, including personal keepsakes.", 2, 0],
+            ["Take everything, including personal keepsakes, for the time being.", 2, 0],
             ["Check for hazards and take only essential supplies if necessary.", 5, 5],
             ["Leave every item, even if critical supplies are unavailable.", 3, 4],
             ["Wait indefinitely for an owner who may not return.", 2, 3]
@@ -344,8 +344,8 @@ const questions = [
     {
         question: "A child disappears inside your settlement during an outbreak. A search could expose people in crowded areas. What do you do?",
         answers: [
-            ["Send everyone into crowded areas immediately.", 2, 4],
-            ["Wait until morning without checking immediate risks.", 1, 1],
+            ["Send everyone into crowded areas immediately, as the situation develops.", 2, 4],
+            ["Wait until morning without checking immediate risks, as circumstances permit.", 1, 1],
             ["Search alone without telling anyone where you are going.", 2, 3],
             ["Alert leaders and coordinate a focused, cautious search.", 5, 5]
         ]
@@ -355,9 +355,9 @@ const questions = [
     {
         question: "A family member returns from an area with active cases and wants to reunite immediately. What do you do?",
         answers: [
-            ["Welcome them with close contact and no precautions.", 1, 5],
+            ["Welcome them with close contact and no precautions, with current information.", 1, 5],
             ["Contact health services and follow screening or monitoring advice.", 5, 5],
-            ["Reject them permanently without seeking advice.", 2, 1],
+            ["Reject them permanently without seeking advice, with current information.", 2, 1],
             ["Meet indoors in a crowded room to talk it through.", 1, 3]
         ]
     },
@@ -366,10 +366,10 @@ const questions = [
     {
         question: "Residents oppose restrictions based on credible health evidence. What should settlement leaders do?",
         answers: [
-            ["Remove all restrictions immediately.", 1, 3],
-            ["Keep restrictions forever without explanation.", 2, 0],
+            ["Remove all restrictions immediately, while keeping risks in mind.", 1, 3],
+            ["Keep restrictions forever without explanation, as the situation develops.", 2, 0],
             ["Explain the evidence, apply proportionate rules, and review them regularly.", 5, 5],
-            ["Let every household invent unrelated rules.", 2, 3]
+            ["Let every household invent unrelated rules, while keeping risks in mind.", 2, 3]
         ]
     },
 
@@ -378,7 +378,7 @@ const questions = [
         question: "A skilled engineer from an area with active infections could help your settlement. What should you do?",
         answers: [
             ["Admit them immediately because their skills are valuable.", 1, 5],
-            ["Reject them without considering any safe options.", 3, 0],
+            ["Reject them without considering any safe options, as circumstances permit.", 3, 0],
             ["Follow public-health advice on exposure assessment and safe admission.", 5, 5],
             ["Let them work among residents while you decide later.", 1, 2]
         ]
@@ -388,8 +388,8 @@ const questions = [
     {
         question: "A valuable tool was used in an isolation area and is needed elsewhere. What do you do?",
         answers: [
-            ["Reuse it immediately without checking its condition.", 1, null],
-            ["Follow suitable infection-control guidance before reusing it.", 5, null],
+            ["Reuse it immediately without checking its condition, with current information.", 1, null],
+            ["Follow suitable infection-control guidance before reusing it, without further information.", 5, null],
             ["Throw it away automatically, whatever the tool or risk.", 2, null],
             ["Pass it to another team without mentioning its use.", 0, null]
         ]
@@ -399,10 +399,10 @@ const questions = [
     {
         question: "A resident had close contact with someone diagnosed with pneumonic plague but feels well. What should they do?",
         answers: [
-            ["Ignore it because symptoms have not appeared.", 0, 1],
-            ["Take leftover antibiotics without medical advice.", 0, 1],
+            ["Ignore it because symptoms have not appeared, given the circumstances.", 0, 1],
+            ["Take leftover antibiotics without medical advice, before acting further.", 0, 1],
             ["Contact health officials and follow monitoring or preventive-treatment advice.", 5, 5],
-            ["Leave secretly without informing anyone.", 1, 0]
+            ["Leave secretly without informing anyone, while considering the risks.", 1, 0]
         ]
     },
 
@@ -422,7 +422,7 @@ const questions = [
         question: "You can stay home or move elsewhere during an outbreak. How should you decide?",
         answers: [
             ["Choose the mountains because remote places are always safer.", 1, null],
-            ["Stay anywhere without checking the local risk.", 0, null],
+            ["Stay anywhere without checking the local risk, without further information.", 0, null],
             ["Compare official advice, exposure risks, supplies, and medical access.", 5, null],
             ["Move with the largest group you can find.", 2, null]
         ]
@@ -432,7 +432,7 @@ const questions = [
     {
         question: "Someone asks for water for their family, but you don't know their exposure history. What do you do?",
         answers: [
-            ["Invite them inside and offer no precautions.", 1, 3],
+            ["Invite them inside and offer no precautions, given the circumstances.", 1, 3],
             ["Offer water from a safe distance and share health guidance.", 5, 5],
             ["Refuse to speak to them or offer any information.", 2, 0],
             ["Invite them to stay overnight without assessing the situation.", 0, 3]
@@ -454,7 +454,7 @@ const questions = [
     {
         question: "After a fallout warning, you find vegetables growing nearby. Food supplies are low. What do you do?",
         answers: [
-            ["Rinse the vegetables and eat them today.", 1, null],
+            ["Rinse the vegetables and eat them today, with current information.", 1, null],
             ["Peel them, assuming contamination stays only on the skin.", 1, null],
             ["Keep them separate and follow official food-safety advice.", 5, null],
             ["Mix them with canned food to dilute possible contamination.", 0, null]
@@ -465,10 +465,10 @@ const questions = [
     {
         question: "After a nearby blast, your shelter smells of gas and smoke is entering. What is the priority?",
         answers: [
-            ["Light a lamp and inspect the damaged room.", 0, null],
+            ["Light a lamp and inspect the damaged room, given the circumstances.", 0, null],
             ["Warn others, avoid switches and flames, and leave if safe.", 5, null],
             ["Seal the doors and wait, even if smoke keeps entering.", 1, null],
-            ["Search for supplies before deciding whether to leave.", 1, null]
+            ["Search for supplies before deciding whether to leave, without further information.", 1, null]
         ]
     },
 
@@ -477,7 +477,7 @@ const questions = [
         question: "A rumor warns of another attack, but official alerts say to shelter. What do you do?",
         answers: [
             ["Leave immediately with the crowd heading for the highway.", 1, null],
-            ["Ignore every broadcast because rumors are common.", 1, null],
+            ["Ignore every broadcast because rumors are common, as circumstances permit.", 1, null],
             ["Check trusted emergency channels and follow verified instructions.", 5, null],
             ["Ask strangers and follow whichever view is most popular.", 2, null]
         ]
@@ -487,10 +487,10 @@ const questions = [
     {
         question: "Running water stops, and many families share one shelter. What best limits disease?",
         answers: [
-            ["Store waste beside sleeping areas until collection returns.", 0, null],
+            ["Store waste beside sleeping areas until collection returns, with current information.", 0, null],
             ["Dump waste into the nearest stream to clear space.", 0, null],
             ["Set a designated toilet area away from food and water.", 5, null],
-            ["Let each family use any convenient place.", 1, null]
+            ["Let each family use any convenient place, for the time being.", 1, null]
         ]
     },
 
@@ -509,7 +509,7 @@ const questions = [
     {
         question: "Your evacuation route reaches a flooded road with moving water. What do you do?",
         answers: [
-            ["Drive through slowly near the road's centre.", 0, null],
+            ["Drive through slowly near the road's centre, as the situation develops.", 0, null],
             ["Walk across and use a pole to test the depth.", 1, null],
             ["Turn back and find a safer route or official advice.", 5, null],
             ["Follow another vehicle if it seems to get through.", 0, null]
@@ -522,8 +522,8 @@ const questions = [
         answers: [
             ["Use it for entertainment while waiting for updates.", 0, null],
             ["Save power, send essential messages, and check updates periodically.", 5, null],
-            ["Keep calling repeatedly until the battery dies.", 1, null],
-            ["Give it away without checking anyone's needs.", 2, null]
+            ["Keep calling repeatedly until the battery dies, if conditions allow.", 1, null],
+            ["Give it away without checking anyone's needs, as circumstances permit.", 2, null]
         ]
     },
 
@@ -532,8 +532,8 @@ const questions = [
         question: "Your group is exhausted, but there may be threats outside at night. What is best?",
         answers: [
             ["Keep everyone awake all night to guard the shelter.", 1, 2],
-            ["Rotate watch shifts so others can rest.", 5, 5],
-            ["Ignore outside noises unless someone enters.", 1, 1],
+            ["Rotate watch shifts so others can rest, before acting further.", 5, 5],
+            ["Ignore outside noises unless someone enters, with current information.", 1, 1],
             ["Send several people outside to inspect every sound.", 0, 2]
         ]
     },
