@@ -1,551 +1,552 @@
 const questions = [
+
 // Decision 1
 {
-    question: "It's 8:17 AM. Your phone suddenly displays: BALLISTIC MISSILE THREAT — SEEK SHELTER IMMEDIATELY. Several missiles have reportedly been launched. You may have only minutes.",
+    question: "Your phone warns: BALLISTIC MISSILE THREAT—SEEK SHELTER NOW. Missiles may be minutes away. What do you do?",
     answers: [
-        ["Grab your phone, wallet and keys and leave for the nearest major city.", 1, null],
-        ["Run outside to see what is happening before deciding.", 0, null],
-        ["Get inside the strongest nearby building and move toward its interior.", 5, null],
-        ["Call friends and family first to find out what they are doing.", 2, null]
+        ["Drive toward a larger city, hoping it is safer.", 1, null],
+        ["Step outside to check the warning.", 0, null],
+        ["Move inside the strongest nearby building.", 5, null],
+        ["Call relatives and compare what they have heard.", 2, null]
     ]
 },
 
-// Decision 2
+// Decision 2 — Prioritize sheltering; only collect items immediately within reach
 {
-    question: "You have about five minutes and can carry only a small backpack. What do you prioritize?",
+    question: "The alert arrives while you're indoors. You have seconds to grab nearby essentials without delaying shelter. What do you take?",
     answers: [
-        ["Food, bottled water and basic supplies.", 4, null],
-        ["Important documents, money, phone, power bank and essential medications.", 5, null],
-        ["Weapons and ammunition.", 3, null],
-        ["As many valuable possessions as possible.", 1, null]
+        ["Grab food and water, even if shelter is delayed.", 2, null],
+        ["Take nearby medicine, phone, power bank and ID.", 5, null],
+        ["Collect valuables and weapons before anything else.", 1, null],
+        ["Leave to search for a better-stocked bag.", 0, null]
     ]
 },
 
 // Decision 3
 {
-    question: "You have four possible places nearby. Which do you choose?",
+    question: "Which nearby shelter is best?",
     answers: [
-        ["A basement beneath a large concrete building.", 5, null],
-        ["Your car inside an underground parking garage.", 4, null],
-        ["A small house with large windows but plenty of food.", 2, null],
-        ["An open field outside the city.", 0, null]
+        ["Use a basement under a large concrete building.", 5, null],
+        ["Stay in your car inside an underground garage.", 4, null],
+        ["Choose a small house with large windows and a food supply.", 2, null],
+        ["Choose an open field beyond the city, far from buildings.", 0, null]
     ]
 },
 
-// Decision 4
+// Decision 4 — Replace the fictional “ash and fallout storm” framing
 {
-    question: "The nuclear blast has just occurred. Everyone expected at the reinforced bunker has arrived except your brother. A massive ash and fallout storm is approaching, and the door must be sealed.",
+    question: "Your brother hasn't reached the shelter, and officials warn fallout may arrive soon. What do you do?",
     answers: [
-        ["Seal the bunker immediately to protect everyone inside.", 5, 2],
-        ["Keep the door open and wait for your brother.", 1, 5],
-        ["Try to contact him one final time and give him a few seconds to reach the bunker.", 5, 5],
-        ["Send one person outside to search while everyone else waits inside.", 2, 3]
+        ["Secure the shelter and follow official guidance.", 5, 3],
+        ["Keep the entrance open until he arrives, whatever happens.", 1, 4],
+        ["Try contacting him briefly, then secure the shelter.", 5, 5],
+        ["Ask one person to go outside and look for him.", 0, 3]
     ]
 },
 
 // Decision 5
 {
-    question: "A blinding flash suddenly lights up the horizon. What do you do?",
+    question: "A blinding flash appears on the horizon. What do you do?",
     answers: [
-        ["Keep watching to estimate where the explosion occurred.", 1, null],
-        ["Drop behind substantial cover, turn away and protect yourself.", 5, null],
-        ["Run toward the windows to see what happened.", 0, null],
-        ["Get into your car and drive immediately.", 2, null]
+        ["Keep watching to judge where the explosion occurred.", 1, null],
+        ["Drop behind cover and shield your head and eyes.", 5, null],
+        ["Move to a window to see what happened.", 0, null],
+        ["Get into your car and leave the area at once.", 2, null]
     ]
 },
 
-// Decision 6
+// Decision 6 — Clarify the immediate action during blast effects
 {
-    question: "Seconds later, the shockwave arrives. The building shakes violently and windows shatter somewhere above you. What is your immediate priority?",
+    question: "The shockwave hits. The building shakes and windows shatter above you. What now?",
     answers: [
-        ["Leave the building before it collapses.", 2, null],
-        ["Stay protected until the immediate blast effects pass, then assess the situation.", 5, null],
-        ["Go upstairs to check on everyone.", 2, null],
-        ["Run outside while the roads are still clear.", 3, null]
+        ["Run outside before the building suffers more damage.", 1, null],
+        ["Get low, shield your head, and stay away from windows.", 5, null],
+        ["Go upstairs to check on people while the building shakes.", 1, null],
+        ["Get into your car and try to drive away immediately.", 2, null]
     ]
 },
 
 // Decision 7
 {
-    question: "About 20 minutes after the explosion, an emergency broadcast warns that radioactive fallout may be approaching. You are inside a concrete building.",
+    question: "A broadcast warns that fallout may be approaching. You're inside a concrete building. What do you do?",
     answers: [
-        ["Stay inside and move as far from exterior walls and the roof as possible.", 5, null],
-        ["Leave immediately and drive away.", 1, null],
-        ["Go outside to check whether radioactive dust is falling.", 0, null],
-        ["Open the windows slightly for ventilation.", 1, null]
+        ["Stay inside, away from exterior walls and the roof.", 5, null],
+        ["Leave now and drive as far away as possible, despite fallout.", 1, null],
+        ["Step outside to check whether radioactive dust is falling.", 0, null],
+        ["Open the windows to improve indoor ventilation.", 1, null]
     ]
 },
 
-// Decision 8
+// Decision 8 — Replace the “ash and fallout storm” framing
 {
-    question: "The bunker is sealed. The ash and fallout storm has arrived, and visibility outside is almost zero. You suddenly hear three loud knocks. Someone is outside.",
+    question: "Your shelter is sealed during a fallout warning. Someone knocks, but you can't identify them. What now?",
     answers: [
-        ["Open the door immediately.", 0, 3],
-        ["Keep it sealed until the storm passes.", 5, 2],
-        ["Communicate with the person without opening the door and try to identify them.", 5, 5],
-        ["Prepare a controlled entry and open the door only if the risk can be minimized.", 4, 4]
+        ["Open the door immediately without checking who is outside.", 0, 4],
+        ["Keep it closed until guidance or conditions improve.", 5, 2],
+        ["Talk through the door and assess risks before entry.", 5, 5],
+        ["Send someone outside to identify and question the visitor.", 0, 3]
     ]
 },
 
 // Decision 9
 {
-    question: "Several lower-floor windows are damaged, and fine dust has entered the building.",
+    question: "Broken lower-floor windows let fine dust inside. What do you do?",
     answers: [
-        ["Stay away from the damaged area and prevent more outside dust from entering where practical.", 5, null],
-        ["Open all the windows to flush the dust out.", 1, null],
-        ["Sweep the dust toward the doors and outside.", 1, null],
-        ["Ignore it. The dust is probably harmless this far away.", 0, null]
+        ["Avoid the damaged area and block more incoming dust.", 5, null],
+        ["Open every nearby window to clear dust from the building.", 1, null],
+        ["Sweep dust toward the exit and push it outside.", 1, null],
+        ["Ignore it; dust this far away is probably harmless.", 0, null]
     ]
 },
 
 // Decision 10
 {
-    question: "You hear someone calling for help. A man has a serious cut on his leg and is struggling to move. You have basic first-aid supplies.",
+    question: "A man with a serious leg cut calls for help. You have basic first-aid supplies. What do you do?",
     answers: [
-        ["Control the bleeding and move him somewhere safer if possible.", 5, 5],
-        ["Leave him because you cannot spare supplies for a stranger.", 2, 0],
-        ["Tell him to crawl toward you while you stay protected.", 3, 3],
-        ["Take him outside so you can treat him in better light.", 1, 1]
+        ["Stop the bleeding and move him to safety if possible.", 5, 5],
+        ["Leave him because you may need supplies later.", 2, 0],
+        ["Ask him to crawl toward you while you stay sheltered.", 3, 3],
+        ["Move him outside for better light while treating him.", 1, 1]
     ]
 },
 
-// Decision 11
+// Decision 11 — Avoid going outside during a fallout warning to collect rain or wash
 {
-    question: "Several hours after the blast, the ash storm has passed and heavy rain begins. Your water supply is limited. Some want to collect the rain or use it to wash fallout from their bodies.",
+    question: "Fallout may be present when heavy rain starts. People want to collect rain or wash outdoors. What should you do?",
     answers: [
-        ["Go outside and collect as much rainwater as possible.", 1, null],
-        ["Take a shower in the rain to wash off fallout.", 0, null],
-        ["Stay inside until you have reliable information about contamination.", 5, null],
-        ["Collect some rainwater while minimizing exposure and keep it separate until its safety is known.", 4, null]
+        ["Go outside and collect rainwater before it stops.", 1, null],
+        ["Wash outdoors to remove possible fallout from skin.", 0, null],
+        ["Stay sheltered; avoid rainwater and wash off indoors.", 5, null],
+        ["Leave containers outside and assume water will be safe.", 1, null]
     ]
 },
 
-// Decision 12
+// Decision 12 — Do not imply ordinary filtering or boiling makes water safe from radioactive contamination
 {
-    question: "The rain has stopped. You collected rainwater, but don't know whether fallout contaminated it. Your drinking water is running low.",
+    question: "Rainwater collected during possible fallout may be contaminated. Safe drinking water is low. What now?",
     answers: [
-        ["Drink it immediately.", 0, null],
-        ["Filter it and drink it.", 2, null],
-        ["Keep it separate while using your remaining safe water and seeking reliable information or safer treatment.", 5, null],
-        ["Use it for non-drinking purposes while preserving safe drinking water.", 4, null]
+        ["Drink it because it looks clear and clean.", 0, null],
+        ["Boil or filter it, assuming it removes radiation.", 1, null],
+        ["Keep it separate, save safe water and seek advice.", 5, null],
+        ["Mix it with bottled water to stretch your supply.", 0, null]
     ]
 },
 
 // Decision 13
 {
-    question: "Your phone has no network connection. Someone has found an old battery-powered emergency radio carrying government broadcasts, although the signal cuts out occasionally.",
+    question: "Your phone has no signal, but an emergency radio receives government updates intermittently. What do you do?",
     answers: [
-        ["Ignore it and rely on other survivors.", 1, null],
-        ["Keep listening while conserving the batteries for important updates.", 5, null],
-        ["Leave the building to find a stronger signal.", 1, null],
-        ["Use the batteries for your phone instead.", 2, null]
+        ["Ignore radio broadcasts and rely on other survivors.", 1, null],
+        ["Check for updates at intervals to conserve batteries.", 5, null],
+        ["Leave the building and search for a much stronger signal.", 1, null],
+        ["Move the radio batteries to your phone instead.", 2, null]
     ]
 },
 
 // Decision 14
 {
-    question: "On the second day, water pressure drops dramatically. Your group has enough stored drinking water for three days at normal consumption.",
+    question: "On day two, water pressure drops. Stored water will last three days at normal use. What do you do?",
     answers: [
-        ["Continue normal consumption until the water runs out.", 1, null],
-        ["Begin rationing immediately and search for additional safe water.", 5, null],
-        ["Send someone outside to find a working water supply.", 2, null],
-        ["Fill every container available, even if the source may be unsafe.", 2, null]
+        ["Use stored water normally until it runs out.", 1, null],
+        ["Conserve stored water and seek another safe source.", 5, null],
+        ["Send someone outside to search for more water.", 2, null],
+        ["Fill every container, even if the source seems unsafe.", 2, null]
     ]
 },
 
 // Decision 15
 {
-    question: "Your group has about one week of food. A nearby supermarket appears abandoned, but the streets may still be contaminated.",
+    question: "You have a week's food. An abandoned supermarket may be contaminated. What do you do?",
     answers: [
-        ["Send several people immediately to collect as much food as possible.", 2, null],
-        ["Stay inside and ration your supplies.", 4, null],
-        ["Assess the risks and, if conditions allow, send a small team for essential supplies.", 5, null],
-        ["Wait several days and hope the supermarket remains untouched.", 2, null]
+        ["Send several people to gather as much food as possible.", 2, null],
+        ["Stay inside and ration the food you have.", 4, null],
+        ["Assess the risks, then send a small team if safe.", 5, null],
+        ["Wait and hope the supermarket remains untouched.", 2, null]
     ]
 },
 
 // Decision 16
 {
-    question: "Several days have passed. Your group remains inside the bunker with food and water, but some want to go outside for supplies. You have no radiation meter and don't know the fallout conditions.",
+    question: "Days have passed in your stocked bunker. You lack a radiation meter, and some want supplies outside. What now?",
     answers: [
-        ["Leave now because several days have passed.", 2, null],
-        ["Stay until your supplies are almost exhausted.", 3, null],
-        ["Remain sheltered while gathering reliable information and leave when conditions indicate the risk has decreased sufficiently.", 5, null],
-        ["Send one person outside briefly to see whether it looks safe.", 1, null]
+        ["Leave now simply because several days have passed.", 2, null],
+        ["Stay inside until supplies are nearly gone.", 3, null],
+        ["Check reliable updates, and leave when risks fall.", 5, null],
+        ["Send someone outside to check if it looks safe.", 1, null]
     ]
 },
 
 // Decision 17
 {
-    question: "You are trying to determine whether your bunker is far enough from the explosion to avoid the blast zone. You don't know the weapon's yield or burst conditions.",
+    question: "You don't know the weapon's yield or burst conditions. What distance is definitely safe from the blast?",
     answers: [
-        ["20 km should be enough.", 2, null],
-        ["50 km should be enough.", 2, null],
-        ["100 km should be enough.", 2, null],
-        ["There is no single safe distance without knowing the weapon's yield and other conditions.", 5, null]
+        ["A distance of 20 km should be enough for most blast conditions.", 2, null],
+        ["A distance of 50 km should provide plenty of protection.", 2, null],
+        ["A distance of 100 km should be enough to be safe.", 2, null],
+        ["No single safe distance applies to every weapon and condition.", 5, null]
     ]
 },
 
 // Decision 18
 {
-    question: "Your bunker is 80 km from the explosion and suffered no blast damage. However, you are downwind and radioactive fallout may be approaching. Someone says, \"We're 80 km away, so we're safe.\"",
+    question: "Your bunker is 80 km away and undamaged, but you're downwind. Someone says you're safe. What do you do?",
     answers: [
-        ["Agree. At 80 km there is no meaningful nuclear danger.", 0, null],
-        ["Leave immediately before the fallout arrives.", 2, null],
-        ["Stay sheltered and monitor reliable information about fallout and wind conditions.", 5, null],
-        ["Go outside briefly to see whether fallout is visible.", 1, null]
+        ["Agree; 80 km is so far away that fallout is no concern.", 0, null],
+        ["Leave immediately before the fallout cloud gets here.", 2, null],
+        ["Stay sheltered and follow official fallout updates.", 5, null],
+        ["Go outside to check whether you can see the fallout.", 1, null]
     ]
 },
 
 // Decision 19
 {
-    question: "You don't know the bomb's size and have no radiation meter. Your group wants to know whether it is safe to leave.",
+    question: "You don't know the weapon's size and have no radiation meter. How can you judge when it's safe to leave?",
     answers: [
-        ["Check whether an ash or fallout cloud is visible.", 2, null],
-        ["Look for black rain; if there isn't any, assume it's safe.", 1, null],
-        ["Watch birds and animals; if they seem normal, assume radiation is low.", 1, null],
-        ["Don't rely on appearances or animal behavior; seek reliable radiation information or measurements.", 5, null]
+        ["Check whether a fallout cloud can be seen.", 2, null],
+        ["Look for black rain; if absent, assume it's safe.", 1, null],
+        ["Watch animals; normal behavior means radiation is low.", 1, null],
+        ["Ignore appearances; seek reliable radiation readings.", 5, null]
     ]
 },
 
-// Decision 20
+// Decision 20 — Make contamination reduction steps specific
 {
-    question: "Someone who went outside returns covered in dust. You don't know whether it is radioactive.",
+    question: "Someone returns from outside covered in dust during possible fallout. What should happen before they enter the clean area?",
     answers: [
-        ["Let them walk directly into the shelter.", 1, 0],
-        ["Have them remove potentially contaminated outer clothing and follow appropriate decontamination procedures before entering the clean area.", 5, 5],
-        ["Tell them to wash their clothes and keep wearing them.", 2, 2],
-        ["Send them back outside until you know whether the dust is dangerous.", 1, 1]
+        ["Let them walk straight into the shelter with the group.", 1, 0],
+        ["Remove outer clothes, bag them and wash exposed skin.", 5, 5],
+        ["Shake their clothes outside to loosen and remove dust.", 0, 1],
+        ["Send them back outside until someone identifies the dust.", 1, 1]
     ]
 },
 
 // Decision 21
 {
-    question: "Late at night, a frightened woman knocks on your building's entrance. She says she was separated from her family and asks for water and shelter.",
+    question: "A frightened woman knocks at night. Separated from her family, she asks for water and shelter. What do you do?",
     answers: [
-        ["Let her inside immediately.", 2, 4],
-        ["Refuse to open the door because supplies are limited.", 2, 1],
-        ["Speak with her from a protected position, assess the situation and offer limited help if safe.", 5, 5],
-        ["Tell her to wait outside while the group decides.", 3, 3]
+        ["Let her inside immediately without asking questions.", 2, 4],
+        ["Refuse help because your supplies are limited.", 2, 1],
+        ["Talk from safety and offer help if it's safe.", 5, 5],
+        ["Ask her to wait outside while the group decides.", 3, 3]
     ]
 },
 
-// Decision 22
+// Decision 22 — Use shared batteries strategically
 {
-    question: "Your emergency radio and flashlight use the same batteries. The radio is still receiving occasional government broadcasts.",
+    question: "Your radio and flashlight share limited batteries. Government updates come occasionally. What's the best plan?",
     answers: [
-        ["Prioritize the radio and keep the flashlight as a backup.", 5, null],
-        ["Prioritize the flashlight because you need to see.", 3, null],
-        ["Run both normally until the batteries are exhausted.", 1, null],
-        ["Abandon the radio and save the batteries for later.", 2, null]
+        ["Use the radio periodically and flashlight as needed.", 5, null],
+        ["Keep both devices on until the batteries run out.", 1, null],
+        ["Move the batteries to your phone, despite no signal.", 2, null],
+        ["Stop checking updates and save all batteries for later.", 2, null]
     ]
 },
 
 // Decision 23
 {
-    question: "One member insists that staying inside is becoming too dangerous. They believe functioning communities exist outside the city and want to leave immediately.",
+    question: "A group member says shelter is too dangerous and wants to leave for another community. What do you do?",
     answers: [
-        ["Let them leave alone. Everyone makes their own decisions.", 3, 3],
-        ["Stop them from leaving.", 2, 2],
-        ["Discuss the risks, gather reliable information and make a group decision based on actual conditions.", 5, 5],
-        ["Leave with them immediately.", 2, 3]
+        ["Let them leave alone; everyone can decide for themselves.", 3, 3],
+        ["Physically stop them from leaving, even if they disagree.", 2, 2],
+        ["Check the risks and updates, then decide together.", 5, 5],
+        ["Leave with them at once, without checking current conditions.", 2, 3]
     ]
 },
 
 // Decision 24
 {
-    question: "After several nights, you hear movement outside. It could be survivors, criminals, animals or something else. Your 12-person group is already exhausted.",
+    question: "You hear movement outside at night. It could be people or animals, and your 12-person group is exhausted. What now?",
     answers: [
-        ["Keep everyone awake all night.", 2, null],
-        ["Establish a rotating watch so others can rest.", 5, null],
-        ["Ignore the sounds unless someone enters.", 2, null],
+        ["Keep everyone awake and listening all night.", 2, null],
+        ["Set rotating watches so the rest can sleep.", 5, null],
+        ["Ignore noises unless someone actually enters.", 2, null],
         ["Send several people outside to investigate.", 1, null]
     ]
 },
 
-// Decision 25
+// Decision 25 — Symptoms alone do not confirm radiation sickness
 {
-    question: "One member develops vomiting, weakness and severe fatigue after spending several hours outside following the arrival of fallout. Medical supplies are limited.",
+    question: "After possible fallout exposure, a member develops vomiting, weakness and fatigue. What should you do?",
     answers: [
-        ["Assume radiation sickness and isolate them immediately.", 2, 2],
-        ["Ignore the symptoms unless they become life-threatening.", 1, 1],
-        ["Move them away from potential contamination, provide basic care and seek reliable medical information if possible.", 5, 5],
-        ["Send them outside to a nearby hospital.", 0, 0]
+        ["Assume radiation sickness and isolate them without assessment.", 2, 2],
+        ["Ignore the symptoms until they become much more severe.", 1, 1],
+        ["Move them to a clean area, provide care and seek medical help.", 5, 5],
+        ["Send them toward a hospital without checking route or guidance.", 0, 0]
     ]
 },
 
-// Decision 26
+// Decision 26 — Add carbon-monoxide safety for generators
 {
-    question: "Your fuel-powered generator has enough fuel for five days of continuous operation. Electricity is useful for refrigeration, medical equipment and communications, but isn't always essential.",
+    question: "Your generator has fuel for five days. You need power for medicine and communications, but fuel is limited. What plan is best?",
     answers: [
-        ["Run it continuously while fuel remains.", 2, null],
-        ["Run it only when electricity is genuinely needed.", 5, null],
-        ["Use all the fuel now to charge every device.", 2, null],
-        ["Trade the fuel to another survivor group for food.", 3, null]
+        ["Keep it running to power every device, even nonessential ones.", 2, null],
+        ["Operate outdoors, 20+ feet from doors, windows and vents.", 5, null],
+        ["Run it in the garage with the door open and windows raised.", 0, null],
+        ["Use the fuel now for devices you may not need urgently.", 2, null]
     ]
 },
 
-// Decision 27
+// Decision 27 — Remove the radiation-mutation stereotype
 {
-    question: "You have just left your bunker after several days. While traveling, you meet a lone survivor who says people nearby are developing strange mutations because of radiation. You have no way to verify his story.",
+    question: "A survivor says a nearby town has unusual illnesses caused by radiation but offers no evidence. What do you do?",
     answers: [
-        ["Believe him immediately and turn back to the bunker.", 2, null],
-        ["Ignore him and continue your journey.", 3, null],
-        ["Refuse to believe him unless he can provide proof.", 3, null],
-        ["Stay cautious, gather more information and avoid unnecessary risk until you can verify the claim.", 5, null]
+        ["Accept the claim as fact and turn back without checking.", 2, null],
+        ["Ignore the warning and continue on your planned route.", 2, null],
+        ["Enter the town to inspect the illnesses and look for evidence.", 1, null],
+        ["Treat it as unverified and seek reliable information first.", 5, null]
     ]
 },
 
-// Decision 28
+// Decision 28 — Assess behavior and actual risk, not appearance
 {
-    question: "While traveling, you encounter a severely disfigured man. He has unusual physical deformities and is in obvious distress. You don't know whether his condition is caused by radiation, illness, injury or something else. He notices you and tries to approach.",
+    question: "A badly injured man with unusual symptoms approaches. You don't know the cause. What now?",
     answers: [
-        ["Kill him because you believe he may be dangerous.", 1, 0],
-        ["Leave the area without getting involved.", 3, 3],
-        ["Keep your distance and try to communicate with him before deciding what to do.", 5, 5],
-        ["Hide and observe him from a distance without revealing your presence.", 4, 3]
+        ["Attack first because his unusual appearance seems threatening.", 0, 0],
+        ["Keep distance, speak calmly and assess if help is safe.", 5, 5],
+        ["Approach him right away and try to examine his injuries.", 2, 4],
+        ["Take him to your settlement without assessing the risks.", 1, 4]
     ]
 },
 
-// Decision 29
+// Decision 29 — Test food-safety judgment rather than another supply-run scenario
 {
-    question: "You discover an abandoned government supply facility 15 km away. It may contain useful supplies, but someone else may have occupied it.",
+    question: "In a dusty shop, you find canned food and bottled drinks. Some containers leak, bulge or are damaged. What do you choose?",
     answers: [
-        ["Send your strongest people immediately.", 2, null],
-        ["Ignore it and stay where you are.", 2, null],
-        ["Gather information and assess whether the potential supplies justify the risks.", 5, null],
-        ["Send one person alone to investigate.", 1, null]
+        ["Use all the food if the contents look normal.", 1, null],
+        ["Open every can and bottle to inspect the contents first.", 1, null],
+        ["Choose intact, sealed food and avoid damaged containers.", 5, null],
+        ["Reject even sealed, intact food from the shop.", 2, null]
     ]
 },
 
 // Decision 30
 {
-    question: "Two members of your group encounter an armed survivor group. They aren't immediately hostile, but they control a nearby warehouse and ask how many people are living in your shelter.",
+    question: "An armed group controlling a warehouse asks how many people live in your shelter. They aren't openly hostile. What do you say?",
     answers: [
-        ["Tell them everything to encourage cooperation.", 2, 4],
-        ["Lie about your numbers and supplies.", 3, 2],
-        ["Share limited information without revealing details that could compromise your group's security.", 5, 5],
-        ["Threaten them before they can threaten you.", 1, 0]
+        ["Share the full details to build trust and cooperation.", 2, 4],
+        ["Give them a false count of your group and supplies.", 3, 2],
+        ["Share only basic details that won't endanger your group.", 5, 5],
+        ["Threaten them first so they cannot intimidate or pressure you.", 1, 0]
     ]
 },
 
-// Decision 31
+// Decision 31 — Protect safe water instead of repeating the rationing question
 {
-    question: "You have six bottles of drinking water. The building's water supply is still working, but you don't know how long it will last.",
+    question: "You have six sealed bottles of safe water; other sources may be contaminated. How do you protect them?",
     answers: [
-        ["Drink normally until the supply stops.", 2, null],
-        ["Drink as much as possible while water is available.", 1, null],
-        ["Start rationing your stored water and preserve access to additional safe water if possible.", 5, null],
-        ["Pour the bottles into a larger container for easier transport.", 3, null]
+        ["Open every bottle and pour them into one container.", 1, null],
+        ["Keep bottles sealed and away from possible contamination.", 5, null],
+        ["Mix safe bottled water with collected rainwater.", 0, null],
+        ["Use bottled water for cleaning and drink untreated water.", 1, null]
     ]
 },
 
 // Decision 32
 {
-    question: "Several weeks have passed. Your packaged food is running low. You have seeds that could provide future food, but you don't know whether the surrounding soil and water are safe for agriculture.",
+    question: "Food is running low after several weeks. You have seeds, but soil and water safety are unknown. What do you do?",
     answers: [
-        ["Plant all the seeds immediately.", 3, 3],
-        ["Eat the seeds now.", 1, 2],
-        ["Protect the seeds while rationing food and assessing whether agriculture is safe.", 5, 5],
-        ["Plant some seeds while keeping the rest as an emergency reserve.", 5, 4]
+        ["Plant all seeds now, without waiting for safety checks.", 3, 3],
+        ["Eat the seeds now to stretch your current food supply.", 1, 2],
+        ["Save seeds, ration supplies and check soil and water safety.", 5, 5],
+        ["Plant some seeds but keep the rest in reserve for later.", 5, 4]
     ]
 },
 
 // Decision 33
 {
-    question: "Your food supply will last another two weeks. A nearby agricultural area may still have usable crops, but reaching it requires leaving the relative safety of the city.",
+    question: "Food will last two more weeks. Crops may be available outside the city, but travel is risky. What do you do?",
     answers: [
-        ["Stay and ration until the food is gone.", 3, null],
-        ["Move the entire group there immediately.", 2, null],
-        ["Investigate the area before committing the whole group to relocation.", 5, null],
-        ["Send everyone except the elderly and injured.", 1, null]
+        ["Stay and ration what remains until food is gone.", 3, null],
+        ["Move everyone to the farming area right away.", 2, null],
+        ["Inspect the area before moving the whole group.", 5, null],
+        ["Send everyone except elderly and injured residents.", 1, null]
     ]
 },
 
 // Decision 34
 {
-    question: "Two members argue over food distribution. One wants equal portions for everyone. The other believes people doing dangerous work should receive more calories. The dispute is dividing the group.",
+    question: "Your group argues over equal food portions versus extra calories for dangerous work. How do you resolve it?",
     answers: [
-        ["Give everyone exactly equal portions.", 4, 4],
-        ["Give the hardest workers larger portions.", 4, 5],
-        ["Establish transparent rules that consider basic needs and increased physical demands, with group agreement.", 5, 5],
-        ["Let the strongest members decide.", 1, 0]
+        ["Give every person exactly the same portion.", 4, 4],
+        ["Give larger portions to those doing dangerous work.", 4, 5],
+        ["Agree on fair portions for needs and heavy work.", 5, 5],
+        ["Let the strongest members decide everyone's portions.", 1, 0]
     ]
 },
 
 // Decision 35
 {
-    question: "Your shelter is becoming increasingly unsafe. You have enough supplies for a difficult journey, but staying also carries serious risks.",
+    question: "Your shelter is becoming unsafe, but moving is risky. You have supplies for a difficult journey. What now?",
     answers: [
-        ["Stay permanently because moving is dangerous.", 2, null],
-        ["Leave immediately with everyone.", 2, null],
-        ["Prepare carefully, gather information and move when staying becomes more dangerous than relocating.", 5, null],
-        ["Send scouts first but make no preparations until they return.", 4, null]
+        ["Stay for good because travel always carries risks.", 2, null],
+        ["Move the whole group immediately, without planning.", 2, null],
+        ["Prepare to move when staying is the greater risk.", 5, null],
+        ["Send scouts first and delay other preparations.", 4, null]
     ]
 },
 
 // Decision 36
 {
-    question: "Scouts discover an abandoned town 40 km away with intact buildings, farmland, a water source and a damaged power system. You don't know why it was abandoned.",
+    question: "Scouts find a town 40 km away with homes, farmland and water, but damaged power. You don't know why it was abandoned. What do you do?",
     answers: [
-        ["Move everyone there immediately.", 1, null],
-        ["Ignore it and stay where you are.", 2, null],
-        ["Send a small team to investigate before moving everyone.", 5, null],
-        ["Wait until another group moves there first.", 3, null]
+        ["Move everyone into town before checking the risks.", 1, null],
+        ["Ignore the town and remain in your current location.", 2, null],
+        ["Send a small team to inspect it before relocating.", 5, null],
+        ["Wait until another group moves in and reports back.", 3, null]
     ]
 },
 
-// Decision 37
+// Decision 37 — Do not assume appearance, boiling or ordinary treatment proves water is safe
 {
-    question: "Your new settlement has a natural water source, but you don't know whether it is contaminated. Your stored water is running low.",
+    question: "Your settlement finds natural water that may have fallout contamination. Stored water is low. What now?",
     answers: [
-        ["Drink it immediately.", 0, null],
-        ["Use it because it looks clean.", 1, null],
-        ["Treat it appropriately and seek reliable information or testing before depending on it.", 5, null],
-        ["Refuse to use it and search for bottled water.", 3, null]
+        ["Drink it because it looks clean and clear.", 0, null],
+        ["Boil it and assume radioactive material is removed.", 1, null],
+        ["Seek testing or official advice before using it.", 5, null],
+        ["Reject it even if later tests confirm it's safe.", 2, null]
     ]
 },
 
 // Decision 38
 {
-    question: "Your group has grown to 31 people. One person can no longer manage everything. You need a system for running the settlement.",
+    question: "Your settlement has 31 people, and one person can't manage everything. What system do you set up?",
     answers: [
-        ["Keep complete control yourself.", 2, 2],
-        ["Let the strongest members control the community.", 2, 1],
-        ["Establish clear responsibilities, rules and a way for the community to participate in important decisions.", 5, 5],
-        ["Let everyone do whatever they think is best.", 1, 1]
+        ["Keep total control of the settlement yourself.", 2, 2],
+        ["Let the strongest members run the community.", 2, 1],
+        ["Set clear roles and rules, with community input.", 5, 5],
+        ["Let everyone make their own rules and decisions.", 1, 1]
     ]
 },
 
 // Decision 39
 {
-    question: "Another settlement offers seeds, medicines and farming tools in exchange for your preserved food, batteries and mechanical equipment. They propose regular trade.",
+    question: "A nearby settlement offers seeds, medicine and tools for your food, batteries and equipment. They propose regular trade. What do you do?",
     answers: [
-        ["Trade as much as possible.", 4, 4],
-        ["Refuse because your supplies are too valuable.", 2, 2],
-        ["Establish controlled trade while protecting essential reserves.", 5, 5],
-        ["Demand their supplies before giving anything in return.", 1, 0]
+        ["Trade away as much of your stock as possible.", 4, 4],
+        ["Refuse every deal because supplies are too valuable.", 2, 2],
+        ["Trade carefully while protecting essential reserves.", 5, 5],
+        ["Demand their goods before offering anything in return.", 1, 0]
     ]
 },
 
 // Decision 40
 {
-    question: "Several children now live in your settlement. Food is sufficient, but resources remain limited. Some adults believe everyone capable of helping should work full-time.",
+    question: "Children live in your settlement. Food is sufficient, but some adults want everyone old enough to work full-time. What do you do?",
     answers: [
-        ["Everyone old enough to help should work full-time.", 2, 1],
-        ["Give children priority because they cannot protect themselves.", 4, 5],
-        ["Protect their basic needs while providing education and age-appropriate responsibilities.", 5, 5],
-        ["Send them to another settlement with better resources.", 2, 3]
+        ["Require all older children to work full-time.", 2, 1],
+        ["Prioritize children because they cannot protect themselves.", 4, 5],
+        ["Protect their needs, education and age-appropriate tasks.", 5, 5],
+        ["Send them to another settlement with more resources.", 2, 3]
     ]
 },
 
 // Decision 41
 {
-    question: "One year has passed. Your settlement has 60 people, functioning agriculture, basic medical care, a workshop and contact with two nearby communities. What should your community prioritize?",
+    question: "A year later, your 60-person settlement has farms, basic healthcare, a workshop and nearby allies. What should it prioritize?",
     answers: [
-        ["Stronger defenses against potentially hostile groups.", 4, 3],
-        ["Increasing food production above everything else.", 4, 3],
-        ["Build a sustainable community with food, security, education, healthcare, cooperation and disaster preparation.", 5, 5],
-        ["Expand aggressively and take control of nearby settlements.", 1, 0]
+        ["Strengthen defenses against possible attackers.", 4, 3],
+        ["Increase food production above every other priority.", 4, 3],
+        ["Balance food, safety, education, health and cooperation.", 5, 5],
+        ["Expand aggressively and take nearby settlements by force.", 1, 0]
     ]
 },
 
-// Decision 42
+// Decision 42 — Replace the ambiguous “End his suffering” choice
 {
-    question: "Six months after the blast, you find a man suffering from severe radiation-related illness and injuries. He is conscious, in considerable pain and unlikely to survive without significant medical care. Your supplies are limited.",
+    question: "A seriously ill survivor is in pain; their prognosis is uncertain and medical supplies are limited. What should you do?",
     answers: [
-        ["End his suffering.", 1, 1],
-        ["Leave him because your medicine is needed by your group.", 2, 2],
-        ["Give him some medicine and try to keep him comfortable.", 4, 4],
-        ["Ask what he wants and, if he can make decisions, respect his wishes while providing reasonable help.", 5, 5]
+        ["Stop helping because recovery now seems uncertain.", 1, 1],
+        ["Use every supply on them, despite the others' urgent needs.", 2, 4],
+        ["Offer comfort, seek advice and allocate medicine fairly.", 5, 5],
+        ["Give medicine without checking whether it is suitable.", 0, 1]
     ]
 },
 
-// Decision 43
+// Decision 43 — Make the child-rescue choices distinct
 {
-    question: "Your group discovers a young child hiding alone in an abandoned house. The child is frightened and hungry. Your group has enough food for about six weeks.",
+    question: "You find a frightened, hungry child alone. Your food lasts six weeks, and relatives are unknown. What do you do?",
     answers: [
-        ["Take the child with you.", 5, 5],
-        ["Leave food and water and continue with your group.", 2, 3],
-        ["Take the child temporarily while searching for relatives or another settlement.", 4, 5],
-        ["Talk to the child and decide whether bringing them is realistically possible.", 3, 4]
+        ["Bring the child to safety and seek relatives.", 5, 5],
+        ["Leave food and move on without seeking more help.", 1, 2],
+        ["Keep the child, without trying to find relatives.", 3, 4],
+        ["Send the child alone toward the nearest settlement.", 0, 1]
     ]
 },
 
-// Decision 44
+// Decision 44 — Use fair medical criteria for scarce medicine
 {
-    question: "Your settlement has one dose of a critical medicine. Two people need it: a skilled engineer who maintains water and power, and an elderly survivor who is seriously ill.",
+    question: "Only one dose of critical medicine remains. An engineer and an elderly survivor both need it. How do you choose?",
     answers: [
-        ["The engineer because the settlement depends on them.", 4, 3],
-        ["The elderly survivor because everyone deserves an equal chance.", 3, 4],
-        ["Whoever has the better medical chance of benefiting from it.", 5, 5],
-        ["Let the two people decide between themselves.", 2, 4]
+        ["Choose the engineer because their skills are valuable.", 3, 1],
+        ["Choose the elderly survivor because age should decide.", 2, 3],
+        ["Choose based on medical urgency and likely benefit.", 5, 5],
+        ["Let them decide without knowing the medical facts.", 2, 4]
     ]
 },
 
 // Decision 45
 {
-    question: "You find an injured man from a group that attacked your settlement weeks ago. He is alone, unarmed and badly injured.",
+    question: "You find a badly injured, unarmed man from a group that attacked you weeks ago. What do you do?",
     answers: [
-        ["Leave him because he was your enemy.", 1, 0],
-        ["Kill him before he can become a threat again.", 0, 0],
+        ["Leave him because he belonged to your enemy group.", 1, 0],
+        ["Kill him now in case he becomes a threat again.", 0, 0],
         ["Treat him and bring him back under guard.", 5, 5],
-        ["Give him basic supplies and leave him away from your settlement.", 3, 3]
+        ["Give supplies and leave him away from your settlement.", 3, 3]
     ]
 },
 
 // Decision 46
 {
-    question: "A member of your settlement secretly hid enough food to feed three people for two weeks. They admit they were afraid the community would run out.",
+    question: "A member secretly stored enough food for three people for two weeks, fearing shortages. What do you do?",
     answers: [
-        ["Confiscate the food and punish them.", 4, 3],
-        ["Take the food but forgive them.", 4, 4],
+        ["Confiscate the hidden food and punish the member who hid it.", 4, 3],
+        ["Take the hidden food but forgive them for not telling anyone.", 4, 4],
         ["Let them keep it as a personal emergency reserve.", 2, 5],
-        ["Discuss it with the community and establish a fair rule for personal reserves.", 5, 5]
+        ["Discuss it and set fair rules for personal food reserves.", 5, 5]
     ]
 },
 
 // Decision 47
 {
-    question: "A stranger arrives asking for shelter. They show symptoms of a potentially contagious illness, while your medical supplies are limited.",
+    question: "A stranger asks for shelter and may have a contagious illness. Supplies are limited. What do you do?",
     answers: [
-        ["Refuse entry completely.", 2, 1],
-        ["Let them into the settlement because they need help.", 1, 4],
-        ["Isolate them separately while providing basic care and assessing the illness.", 5, 5],
-        ["Give them food and medicine but don't allow them to stay.", 4, 3]
+        ["Refuse entry entirely to protect the rest of the settlement.", 2, 1],
+        ["Let them enter because they urgently need help.", 1, 4],
+        ["Keep them separate, offer basic care and assess symptoms.", 5, 5],
+        ["Give supplies but do not let them stay in the settlement.", 4, 3]
     ]
 },
 
 // Decision 48
 {
-    question: "Your radio operator receives a message: \"We have children and elderly people. We need food. Please help.\" Your own supplies are limited, and sending food would shorten your reserves.",
+    question: "Another settlement with children and elderly people asks for food. Your supplies are limited. How do you respond?",
     answers: [
-        ["Send food immediately.", 2, 5],
-        ["Ignore the message; your settlement comes first.", 3, 1],
-        ["Offer a smaller amount while proposing an exchange or cooperation.", 5, 5],
-        ["Ask for more information before deciding.", 5, 4]
+        ["Send food immediately, despite the loss to your reserves.", 2, 5],
+        ["Ignore the request because your settlement comes first.", 3, 1],
+        ["Offer less food and discuss trade or cooperation.", 5, 5],
+        ["Ask for more details before deciding whether to help.", 5, 4]
     ]
 },
 
 // Decision 49
 {
-    question: "A man joins your settlement and becomes extremely useful. He is an excellent hunter and mechanic but has a violent temper and has already threatened another resident. The group wants him expelled.",
+    question: "A skilled hunter and mechanic has threatened another resident. The group wants him expelled. What do you do?",
     answers: [
-        ["Expel him immediately.", 4, 3],
-        ["Keep him because his skills are too valuable.", 3, 2],
-        ["Give him a clear warning and establish consequences for further threats.", 5, 5],
-        ["Let the community vote on whether he should remain.", 4, 4]
+        ["Expel him immediately to prevent further problems.", 4, 3],
+        ["Keep him because his skills are too valuable to lose.", 3, 2],
+        ["Warn him and set consequences for any future threats.", 5, 5],
+        ["Let the settlement vote on whether he should stay.", 4, 4]
     ]
 },
 
 // Decision 50
 {
-    question: "Your settlement discovers another bunker containing enough food and medicine to keep your community alive for another year. However, three survivors already live inside, and they refuse to share.",
+    question: "You find a bunker with a year's food and medicine, occupied by three people who refuse to share. What do you do?",
     answers: [
-        ["Take the bunker by force.", 1, 0],
-        ["Leave them alone.", 3, 3],
-        ["Offer to trade and establish cooperation.", 5, 5],
-        ["Surround the bunker and pressure them into sharing.", 2, 1]
+        ["Take the bunker by force to secure its supplies.", 1, 0],
+        ["Leave them alone and search elsewhere for supplies.", 3, 3],
+        ["Offer a trade and try to build cooperation.", 5, 5],
+        ["Surround them and pressure them to share resources.", 2, 1]
     ]
 }
 
@@ -561,145 +562,68 @@ let survivalScore = 0;
 let moralityScore = 0;
 
 // -1 = unanswered
-let selectedAnswers =
-    new Array(questions.length).fill(-1);
+let selectedAnswers = new Array(questions.length).fill(-1);
 
 
 // ========================================================
 // MAXIMUM SCORES
 // ========================================================
 
-const maxSurvivalScore =
-    questions.reduce((total, question) => {
+const maxSurvivalScore = questions.reduce((total, question) => {
+    const maxPoints = Math.max(...question.answers.map(answer => answer[1]));
+    return total + maxPoints;
+}, 0);
 
-        const maxPoints =
-            Math.max(
-                ...question.answers.map(answer => answer[1])
-            );
+const maxMoralityScore = questions.reduce((total, question) => {
+    const moralityValues = question.answers
+        .map(answer => answer[2])
+        .filter(value => value !== null && value !== undefined);
 
-        return total + maxPoints;
+    if (moralityValues.length === 0) {
+        return total;
+    }
 
-    }, 0);
-
-
-const maxMoralityScore =
-    questions.reduce((total, question) => {
-
-        const moralityValues =
-            question.answers
-                .map(answer => answer[2])
-                .filter(
-                    value =>
-                        value !== null &&
-                        value !== undefined
-                );
-
-        if (moralityValues.length === 0) {
-            return total;
-        }
-
-        return total + Math.max(...moralityValues);
-
-    }, 0);
+    return total + Math.max(...moralityValues);
+}, 0);
 
 
 // ========================================================
 // ELEMENTS
 // ========================================================
 
-const startScreen =
-    document.getElementById("start-screen");
+const startScreen = document.getElementById("start-screen");
+const quizScreen = document.getElementById("quiz-screen");
+const resultScreen = document.getElementById("result-screen");
+const homeInfo = document.getElementById("home-info");
+const suggestionsCard = document.getElementById("suggestions-card");
 
-const quizScreen =
-    document.getElementById("quiz-screen");
+const startButton = document.getElementById("start-btn");
+const restartButton = document.getElementById("restart-btn");
+const shareButton = document.getElementById("share-btn");
+const challengeButton = document.getElementById("challenge-btn");
 
-const resultScreen =
-    document.getElementById("result-screen");
+const backButton = document.getElementById("back-btn");
+const nextButton = document.getElementById("next-btn");
+const submitButton = document.getElementById("submit-btn");
 
-const homeInfo =
-    document.getElementById("home-info");
-
-const suggestionsCard =
-    document.getElementById("suggestions-card");
-
-
-const startButton =
-    document.getElementById("start-btn");
-
-const restartButton =
-    document.getElementById("restart-btn");
-
-const shareButton =
-    document.getElementById("share-btn");
-
-const challengeButton =
-    document.getElementById("challenge-btn");
-
-
-const backButton =
-    document.getElementById("back-btn");
-
-const nextButton =
-    document.getElementById("next-btn");
-
-const submitButton =
-    document.getElementById("submit-btn");
-
-
-const questionNumber =
-    document.getElementById("question-number");
-
-const scoreDisplay =
-    document.getElementById("score-display");
-
-const questionText =
-    document.getElementById("question");
-
-const answersContainer =
-    document.getElementById("answers");
-
-const progressBar =
-    document.getElementById("progress-bar");
+const questionNumber = document.getElementById("question-number");
+const scoreDisplay = document.getElementById("score-display");
+const questionText = document.getElementById("question");
+const answersContainer = document.getElementById("answers");
+const progressBar = document.getElementById("progress-bar");
 
 
 // ========================================================
 // EVENTS
 // ========================================================
 
-startButton.addEventListener(
-    "click",
-    startQuiz
-);
-
-restartButton.addEventListener(
-    "click",
-    restartQuiz
-);
-
-shareButton.addEventListener(
-    "click",
-    shareResult
-);
-
-challengeButton.addEventListener(
-    "click",
-    shareResult
-);
-
-backButton.addEventListener(
-    "click",
-    previousQuestion
-);
-
-nextButton.addEventListener(
-    "click",
-    nextQuestion
-);
-
-submitButton.addEventListener(
-    "click",
-    submitQuiz
-);
+startButton.addEventListener("click", startQuiz);
+restartButton.addEventListener("click", restartQuiz);
+shareButton.addEventListener("click", shareResult);
+challengeButton.addEventListener("click", shareResult);
+backButton.addEventListener("click", previousQuestion);
+nextButton.addEventListener("click", nextQuestion);
+submitButton.addEventListener("click", submitQuiz);
 
 
 // ========================================================
@@ -707,40 +631,23 @@ submitButton.addEventListener(
 // ========================================================
 
 function startQuiz() {
-
     currentQuestion = 0;
-
     survivalScore = 0;
-
     moralityScore = 0;
-
-    selectedAnswers =
-        new Array(questions.length).fill(-1);
-
+    selectedAnswers = new Array(questions.length).fill(-1);
 
     startScreen.classList.add("hidden");
-
     resultScreen.classList.add("hidden");
-
     quizScreen.classList.remove("hidden");
-
     homeInfo.classList.add("hidden");
 
-
     if (suggestionsCard) {
-
         suggestionsCard.classList.add("hidden");
-
     }
-
 
     if (scoreDisplay) {
-
-        scoreDisplay.textContent =
-            "SURVIVAL";
-
+        scoreDisplay.textContent = "SURVIVAL";
     }
-
 
     showQuestion();
 
@@ -748,7 +655,6 @@ function startQuiz() {
         top: 0,
         behavior: "smooth"
     });
-
 }
 
 
@@ -757,90 +663,36 @@ function startQuiz() {
 // ========================================================
 
 function showQuestion() {
+    const current = questions[currentQuestion];
 
-    const current =
-        questions[currentQuestion];
+    questionNumber.textContent = `Decision ${currentQuestion + 1} of ${questions.length}`;
+    questionText.textContent = current.question;
+    answersContainer.innerHTML = "";
 
+    // Progress
+    const progress = ((currentQuestion + 1) / questions.length) * 100;
+    progressBar.style.width = `${progress}%`;
 
-    questionNumber.textContent =
-        `Decision ${currentQuestion + 1} of ${questions.length}`;
+    // Answers
+    current.answers.forEach((answer, index) => {
+        const button = document.createElement("button");
+        button.className = "answer";
+        button.type = "button";
+        button.textContent = answer[0];
 
-
-    questionText.textContent =
-        current.question;
-
-
-    answersContainer.innerHTML =
-        "";
-
-
-    // ====================================================
-    // PROGRESS
-    // ====================================================
-
-    const progress =
-        ((currentQuestion + 1) /
-            questions.length) * 100;
-
-
-    progressBar.style.width =
-        `${progress}%`;
-
-
-    // ====================================================
-    // ANSWERS
-    // ====================================================
-
-    current.answers.forEach(
-        (answer, index) => {
-
-            const button =
-                document.createElement("button");
-
-
-            button.className =
-                "answer";
-
-            button.type =
-                "button";
-
-            button.textContent =
-                answer[0];
-
-
-            // Restore previous selection
-
-            if (
-                selectedAnswers[currentQuestion] === index
-            ) {
-
-                button.classList.add(
-                    "selected"
-                );
-
-            }
-
-
-            button.addEventListener(
-                "click",
-                () => {
-
-                    selectAnswer(index);
-
-                }
-            );
-
-
-            answersContainer.appendChild(
-                button
-            );
-
+        // Restore previous selection
+        if (selectedAnswers[currentQuestion] === index) {
+            button.classList.add("selected");
         }
-    );
 
+        button.addEventListener("click", () => {
+            selectAnswer(index);
+        });
+
+        answersContainer.appendChild(button);
+    });
 
     updateNavigation();
-
 }
 
 
@@ -849,65 +701,28 @@ function showQuestion() {
 // ========================================================
 
 function selectAnswer(answerIndex) {
+    selectedAnswers[currentQuestion] = answerIndex;
 
-    selectedAnswers[currentQuestion] =
-        answerIndex;
-
-
-    const buttons =
-        answersContainer.querySelectorAll(
-            ".answer"
-        );
-
-
-    buttons.forEach(
-        (button, index) => {
-
-            button.classList.toggle(
-                "selected",
-                index === answerIndex
-            );
-
-        }
-    );
-
+    const buttons = answersContainer.querySelectorAll(".answer");
+    buttons.forEach((button, index) => {
+        button.classList.toggle("selected", index === answerIndex);
+    });
 
     updateNavigation();
 
+    const questionAtSelection = currentQuestion;
 
-    const questionAtSelection =
-        currentQuestion;
-
-
-    // ====================================================
-    // AUTOMATIC FORWARD
-    // ====================================================
-
-    setTimeout(
-        () => {
-
-            if (
-                currentQuestion ===
-                    questionAtSelection &&
-
-                selectedAnswers[
-                    questionAtSelection
-                ] === answerIndex &&
-
-                currentQuestion <
-                    questions.length - 1
-            ) {
-
-                currentQuestion++;
-
-                showQuestion();
-
-            }
-
-        },
-        180
-    );
-
+    // Automatically advance after selection, unless the user has navigated elsewhere.
+    setTimeout(() => {
+        if (
+            currentQuestion === questionAtSelection &&
+            selectedAnswers[questionAtSelection] === answerIndex &&
+            currentQuestion < questions.length - 1
+        ) {
+            currentQuestion++;
+            showQuestion();
+        }
+    }, 180);
 }
 
 
@@ -916,38 +731,19 @@ function selectAnswer(answerIndex) {
 // ========================================================
 
 function nextQuestion() {
-
-    if (
-        selectedAnswers[currentQuestion] === -1
-    ) {
-
+    if (selectedAnswers[currentQuestion] === -1) {
         return;
-
     }
 
-
-    if (
-        currentQuestion ===
-            questions.length - 1
-    ) {
-
-        if (
-            allQuestionsAnswered()
-        ) {
-
+    if (currentQuestion === questions.length - 1) {
+        if (allQuestionsAnswered()) {
             submitQuiz();
-
         }
-
         return;
-
     }
-
 
     currentQuestion++;
-
     showQuestion();
-
 }
 
 
@@ -956,17 +752,10 @@ function nextQuestion() {
 // ========================================================
 
 function previousQuestion() {
-
-    if (
-        currentQuestion > 0
-    ) {
-
+    if (currentQuestion > 0) {
         currentQuestion--;
-
         showQuestion();
-
     }
-
 }
 
 
@@ -975,12 +764,7 @@ function previousQuestion() {
 // ========================================================
 
 function allQuestionsAnswered() {
-
-    return selectedAnswers.every(
-        answer =>
-            answer !== -1
-    );
-
+    return selectedAnswers.every(answer => answer !== -1);
 }
 
 
@@ -989,85 +773,27 @@ function allQuestionsAnswered() {
 // ========================================================
 
 function updateNavigation() {
+    const isFirst = currentQuestion === 0;
+    const isLast = currentQuestion === questions.length - 1;
+    const currentAnswered = selectedAnswers[currentQuestion] !== -1;
+    const allAnswered = allQuestionsAnswered();
 
-    const isFirst =
-        currentQuestion === 0;
+    // Back
+    backButton.disabled = isFirst;
 
-
-    const isLast =
-        currentQuestion ===
-            questions.length - 1;
-
-
-    const currentAnswered =
-        selectedAnswers[currentQuestion] !== -1;
-
-
-    const allAnswered =
-        allQuestionsAnswered();
-
-
-    // ====================================================
-    // BACK
-    // ====================================================
-
-    backButton.disabled =
-        isFirst;
-
-
-    // ====================================================
-    // LAST QUESTION
-    // ====================================================
-
+    // Last question
     if (isLast) {
-
-        nextButton.classList.add(
-            "hidden"
-        );
-
-
-        submitButton.classList.remove(
-            "hidden"
-        );
-
-
-        submitButton.disabled =
-            !allAnswered;
-
-
-        submitButton.textContent =
-            allAnswered
-                ? "SUBMIT"
-                : "ANSWER ALL QUESTIONS";
-
+        nextButton.classList.add("hidden");
+        submitButton.classList.remove("hidden");
+        submitButton.disabled = !allAnswered;
+        submitButton.textContent = allAnswered ? "SUBMIT" : "ANSWER ALL QUESTIONS";
+    } else {
+        // Normal questions
+        submitButton.classList.add("hidden");
+        nextButton.classList.remove("hidden");
+        nextButton.textContent = "Next →";
+        nextButton.disabled = !currentAnswered;
     }
-
-
-    // ====================================================
-    // NORMAL QUESTIONS
-    // ====================================================
-
-    else {
-
-        submitButton.classList.add(
-            "hidden"
-        );
-
-
-        nextButton.classList.remove(
-            "hidden"
-        );
-
-
-        nextButton.textContent =
-            "Next →";
-
-
-        nextButton.disabled =
-            !currentAnswered;
-
-    }
-
 }
 
 
@@ -1076,53 +802,26 @@ function updateNavigation() {
 // ========================================================
 
 function submitQuiz() {
-
-    if (
-        !allQuestionsAnswered()
-    ) {
-
+    if (!allQuestionsAnswered()) {
         return;
-
     }
 
-
     survivalScore = 0;
-
     moralityScore = 0;
 
+    selectedAnswers.forEach((answerIndex, questionIndex) => {
+        const answer = questions[questionIndex].answers[answerIndex];
 
-    selectedAnswers.forEach(
-        (answerIndex, questionIndex) => {
+        // Survival
+        survivalScore += answer[1];
 
-            const answer =
-                questions[questionIndex]
-                    .answers[answerIndex];
-
-
-            // Survival
-
-            survivalScore +=
-                answer[1];
-
-
-            // Morality
-
-            if (
-                answer[2] !== null &&
-                answer[2] !== undefined
-            ) {
-
-                moralityScore +=
-                    answer[2];
-
-            }
-
+        // Morality / compassion-and-ethics score
+        if (answer[2] !== null && answer[2] !== undefined) {
+            moralityScore += answer[2];
         }
-    );
-
+    });
 
     showResult();
-
 }
 
 
@@ -1131,266 +830,100 @@ function submitQuiz() {
 // ========================================================
 
 function showResult() {
+    homeInfo.classList.remove("hidden");
+    quizScreen.classList.add("hidden");
+    resultScreen.classList.remove("hidden");
 
-    homeInfo.classList.remove(
-        "hidden"
-    );
-
-
-    quizScreen.classList.add(
-        "hidden"
-    );
-
-
-    resultScreen.classList.remove(
-        "hidden"
-    );
-
-
-    // ====================================================
-    // SUGGESTED QUIZZES
-    // ====================================================
-
+    // Suggested quizzes
     if (suggestionsCard) {
-
-        suggestionsCard.classList.remove(
-            "hidden"
-        );
-
+        suggestionsCard.classList.remove("hidden");
     }
 
+    // Survival decision percentage
+    const survivalPercentage = Math.round((survivalScore / maxSurvivalScore) * 100);
+
+    // Morality / compassion-and-ethics percentage
+    const moralityPercentage = maxMoralityScore > 0
+        ? Math.round((moralityScore / maxMoralityScore) * 100)
+        : 0;
+
+    document.getElementById("final-score").textContent = survivalPercentage + "%";
 
     // ====================================================
-    // SURVIVAL PERCENTAGE
-    // ====================================================
-
-    const survivalPercentage =
-        Math.round(
-            (survivalScore /
-                maxSurvivalScore) * 100
-        );
-
-
-    // ====================================================
-    // MORALITY PERCENTAGE
-    // ====================================================
-
-    const moralityPercentage =
-        maxMoralityScore > 0
-            ? Math.round(
-                (moralityScore /
-                    maxMoralityScore) * 100
-            )
-            : 0;
-
-
-    document.getElementById(
-        "final-score"
-    ).textContent =
-        survivalPercentage + "%";
-
-
-    // ====================================================
-    // SURVIVAL RESULT
+    // SURVIVAL DECISION PROFILE
+    // This quiz does not predict real-world survival time.
     // ====================================================
 
     let title;
     let description;
     let survival;
 
-
-    if (
-        survivalPercentage <= 20
-    ) {
-
-        title =
-            "Unlikely to Survive";
-
-        description =
-            "Your choices leave you highly vulnerable in a nuclear apocalypse. Limited preparation, poor risk management, or unsafe decisions could make survival very difficult.";
-
-        survival =
-            "Hours to a few days";
-
-
-    } else if (
-        survivalPercentage <= 40
-    ) {
-
-        title =
-            "Early Survivor";
-
-        description =
-            "You could make it through the initial crisis, but long-term survival would be difficult. Better preparation and more careful risk assessment would improve your chances.";
-
-        survival =
-            "Several days to a few weeks";
-
-
-    } else if (
-        survivalPercentage <= 60
-    ) {
-
-        title =
-            "Capable Survivor";
-
-        description =
-            "You understand many of the fundamentals of surviving a nuclear disaster. You balance shelter, supplies, information and risk reasonably well.";
-
-        survival =
-            "Several weeks to several months";
-
-
-    } else if (
-        survivalPercentage <= 80
-    ) {
-
-        title =
-            "Apocalypse Survivor";
-
-        description =
-            "You make thoughtful survival decisions and understand that long-term survival depends on preparation, resource management, information and cooperation.";
-
-        survival =
-            "Several months to several years";
-
-
-    } else if (
-        survivalPercentage <= 95
-    ) {
-
-        title =
-            "Nuclear Survival Expert";
-
-        description =
-            "Your decisions show strong preparation, risk awareness and long-term thinking. You consistently avoid unnecessary exposure and manage resources carefully.";
-
-        survival =
-            "Several years or longer";
-
-
+    if (survivalPercentage <= 20) {
+        title = "High-Risk Choices";
+        description = "Several of your choices overlook important safety priorities. Review immediate sheltering, fallout protection and safe water decisions.";
+        survival = "Review sheltering and contamination basics";
+    } else if (survivalPercentage <= 40) {
+        title = "Needs More Preparation";
+        description = "You recognize some survival priorities, but several decisions could expose you to avoidable risks. Practice assessing hazards and protecting essential supplies.";
+        survival = "Build stronger emergency preparedness";
+    } else if (survivalPercentage <= 60) {
+        title = "Developing Survival Judgment";
+        description = "You understand several important survival principles. More attention to sheltering, reliable information and contamination risks would strengthen your decisions.";
+        survival = "Core skills present; keep improving";
+    } else if (survivalPercentage <= 80) {
+        title = "Strong Survival Decisions";
+        description = "Your choices generally favor sensible risk assessment, careful resource use and cooperation. You also recognize that reliable information matters.";
+        survival = "Strong overall decision-making";
+    } else if (survivalPercentage <= 95) {
+        title = "Very Strong Safety Judgment";
+        description = "You consistently select safety-focused options across most scenarios. Your answers show careful thinking about immediate hazards and longer-term needs.";
+        survival = "Very strong preparedness decisions";
     } else {
-
-        title =
-            "The Last Survivor";
-
-        description =
-            "Your decisions consistently prioritize preparation, risk management and sustainable survival. You appear exceptionally prepared for a long-term nuclear apocalypse.";
-
-        survival =
-            "Long-term survival";
-
+        title = "Consistently Safety-Focused";
+        description = "You selected the highest-scoring options in nearly every scenario. You show strong awareness of sheltering, risk management and community needs.";
+        survival = "Exceptional performance on this quiz";
     }
 
-
-    document.getElementById(
-        "result-title"
-    ).textContent =
-        title;
-
-
-    document.getElementById(
-        "result-description"
-    ).textContent =
-        description;
-
-
-    document.getElementById(
-        "survival-time"
-    ).textContent =
-        survival;
-
+    document.getElementById("result-title").textContent = title;
+    document.getElementById("result-description").textContent = description;
+    document.getElementById("survival-time").textContent = survival;
 
     // ====================================================
-    // MORALITY RESULT
+    // COMPASSION & ETHICS RESULT
     // ====================================================
 
-    document.getElementById(
-        "morality-score"
-    ).textContent =
-        moralityPercentage + "%";
-
+    document.getElementById("morality-score").textContent = moralityPercentage + "%";
 
     let moralityTitle;
     let moralityDescription;
 
-
-    if (
-        moralityPercentage <= 20
-    ) {
-
-        moralityTitle =
-            "Ruthless Survivor";
-
-        moralityDescription =
-            "You put survival above almost everything else. In extreme circumstances, you are willing to make difficult choices with limited concern for broader consequences.";
-
-
-    } else if (
-        moralityPercentage <= 40
-    ) {
-
-        moralityTitle =
-            "Pragmatic Survivor";
-
-        moralityDescription =
-            "You care about others, but survival and security usually take priority when resources and safety are limited.";
-
-
-    } else if (
-        moralityPercentage <= 60
-    ) {
-
-        moralityTitle =
-            "Balanced Survivor";
-
-        moralityDescription =
-            "You try to balance survival with compassion. You understand that protecting your group can sometimes require difficult decisions.";
-
-
-    } else if (
-        moralityPercentage <= 80
-    ) {
-
-        moralityTitle =
-            "Compassionate Survivor";
-
-        moralityDescription =
-            "You place considerable value on helping others while still understanding the practical realities of survival.";
-
-
+    if (moralityPercentage <= 20) {
+        moralityTitle = "Survival-First Decisions";
+        moralityDescription = "Your answers tend to prioritize security and immediate survival over helping others. Consider where basic care, fairness and cooperation can be maintained without creating unreasonable risks.";
+    } else if (moralityPercentage <= 40) {
+        moralityTitle = "Pragmatic Decisions";
+        moralityDescription = "You show some concern for others, while often prioritizing security and limited resources. Fair rules can help balance these competing needs.";
+    } else if (moralityPercentage <= 60) {
+        moralityTitle = "Balanced Decisions";
+        moralityDescription = "Your answers show a mix of self-protection and concern for others. You recognize that difficult situations require both practical judgment and compassion.";
+    } else if (moralityPercentage <= 80) {
+        moralityTitle = "Compassionate Decisions";
+        moralityDescription = "You place considerable value on helping others while still recognizing practical limits on safety and resources.";
     } else {
-
-        moralityTitle =
-            "Humanitarian";
-
-        moralityDescription =
-            "Even during a catastrophe, you strongly value protecting human life, helping others and maintaining ethical principles.";
-
+        moralityTitle = "Humanitarian Decisions";
+        moralityDescription = "Your answers strongly emphasize protecting human life, helping others and using fair principles, while still making decisions within the scenarios' constraints.";
     }
 
+    document.getElementById("morality-description").textContent =
+        moralityTitle + " — " + moralityDescription;
 
-    document.getElementById(
-        "morality-description"
-    ).textContent =
-        moralityTitle +
-        " — " +
-        moralityDescription;
-
-
-    // ====================================================
-    // COMPLETE PROGRESS
-    // ====================================================
-
-    progressBar.style.width =
-        "100%";
-
+    // Complete progress
+    progressBar.style.width = "100%";
 
     window.scrollTo({
         top: 0,
         behavior: "smooth"
     });
-
 }
 
 
@@ -1399,74 +932,30 @@ function showResult() {
 // ========================================================
 
 function restartQuiz() {
-
     currentQuestion = 0;
-
     survivalScore = 0;
-
     moralityScore = 0;
+    selectedAnswers = new Array(questions.length).fill(-1);
 
-
-    selectedAnswers =
-        new Array(questions.length).fill(-1);
-
-
-    resultScreen.classList.add(
-        "hidden"
-    );
-
-
-    quizScreen.classList.add(
-        "hidden"
-    );
-
-
-    startScreen.classList.remove(
-        "hidden"
-    );
-
-
-    homeInfo.classList.remove(
-        "hidden"
-    );
-
+    resultScreen.classList.add("hidden");
+    quizScreen.classList.add("hidden");
+    startScreen.classList.remove("hidden");
+    homeInfo.classList.remove("hidden");
 
     if (suggestionsCard) {
-
-        suggestionsCard.classList.add(
-            "hidden"
-        );
-
+        suggestionsCard.classList.add("hidden");
     }
 
-
-    progressBar.style.width =
-        "0%";
-
-
-    submitButton.disabled =
-        true;
-
-
-    submitButton.textContent =
-        "SUBMIT";
-
-
-    nextButton.classList.remove(
-        "hidden"
-    );
-
-
-    submitButton.classList.add(
-        "hidden"
-    );
-
+    progressBar.style.width = "0%";
+    submitButton.disabled = true;
+    submitButton.textContent = "SUBMIT";
+    nextButton.classList.remove("hidden");
+    submitButton.classList.add("hidden");
 
     window.scrollTo({
         top: 0,
         behavior: "smooth"
     });
-
 }
 
 
@@ -1475,106 +964,39 @@ function restartQuiz() {
 // ========================================================
 
 async function shareResult() {
+    const title = document.getElementById("result-title").textContent;
+    const survival = document.getElementById("survival-time").textContent;
+    const finalScore = document.getElementById("final-score").textContent;
+    const morality = document.getElementById("morality-score").textContent;
 
-    const title =
-        document.getElementById(
-            "result-title"
-        ).textContent;
-
-
-    const survival =
-        document.getElementById(
-            "survival-time"
-        ).textContent;
-
-
-    const finalScore =
-        document.getElementById(
-            "final-score"
-        ).textContent;
-
-
-    const morality =
-        document.getElementById(
-            "morality-score"
-        ).textContent;
-
-
-    const quizUrl =
-        "https://apocalypsequizzes.com/nuclear-apocalypse-quiz/";
-
+    const quizUrl = "https://apocalypsequizzes.com/nuclear-apocalypse-quiz/";
 
     const shareText =
         `☢️ I scored ${finalScore} on the Nuclear Apocalypse Survival Quiz!\n\n` +
         `${title}\n` +
-        `Estimated survival: ${survival}\n` +
-        `❤️ Morality: ${morality}\n\n` +
-        `How long would YOU survive a nuclear apocalypse?`;
-
+        `Decision profile: ${survival}\n` +
+        `❤️ Compassion & Ethics: ${morality}\n\n` +
+        `How would YOU handle a nuclear apocalypse?`;
 
     const shareData = {
-
-        title:
-            "Nuclear Apocalypse Survival Quiz",
-
-        text:
-            shareText,
-
-        url:
-            quizUrl
-
+        title: "Nuclear Apocalypse Survival Quiz",
+        text: shareText,
+        url: quizUrl
     };
 
-
     try {
-
-        if (
-            navigator.share
-        ) {
-
-            await navigator.share(
-                shareData
-            );
-
+        if (navigator.share) {
+            await navigator.share(shareData);
+        } else if (navigator.clipboard) {
+            await navigator.clipboard.writeText(shareText + "\n\n" + quizUrl);
+            alert("Your result has been copied! You can paste it anywhere.");
+        } else {
+            alert(shareText + "\n\n" + quizUrl);
         }
-
-        else if (
-            navigator.clipboard
-        ) {
-
-            await navigator.clipboard.writeText(
-                shareText +
-                "\n\n" +
-                quizUrl
-            );
-
-
-            alert(
-                "Your result has been copied! You can paste it anywhere."
-            );
-
-        }
-
-        else {
-
-            alert(
-                shareText +
-                "\n\n" +
-                quizUrl
-            );
-
-        }
-
+    } catch (error) {
+        // Sharing can be cancelled by the user; no action is needed.
+        console.log("Sharing cancelled.");
     }
-
-    catch (error) {
-
-        console.log(
-            "Sharing cancelled."
-        );
-
-    }
-
 }
 
 
@@ -1582,133 +1004,39 @@ async function shareResult() {
 // GLOBAL SITE MENU
 // ========================================================
 
-const menuToggle =
-    document.getElementById(
-        "menu-toggle"
-    );
+const menuToggle = document.getElementById("menu-toggle");
+const siteMenu = document.getElementById("site-menu");
 
+if (menuToggle && siteMenu) {
+    // Open / close with hamburger
+    menuToggle.addEventListener("click", function (event) {
+        event.stopPropagation();
 
-const siteMenu =
-    document.getElementById(
-        "site-menu"
-    );
+        const isOpen = menuToggle.getAttribute("aria-expanded") === "true";
+        siteMenu.hidden = isOpen;
+        menuToggle.setAttribute("aria-expanded", String(!isOpen));
+        menuToggle.setAttribute("aria-label", isOpen ? "Open navigation" : "Close navigation");
+    });
 
-
-if (
-    menuToggle &&
-    siteMenu
-) {
-
-
-    // ====================================================
-    // OPEN / CLOSE WITH HAMBURGER
-    // ====================================================
-
-    menuToggle.addEventListener(
-        "click",
-        function (event) {
-
-            event.stopPropagation();
-
-
-            const isOpen =
-                menuToggle.getAttribute(
-                    "aria-expanded"
-                ) === "true";
-
-
-            siteMenu.hidden =
-                isOpen;
-
-
-            menuToggle.setAttribute(
-                "aria-expanded",
-                String(!isOpen)
-            );
-
-
-            menuToggle.setAttribute(
-                "aria-label",
-                isOpen
-                    ? "Open navigation"
-                    : "Close navigation"
-            );
-
+    // Close when clicking outside
+    document.addEventListener("click", function (event) {
+        if (
+            !siteMenu.hidden &&
+            !siteMenu.contains(event.target) &&
+            !menuToggle.contains(event.target)
+        ) {
+            siteMenu.hidden = true;
+            menuToggle.setAttribute("aria-expanded", "false");
+            menuToggle.setAttribute("aria-label", "Open navigation");
         }
-    );
+    });
 
-
-    // ====================================================
-    // CLOSE WHEN CLICKING OUTSIDE
-    // ====================================================
-
-    document.addEventListener(
-        "click",
-        function (event) {
-
-            if (
-                !siteMenu.hidden &&
-                !siteMenu.contains(
-                    event.target
-                ) &&
-                !menuToggle.contains(
-                    event.target
-                )
-            ) {
-
-                siteMenu.hidden =
-                    true;
-
-
-                menuToggle.setAttribute(
-                    "aria-expanded",
-                    "false"
-                );
-
-
-                menuToggle.setAttribute(
-                    "aria-label",
-                    "Open navigation"
-                );
-
-            }
-
-        }
-    );
-
-
-    // ====================================================
-    // CLOSE AFTER MENU LINK
-    // ====================================================
-
-    siteMenu
-        .querySelectorAll("a")
-        .forEach(
-            function (link) {
-
-                link.addEventListener(
-                    "click",
-                    function () {
-
-                        siteMenu.hidden =
-                            true;
-
-
-                        menuToggle.setAttribute(
-                            "aria-expanded",
-                            "false"
-                        );
-
-
-                        menuToggle.setAttribute(
-                            "aria-label",
-                            "Open navigation"
-                        );
-
-                    }
-                );
-
-            }
-        );
-
+    // Close after menu link
+    siteMenu.querySelectorAll("a").forEach(function (link) {
+        link.addEventListener("click", function () {
+            siteMenu.hidden = true;
+            menuToggle.setAttribute("aria-expanded", "false");
+            menuToggle.setAttribute("aria-label", "Open navigation");
+        });
+    });
 }
