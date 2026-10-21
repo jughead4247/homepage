@@ -553,6 +553,121 @@ const questions = [
 ];
 
 
+ // ============================================================
+ // SHUFFLE ANSWERS AND BALANCE HIGHEST-SCORING OPTIONS
+ // Format: ["Answer text", score, morality]
+ // ============================================================
+
+function shuffleArray(array) {
+    const shuffled = [...array];
+
+    for (let i = shuffled.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+
+        [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
+    }
+
+    return shuffled;
+}
+
+function getPermutations(items) {
+    const results = [];
+
+    function generate(remaining, current) {
+        if (remaining.length === 0) {
+            results.push(current);
+            return;
+        }
+
+        for (let i = 0; i < remaining.length; i++) {
+            generate(
+                remaining.filter((_, index) => index !== i),
+                [...current, remaining[i]]
+            );
+        }
+    }
+
+    generate(items, []);
+    return results;
+}
+
+function balanceAnswerOptions(questions) {
+
+    // Counts the positions of highest-scoring answers.
+    // Index 0 = A, 1 = B, 2 = C, 3 = D.
+    const positionCounts = [0, 0, 0, 0];
+
+    // Random processing order prevents predictable patterns.
+    const scoredQuestions = shuffleArray(
+        questions.filter(
+            question =>
+                question.category !== "profile" &&
+                question.answers.length === 4
+        )
+    );
+
+    for (const question of scoredQuestions) {
+
+        // Score is answer[1].
+        // Morality is answer[2].
+        const highestScore = Math.max(
+            ...question.answers.map(answer => answer[1])
+        );
+
+        const permutations = getPermutations(question.answers);
+
+        let bestCost = Infinity;
+        let bestPermutations = [];
+
+        for (const permutation of permutations) {
+
+            const counts = [...positionCounts];
+
+            permutation.forEach((answer, position) => {
+
+                // Balance by score only, not morality.
+                if (answer[1] === highestScore) {
+                    counts[position]++;
+                }
+            });
+
+            // Prefer the most balanced distribution.
+            const cost = counts.reduce(
+                (total, count) => total + count * count,
+                0
+            );
+
+            if (cost < bestCost) {
+                bestCost = cost;
+                bestPermutations = [permutation];
+            } else if (cost === bestCost) {
+                bestPermutations.push(permutation);
+            }
+        }
+
+        // Randomly choose among equally balanced arrangements.
+        // Each answer's text, score and morality stay together.
+        question.answers = bestPermutations[
+            Math.floor(Math.random() * bestPermutations.length)
+        ];
+
+        question.answers.forEach((answer, position) => {
+            if (answer[1] === highestScore) {
+                positionCounts[position]++;
+            }
+        });
+    }
+
+    // Profile questions: shuffle without score balancing.
+    questions
+        .filter(question => question.category === "profile")
+        .forEach(question => {
+            question.answers = shuffleArray(question.answers);
+        });
+}
+
+balanceAnswerOptions(questions);
+
 // ========================================================
 // QUIZ STATE
 // ========================================================
@@ -702,17 +817,13 @@ function showQuestion() {
 
 function selectAnswer(answerIndex) {
     selectedAnswers[currentQuestion] = answerIndex;
-
     const buttons = answersContainer.querySelectorAll(".answer");
     buttons.forEach((button, index) => {
         button.classList.toggle("selected", index === answerIndex);
     });
-
     updateNavigation();
 
     const questionAtSelection = currentQuestion;
-
-    // Automatically advance after selection, unless the user has navigated elsewhere.
     setTimeout(() => {
         if (
             currentQuestion === questionAtSelection &&
