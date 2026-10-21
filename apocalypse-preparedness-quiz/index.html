@@ -7,7 +7,7 @@
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Apocalypse Preparedness Quiz - How Prepared Are You for the Apocalypse? | Apocalypse Quizzes</title>
+    <title>How Prepared Are You for the Apocalypse? – Apocalypse Preparedness Quiz</title>
 
     <meta name="description" content="Take this 50-question Apocalypse Preparedness Quiz: 40 scored questions across five categories plus 10 personal-context and survivor-profile questions. Get a fictional preparedness snapshot from 0–100%.">
 
@@ -197,7 +197,7 @@
         <img
             src="../images/preparedness.png"
             class="quiz-start-image"
-        >
+            >
 
 
         <!-- CATEGORY -->
@@ -296,7 +296,6 @@
 </section>
 
 
-
 <!-- =====================================================
      QUIZ SCREEN
      ===================================================== -->
@@ -382,7 +381,6 @@
 </section>
 
 
-
 <!-- =====================================================
      UNIQUE PREPAREDNESS RESULT SCREEN
      ===================================================== -->
@@ -414,7 +412,6 @@
     <p id="result-description"></p>
 
 
-
     <!-- =================================================
          IF APOCALYPSE STARTED RIGHT NOW
          ================================================= -->
@@ -423,7 +420,7 @@
 
         <p class="highlight">
 
-            ⚠️ IF IT STARTED RIGHT NOW...
+            ⚠️ IF APOCALYPSE STARTED RIGHT NOW...
 
         </p>
 
@@ -431,7 +428,6 @@
         <p id="right-now-description"></p>
 
     </div>
-
 
 
     <!-- =================================================
@@ -470,7 +466,6 @@
             </div>
 
 
-
             <!-- MEDICAL -->
 
             <div class="profile-item">
@@ -489,7 +484,6 @@
                 </span>
 
             </div>
-
 
 
             <!-- PRACTICAL -->
@@ -512,7 +506,6 @@
             </div>
 
 
-
             <!-- RESOURCES -->
 
             <div class="profile-item">
@@ -531,7 +524,6 @@
                 </span>
 
             </div>
-
 
 
             <!-- ENVIRONMENT -->
@@ -558,23 +550,6 @@
 
     </div>
 
-
-
-    <!-- =================================================
-         PERSONAL SURVIVOR PROFILE ANSWERS
-         ================================================= -->
-
-    <div class="profile-section">
-
-        <h2>YOUR SURVIVOR PROFILE</h2>
-
-        <p>These personal details and preferences add context but do not affect your preparedness percentage.</p>
-
-        <div class="profile-grid" id="personal-profile"></div>
-
-    </div>
-
-
     <!-- =================================================
          STRENGTH / WEAKNESS
          ================================================= -->
@@ -600,7 +575,6 @@
         </div>
 
 
-
         <div class="weakness-box">
 
             <h3>
@@ -620,7 +594,6 @@
 
 
     </div>
-
 
 
     <!-- =================================================
@@ -652,7 +625,6 @@
     </div>
 
 </section>
-
 
 
 <!-- =====================================================
@@ -727,7 +699,6 @@
             </a>
 
 
-
             <!-- PLAGUE SURVIVAL QUIZ -->
 
             <a href="/plague-survival-quiz/" class="suggested-card">
@@ -752,7 +723,6 @@
         </div>
 
     </div>
-
 
 
     <!-- =================================================
@@ -789,13 +759,11 @@
 </section>
 
 
-
 <!-- =====================================================
      INFORMATION BELOW THE QUIZ
      ===================================================== -->
 
 <div id="home-info">
-
 
 
 <!-- =====================================================
@@ -813,7 +781,6 @@
     <p>Your score is a playful snapshot of your answers, not a scientific assessment or a prediction of whether you would survive a real disaster.</p>
 
 </section>
-
 
 
 <!-- =====================================================
@@ -924,7 +891,6 @@
 </section>
 
 
-
 <!-- =====================================================
      HOW THE QUIZ WORKS
      ===================================================== -->
@@ -968,7 +934,6 @@
     </p>
 
 </section>
-
 
 
 <!-- =====================================================
@@ -1082,7 +1047,6 @@
 </section>
 
 
-
 <!-- =====================================================
      UNDERSTANDING YOUR RESULT
      ===================================================== -->
@@ -1135,7 +1099,6 @@
     </p>
 
 </section>
-
 
 
 <!-- =====================================================
@@ -1293,7 +1256,6 @@
 </section>
 
 
-
 <!-- =====================================================
      FICTIONAL DISCLAIMER
      ===================================================== -->
@@ -1345,7 +1307,6 @@
 
 
 </main>
-
 
 
 <!-- =====================================================
@@ -1408,14 +1369,13 @@
 </footer>
 
 
-
 <!-- =====================================================
      INLINE QUIZ SCRIPT
      ===================================================== -->
 
 <script>
 const questions = [
-  // All 10 profile questions are placed within the first 20 quiz questions.
+  // ENVIRONMENT: home setting, local hazards and emergency plans
   {
     question: "Where do you currently live?",
     category: "environment",
@@ -1424,16 +1384,6 @@ const questions = [
       ["🏙️ Large city or dense urban area", 3],
       ["🏘️ Small town or suburban neighbourhood", 4],
       ["🏢 Apartment or high-rise building", 3],
-    ]
-  },
-  {
-    question: "If you could pick one defensive option in a fictional apocalypse, which would you prefer?",
-    category: "profile",
-    answers: [
-      ["🛡️ Avoid fights whenever possible", 0],
-      ["🔪 Carry a knife or hand tool", 0],
-      ["🔫 Use a firearm only where lawful", 0],
-      ["🧰 Carry tools and improvise", 0],
     ]
   },
   {
@@ -1447,16 +1397,6 @@ const questions = [
     ]
   },
   {
-    question: "How do you feel in enclosed or confined spaces?",
-    category: "profile",
-    answers: [
-      ["😌 Comfortable in enclosed spaces for a while", 0],
-      ["🙂 A little uneasy, but I can manage", 0],
-      ["😰 Very uncomfortable and eager to leave", 0],
-      ["😨 I may panic if I cannot leave", 0],
-    ]
-  },
-  {
     question: "Your home becomes unsafe tonight. Do you have somewhere to stay?",
     category: "environment",
     answers: [
@@ -1464,16 +1404,6 @@ const questions = [
       ["👥 A trusted contact can host us", 4],
       ["🗺️ Options exist, but none are confirmed", 3],
       ["🤷 I have no backup place", 1],
-    ]
-  },
-  {
-    question: "How well could you function without your smartphone?",
-    category: "profile",
-    answers: [
-      ["📵 I can manage daily tasks without it", 0],
-      ["🗺️ I manage most tasks with a backup plan", 0],
-      ["📱 I would struggle with maps, news or contacts", 0],
-      ["😰 I rely on it for nearly every task", 0],
     ]
   },
   {
@@ -1487,16 +1417,6 @@ const questions = [
     ]
   },
   {
-    question: "In an emergency, would you prefer to survive alone or with others?",
-    category: "profile",
-    answers: [
-      ["👤 Alone; I work best independently", 0],
-      ["👥 A small team of trusted people", 0],
-      ["👨‍👩‍👧 A larger, coordinated group", 0],
-      ["🤷 It would depend on the situation", 0],
-    ]
-  },
-  {
     question: "Could you find a safer route if your usual road were blocked?",
     category: "environment",
     answers: [
@@ -1504,16 +1424,6 @@ const questions = [
       ["📍 I know one practical alternative route", 4],
       ["📱 I could check a downloaded or paper map", 3],
       ["🚧 I would guess or follow the crowd", 1],
-    ]
-  },
-  {
-    question: "How comfortable are you around animals?",
-    category: "profile",
-    answers: [
-      ["🐾 Comfortable with pets and most farm animals", 0],
-      ["🐕 Fine with common pets, less with larger animals", 0],
-      ["🧑‍🌾 I would need guidance with unfamiliar animals", 0],
-      ["😨 I prefer to keep my distance from animals", 0],
     ]
   },
   {
@@ -1527,16 +1437,6 @@ const questions = [
     ]
   },
   {
-    question: "Which setting would you rather spend most of your time in?",
-    category: "profile",
-    answers: [
-      ["🌳 Outdoors, exploring or working in the open", 0],
-      ["🏠 Indoors, where I feel more comfortable", 0],
-      ["⚖️ A mix of indoor and outdoor activities", 0],
-      ["🤷 It depends on the task and conditions", 0],
-    ]
-  },
-  {
     question: "How well do you know the main hazards in your area?",
     category: "environment",
     answers: [
@@ -1544,16 +1444,6 @@ const questions = [
       ["🌧️ I know common risks and where warnings appear", 4],
       ["📱 I know a little but need to research more", 3],
       ["🤷 I would learn about risks when they happen", 1],
-    ]
-  },
-  {
-    question: "What best describes your current living situation?",
-    category: "profile",
-    answers: [
-      ["👤 I live alone most of the time", 0],
-      ["💑 I live with a partner or spouse", 0],
-      ["👨‍👩‍👧 I live with family or dependants", 0],
-      ["🏠 Other household or prefer not to say", 0],
     ]
   },
   {
@@ -1566,16 +1456,7 @@ const questions = [
       ["😬 I would decide after the warning", 1],
     ]
   },
-  {
-    question: "How comfortable are you caring for children or babies during a crisis?",
-    category: "profile",
-    answers: [
-      ["👶 Confident with their basic and emergency needs", 0],
-      ["🙂 Able to help, but may need some guidance", 0],
-      ["😐 I would need another person to lead care", 0],
-      ["😅 I would prefer a role without childcare", 0],
-    ]
-  },
+  // PHYSICAL: age context, mobility, endurance and adaptations
   {
     question: "What is your age group?",
     category: "physical",
@@ -1587,16 +1468,6 @@ const questions = [
     ]
   },
   {
-    question: "Do you have any known allergies?",
-    category: "profile",
-    answers: [
-      ["✅ No known allergies", 0],
-      ["🤧 One known allergy", 0],
-      ["⚠️ Multiple known allergies", 0],
-      ["🤷 Unsure / prefer not to say", 0],
-    ]
-  },
-  {
     question: "How far could you travel on foot with a modest daypack?",
     category: "physical",
     answers: [
@@ -1604,16 +1475,6 @@ const questions = [
       ["🚶 A few kilometres at steady pace", 4],
       ["🎒 A short walk before a longer rest", 3],
       ["🛞 Accessible route or mobility support", 4],
-    ]
-  },
-  {
-    question: "Do you take medication on a regular basis?",
-    category: "profile",
-    answers: [
-      ["✅ No regular medication", 0],
-      ["🕒 Occasional medication when needed", 0],
-      ["💊 Regular medication or ongoing treatment", 0],
-      ["🤷 Prefer not to say", 0],
     ]
   },
   {
@@ -1676,6 +1537,7 @@ const questions = [
       ["🤔 I have not planned for pacing or recovery", 1],
     ]
   },
+  // MEDICAL: first aid, medication planning, allergies and hygiene
   {
     question: "Someone gets a small cut while helping around camp. What could you do?",
     category: "medical",
@@ -1756,6 +1618,7 @@ const questions = [
       ["🤷 Wait and see without changing much", 1],
     ]
   },
+  // RESOURCES: supplies, backup equipment and home safety
   {
     question: "What defensive tools or safety options are available at home?",
     category: "resources",
@@ -1836,6 +1699,7 @@ const questions = [
       ["🤔 No cash or offline documents are ready", 1],
     ]
   },
+  // PRACTICAL SKILLS: everyday skills and relevant experience
   {
     question: "What best describes your current occupation or background?",
     category: "practical",
@@ -1915,8 +1779,216 @@ const questions = [
       ["🤝 Do it with guidance from someone experienced", 3],
       ["🤔 I would not know how to begin safely", 1],
     ]
-  }
+  },
+  // SURVIVOR PROFILE: preferences and personal context; zero points
+  {
+    question: "If you could pick one defensive option in a fictional apocalypse, which would you prefer?",
+    category: "profile",
+    answers: [
+      ["🛡️ Avoid fights whenever possible", 0],
+      ["🔪 Carry a knife or hand tool", 0],
+      ["🔫 Use a firearm only where lawful", 0],
+      ["🧰 Carry tools and improvise", 0],
+    ]
+  },
+  {
+    question: "How do you feel in enclosed or confined spaces?",
+    category: "profile",
+    answers: [
+      ["😌 Comfortable in enclosed spaces for a while", 0],
+      ["🙂 A little uneasy, but I can manage", 0],
+      ["😰 Very uncomfortable and eager to leave", 0],
+      ["😨 I may panic if I cannot leave", 0],
+    ]
+  },
+  {
+    question: "How well could you function without your smartphone?",
+    category: "profile",
+    answers: [
+      ["📵 I can manage daily tasks without it", 0],
+      ["🗺️ I manage most tasks with a backup plan", 0],
+      ["📱 I would struggle with maps, news or contacts", 0],
+      ["😰 I rely on it for nearly every task", 0],
+    ]
+  },
+  {
+    question: "In an emergency, would you prefer to survive alone or with others?",
+    category: "profile",
+    answers: [
+      ["👤 Alone; I work best independently", 0],
+      ["👥 A small team of trusted people", 0],
+      ["👨‍👩‍👧 A larger, coordinated group", 0],
+      ["🤷 It would depend on the situation", 0],
+    ]
+  },
+  {
+    question: "How comfortable are you around animals?",
+    category: "profile",
+    answers: [
+      ["🐾 Comfortable with pets and most farm animals", 0],
+      ["🐕 Fine with common pets, less with larger animals", 0],
+      ["🧑‍🌾 I would need guidance with unfamiliar animals", 0],
+      ["😨 I prefer to keep my distance from animals", 0],
+    ]
+  },
+  {
+    question: "Which setting would you rather spend most of your time in?",
+    category: "profile",
+    answers: [
+      ["🌳 Outdoors, exploring or working in the open", 0],
+      ["🏠 Indoors, where I feel more comfortable", 0],
+      ["⚖️ A mix of indoor and outdoor activities", 0],
+      ["🤷 It depends on the task and conditions", 0],
+    ]
+  },
+  {
+    question: "What best describes your current living situation?",
+    category: "profile",
+    answers: [
+      ["👤 I live alone most of the time", 0],
+      ["💑 I live with a partner or spouse", 0],
+      ["👨‍👩‍👧 I live with family or dependants", 0],
+      ["🏠 Other household or prefer not to say", 0],
+    ]
+  },
+  {
+    question: "How comfortable are you caring for children or babies during a crisis?",
+    category: "profile",
+    answers: [
+      ["👶 Confident with their basic and emergency needs", 0],
+      ["🙂 Able to help, but may need some guidance", 0],
+      ["😐 I would need another person to lead care", 0],
+      ["😅 I would prefer a role without childcare", 0],
+    ]
+  },
+  {
+    question: "Do you have any known allergies?",
+    category: "profile",
+    answers: [
+      ["✅ No known allergies", 0],
+      ["🤧 One known allergy", 0],
+      ["⚠️ Multiple known allergies", 0],
+      ["🤷 Unsure / prefer not to say", 0],
+    ]
+  },
+  {
+    question: "Do you take medication on a regular basis?",
+    category: "profile",
+    answers: [
+      ["✅ No regular medication", 0],
+      ["🕒 Occasional medication when needed", 0],
+      ["💊 Regular medication or ongoing treatment", 0],
+      ["🤷 Prefer not to say", 0],
+    ]
+  },
 ];
+
+// ============================================================
+// SHUFFLE ANSWERS AND BALANCE HIGH-SCORING OPTIONS
+// ============================================================
+
+function shuffleArray(array) {
+    const shuffled = [...array];
+
+    for (let i = shuffled.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+
+        [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
+    }
+
+    return shuffled;
+}
+
+function getPermutations(items) {
+    const results = [];
+
+    function generate(remaining, current) {
+        if (remaining.length === 0) {
+            results.push(current);
+            return;
+        }
+
+        for (let i = 0; i < remaining.length; i++) {
+            generate(
+                remaining.filter((_, index) => index !== i),
+                [...current, remaining[i]]
+            );
+        }
+    }
+
+    generate(items, []);
+    return results;
+}
+
+function balanceAnswerOptions(questions) {
+    // Counts the positions of all highest-scoring answers.
+    // Index 0 = A, 1 = B, 2 = C, 3 = D.
+    const positionCounts = [0, 0, 0, 0];
+
+    // Random processing order prevents a predictable pattern.
+    const scoredQuestions = shuffleArray(
+        questions.filter(
+            question =>
+                question.category !== "profile" &&
+                question.answers.length === 4
+        )
+    );
+
+    for (const question of scoredQuestions) {
+        const highestScore = Math.max(
+            ...question.answers.map(answer => answer[1])
+        );
+
+        const permutations = getPermutations(question.answers);
+
+        let bestCost = Infinity;
+        let bestPermutations = [];
+
+        for (const permutation of permutations) {
+            const counts = [...positionCounts];
+
+            permutation.forEach((answer, position) => {
+                if (answer[1] === highestScore) {
+                    counts[position]++;
+                }
+            });
+
+            // Prefer the most balanced distribution.
+            const cost = counts.reduce(
+                (total, count) => total + count * count,
+                0
+            );
+
+            if (cost < bestCost) {
+                bestCost = cost;
+                bestPermutations = [permutation];
+            } else if (cost === bestCost) {
+                bestPermutations.push(permutation);
+            }
+        }
+
+        // Randomly choose among equally balanced arrangements.
+        question.answers = bestPermutations[
+            Math.floor(Math.random() * bestPermutations.length)
+        ];
+
+        question.answers.forEach((answer, position) => {
+            if (answer[1] === highestScore) {
+                positionCounts[position]++;
+            }
+        });
+    }
+
+    // Profile questions have no correct or higher-scoring answer.
+    questions
+        .filter(question => question.category === "profile")
+        .forEach(question => {
+            question.answers = shuffleArray(question.answers);
+        });
+}
+
+balanceAnswerOptions(questions);
+
 
 // ============================================================
 // DOM ELEMENTS
@@ -1944,8 +2016,6 @@ const resultDescription = $('result-description');
 const rightNowDescription = $('right-now-description');
 const strengthArea = $('strength-area');
 const weaknessArea = $('weakness-area');
-const personalProfile = $('personal-profile');
-
 const categories = {
   physical: { label: '💪 Physical', element: $('physical-score') },
   medical: { label: '🩺 Medical', element: $('medical-score') },
@@ -2013,24 +2083,24 @@ function showQuestion() {
 }
 
 function selectAnswer(answerIndex) {
-  selectedAnswers[currentQuestion] = answerIndex;
-  answersContainer.querySelectorAll('.answer').forEach((button, index) => {
-    const selected = index === answerIndex;
-    button.classList.toggle('selected', selected);
-    button.setAttribute('aria-pressed', String(selected));
-  });
-  updateNavigation();
+    selectedAnswers[currentQuestion] = answerIndex;
+    const buttons = answersContainer.querySelectorAll(".answer");
+    buttons.forEach((button, index) => {
+        button.classList.toggle("selected", index === answerIndex);
+    });
+    updateNavigation();
 
-  // Keep the quiz's quick auto-advance, while allowing Back/Next during the short delay.
-  if (advanceTimer !== null) clearTimeout(advanceTimer);
-  const answeredQuestion = currentQuestion;
-  advanceTimer = setTimeout(() => {
-    advanceTimer = null;
-    if (currentQuestion === answeredQuestion && currentQuestion < questions.length - 1) {
-      currentQuestion++;
-      showQuestion();
-    }
-  }, 180);
+    const questionAtSelection = currentQuestion;
+    setTimeout(() => {
+        if (
+            currentQuestion === questionAtSelection &&
+            selectedAnswers[questionAtSelection] === answerIndex &&
+            currentQuestion < questions.length - 1
+        ) {
+            currentQuestion++;
+            showQuestion();
+        }
+    }, 180);
 }
 
 function goNext() {
@@ -2102,8 +2172,7 @@ function showResult() {
   setResult(scores.total);
   updateCategoryScores(scores.categories);
   updateStrengthWeakness(scores.categories);
-  updatePersonalProfile();
-  progressBar.style.width = '100%';
+progressBar.style.width = '100%';
   window.scrollTo({ top: 0, behavior: 'smooth' });
 }
 
@@ -2153,25 +2222,6 @@ function updateStrengthWeakness(percentages) {
     : weakest.map(key => categories[key].label).join(' · ');
 }
 
-function updatePersonalProfile() {
-  if (!personalProfile) return;
-  personalProfile.replaceChildren();
-  questions.forEach((question, index) => {
-    if (question.category !== 'profile') return;
-    const answerIndex = selectedAnswers[index];
-    if (answerIndex === null) return;
-
-    const item = document.createElement('div');
-    item.className = 'profile-item';
-    const label = document.createElement('span');
-    label.className = 'profile-name';
-    label.textContent = question.question;
-    const value = document.createElement('span');
-    value.textContent = question.answers[answerIndex][0];
-    item.append(label, value);
-    personalProfile.appendChild(item);
-  });
-}
 
 function restartQuiz() {
   resetAnswers();
@@ -2271,6 +2321,7 @@ submitButton.addEventListener('click', showResult);
   menu.querySelectorAll('a').forEach(link => link.addEventListener('click', () => setMenuOpen(false)));
 })();
 </script>
+
 
 </body>
 
