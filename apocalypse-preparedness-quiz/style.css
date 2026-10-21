@@ -823,34 +823,64 @@ text-align: center;
 
 }
 
-/* =====================================================
-PREPAREDNESS — RIGHT NOW
-===================================================== */
 
-#right-now-description {
-max-width: 650px;
+/* =================================================
+   APOCALYPSE SURVIVAL BRIEFING
+   ================================================= */
 
-margin: 25px auto 0;
-
-padding: 20px 22px;
-
-background: #171717;
-
-border: 1px solid #333;
-
-border-left: 4px solid #b51f1f;
-
-border-radius: 12px;
-
-color: #ccc;
-
-font-size: 15px;
-
-line-height: 1.7;
-
-text-align: left;
-
+.intro-warning {
+    background: linear-gradient(135deg, #202923 0%, #29352b 100%);
+    border: 1px solid #536c51;
+    border-left: 5px solid #a8ca78;
+    border-radius: 8px;
+    padding: 22px 24px;
+    margin: 24px 0;
+    box-shadow: 0 5px 16px rgba(0, 0, 0, 0.14);
+    text-align: center;
 }
+
+/* Tactical briefing label */
+.intro-warning .highlight {
+    display: flex;
+    gap: 9px;
+    color: #b6d78d;
+    font-size: 0.78rem;
+    font-weight: 800;
+    letter-spacing: 1.4px;
+    text-transform: uppercase;
+    margin: 0 0 14px;
+    text-align: center;
+}
+
+/* Dynamic result description */
+#right-now-description {
+    color: #e0e8dc;
+    font-size: 1rem;
+    line-height: 1.75;
+    margin: 0;
+    text-align: center;
+}
+
+/* Mobile adjustments */
+@media (max-width: 600px) {
+    .intro-warning {
+        padding: 18px;
+        margin: 18px 0;
+    }
+
+    .intro-warning .highlight {
+        font-size: 0.7rem;
+        letter-spacing: 1px;
+        text-align: center;
+    }
+
+    #right-now-description {
+        font-size: 0.94rem;
+        line-height: 1.65;
+        text-align: center;
+    }
+}
+
 
 /* =====================================================
 PREPAREDNESS — PROFILE
