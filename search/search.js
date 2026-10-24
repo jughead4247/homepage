@@ -902,6 +902,7 @@ const quizzes = [
             "https://apocalypsequizzes.com/moonfall-quiz/"
     },
 
+    
     {
         title: "Elysium Quiz",
 
@@ -927,10 +928,148 @@ const quizzes = [
 
         url:
             "https://apocalypsequizzes.com/battleship-quiz/"
+    },
+
+    {
+        title: "Dexter: Resurrection Season 1 Quiz",
+
+        description:
+            "Test your knowledge of Dexter: Resurrection Season 1, Dexter Morgan's return, Harrison Morgan, New York City, dangerous killers, and the latest chapter in Dexter's story.",
+
+        categories:
+            "Dexter Dexter Resurrection Dexter Resurrection Season 1 Dexter Resurrection quiz Dexter season 1 quiz TV show quiz television series crime drama Michael C Hall Dexter Morgan Harrison Morgan Jack Alcott David Zayas Angel Batista James Remar Harry Morgan New York City serial killer forensic blood spatter analyst Dark Passenger Trinity Killer crime thriller murder investigation characters episodes plot Showtime Paramount Plus",
+
+        url:
+            "https://apocalypsequizzes.com/dexter/resurrection-season-1-quiz/"
+    },
+
+
+    {
+        title: "FROM Season 1 Quiz",
+
+        description:
+            "Test your knowledge of FROM Season 1, the mysterious town that traps its visitors, the Matthews family, Boyd Stevens, terrifying creatures, and the secrets of survival.",
+
+        categories:
+            "FROM FROM TV series FROM Season 1 FROM season 1 quiz FROM quiz TV show quiz horror series mystery thriller Harold Perrineau Boyd Stevens Catalina Sandino Moreno Tabitha Matthews Eion Bailey Jim Matthews David Alpay Jade Elizabeth Saunders Donna Scott McCord Colony House town residents monsters creatures forest talismans RV Matthews family night creatures mysterious town trapped travelers survival horror supernatural mystery episodes characters MGM Plus",
+
+        url:
+            "https://apocalypsequizzes.com/from/season-1-quiz/"
+    },
+
+
+    {
+        title: "FROM Season 4 Quiz",
+
+        description:
+            "Test your knowledge of FROM Season 4, the town's growing mysteries, its trapped residents, terrifying creatures, hidden clues, and the struggle to find a way home.",
+
+        categories:
+            "FROM FROM TV series FROM Season 4 FROM season 4 quiz FROM quiz TV show quiz horror mystery thriller Boyd Stevens Tabitha Matthews Jim Matthews Jade Donna Victor Ethan Matthews Julie Matthews Randall Sara Ellis Kenny Kristi Fatima Colony House town monsters creatures talismans mysterious symbols forest supernatural secrets survival horror episodes characters MGM Plus",
+
+        url:
+            "https://apocalypsequizzes.com/from/season-4-quiz/"
+    },
+
+
+    {
+        title: "Game of Thrones Season 4 Quiz",
+
+        description:
+            "Test your knowledge of Game of Thrones Season 4, the Purple Wedding, Tyrion's trial, Arya and the Hound, the battle at the Wall, and the power struggles across Westeros.",
+
+        categories:
+            "Game of Thrones Game of Thrones Season 4 Game of Thrones season 4 quiz GOT quiz fantasy TV show George R R Martin Westeros Essos King's Landing Tyrion Lannister Cersei Lannister Jaime Lannister Joffrey Baratheon Margaery Tyrell Olenna Tyrell Oberyn Martell Ellaria Sand Arya Stark Sandor Clegane the Hound Sansa Stark Jon Snow Daenerys Targaryen Stannis Baratheon Night's Watch Wildlings Castle Black Purple Wedding Red Viper Mountain trial by combat Battle of Castle Black White Walkers dragons Lannisters Starks Tyrells Martells episodes characters fantasy drama",
+
+        url:
+            "https://apocalypsequizzes.com/game-of-thrones/season-4-quiz/"
+    },
+
+
+    {
+        title: "Game of Thrones Male Personality Quiz",
+
+        description:
+            "Which Game of Thrones man matches your personality? Answer fun questions inspired by Westeros, its rival houses, legendary warriors, clever schemers, and unforgettable characters.",
+
+        categories:
+            "Game of Thrones Game of Thrones personality quiz Game of Thrones male personality quiz GOT personality quiz character personality quiz Westeros fantasy personality quiz Jon Snow Tyrion Lannister Jaime Lannister Ned Stark Robb Stark Bran Stark Sandor Clegane the Hound Oberyn Martell Khal Drogo Daario Naharis Jorah Mormont Samwell Tarly Bronn Petyr Baelish Littlefinger Varys Stannis Baratheon Tormund Giantsbane fantasy characters TV series character match personality test",
+
+        url:
+            "https://apocalypsequizzes.com/game-of-thrones/male-personality-quiz/"
+    },
+
+
+    {
+        title: "The Witcher Season 1 Quiz",
+
+        description:
+            "Test your knowledge of The Witcher Season 1, Geralt of Rivia, Princess Ciri, Yennefer of Vengerberg, monster hunting, magic, and the tangled destinies of the Continent.",
+
+        categories:
+            "The Witcher The Witcher Season 1 The Witcher season 1 quiz Witcher quiz Netflix series fantasy TV show Henry Cavill Geralt of Rivia Freya Allan Ciri Anya Chalotra Yennefer of Vengerberg Jaskier Joey Batey Renfri Stregobor Tissaia de Vries Vilgefortz Calanthe Cintra Nilfgaard Continent Law of Surprise witchers monsters magic sorcerers mages elves Blaviken Battle of Sodden Timeline episodes characters fantasy adventure sword and sorcery",
+
+        url:
+            "https://apocalypsequizzes.com/the-witcher/season-1-quiz/"
+    },
+
+
+    {
+        title: "AI and Robot Apocalypse Survival Quiz",
+
+        description:
+            "Could you survive an AI and robot uprising? Test your survival instincts as intelligent machines take control, systems collapse, and humanity fights to stay alive.",
+
+        categories:
+            "AI and Robot Apocalypse Survival Quiz AI apocalypse robot apocalypse survival quiz artificial intelligence robots machine uprising rogue AI killer robots autonomous machines technology collapse humanity survival post-apocalyptic quiz apocalypse quiz survival test survival skills decision making morality ethics resource management shelter supplies teamwork resistance drones androids automation machine intelligence doomsday end of the world futuristic survival science fiction sci-fi",
+
+        url:
+            "https://apocalypsequizzes.com/ai-and-robot-apocalypse-survival-quiz/"
+    },
+
+
+    {
+        title: "Alien Invasion Survival Quiz",
+
+        description:
+            "Earth is under attack. Test your survival instincts as aliens invade, cities fall, resources disappear, and every decision could determine whether you survive.",
+
+        categories:
+            "Alien Invasion Survival Quiz alien invasion quiz alien apocalypse survival quiz extraterrestrial invasion aliens UFOs extraterrestrials first contact alien attack invasion of Earth apocalypse quiz survival test survival instincts decision making morality ethics resource management emergency shelter food water weapons evacuation teamwork military resistance humanity end of the world post-apocalyptic survival science fiction sci-fi hostile aliens alien technology doomsday disaster preparedness",
+
+        url:
+            "https://apocalypsequizzes.com/alien-invasion-survival-quiz/"
+    },
+
+
+    {
+        title: "Nuclear Winter Survival Quiz",
+
+        description:
+            "Survive the aftermath of nuclear devastation in a frozen wasteland. Test your decisions about shelter, extreme cold, scarce food, radiation risks, and protecting your group.",
+
+        categories:
+            "Nuclear Winter Survival Quiz nuclear winter quiz nuclear apocalypse survival nuclear war nuclear fallout radiation radioactive fallout nuclear winter freezing temperatures extreme cold blizzards snow frozen wasteland survival quiz apocalypse quiz post-apocalyptic world shelter insulation warmth food water supplies emergency preparedness survival instincts morality difficult decisions group survival contamination radiation protection resource management fallout shelter disaster survival doomsday science fiction",
+
+        url:
+            "https://apocalypsequizzes.com/nuclear-winter-survival-quiz/"
+    },
+
+
+    {
+        title: "Extreme Cold Survival Quiz",
+
+        description:
+            "Can you survive brutal freezing temperatures? Test your survival instincts as you face blizzards, hypothermia risks, dangerous exposure, limited supplies, and desperate decisions.",
+
+        categories:
+            "Extreme Cold Survival Quiz extreme cold quiz cold weather survival winter survival survival quiz freezing temperatures hypothermia frostbite wind chill blizzards snowstorms winter storms ice exposure cold injuries shelter insulation fire warmth clothing layering emergency blankets food water supplies wilderness survival emergency preparedness survival skills survival instincts decision making morality group survival apocalypse quiz harsh weather frozen wilderness disaster survival",
+
+        url:
+            "https://apocalypsequizzes.com/extreme-cold-survival-quiz/"
     }
 
 ];
-
 
 // =========================================
 // SEARCH ELEMENTS
