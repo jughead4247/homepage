@@ -36,29 +36,34 @@
         <loc>https://apocalypsequizzes.com/categories/</loc>
     </url>
 
-    <!-- Zombie Quiz -->
+    <!-- Survival Quiz -->
     <url>
         <loc>https://apocalypsequizzes.com/zombie-quiz/</loc>
     </url>
 
-    <!-- Ultimate Zombie Survival Test -->
     <url>
         <loc>https://apocalypsequizzes.com/ultimate-zombie-survival-test/</loc>
     </url>
-
-    <!-- Apocalypse Preparedness Quiz -->
+    
     <url>
         <loc>https://apocalypsequizzes.com/apocalypse-preparedness-quiz/</loc>
     </url>
 
-    <!-- Nuclear Apocalypse Survival Quiz -->
     <url>
         <loc>https://apocalypsequizzes.com/nuclear-apocalypse-quiz/</loc>
     </url>
 
     <url>
-        https://apocalypsequizzes.com/alien-invasion-survival-quiz/
-        </url>
+        <loc>https://apocalypsequizzes.com/plague-survival-quiz/</loc>
+    </url>
+
+    <url>
+        <loc>https://apocalypsequizzes.com/ai-and-robot-apocalypse-survival-quiz/</loc>
+    </url>
+
+    <url>
+        <loc>https://apocalypsequizzes.com/alien-invasion-survival-quiz/</loc>
+    </url>
 
     <!-- The Walking Dead Knowledge Quiz -->
     <url>
@@ -91,11 +96,6 @@
     <!-- iZombie Quiz -->
     <url>
         <loc>https://apocalypsequizzes.com/izombie-quiz/</loc>
-    </url>
-
-    <!-- Plague Outbreak Survival Quiz -->
-    <url>
-        <loc>https://apocalypsequizzes.com/plague-survival-quiz/</loc>
     </url>
 
     <!-- Westworld Quiz -->
