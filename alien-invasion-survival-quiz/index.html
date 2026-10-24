@@ -1,0 +1,1103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Alien Invasion Survival Quiz - 50 Questions | Apocalypse Quizzes</title>
+
+<meta name="description"
+ content="Take the Alien Invasion Survival Quiz. Make 50 fictional decisions about first contact, alien technology, invasion threats, resources and survival, then discover your survival score and compassion-and-ethics profile.">
+
+<meta name="keywords"
+ content="alien invasion survival quiz, alien survival quiz, alien invasion quiz, alien apocalypse quiz, alien attack survival test, extraterrestrial invasion quiz, alien survival test, alien invasion trivia, apocalypse survival quiz, survival decision quiz">
+
+<meta name="author"
+ content="Apocalypse Quizzes">
+
+<meta name="robots"
+ content="index, follow">
+
+<link rel="canonical"
+    href="https://apocalypsequizzes.com/alien-invasion-survival-quiz/">
+
+<!-- Open Graph -->
+
+<meta property="og:title"
+ content="Alien Invasion Survival Quiz - 50 Questions">
+
+<meta property="og:description"
+ content="Could you survive an alien invasion? Make 50 difficult fictional decisions about first contact, alien technology, trust, resistance and survival. Discover your survival score and compassion-and-ethics profile.">
+
+<meta property="og:url"
+ content="https://apocalypsequizzes.com/alien-invasion-survival-quiz/">
+
+<meta property="og:type"
+ content="website">
+
+<meta property="og:site_name"
+ content="Apocalypse Quizzes">
+
+<meta property="og:locale"
+ content="en_US">
+
+<!-- Twitter -->
+
+<meta name="twitter:card"
+ content="summary">
+
+<meta name="twitter:title"
+ content="Alien Invasion Survival Quiz">
+
+<meta name="twitter:description"
+ content="Make 50 fictional alien-invasion survival decisions and discover your survival score and compassion-and-ethics profile.">
+
+<link rel="icon"
+    type="image/png"
+    href="../favicon.png">
+
+<!-- Google Analytics -->
+
+<script async
+    src="https://www.googletagmanager.com/gtag/js?id=G-YC3ERJSBST">
+</script>
+
+<script>
+
+window.dataLayer = window.dataLayer || [];
+
+function gtag() {
+    dataLayer.push(arguments);
+}
+
+gtag('js', new Date());
+
+gtag('config', 'G-YC3ERJSBST');
+
+</script>
+
+<!-- Google AdSense -->
+
+<script async
+    src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2285244517360573"
+    crossorigin="anonymous">
+</script>
+
+<link rel="stylesheet"
+    href="style.css">
+
+</head>
+
+<body>
+
+<!-- =====================================================
+     HEADER
+     ===================================================== -->
+
+<header class="site-header">
+
+<button
+    class="menu-toggle"
+    id="menu-toggle"
+    type="button"
+    aria-label="Open navigation"
+    aria-expanded="false"
+    aria-controls="site-menu">
+
+<span></span>
+<span></span>
+<span></span>
+
+</button>
+
+<div class="site-title">
+    APOCALYPSE QUIZZES
+</div>
+
+</header>
+
+
+<!-- =====================================================
+     NAVIGATION
+     ===================================================== -->
+
+<nav
+    class="site-menu"
+    id="site-menu"
+    aria-label="Main navigation"
+    hidden>
+
+<div class="menu-links">
+
+<a href="/">
+    🏠 Home
+</a>
+
+<a href="/search/">
+    🔎 Search Quizzes
+</a>
+
+<a href="/categories/">
+    📂 Categories
+</a>
+
+<div class="menu-divider"></div>
+
+<a href="/about.html">
+    About
+</a>
+
+<a href="/privacy.html">
+    Privacy Policy
+</a>
+
+<a href="/disclaimer.html">
+    Disclaimer
+</a>
+
+<a href="/contact.html">
+    Contact
+</a>
+
+</div>
+
+</nav>
+
+
+<main class="container">
+
+
+<!-- =====================================================
+     START SCREEN
+     ===================================================== -->
+
+<section id="start-screen">
+
+<div class="intro-card">
+
+<img
+    src="../images/alien.png"
+    class="quiz-start-image">
+
+<div class="quiz-category">
+    ALIEN INVASION • SURVIVAL TEST
+</div>
+
+<h1>
+    Alien Invasion Survival Quiz
+</h1>
+
+<p class="subtitle">
+    Face 50 difficult decisions during a fictional alien
+    invasion involving first contact, hostile encounters,
+    hiding, evacuation, mysterious technology, limited
+    resources, trust and resistance. Discover your survival
+    decision score and how your choices reflect compassion
+    and ethical judgment.
+</p>
+
+
+<!-- QUIZ STATS -->
+
+<div class="info">
+
+<span>
+    50 Decisions
+</span>
+
+<span>•</span>
+
+<span>
+    ~10 Minutes
+</span>
+
+<span>•</span>
+
+<span>
+    4 Choices
+</span>
+
+</div>
+
+
+<p class="start-note">
+    Choose carefully. Your survival decision score and
+    compassion-and-ethics score are calculated separately.
+    Every decision could change your chances of surviving
+    the invasion.
+</p>
+
+
+<!-- START BUTTON -->
+
+<button
+    id="start-btn"
+    type="button">
+
+    START QUIZ
+
+</button>
+
+
+<p class="spoiler-warning start-spoiler">
+
+    This is a fictional alien-invasion survival experience.
+    Your result is based entirely on the choices you make
+    during the quiz. Alien capabilities and events described
+    in the scenarios are fictional.
+</p>
+
+</div>
+
+</section>
+
+
+<!-- =====================================================
+     QUIZ SCREEN
+     ===================================================== -->
+
+<section
+    id="quiz-screen"
+    class="screen hidden">
+
+<div class="quiz-header">
+
+<span id="question-number">
+    Decision 1 of 50
+</span>
+
+<span id="score-display">
+    SURVIVAL TRIVIA
+</span>
+
+</div>
+
+
+<div class="progress">
+
+<div id="progress-bar"></div>
+
+</div>
+
+
+<h2 id="question"></h2>
+
+<div id="answers"></div>
+
+
+<div class="quiz-navigation">
+
+<button
+    id="back-btn"
+    class="nav-btn"
+    type="button"
+    disabled>
+
+    ← Back
+
+</button>
+
+
+<button
+    id="next-btn"
+    class="nav-btn"
+    type="button"
+    disabled>
+
+    Next →
+
+</button>
+
+
+<button
+    id="submit-btn"
+    class="nav-btn submit-btn hidden"
+    type="button"
+    disabled>
+
+    Submit
+
+</button>
+
+</div>
+
+</section>
+
+
+<!-- =====================================================
+     RESULT SCREEN
+     ===================================================== -->
+
+<section
+    id="result-screen"
+    class="screen hidden">
+
+<p class="result-label">
+    YOUR ALIEN INVASION RESULT
+</p>
+
+
+<h1 id="result-title">
+</h1>
+
+
+<!-- SURVIVAL SCORE -->
+
+<div class="result-score">
+
+<span class="survival-label">
+    SURVIVAL SCORE
+</span>
+
+<span id="final-score">
+    0%
+</span>
+
+</div>
+
+
+<p
+    class="result-description"
+    id="result-description">
+</p>
+
+
+<!-- COMPASSION & ETHICS SCORE -->
+
+<div class="morality-result-card">
+
+<span class="morality-label">
+    COMPASSION &amp; ETHICS SCORE
+</span>
+
+
+<div class="morality-result">
+
+<span id="morality-score">
+    —
+</span>
+
+</div>
+
+
+<p id="morality-description">
+    Your score reflects choices involving compassion,
+    fairness, trust and responsibility within these
+    fictional scenarios, not an objective judgment of
+    your character.
+</p>
+
+</div>
+
+
+<!-- SURVIVAL DECISION PROFILE -->
+
+<div class="survival-box">
+
+<strong>
+    Decision Profile:
+</strong>
+
+<span id="survival-time">
+</span>
+
+</div>
+
+
+<!-- RESULT ACTIONS -->
+
+<div class="result-actions">
+
+<button
+    id="restart-btn"
+    type="button">
+
+    🔄 TRY AGAIN
+
+</button>
+
+
+<button
+    id="share-btn"
+    type="button">
+
+    📤 SHARE MY RESULT
+
+</button>
+
+
+<button
+    id="challenge-btn"
+    type="button">
+
+    ⚡ CHALLENGE SOMEONE
+
+</button>
+
+</div>
+
+</section>
+
+
+<!-- =====================================================
+     SUGGESTED QUIZZES
+     ===================================================== -->
+
+<section
+    id="suggestions-card"
+    class="suggestions-card hidden">
+
+<div class="suggested-quizzes">
+
+<h2>
+    Suggested Quizzes
+</h2>
+
+<p class="suggested-subtitle">
+    Survived the alien invasion? Test yourself against
+    more apocalyptic threats and dystopian worlds.
+</p>
+
+
+<div class="suggested-grid">
+
+
+<!-- THE 100 KNOWLEDGE QUIZ -->
+
+<a href="/the-100-knowledge/" class="suggested-card">
+
+    <img
+        src="../images/the-100-knowledge.png"
+        alt="The 100 Knowledge Quiz"
+        class="suggested-image">
+
+    <span class="suggested-title">
+        The 100 Knowledge Quiz
+    </span>
+
+    <span class="suggested-description">
+        Test your knowledge of The 100, including characters,
+        clans, survival and the dangers of a post-apocalyptic world.
+    </span>
+
+</a>
+
+
+<!-- SILO QUIZ -->
+
+<a href="/silo-quiz/" class="suggested-card">
+
+    <img
+        src="../images/silo-quiz.png"
+        alt="Silo Quiz"
+        class="suggested-image">
+
+    <span class="suggested-title">
+        Silo Quiz
+    </span>
+
+    <span class="suggested-description">
+        How well do you know the underground world of Silo?
+        Test your knowledge of the series.
+    </span>
+
+</a>
+
+
+<!-- FALLOUT TV SHOW QUIZ -->
+
+<a href="/fallout-tv-show-quiz/" class="suggested-card">
+
+    <img
+        src="../images/fallout-quiz.png"
+        alt="Fallout TV Show Quiz"
+        class="suggested-image">
+
+    <span class="suggested-title">
+        Fallout TV Show Quiz
+    </span>
+
+    <span class="suggested-description">
+        Explore the irradiated post-apocalyptic world of Fallout
+        and test your knowledge of the series.
+    </span>
+
+</a>
+
+</div>
+
+</div>
+
+
+<!-- =====================================================
+     EXPLORE MORE QUIZZES
+     ===================================================== -->
+
+<div class="more-quizzes-section">
+
+<h3>
+    Explore More Quizzes
+</h3>
+
+<p>
+    Discover more apocalypse, zombie, survival,
+    alien-invasion and dystopian quizzes.
+</p>
+
+<a
+    href="/"
+    class="more-quizzes-btn">
+
+    🧟 APOCALYPSE QUIZZES
+
+</a>
+
+</div>
+
+</section>
+
+
+<!-- =====================================================
+     INFORMATION BELOW THE QUIZ
+     ===================================================== -->
+
+<div id="home-info">
+
+
+<!-- =====================================================
+     ABOUT THE QUIZ
+     ===================================================== -->
+
+<section class="home-info">
+
+<h2>
+    About the Alien Invasion Survival Quiz
+</h2>
+
+<p>
+    The Alien Invasion Survival Quiz is a 50-decision
+    fictional survival challenge set during a mysterious
+    extraterrestrial invasion. As the situation develops,
+    you must make difficult choices involving first contact,
+    alien intentions, hiding, evacuation, unfamiliar
+    technology, essential resources and other survivors.
+</p>
+
+<p>
+    The quiz explores more than surviving the first
+    encounter. Early decisions may involve observing
+    unfamiliar visitors, assessing threats and avoiding
+    unnecessary risks. Later situations introduce
+    infiltration, uncertain alliances, resistance,
+    difficult moral choices and the challenge of adapting
+    to an enemy whose capabilities may be poorly understood.
+</p>
+
+<p>
+    Your choices contribute to a Survival Score, while
+    certain decisions also contribute to a separate
+    Compassion &amp; Ethics Score. These scores explore
+    different aspects of decision-making: practical survival
+    priorities, compassion, fairness, trust and ethical
+    judgment under pressure.
+</p>
+
+<p>
+    The invasion, alien technology and scoring system are
+    fictional. The quiz is intended for entertainment and
+    general discussion of decision-making under uncertainty,
+    not as a prediction of how someone would behave during
+    a real emergency.
+</p>
+
+</section>
+
+
+<!-- =====================================================
+     WHAT THIS QUIZ COVERS
+     ===================================================== -->
+
+<section class="home-info">
+
+<h2>
+    What This Quiz Covers
+</h2>
+
+<p>
+    The 50 decisions cover different problems that might
+    arise during a fictional alien invasion. Some situations
+    involve immediate danger, while others focus on
+    interpreting unfamiliar behaviour, protecting resources
+    and deciding whom to trust.
+</p>
+
+
+<h3>
+    First Contact and Alien Intentions
+</h3>
+
+<p>
+    Early scenarios explore how to respond to unfamiliar
+    visitors, mysterious messages and apparent offers of
+    assistance. You must decide how to evaluate uncertain
+    intentions without assuming that every encounter is
+    either peaceful or hostile.
+</p>
+
+
+<h3>
+    Stealth, Hiding and Escape
+</h3>
+
+<p>
+    Some decisions involve finding places to hide, avoiding
+    detection, choosing escape routes and deciding when
+    movement is worth the risk. These scenarios focus on
+    observation, caution and adapting to changing threats.
+</p>
+
+
+<h3>
+    Invasion and Evacuation
+</h3>
+
+<p>
+    Other situations explore how to respond as an invasion
+    spreads, public services become unreliable and familiar
+    locations may no longer be safe. You must weigh the
+    risks of staying, relocating, helping others and
+    travelling through uncertain environments.
+</p>
+
+
+<h3>
+    Alien Technology and Unknown Hazards
+</h3>
+
+<p>
+    The quiz includes fictional encounters with unfamiliar
+    devices, strange signals, unknown materials and
+    potentially dangerous alien technology. These decisions
+    examine whether curiosity is worth the risk and why
+    unfamiliar hazards should not automatically be assumed
+    harmless.
+</p>
+
+
+<h3>
+    Alien Weaknesses and Adaptation
+</h3>
+
+<p>
+    Some scenarios involve observing alien behaviour,
+    looking for patterns and adapting when an initial
+    strategy fails. The challenge is to distinguish useful
+    evidence from assumptions and avoid taking unnecessary
+    risks based on an untested theory.
+</p>
+
+
+<h3>
+    Essential Resources
+</h3>
+
+<p>
+    Food, water, shelter, medicine, communication equipment
+    and other supplies may become difficult to obtain during
+    a major fictional crisis. These situations explore
+    resource management, preparation and the consequences
+    of choices that affect your long-term options.
+</p>
+
+
+<h3>
+    Trust, Infiltration and Collaboration
+</h3>
+
+<p>
+    Not everyone you encounter will necessarily be who
+    they claim to be, and not every unfamiliar person
+    should automatically be treated as a threat. Some
+    decisions involve checking information, evaluating
+    suspicious behaviour, cooperating with other survivors
+    and managing the risks of infiltration.
+</p>
+
+
+<h3>
+    Compassion, Ethics and Difficult Choices
+</h3>
+
+<p>
+    Certain decisions contribute to a separate
+    Compassion &amp; Ethics Score. These scenarios explore
+    fairness, responsibility, cooperation, trust and the
+    willingness to help others while considering the
+    practical risks of an uncertain invasion.
+</p>
+
+
+<h3>
+    Resistance and Endgame Decisions
+</h3>
+
+<p>
+    Later situations focus on resistance, coordination,
+    long-term survival and decisions that could affect
+    the future of the remaining survivors. You must
+    consider when to act, when to wait, how to manage
+    uncertainty and whether a risky opportunity is worth
+    pursuing.
+</p>
+
+</section>
+
+
+<!-- =====================================================
+     HOW THE QUIZ WORKS
+     ===================================================== -->
+
+<section class="home-info">
+
+<h2>
+    How the Quiz Works
+</h2>
+
+<p>
+    The complete quiz contains 50 fictional survival
+    decisions. Every decision presents four possible
+    choices. Read the situation carefully and select
+    the option you believe gives you the best outcome
+    within the scenario.
+</p>
+
+<p>
+    The questions may appear in a randomized order.
+    Answer choices can also be shuffled, so the position
+    of an option should not be treated as an indication
+    of whether it is the best choice.
+</p>
+
+<p>
+    Each decision can contribute to your Survival Score.
+    Some decisions also contain a separate compassion
+    and ethics component. The two scores are calculated
+    independently so that survival-oriented choices
+    and ethical choices can be represented separately.
+</p>
+
+<p>
+    A choice that improves survival does not necessarily
+    represent the most compassionate decision. Likewise,
+    a compassionate decision is not necessarily the safest
+    option in every fictional situation.
+</p>
+
+<p>
+    Your final result includes a decision profile based
+    on your quiz score. It describes your choices within
+    the fictional scenarios rather than predicting your
+    actual behaviour or guaranteeing survival in a real
+    emergency.
+</p>
+
+</section>
+
+
+<!-- =====================================================
+     QUIZ NAVIGATION
+     ===================================================== -->
+
+<section class="home-info">
+
+<h2>
+    Quiz Navigation
+</h2>
+
+
+<h3>
+    Starting the Quiz
+</h3>
+
+<p>
+    Select START QUIZ on the opening screen to begin.
+    Your first alien-invasion survival decision will appear
+    with four possible choices.
+</p>
+
+
+<h3>
+    Choosing an Answer
+</h3>
+
+<p>
+    Read the complete situation and all four choices
+    before deciding. Consider the immediate danger,
+    the reliability of the available information and
+    the possible consequences of your choice.
+</p>
+
+
+<h3>
+    Moving Between Decisions
+</h3>
+
+<p>
+    Use NEXT to continue through the quiz. The BACK
+    button allows you to return to an earlier decision
+    and reconsider your previous choice before submitting
+    the quiz.
+</p>
+
+
+<h3>
+    Completing the Quiz
+</h3>
+
+<p>
+    Continue until all 50 decisions have been completed.
+    When you are finished, select SUBMIT to calculate
+    your Survival Score, Compassion &amp; Ethics Score,
+    decision profile and final descriptions.
+</p>
+
+
+<h3>
+    Trying Again
+</h3>
+
+<p>
+    After seeing your result, select TRY AGAIN to replay
+    the quiz and make different decisions. You can also
+    use SHARE MY RESULT or CHALLENGE SOMEONE to share
+    your result with other players.
+</p>
+
+</section>
+
+
+<!-- =====================================================
+     FAQ
+     ===================================================== -->
+
+<section class="home-info">
+
+<h2>
+    Frequently Asked Questions
+</h2>
+
+
+<h3>
+    How many decisions are in the quiz?
+</h3>
+
+<p>
+    There are 50 fictional survival decisions, and
+    every decision provides four possible choices.
+</p>
+
+
+<h3>
+    What does the Survival Score measure?
+</h3>
+
+<p>
+    The Survival Score represents how effectively your
+    decisions address the fictional survival challenges
+    presented throughout the quiz. A higher score
+    indicates stronger overall survival decision-making
+    within the scenarios.
+</p>
+
+
+<h3>
+    What is the Compassion &amp; Ethics Score?
+</h3>
+
+<p>
+    The Compassion &amp; Ethics Score reflects choices
+    involving factors such as compassion, fairness,
+    trust and responsibility. It is calculated separately
+    from the Survival Score and represents performance
+    within this fictional quiz, not an objective judgment
+    of someone's character.
+</p>
+
+
+<h3>
+    Can I have a high Survival Score and a lower
+    Compassion &amp; Ethics Score?
+</h3>
+
+<p>
+    Yes. The two scores measure different aspects of
+    your decisions. A choice that improves your chances
+    of survival does not necessarily represent the most
+    compassionate or fair decision.
+</p>
+
+
+<h3>
+    Are the aliens peaceful or hostile?
+</h3>
+
+<p>
+    The quiz presents a range of fictional encounters
+    and uncertain situations. You must assess the
+    available evidence and decide how to respond rather
+    than assume every alien encounter has the same
+    intentions or level of danger.
+</p>
+
+
+<h3>
+    Should I trust an alien message offering help?
+</h3>
+
+<p>
+    The quiz challenges you to consider the reliability
+    of information, the possibility of deception and
+    the risks of acting on unverified claims. The best
+    decision depends on the details of the fictional
+    scenario and the options available.
+</p>
+
+
+<h3>
+    Does the quiz include alien technology?
+</h3>
+
+<p>
+    Yes. Some fictional scenarios involve unfamiliar
+    devices, signals, materials and other forms of
+    alien technology. These questions explore how you
+    respond to unknown hazards and incomplete information.
+</p>
+
+
+<h3>
+    Does the quiz cover hiding and evacuation?
+</h3>
+
+<p>
+    Yes. Several scenarios involve avoiding detection,
+    evaluating escape routes, relocating when necessary
+    and deciding whether movement or remaining in place
+    offers the better chance of survival in the situation.
+</p>
+
+
+<h3>
+    Are the alien weaknesses real?
+</h3>
+
+<p>
+    No. Any alien capabilities, vulnerabilities or
+    adaptation patterns in the quiz belong to its
+    fictional scenarios. There is no verified universal
+    set of weaknesses for hypothetical extraterrestrial
+    invaders.
+</p>
+
+
+<h3>
+    Does the quiz provide real emergency instructions?
+</h3>
+
+<p>
+    No. This is a fictional entertainment experience.
+    Its scenarios and scoring are not official emergency
+    guidance. For real emergencies, follow instructions
+    from the appropriate emergency-management and public
+    safety authorities.
+</p>
+
+
+<h3>
+    Can I change my answers?
+</h3>
+
+<p>
+    Yes. You can use the BACK button to return to
+    earlier decisions and reconsider your choices
+    before submitting the quiz.
+</p>
+
+
+<h3>
+    Can I take the quiz again?
+</h3>
+
+<p>
+    Yes. Select TRY AGAIN after receiving your result
+    to restart the quiz and experiment with different
+    decisions.
+</p>
+
+
+<h3>
+    Can I challenge my friends?
+</h3>
+
+<p>
+    Yes. After completing the quiz, use CHALLENGE SOMEONE
+    to share the challenge and compare your decision
+    profiles with other players.
+</p>
+
+</section>
+
+</div>
+
+</main>
+
+
+<!-- =====================================================
+     FOOTER
+     ===================================================== -->
+
+<footer class="site-footer">
+
+<div class="footer-inner">
+
+<div class="footer-brand">
+    APOCALYPSE QUIZZES
+</div>
+
+
+<div class="footer-links">
+
+<a href="/about.html">
+    About
+</a>
+
+<a href="/privacy.html">
+    Privacy Policy
+</a>
+
+<a href="/disclaimer.html">
+    Disclaimer
+</a>
+
+<a href="/contact.html">
+    Contact
+</a>
+
+</div>
+
+
+<div class="copyright">
+    © 2026 Apocalypse Quizzes
+</div>
+
+</div>
+
+</footer>
+
+
+<script src="script.js"></script>
+
+</body>
+</html>
