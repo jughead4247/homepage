@@ -725,7 +725,7 @@ function startQuiz() {
     }
 
     if (scoreDisplay) {
-        scoreDisplay.textContent = "SURVIVAL";
+        scoreDisplay.textContent = "SURVIVAL TRIVIA";
     }
 
     showQuestion();
