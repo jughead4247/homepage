@@ -1,0 +1,816 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Extreme Cold Survival Quiz - 50 Questions | Apocalypse Quizzes</title>
+
+    <meta name="description"
+        content="Take the Extreme Cold Survival Quiz. Make 50 difficult decisions about freezing temperatures, shelter, hypothermia, scarce supplies, dangerous journeys and settlement survival. Discover your survival score and compassion-and-ethics profile.">
+
+    <meta name="keywords"
+        content="extreme cold survival quiz, winter survival quiz, cold weather survival test, freezing survival quiz, blizzard survival quiz, hypothermia survival quiz, winter apocalypse quiz, survival decision quiz, apocalypse survival quiz">
+
+    <meta name="author" content="Apocalypse Quizzes">
+    <meta name="robots" content="index, follow">
+
+    <link rel="canonical"
+        href="https://apocalypsequizzes.com/extreme-cold-survival-quiz/">
+
+    <!-- Open Graph -->
+    <meta property="og:title"
+        content="Extreme Cold Survival Quiz - 50 Questions">
+
+    <meta property="og:description"
+        content="Could you survive an extreme cold-weather apocalypse? Make 50 difficult decisions about shelter, injuries, scarce resources, dangerous journeys and human survival. Discover your survival score and compassion-and-ethics profile.">
+
+    <meta property="og:url"
+        content="https://apocalypsequizzes.com/extreme-cold-survival-quiz/">
+
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Apocalypse Quizzes">
+    <meta property="og:locale" content="en_US">
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Extreme Cold Survival Quiz">
+    <meta name="twitter:description"
+        content="Make 50 fictional extreme-cold survival decisions and discover your survival score and compassion-and-ethics profile.">
+
+    <link rel="icon" type="image/png" href="../favicon.png">
+
+    <!-- Google Analytics -->
+    <script async
+        src="https://www.googletagmanager.com/gtag/js?id=G-YC3ERJSBST">
+    </script>
+
+    <script>
+        window.dataLayer = window.dataLayer || [];
+
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+
+        gtag('js', new Date());
+        gtag('config', 'G-YC3ERJSBST');
+    </script>
+
+    <!-- Google AdSense -->
+    <script async
+        src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2285244517360573"
+        crossorigin="anonymous">
+    </script>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- HEADER -->
+    <header class="site-header">
+
+        <button
+            class="menu-toggle"
+            id="menu-toggle"
+            type="button"
+            aria-label="Open navigation"
+            aria-expanded="false"
+            aria-controls="site-menu">
+
+            <span></span>
+            <span></span>
+            <span></span>
+
+        </button>
+
+        <div class="site-title">
+            APOCALYPSE QUIZZES
+        </div>
+
+    </header>
+
+    <!-- NAVIGATION -->
+    <nav
+        class="site-menu"
+        id="site-menu"
+        aria-label="Main navigation"
+        hidden>
+
+        <div class="menu-links">
+
+            <a href="/">🏠 Home</a>
+            <a href="/search/">🔎 Search Quizzes</a>
+            <a href="/categories/">📂 Categories</a>
+
+            <div class="menu-divider"></div>
+
+            <a href="/about.html">About</a>
+            <a href="/privacy.html">Privacy Policy</a>
+            <a href="/disclaimer.html">Disclaimer</a>
+            <a href="/contact.html">Contact</a>
+
+        </div>
+
+    </nav>
+
+    <main class="container">
+
+        <!-- START SCREEN -->
+        <section id="start-screen">
+
+            <div class="intro-card">
+
+                <img
+                    src="../images/cold.png"
+                    class="quiz-start-image">
+
+                <div class="quiz-category">
+                    EXTREME COLD • SURVIVAL TEST
+                </div>
+
+                <h1>Extreme Cold Survival Quiz</h1>
+
+                <p class="subtitle">
+                    Face 50 difficult decisions in a world threatened
+                    by extreme cold. Deal with failing heaters,
+                    dangerous storms, hypothermia, scarce water,
+                    risky journeys, failing technology and difficult
+                    choices about other survivors. Discover your
+                    survival decision score and how your choices
+                    reflect compassion and ethical judgment.
+                </p>
+
+                <!-- QUIZ STATS -->
+                <div class="info">
+
+                    <span>50 Decisions</span>
+                    <span>•</span>
+                    <span>~10 Minutes</span>
+                    <span>•</span>
+                    <span>4 Choices</span>
+
+                </div>
+
+                <p class="start-note">
+                    Choose carefully. Your survival decision score
+                    and compassion-and-ethics score are calculated
+                    separately. Every decision could affect your
+                    chances of surviving the cold.
+                </p>
+
+                <!-- START BUTTON -->
+                <button id="start-btn" type="button">
+                    START QUIZ
+                </button>
+
+                <p class="spoiler-warning start-spoiler">
+                    This is a fictional extreme-cold survival
+                    experience. Your result is based on the choices
+                    you make during the quiz. Scenarios are designed
+                    for entertainment and are not a substitute for
+                    official emergency guidance.
+                </p>
+
+            </div>
+
+        </section>
+
+        <!-- QUIZ SCREEN -->
+        <section id="quiz-screen" class="screen hidden">
+
+            <div class="quiz-header">
+
+                <span id="question-number">
+                    Decision 1 of 50
+                </span>
+
+                <span id="score-display">
+                    SURVIVAL TRIVIA
+                </span>
+
+            </div>
+
+            <div class="progress">
+                <div id="progress-bar"></div>
+            </div>
+
+            <h2 id="question"></h2>
+
+            <div id="answers"></div>
+
+            <div class="quiz-navigation">
+
+                <button
+                    id="back-btn"
+                    class="nav-btn"
+                    type="button"
+                    disabled>
+                    ← Back
+                </button>
+
+                <button
+                    id="next-btn"
+                    class="nav-btn"
+                    type="button"
+                    disabled>
+                    Next →
+                </button>
+
+                <button
+                    id="submit-btn"
+                    class="nav-btn submit-btn hidden"
+                    type="button"
+                    disabled>
+                    Submit
+                </button>
+
+            </div>
+
+        </section>
+
+        <!-- RESULT SCREEN -->
+        <section id="result-screen" class="screen hidden">
+
+            <p class="result-label">
+                YOUR EXTREME COLD SURVIVAL RESULT
+            </p>
+
+            <h1 id="result-title"></h1>
+
+            <!-- SURVIVAL SCORE -->
+            <div class="result-score">
+
+                <span class="survival-label">
+                    SURVIVAL SCORE
+                </span>
+
+                <span id="final-score">0%</span>
+
+            </div>
+
+            <p
+                class="result-description"
+                id="result-description">
+            </p>
+
+            <!-- COMPASSION & ETHICS SCORE -->
+            <div class="morality-result-card">
+
+                <span class="morality-label">
+                    COMPASSION &amp; ETHICS SCORE
+                </span>
+
+                <div class="morality-result">
+
+                    <span id="morality-score">—</span>
+
+                </div>
+
+                <p id="morality-description">
+                    Your score reflects choices involving
+                    compassion, fairness, trust and responsibility
+                    within these fictional scenarios, not an
+                    objective judgment of your character.
+                </p>
+
+            </div>
+
+            <!-- SURVIVAL DECISION PROFILE -->
+            <div class="survival-box">
+
+                <strong>Decision Profile:</strong>
+
+                <span id="survival-time"></span>
+
+            </div>
+
+            <!-- RESULT ACTIONS -->
+            <div class="result-actions">
+
+                <button id="restart-btn" type="button">
+                    🔄 TRY AGAIN
+                </button>
+
+                <button id="share-btn" type="button">
+                    📤 SHARE MY RESULT
+                </button>
+
+                <button id="challenge-btn" type="button">
+                    ⚡ CHALLENGE SOMEONE
+                </button>
+
+            </div>
+
+        </section>
+
+        <!-- SUGGESTED QUIZZES -->
+        <section
+            id="suggestions-card"
+            class="suggestions-card hidden">
+
+            <div class="suggested-quizzes">
+
+                <h2>Suggested Quizzes</h2>
+
+                <p class="suggested-subtitle">
+                    Survived the freezing world? Test yourself
+                    against more apocalyptic threats and
+                    dystopian worlds.
+                </p>
+
+                <div class="suggested-grid">
+
+                    <!-- THE 100 KNOWLEDGE QUIZ -->
+                    <a href="/the-100-knowledge/"
+                        class="suggested-card">
+
+                        <img
+                            src="../images/the-100-knowledge.png"
+                            alt="The 100 Knowledge Quiz"
+                            class="suggested-image">
+
+                        <span class="suggested-title">
+                            The 100 Knowledge Quiz
+                        </span>
+
+                        <span class="suggested-description">
+                            Test your knowledge of The 100,
+                            including characters, clans, survival
+                            and the dangers of a post-apocalyptic world.
+                        </span>
+
+                    </a>
+
+                    <!-- SILO QUIZ -->
+                    <a href="/silo-quiz/" class="suggested-card">
+
+                        <img
+                            src="../images/silo-quiz.png"
+                            alt="Silo Quiz"
+                            class="suggested-image">
+
+                        <span class="suggested-title">
+                            Silo Quiz
+                        </span>
+
+                        <span class="suggested-description">
+                            How well do you know the underground
+                            world of Silo? Test your knowledge
+                            of the series.
+                        </span>
+
+                    </a>
+
+                    <!-- FALLOUT TV SHOW QUIZ -->
+                    <a href="/fallout-tv-show-quiz/"
+                        class="suggested-card">
+
+                        <img
+                            src="../images/fallout-quiz.png"
+                            alt="Fallout TV Show Quiz"
+                            class="suggested-image">
+
+                        <span class="suggested-title">
+                            Fallout TV Show Quiz
+                        </span>
+
+                        <span class="suggested-description">
+                            Explore the irradiated post-apocalyptic
+                            world of Fallout and test your knowledge
+                            of the series.
+                        </span>
+
+                    </a>
+
+                </div>
+
+            </div>
+
+            <!-- EXPLORE MORE QUIZZES -->
+            <div class="more-quizzes-section">
+
+                <h3>Explore More Quizzes</h3>
+
+                <p>
+                    Discover more apocalypse, zombie, survival
+                    and dystopian quizzes.
+                </p>
+
+                <a href="/" class="more-quizzes-btn">
+                    🧟 APOCALYPSE QUIZZES
+                </a>
+
+            </div>
+
+        </section>
+
+        <!-- INFORMATION BELOW THE QUIZ -->
+        <div id="home-info">
+
+            <!-- ABOUT THE QUIZ -->
+            <section class="home-info">
+
+                <h2>About the Extreme Cold Survival Quiz</h2>
+
+                <p>
+                    The Extreme Cold Survival Quiz is a 50-decision
+                    fictional survival challenge set in a world
+                    where freezing temperatures, severe storms
+                    and shortages threaten human survival. You
+                    must make difficult choices involving shelter,
+                    cold-related injuries, water, food, travel,
+                    technology and other survivors.
+                </p>
+
+                <p>
+                    The challenge goes beyond surviving a single
+                    freezing night. You may face a failing heater,
+                    a blizzard that blocks your route, a frozen
+                    water system, an injured companion or a
+                    settlement running dangerously low on supplies.
+                    Each scenario asks you to weigh immediate
+                    risks against longer-term survival.
+                </p>
+
+                <p>
+                    Your choices contribute to a Survival Score,
+                    while certain decisions also contribute to
+                    a separate Compassion &amp; Ethics Score.
+                    The scores explore different aspects of
+                    decision-making: practical survival priorities,
+                    compassion, fairness, cooperation and
+                    responsibility under pressure.
+                </p>
+
+                <p>
+                    The scenarios and scoring are fictional.
+                    This quiz is intended for entertainment and
+                    general discussion of decision-making under
+                    uncertainty, not as a prediction of how someone
+                    would behave in a real emergency.
+                </p>
+
+            </section>
+
+            <!-- WHAT THIS QUIZ COVERS -->
+            <section class="home-info">
+
+                <h2>What This Quiz Covers</h2>
+
+                <p>
+                    The 50 decisions cover different problems
+                    that could arise during an extreme cold-weather
+                    crisis. Some situations involve immediate
+                    physical danger, while others focus on
+                    maintaining essential services, managing
+                    supplies and keeping a settlement functioning.
+                </p>
+
+                <h3>Cold, Shelter and Injuries</h3>
+
+                <p>
+                    Face failing heating systems, damaged shelters,
+                    blizzards, wet clothing, frostbite and signs
+                    of hypothermia. These scenarios focus on
+                    reducing exposure, recognising danger and
+                    making decisions when time and resources
+                    are limited.
+                </p>
+
+                <h3>Water and Essential Supplies</h3>
+
+                <p>
+                    Snow, frozen rivers, damaged pipes and
+                    contaminated water sources create difficult
+                    choices. You must also consider fuel use,
+                    stored water, food supplies and the challenge
+                    of stretching limited resources through
+                    an uncertain winter.
+                </p>
+
+                <h3>Travel and Dangerous Conditions</h3>
+
+                <p>
+                    Choose routes during whiteouts, assess
+                    frozen lakes and damaged bridges, and decide
+                    what to do when a vehicle becomes stranded.
+                    Weather, injuries, visibility and the condition
+                    of your group can change the risks of a journey.
+                </p>
+
+                <h3>Technology and Power</h3>
+
+                <p>
+                    Solar panels, generators, batteries, radios,
+                    water pumps and medical refrigeration may
+                    become unreliable. These decisions explore
+                    how to prioritise essential services, assess
+                    faults and avoid risking people unnecessarily
+                    to recover equipment.
+                </p>
+
+                <h3>Scarcity, Leadership and Other Survivors</h3>
+
+                <p>
+                    Supplies are not always enough for everyone.
+                    You may encounter armed groups, injured
+                    strangers, refugees or disagreements within
+                    your settlement. Choices involve negotiation,
+                    fair allocation, cooperation and balancing
+                    the needs of individuals against those
+                    of the wider group.
+                </p>
+
+                <h3>Food Production and Long-Term Survival</h3>
+
+                <p>
+                    Failed crops, damaged greenhouses, limited
+                    sunlight and dwindling livestock feed make
+                    long-term survival difficult. Consider how
+                    to protect food reserves, maintain small-scale
+                    production and adapt when familiar systems
+                    no longer work.
+                </p>
+
+                <h3>Compassion, Ethics and Difficult Choices</h3>
+
+                <p>
+                    Certain decisions contribute to a separate
+                    Compassion &amp; Ethics Score. These scenarios
+                    explore fairness, responsibility, cooperation,
+                    trust and the willingness to help others while
+                    considering the practical risks of a prolonged
+                    cold-weather crisis.
+                </p>
+
+            </section>
+
+            <!-- HOW THE QUIZ WORKS -->
+            <section class="home-info">
+
+                <h2>How the Quiz Works</h2>
+
+                <p>
+                    The complete quiz contains 50 fictional
+                    survival decisions. Every decision presents
+                    four possible choices. Read the situation
+                    carefully and select the option you believe
+                    offers the best outcome within that scenario.
+                </p>
+
+                <p>
+                    The questions may appear in a randomized
+                    order. Answer choices can also be shuffled,
+                    so the position of an option should not be
+                    treated as an indication of whether it is
+                    the strongest choice.
+                </p>
+
+                <p>
+                    Each decision can contribute to your Survival
+                    Score. Some decisions also contain a separate
+                    compassion-and-ethics component. The two
+                    scores are calculated independently so that
+                    survival-oriented choices and ethical choices
+                    can be represented separately.
+                </p>
+
+                <p>
+                    A choice that improves survival does not
+                    necessarily represent the most compassionate
+                    decision. Likewise, a compassionate decision
+                    is not necessarily the safest option in every
+                    fictional situation.
+                </p>
+
+                <p>
+                    Your final result includes a decision profile
+                    based on your quiz score. It describes your
+                    choices within the fictional scenarios rather
+                    than predicting your actual behaviour or
+                    guaranteeing survival in a real emergency.
+                </p>
+
+            </section>
+
+            <!-- QUIZ NAVIGATION -->
+            <section class="home-info">
+
+                <h2>Quiz Navigation</h2>
+
+                <h3>Starting the Quiz</h3>
+
+                <p>
+                    Select START QUIZ on the opening screen
+                    to begin. Your first extreme-cold survival
+                    decision will appear with four possible choices.
+                </p>
+
+                <h3>Choosing an Answer</h3>
+
+                <p>
+                    Read the complete situation and all four
+                    choices before deciding. Consider the immediate
+                    danger, the reliability of the available
+                    information and the possible consequences
+                    of your choice.
+                </p>
+
+                <h3>Moving Between Decisions</h3>
+
+                <p>
+                    Use NEXT to continue through the quiz.
+                    The BACK button allows you to return to
+                    an earlier decision and reconsider your
+                    previous choice before submitting.
+                </p>
+
+                <h3>Completing the Quiz</h3>
+
+                <p>
+                    Continue until all 50 decisions have been
+                    completed. When you are finished, select
+                    SUBMIT to calculate your Survival Score,
+                    Compassion &amp; Ethics Score, decision profile
+                    and final descriptions.
+                </p>
+
+                <h3>Trying Again</h3>
+
+                <p>
+                    After seeing your result, select TRY AGAIN
+                    to replay the quiz and make different
+                    decisions. You can also use SHARE MY RESULT
+                    or CHALLENGE SOMEONE to share your result
+                    with other players.
+                </p>
+
+            </section>
+
+            <!-- FAQ -->
+            <section class="home-info">
+
+                <h2>Frequently Asked Questions</h2>
+
+                <h3>How many decisions are in the quiz?</h3>
+
+                <p>
+                    There are 50 fictional survival decisions,
+                    and every decision provides four possible choices.
+                </p>
+
+                <h3>What does the Survival Score measure?</h3>
+
+                <p>
+                    The Survival Score represents how effectively
+                    your decisions address the fictional survival
+                    challenges presented throughout the quiz.
+                    A higher score indicates stronger overall
+                    survival decision-making within these scenarios.
+                </p>
+
+                <h3>What is the Compassion &amp; Ethics Score?</h3>
+
+                <p>
+                    The Compassion &amp; Ethics Score reflects
+                    choices involving factors such as compassion,
+                    fairness, trust and responsibility. It is
+                    calculated separately from the Survival Score
+                    and represents performance within this
+                    fictional quiz, not an objective judgment
+                    of someone's character.
+                </p>
+
+                <h3>
+                    Can I have a high Survival Score and a lower
+                    Compassion &amp; Ethics Score?
+                </h3>
+
+                <p>
+                    Yes. The two scores measure different aspects
+                    of your decisions. A choice that improves
+                    your chances of survival does not necessarily
+                    represent the most compassionate or fair decision.
+                </p>
+
+                <h3>Does the quiz cover hypothermia and frostbite?</h3>
+
+                <p>
+                    Yes. Some scenarios involve signs of
+                    cold-related injuries and the challenge of
+                    responding to them while shelter, time
+                    and medical resources are limited. The quiz
+                    is fictional and is not a substitute for
+                    professional medical advice or emergency care.
+                </p>
+
+                <h3>Does the quiz include blizzards and dangerous travel?</h3>
+
+                <p>
+                    Yes. Decisions include whiteouts, freezing
+                    rain, stranded vehicles, frozen lakes,
+                    damaged bridges and journeys made more
+                    dangerous by poor visibility or worsening weather.
+                </p>
+
+                <h3>Will I need to manage food, water and fuel?</h3>
+
+                <p>
+                    Yes. Several scenarios involve rationing
+                    stored water, melting snow, conserving fuel,
+                    finding food, maintaining power and making
+                    limited supplies last.
+                </p>
+
+                <h3>Does the quiz include other survivors?</h3>
+
+                <p>
+                    Yes. You may face difficult choices involving
+                    refugees, injured strangers, armed groups,
+                    settlement leaders and disagreements over
+                    scarce resources.
+                </p>
+
+                <h3>Does the quiz include farming and livestock?</h3>
+
+                <p>
+                    Yes. Some scenarios involve damaged
+                    greenhouses, limited sunlight, failed crops
+                    and the challenge of feeding livestock
+                    when supplies are running low.
+                </p>
+
+                <h3>Does the quiz provide real emergency instructions?</h3>
+
+                <p>
+                    No. This is a fictional entertainment
+                    experience, and its scenarios and scoring
+                    are not official emergency guidance. For
+                    real emergencies, follow instructions from
+                    appropriate emergency-management and
+                    public-safety authorities.
+                </p>
+
+                <h3>Can I change my answers?</h3>
+
+                <p>
+                    Yes. You can use the BACK button to return
+                    to earlier decisions and reconsider your
+                    choices before submitting the quiz.
+                </p>
+
+                <h3>Can I take the quiz again?</h3>
+
+                <p>
+                    Yes. Select TRY AGAIN after receiving your
+                    result to restart the quiz and experiment
+                    with different decisions.
+                </p>
+
+                <h3>Can I challenge my friends?</h3>
+
+                <p>
+                    Yes. After completing the quiz, use
+                    CHALLENGE SOMEONE to share the challenge
+                    and compare your decision profiles with
+                    other players.
+                </p>
+
+            </section>
+
+        </div>
+
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="site-footer">
+
+        <div class="footer-inner">
+
+            <div class="footer-brand">
+                APOCALYPSE QUIZZES
+            </div>
+
+            <div class="footer-links">
+
+                <a href="/about.html">About</a>
+                <a href="/privacy.html">Privacy Policy</a>
+                <a href="/disclaimer.html">Disclaimer</a>
+                <a href="/contact.html">Contact</a>
+
+            </div>
+
+            <div class="copyright">
+                © 2026 Apocalypse Quizzes
+            </div>
+
+        </div>
+
+    </footer>
+
+    <script src="script.js"></script>
+
+</body>
+</html>
