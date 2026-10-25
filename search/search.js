@@ -272,6 +272,20 @@ const quizzes = [
             "https://apocalypsequizzes.com/the-walking-dead-characters-quiz/"
     },
 
+    
+{
+    title: "The Boys Season 1 Quiz",
+
+    description:
+        "Test your knowledge of The Boys Season 1, including Homelander, Billy Butcher, Hughie Campbell, Starlight, the Seven, Compound V, Vought International, and the shocking conspiracies behind its corrupt superheroes.",
+
+    categories:
+        "The Boys Season 1 Quiz The Boys quiz The Boys trivia The Boys season 1 trivia Homelander Billy Butcher Hughie Campbell Annie January Starlight the Seven Vought International Compound V Queen Maeve A-Train the Deep Translucent Black Noir Frenchie Mother's Milk Becca Ryan superhero quiz superhero trivia superhero TV series TV show quiz superhero satire dark comedy action drama TV series knowledge quiz character trivia Vought conspiracy superhero experiments Flight 37 disaster",
+
+    url:
+        "https://apocalypsequizzes.com/the-boys/season-1-quiz/"
+},
+
         {
         title: "Game of Thrones Personality Quiz",
 
@@ -420,6 +434,19 @@ const quizzes = [
             "https://apocalypsequizzes.com/jericho-quiz/"
     },
 
+    {
+    title: "Spartacus Season 1 Quiz",
+
+    description:
+        "Test your knowledge of Spartacus: Blood and Sand Season 1, including Spartacus, Crixus, Batiatus, Lucretia, the gladiators of Capua, the House of Batiatus, arena battles, betrayals, rivalries, and the events that shaped the season.",
+
+    categories:
+        "Spartacus Season 1 Quiz Spartacus quiz Spartacus trivia Spartacus Blood and Sand Spartacus Blood and Sand season 1 Roman gladiators gladiator quiz gladiator trivia Spartacus history Roman history historical drama TV series TV show quiz Spartacus characters Crixus Batiatus Quintus Batiatus Lucretia Oenomaus Ashur Varro Naevia Ilithyia Sura House of Batiatus Capua gladiator school arena battles Champion of Capua Shadow of Death Beast of Carthage Roman Empire ancient Rome action adventure betrayal rivalry slavery rebellion historical TV series knowledge quiz",
+
+    url:
+        "https://apocalypsequizzes.com/spartacus/season-1-quiz/"
+},
+
         {
         title: "Game of Thrones Female Character Quiz",
 
@@ -487,6 +514,19 @@ const quizzes = [
         url:
             "https://apocalypsequizzes.com/alice-in-borderland-s3-trivia/"
     },
+
+    {
+    title: "House of the Dragon Season 1 Quiz",
+
+    description:
+        "Test your knowledge of House of the Dragon Season 1, including Rhaenyra, Daemon, Viserys, Alicent, the Targaryens, their dragons, royal rivalries, family secrets, and the dangerous struggle for the Iron Throne.",
+
+    categories:
+        "House of the Dragon Season 1 Quiz House of the Dragon quiz HOTD quiz House of the Dragon trivia season 1 trivia Game of Thrones universe Westeros fantasy quiz fantasy trivia fantasy TV series Targaryen dynasty Targaryens Rhaenyra Targaryen Daemon Targaryen King Viserys I Alicent Hightower Aemond Targaryen Aegon Targaryen Rhaenys Targaryen Corlys Velaryon dragons dragon riders Syrax Caraxes Vhagar Meleys Arrax Iron Throne Dance of the Dragons succession crisis Driftmark royal family political intrigue fantasy drama television series character trivia TV show knowledge quiz",
+
+    url:
+        "https://apocalypsequizzes.com/house-of-the-dragon/season-1-quiz/"
+},
 
         {
         title: "Game of Thrones Season 8 Quiz",
