@@ -62,8 +62,12 @@ body {
 
     color: var(--ink);
 
-    /* Solid parchment background */
-    background: var(--paper);
+    background-color: var(--paper);
+    background-image: url("/images/parchment-bg.png");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
 }
 
 .hidden {
