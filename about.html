@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -8,41 +9,38 @@
     <title>About – Apocalypse Quizzes</title>
 
     <meta name="description"
-        content="Learn about Apocalypse Quizzes, an interactive quiz website featuring apocalypse, survival, preparedness, trivia, movies, TV shows, and character quizzes.">
+        content="Discover Apocalypse Quizzes, an independent website featuring interactive apocalypse, survival, preparedness, movie, TV, trivia and character quizzes, along with survival guides and articles exploring science and hypothetical scenarios.">
 
     <meta name="robots" content="index, follow">
 
     <link rel="canonical" href="https://apocalypsequizzes.com/about.html">
 
     <!-- Google Analytics -->
-
     <script async
         src="https://www.googletagmanager.com/gtag/js?id=G-YC3ERJSBST">
     </script>
 
     <script>
-
         window.dataLayer = window.dataLayer || [];
 
-        function gtag(){
+        function gtag() {
             dataLayer.push(arguments);
         }
 
         gtag('js', new Date());
-
         gtag('config', 'G-YC3ERJSBST');
-
     </script>
 
-
-    <!-- GOOGLE ADSENSE -->
-
+    <!-- Google AdSense -->
     <script async
         src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2285244517360573"
         crossorigin="anonymous"></script>
 
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="style.css">
 
-    <link rel="stylesheet" href="/style.css">
+    <!-- Favicon -->
+    <link rel="icon" href="favicon.png" type="image/png">
 </head>
 
 <body>
@@ -53,72 +51,74 @@
 
     <header class="site-header">
 
-        <button
-            class="menu-toggle"
-            id="menu-toggle"
-            type="button"
-            aria-label="Open navigation"
-            aria-expanded="false"
-            aria-controls="site-menu">
+        <div class="header-inner">
 
-            <span></span>
-            <span></span>
-            <span></span>
+            <!-- BRAND -->
+            <div class="brand">
+                <img src="favicon.png" alt="" class="site-icon">
+                <span>Apocalypse<span class="brand-accent">Quizzes</span></span>
+            </div>
 
-        </button>
+            <!-- DESKTOP NAVIGATION -->
+            <nav class="top-nav" aria-label="Main navigation">
 
-        <div class="site-title">
-            APOCALYPSE QUIZZES
+                <a href="/">Quizzes</a>
+
+                <a href="/survival-guides/">Survival Guides</a>
+
+            </nav>
+
+            <!-- MOBILE MENU BUTTON -->
+            <button
+                class="menu-toggle"
+                id="menu-toggle"
+                type="button"
+                aria-label="Open menu"
+                aria-expanded="false"
+                aria-controls="site-menu">
+
+                <span></span>
+                <span></span>
+                <span></span>
+
+            </button>
+
         </div>
+
+        <!-- HAMBURGER MENU -->
+        <nav
+            class="site-menu"
+            id="site-menu"
+            aria-label="Main menu"
+            hidden>
+
+            <div class="menu-links">
+
+                <a href="/">🎯 Quizzes</a>
+
+                <a href="/search/">🔎 Search Quizzes</a>
+
+                <a href="/categories/">📂 Quiz Categories</a>
+
+                <div class="menu-divider"></div>
+
+                <a href="/survival-guides/">📚 Articles &amp; Guides</a>
+
+                <div class="menu-divider"></div>
+
+                <a href="/about.html" aria-current="page">About</a>
+
+                <a href="/privacy.html">Privacy Policy</a>
+
+                <a href="/disclaimer.html">Disclaimer</a>
+
+                <a href="/contact.html">Contact</a>
+
+            </div>
+
+        </nav>
 
     </header>
-
-
-    <!-- ===============================
-         GLOBAL NAVIGATION
-         =============================== -->
-
-    <nav
-        class="site-menu"
-        id="site-menu"
-        aria-label="Main navigation"
-        hidden>
-
-        <div class="menu-links">
-
-            <a href="/">
-                🏠 Home
-            </a>
-
-            <a href="/search/">
-                🔎 Search Quizzes
-            </a>
-
-            <a href="/categories/">
-                📂 Categories
-            </a>
-
-            <div class="menu-divider"></div>
-
-            <a href="/about.html">
-                About
-            </a>
-
-            <a href="/privacy.html">
-                Privacy Policy
-            </a>
-
-            <a href="/disclaimer.html">
-                Disclaimer
-            </a>
-
-            <a href="/contact.html">
-                Contact
-            </a>
-
-        </div>
-
-    </nav>
 
 
     <!-- ===============================
@@ -130,150 +130,344 @@
         <h1>About Apocalypse Quizzes</h1>
 
         <p>
-            <strong>Apocalypse Quizzes</strong> is an interactive quiz
-            website featuring a variety of quizzes designed for
-            entertainment, knowledge, decision-making, and discovering
-            fictional character matches.
+            <strong>Apocalypse Quizzes</strong> is an independent website
+            featuring interactive quizzes, survival guides, informational
+            articles, and hypothetical scenarios covering topics such as
+            survival, preparedness, disasters, movies, television,
+            fictional worlds, and popular culture.
         </p>
 
         <p>
-            Explore different scenarios, test your knowledge, make
-            difficult decisions, and discover how your answers shape
-            your results. Whether you're interested in survival,
-            preparedness, movies, television, or fictional worlds,
-            there's something to explore.
+            The website brings together two main types of content:
+            interactive quizzes that let visitors test their knowledge
+            and explore different situations, and written articles that
+            examine survival topics, scientific concepts, fictional
+            scenarios, and questions about what could happen in
+            different circumstances.
         </p>
 
-        <h2>About the Site</h2>
+        <p>
+            Whether you enjoy testing your survival instincts, learning
+            about emergency preparedness, exploring hypothetical
+            disasters, or discovering which fictional character matches
+            your personality, there is something to explore.
+        </p>
+
+
+        <!-- ABOUT THE WEBSITE -->
+
+        <h2>About the Website</h2>
 
         <p>
             Apocalypse Quizzes is independently created and maintained
-            as an interactive entertainment website. The quizzes are
-            developed around individual topics, fictional scenarios,
-            movies, television series, fictional universes, trivia,
-            and character-based experiences.
+            as an entertainment and informational website.
+            Its content covers a wide range of subjects, from
+            interactive survival challenges and knowledge-based quizzes
+            to articles about real-world preparedness, science,
+            hypothetical events, and fictional entertainment.
         </p>
+
+        <p>
+            The website continues to expand with new topics, quizzes,
+            articles, and interactive experiences. The aim is to make
+            these subjects interesting, accessible, and enjoyable
+            for visitors with different interests.
+        </p>
+
+
+        <!-- QUIZZES -->
 
         <h2>Our Quizzes</h2>
 
         <p>
-            Apocalypse Quizzes covers a growing range of topics and quiz
-            formats, with new experiences added over time.
+            Our quizzes cover several subjects and use different
+            formats depending on the topic. Some challenge your
+            knowledge, while others explore your decisions,
+            preferences, and responses to fictional situations.
         </p>
 
         <p>
-            <strong>Apocalypse &amp; Survival</strong> quizzes explore
-            fictional scenarios involving different types of disasters
-            and apocalyptic situations, including zombie outbreaks,
-            nuclear disasters, pandemics, plagues, societal collapse,
-            extreme events, and other hypothetical threats.
+            <strong>Apocalypse &amp; Survival:</strong>
+            Explore fictional situations involving zombie outbreaks,
+            nuclear disasters, pandemics, societal collapse,
+            extreme weather, alien invasions, and other apocalyptic
+            scenarios. These quizzes often involve difficult
+            decisions and challenges where your choices influence
+            the outcome.
         </p>
 
         <p>
-            <strong>Preparedness</strong> quizzes let you test your
-            knowledge, skills, resources, decision-making, and readiness
-            for different emergency and survival situations.
+            <strong>Preparedness &amp; Decision-Making:</strong>
+            Test your understanding of survival situations,
+            emergency resources, supplies, risk assessment,
+            and practical decision-making.
         </p>
 
         <p>
-            <strong>Knowledge &amp; Trivia</strong> quizzes challenge
-            you to test what you know about different subjects, facts,
-            stories, fictional worlds, and popular culture.
+            <strong>Knowledge &amp; Trivia:</strong>
+            Challenge yourself with questions about different
+            subjects, stories, events, fictional worlds,
+            and popular culture.
         </p>
 
         <p>
-            <strong>Movies &amp; TV Shows</strong> quizzes let you test
-            your knowledge of films and television series, including
-            characters, stories, events, and memorable details.
+            <strong>Movies &amp; TV Shows:</strong>
+            Test your knowledge of films and television series,
+            including their characters, stories, events,
+            and memorable details.
         </p>
 
         <p>
-            <strong>Character Quizzes</strong> let you discover which
-            character from a movie, television series, or fictional
-            universe most closely matches your answers and choices.
+            <strong>Character &amp; Personality Quizzes:</strong>
+            Discover which fictional character, personality,
+            or group you resemble based on your answers,
+            preferences, and choices.
         </p>
 
         <p>
-            Each quiz is created around its own topic and may use a
-            different format, scoring system, or type of result.
-            Explore the available quiz topics on our
-            <a href="/categories/">Categories</a> page.
-        </p>
-
-        <h2>How the Quizzes Work</h2>
-
-        <p>
-            Our quizzes use different formats depending on the subject.
-            Some ask you to make decisions in fictional scenarios,
-            while others test your knowledge or compare your answers
-            with fictional characters.
+            Each quiz is designed around its own subject and may
+            use a different format, scoring system, and result
+            categories.
         </p>
 
         <p>
-            Some quizzes have clear right and wrong answers, while
-            others are designed around choices, preferences, or
-            fictional situations where there may be no single perfect
-            answer.
+            You can explore the available topics through our
+            <a href="/categories/">Quiz Categories</a>
+            page or find a particular quiz using
+            <a href="/search/">Search Quizzes</a>.
+        </p>
+
+
+        <!-- ARTICLES AND SURVIVAL GUIDES -->
+
+        <h2>Articles &amp; Survival Guides</h2>
+
+        <p>
+            Beyond interactive quizzes, Apocalypse Quizzes also
+            publishes written articles and guides covering survival,
+            preparedness, science, hypothetical events, and
+            fictional scenarios.
         </p>
 
         <p>
-            Your result is determined by the answers and choices you
-            make during each quiz. Scoring systems and result categories
-            may vary between quizzes.
+            These articles explore subjects in greater detail and
+            provide information and explanations that go beyond
+            the question-and-answer format of a quiz.
         </p>
+
+        <p>
+            Our written content covers several broad themes:
+        </p>
+
+        <p>
+            <strong>Survival &amp; Preparedness:</strong>
+            Articles about emergency supplies, survival equipment,
+            disaster preparation, finding safer places, and
+            practical considerations during difficult situations.
+        </p>
+
+        <p>
+            <strong>Apocalypse Science:</strong>
+            Explore the science behind major disasters,
+            environmental changes, nuclear events, technology,
+            and other subjects commonly featured in apocalypse
+            stories and survival fiction.
+        </p>
+
+        <p>
+            <strong>What If Scenarios:</strong>
+            Examine hypothetical situations such as the disappearance
+            of humanity, major disruptions to modern infrastructure,
+            changes to Earth's environment, and other unusual
+            possibilities. These articles explore their potential
+            consequences using scientific concepts and logical
+            explanations where applicable.
+        </p>
+
+        <p>
+            <strong>Fiction &amp; Survivor Psychology:</strong>
+            Look at how movies and television shows portray
+            survival, disasters, human behavior, and the challenges
+            people might face in extreme situations.
+        </p>
+
+        <p>
+            Some guides focus on practical preparedness, while
+            others explore scientific questions, thought experiments,
+            or fictional situations. Their purpose is to provide
+            interesting information, explanations, and perspectives
+            for readers who enjoy these subjects.
+        </p>
+
+        <p>
+            Visit our
+            <a href="/survival-guides/">Articles &amp; Survival Guides</a>
+            section to explore the complete collection.
+        </p>
+
+
+        <!-- HOW QUIZZES WORK -->
+
+        <h2>How Our Quizzes Work</h2>
+
+        <p>
+            Quizzes on Apocalypse Quizzes use different formats
+            depending on the subject.
+        </p>
+
+        <p>
+            Some quizzes have questions with clear right and wrong
+            answers, particularly those focused on knowledge,
+            trivia, and factual information.
+        </p>
+
+        <p>
+            Other quizzes involve fictional scenarios where you
+            must make decisions, choose between different options,
+            or respond to changing situations. These experiences
+            may consider factors such as survival decisions,
+            resource management, consequences, and other
+            topic-specific elements.
+        </p>
+
+        <p>
+            Character and personality quizzes use your answers
+            to compare your choices, preferences, or traits
+            with fictional characters or predefined result
+            categories.
+        </p>
+
+        <p>
+            Your result is determined by the answers you provide.
+            Scoring systems, result calculations, and categories
+            may vary between individual quizzes.
+        </p>
+
+
+        <!-- DIFFERENT RESULTS -->
 
         <h2>Different Quizzes, Different Results</h2>
 
         <p>
-            Not every quiz measures the same thing. Knowledge and trivia
-            quizzes may focus on accuracy, while fictional scenario
-            quizzes may focus on decision-making and consequences.
-            Character quizzes may compare your answers with fictional
-            characters or predefined traits.
+            Not every quiz measures the same thing.
+            Knowledge quizzes may focus on accuracy, while
+            survival scenario quizzes may evaluate your
+            decisions and their possible consequences.
         </p>
 
         <p>
-            Results are created specifically for each quiz and are
-            intended to make the experience engaging, interesting, and
-            enjoyable.
-        </p>
-
-        <h2>Designed for Entertainment</h2>
-
-        <p>
-            Apocalypse Quizzes is designed for entertainment,
-            interactive storytelling, trivia, fictional scenarios,
-            and casual self-discovery.
+            Personality quizzes may compare your answers with
+            fictional characters or characteristics, while
+            trivia quizzes may focus on how much you know
+            about a particular subject.
         </p>
 
         <p>
-            Quiz results should not be interpreted as professional
-            assessments or definitive predictions of real-world
-            behavior, abilities, preparedness, or performance.
+            Results are developed specifically for each quiz
+            and are intended to make the experience engaging,
+            interesting, and enjoyable.
         </p>
 
-        <h2>More Quizzes Are Coming</h2>
+
+        <!-- ENTERTAINMENT AND INFORMATION -->
+
+        <h2>Entertainment &amp; Information</h2>
 
         <p>
-            The site is continually expanding with new quizzes, topics,
-            scenarios, fictional worlds, and challenges.
+            Apocalypse Quizzes combines entertainment with
+            informational content. While quizzes are primarily
+            designed for interactive experiences, our articles
+            and survival guides also explore educational,
+            scientific, and practical subjects.
         </p>
 
         <p>
-            Future quizzes may cover additional apocalyptic scenarios,
-            survival challenges, preparedness, movies, television
-            series, fictional universes, trivia, character quizzes,
-            and other subjects.
+            Our content is intended to help visitors explore
+            interesting topics, learn new things, and think
+            about different situations and possibilities.
         </p>
 
-        <h2>Just for Fun</h2>
+        <p>
+            Quiz results are not professional assessments
+            or scientifically validated predictions of
+            real-world behavior, abilities, preparedness,
+            or performance.
+        </p>
 
         <p>
-            Whether you're here to test your knowledge, explore a
-            fictional scenario, discover which character you are most
-            like, or simply have fun with friends, the goal is simple:
-            <strong>take a quiz, see where you end up, and enjoy the
-            experience.</strong>
+            Similarly, informational articles are provided
+            for general educational purposes and should not
+            replace professional guidance or official
+            emergency instructions when dealing with
+            real-world situations.
+        </p>
+
+
+        <!-- INDEPENDENCE -->
+
+        <h2>Independent Website</h2>
+
+        <p>
+            Apocalypse Quizzes is independently operated
+            and is not officially affiliated with the
+            television networks, film studios, production
+            companies, publishers, or other entertainment
+            franchises discussed on this website.
+        </p>
+
+        <p>
+            References to movies, television shows, fictional
+            characters, and other third-party properties
+            are included for discussion, identification,
+            commentary, and entertainment purposes.
+        </p>
+
+
+        <!-- OUR PURPOSE -->
+
+        <h2>Our Purpose</h2>
+
+        <p>
+            The goal of Apocalypse Quizzes is to create an
+            enjoyable place where visitors can test their
+            knowledge, explore survival scenarios, read
+            interesting articles, learn about different
+            subjects, and engage with fictional worlds.
+        </p>
+
+        <p>
+            Whether you are interested in preparing for
+            emergencies, understanding hypothetical disasters,
+            exploring the science behind apocalyptic scenarios,
+            testing your knowledge of your favourite shows,
+            or discovering which fictional character you
+            resemble, we hope you find something worth
+            exploring here.
+        </p>
+
+        <p>
+            <strong>
+                Take a quiz, explore a guide, discover something
+                new, and enjoy your time at Apocalypse Quizzes.
+            </strong>
+        </p>
+
+
+        <!-- EXPLORE MORE -->
+
+        <h2>Explore More</h2>
+
+        <p>
+            <a href="/">Browse All Quizzes</a>
+            &nbsp;|&nbsp;
+            <a href="/categories/">Quiz Categories</a>
+            &nbsp;|&nbsp;
+            <a href="/survival-guides/">Articles &amp; Survival Guides</a>
+        </p>
+
+        <p>
+            Have a question, suggestion, or feedback?
+            Visit our <a href="/contact.html">Contact</a> page.
         </p>
 
     </main>
@@ -285,35 +479,34 @@
 
     <footer class="site-footer">
 
-        <div class="footer-inner">
+        <div class="container footer-inner">
 
             <div class="footer-brand">
-                APOCALYPSE QUIZZES
+                ApocalypseQuizzes
             </div>
 
-            <div class="footer-links">
+            <nav class="footer-links" aria-label="Footer navigation">
 
-                <a href="/about.html">
-                    About
+                <a href="https://apocalypsequizzes.com/">Quizzes</a>
+
+                <a href="https://apocalypsequizzes.com/survival-guides/">
+                    Articles &amp; Guides
                 </a>
 
-                <a href="/privacy.html">
-                    Privacy Policy
-                </a>
+                <a href="/about.html">About</a>
 
-                <a href="/disclaimer.html">
-                    Disclaimer
-                </a>
+                <a href="/privacy.html">Privacy Policy</a>
 
-                <a href="/contact.html">
-                    Contact
-                </a>
+                <a href="/disclaimer.html">Disclaimer</a>
 
-            </div>
+                <a href="/contact.html">Contact</a>
 
-            <div class="copyright">
-                © 2026 Apocalypse Quizzes
-            </div>
+            </nav>
+
+            <p class="copyright">
+                &copy; <span id="current-year"></span>
+                Apocalypse Quizzes. All rights reserved.
+            </p>
 
         </div>
 
@@ -326,96 +519,122 @@
 
     <script>
 
-        const menuToggle =
-            document.getElementById("menu-toggle");
+        const menuToggle = document.getElementById("menu-toggle");
 
-        const siteMenu =
-            document.getElementById("site-menu");
+        const siteMenu = document.getElementById("site-menu");
+
+
+        // OPEN / CLOSE MENU
+
+        function closeMenu(returnFocus = false) {
+
+            if (!menuToggle || !siteMenu) {
+                return;
+            }
+
+            siteMenu.hidden = true;
+
+            menuToggle.setAttribute("aria-expanded", "false");
+
+            menuToggle.setAttribute("aria-label", "Open menu");
+
+            if (returnFocus) {
+                menuToggle.focus();
+            }
+
+        }
+
+
+        function openMenu() {
+
+            if (!menuToggle || !siteMenu) {
+                return;
+            }
+
+            siteMenu.hidden = false;
+
+            menuToggle.setAttribute("aria-expanded", "true");
+
+            menuToggle.setAttribute("aria-label", "Close menu");
+
+        }
 
 
         if (menuToggle && siteMenu) {
 
-            menuToggle.addEventListener(
-                "click",
-                function (event) {
+            // Hamburger button
 
-                    event.stopPropagation();
+            menuToggle.addEventListener("click", function (event) {
 
-                    const isOpen =
-                        menuToggle.getAttribute(
-                            "aria-expanded"
-                        ) === "true";
+                event.stopPropagation();
 
-                    siteMenu.hidden = isOpen;
+                const isOpen =
+                    menuToggle.getAttribute("aria-expanded") === "true";
 
-                    menuToggle.setAttribute(
-                        "aria-expanded",
-                        String(!isOpen)
-                    );
+                if (isOpen) {
+                    closeMenu();
+                } else {
+                    openMenu();
+                }
 
-                    menuToggle.setAttribute(
-                        "aria-label",
-                        isOpen
-                            ? "Open navigation"
-                            : "Close navigation"
-                    );
+            });
+
+
+            // Close when clicking outside the menu
+
+            document.addEventListener("click", function (event) {
+
+                if (
+                    !siteMenu.hidden &&
+                    !siteMenu.contains(event.target) &&
+                    !menuToggle.contains(event.target)
+                ) {
+
+                    closeMenu();
 
                 }
-            );
+
+            });
 
 
-            document.addEventListener(
-                "click",
-                function (event) {
+            // Close using Escape key
 
-                    if (
-                        !siteMenu.hidden &&
-                        !siteMenu.contains(event.target) &&
-                        !menuToggle.contains(event.target)
-                    ) {
+            document.addEventListener("keydown", function (event) {
 
-                        siteMenu.hidden = true;
+                if (
+                    event.key === "Escape" &&
+                    !siteMenu.hidden
+                ) {
 
-                        menuToggle.setAttribute(
-                            "aria-expanded",
-                            "false"
-                        );
-
-                        menuToggle.setAttribute(
-                            "aria-label",
-                            "Open navigation"
-                        );
-
-                    }
+                    closeMenu(true);
 
                 }
-            );
+
+            });
 
 
-            siteMenu
-                .querySelectorAll("a")
-                .forEach(function (link) {
+            // Close after selecting a navigation link
 
-                    link.addEventListener(
-                        "click",
-                        function () {
+            siteMenu.querySelectorAll("a").forEach(function (link) {
 
-                            siteMenu.hidden = true;
+                link.addEventListener("click", function () {
 
-                            menuToggle.setAttribute(
-                                "aria-expanded",
-                                "false"
-                            );
-
-                            menuToggle.setAttribute(
-                                "aria-label",
-                                "Open navigation"
-                            );
-
-                        }
-                    );
+                    closeMenu();
 
                 });
+
+            });
+
+        }
+
+
+        // AUTOMATIC COPYRIGHT YEAR
+
+        const currentYear = document.getElementById("current-year");
+
+        if (currentYear) {
+
+            currentYear.textContent = new Date().getFullYear();
 
         }
 
