@@ -37,97 +37,169 @@ background-attachment: fixed;
 
 /* ===============================
    GLOBAL SITE HEADER
+   MATCHES THE SURVIVAL GUIDES HEADER
    =============================== */
 
 .site-header {
     position: relative;
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    z-index: 100;
 
     width: 100%;
 
-    min-height: 100px;
-
-    padding: 30px 60px;
-
     background: #080808;
-
     color: #ffffff;
 
-    border-bottom: 1px solid #292929;
+    border-bottom: 2px solid #b51f1f;
+}
+
+.header-inner {
+    width: min(1250px, calc(100% - 40px));
+    min-height: 82px;
+
+    margin: 0 auto;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 24px;
 }
 
 
-/* ===============================
-   SITE TITLE
-   =============================== */
+/* BRAND / SITE TITLE */
 
-.site-title {
+.site-title,
+.brand,
+.site-brand {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+
+    margin: 0;
+
     color: #ffffff;
+    text-decoration: none;
 
     font-family: Georgia, "Times New Roman", serif;
-
-    font-size: clamp(1.45rem, 3vw, 2rem);
-
+    font-size: clamp(1.2rem, 2.5vw, 1.65rem);
     font-weight: 900;
 
-    letter-spacing: 2px;
-
-    line-height: 1;
-
-    text-align: center;
-
+    letter-spacing: -0.5px;
+    line-height: 1.1;
+    white-space: nowrap;
     user-select: none;
 }
 
+.site-title:hover,
+.brand:hover,
+.site-brand:hover {
+    color: #ffffff;
+}
 
-/* ===============================
-   HAMBURGER BUTTON
-   =============================== */
-
-.menu-toggle {
-    position: absolute;
-
-    left: 18px;
-    top: 50%;
-
-    display: flex;
-
-    flex-direction: column;
-
-    justify-content: center;
-
-    gap: 5px;
-
+.site-icon {
+    display: block;
     width: 42px;
     height: 42px;
+    flex: 0 0 auto;
+    object-fit: contain;
+}
 
-    padding: 8px;
-
-    border: none;
-
-    background: transparent;
-
-    cursor: pointer;
-
-    transform: translateY(-50%);
+.site-title > span,
+.brand-accent,
+.site-brand > span {
+    color: #d32929;
 }
 
 
-/* Hamburger lines */
+/* MAIN NAVIGATION */
+
+.top-nav {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    flex-wrap: wrap;
+
+    gap: 26px;
+    margin-left: auto;
+}
+
+.top-nav a {
+    position: relative;
+    display: inline-block;
+
+    padding: 10px 0;
+
+    color: #dddddd;
+    text-decoration: none;
+
+    font-size: 0.95rem;
+    font-weight: 700;
+    white-space: nowrap;
+
+    transition: color 0.2s ease;
+}
+
+.top-nav a:hover {
+    color: #ffffff;
+}
+
+.top-nav a[aria-current="page"] {
+    color: #ffffff;
+    
+}
+
+.top-nav a[aria-current="page"]::after {
+    content: "";
+
+    position: absolute;
+    left: 0;
+    bottom: 2px;
+
+    width: 100%;
+    height: 2px;
+}
+
+
+/* HAMBURGER BUTTON */
+
+.menu-toggle {
+    display: flex;
+    flex: 0 0 auto;
+
+    width: 46px;
+    height: 44px;
+    padding: 10px;
+
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+
+    border: 1px solid #d32929;
+    border-radius: 6px;
+
+    background: #b51f1f;
+    color: #ffffff;
+
+    box-shadow: 0 2px 7px rgba(181, 31, 31, 0.3);
+
+    cursor: pointer;
+    transform: none;
+
+    transition:
+        background 0.2s ease,
+        border-color 0.2s ease,
+        box-shadow 0.2s ease;
+}
 
 .menu-toggle span {
     display: block;
 
-    width: 25px;
-    height: 3px;
-
+    width: 24px;
+    height: 2.5px;
     margin: 0 auto;
 
-    border-radius: 2px;
-
+    border-radius: 3px;
     background: #ffffff;
 
     transition:
@@ -135,13 +207,22 @@ background-attachment: fixed;
         opacity 0.2s ease;
 }
 
+.menu-toggle:hover {
+    background: #d32929;
+    border-color: #ff4545;
+    box-shadow: 0 3px 10px rgba(181, 31, 31, 0.45);
+}
 
-/* ===============================
-   HAMBURGER ANIMATION
-   =============================== */
+.menu-toggle:focus-visible {
+    outline: 2px solid #ffffff;
+    outline-offset: 3px;
+}
+
+
+/* HAMBURGER ANIMATION */
 
 .menu-toggle[aria-expanded="true"] span:nth-child(1) {
-    transform: translateY(8px) rotate(45deg);
+    transform: translateY(7.5px) rotate(45deg);
 }
 
 .menu-toggle[aria-expanded="true"] span:nth-child(2) {
@@ -149,123 +230,74 @@ background-attachment: fixed;
 }
 
 .menu-toggle[aria-expanded="true"] span:nth-child(3) {
-    transform: translateY(-8px) rotate(-45deg);
+    transform: translateY(-7.5px) rotate(-45deg);
 }
 
 
-/* ===============================
-   NAVIGATION PANEL
-   =============================== */
+/* HAMBURGER DROPDOWN MENU */
 
 .site-menu {
     position: absolute;
 
-    top: 72px;
-    left: 18px;
+    top: 100%;
+    right: max(20px, calc((100% - 1250px) / 2));
+    left: auto;
 
     z-index: 1000;
 
-    width: 300px;
+    width: 270px;
+    max-width: calc(100vw - 40px);
 
-    padding: 10px;
+    padding: 0;
 
     border: 1px solid #333333;
+    border-top: 2px solid #b51f1f;
+    border-radius: 0 0 6px 6px;
 
-    border-radius: 12px;
+    background: #080808;
 
-    background: #111111;
-
-    box-shadow:
-        0 15px 40px rgba(0, 0, 0, 0.45);
+    box-shadow: 0 8px 22px rgba(0, 0, 0, 0.35);
 }
 
-
-/* ===============================
-   MENU LINKS
-   =============================== */
+.site-menu[hidden] {
+    display: none !important;
+}
 
 .menu-links {
     display: flex;
-
     flex-direction: column;
+    gap: 0;
 
-    gap: 3px;
+    padding: 8px 0;
 }
 
 .menu-links a {
     display: block;
 
-    padding: 13px 14px;
+    padding: 12px 18px;
+    border-radius: 0;
 
-    border-radius: 7px;
-
-    color: #ffffff;
-
-    font-size: 0.95rem;
-
+    color: #dddddd;
+    font-size: 0.92rem;
     font-weight: 600;
-
     text-decoration: none;
 
     transition:
         background 0.2s ease,
-        padding-left 0.2s ease;
+        color 0.2s ease;
 }
 
 .menu-links a:hover {
-    background: #242424;
-
+    background: #1b1b1b;
+    color: #ffffff;
     padding-left: 18px;
 }
 
-
-/* ===============================
-   MENU DIVIDER
-   =============================== */
-
 .menu-divider {
     height: 1px;
-
-    margin: 8px 8px;
-
+    margin: 6px 0;
     background: #333333;
 }
-
-
-/* ===============================
-   MOBILE HEADER
-   =============================== */
-
-@media (max-width: 600px) {
-
-    .site-header {
-        min-height: 64px;
-
-        padding: 10px 52px;
-    }
-
-    .site-title {
-        font-size: 1.25rem;
-
-        letter-spacing: 1.3px;
-    }
-
-    .menu-toggle {
-        left: 10px;
-    }
-
-    .site-menu {
-        top: 64px;
-
-        left: 10px;
-
-        width: calc(100% - 20px);
-
-        max-width: 340px;
-    }
-
-}
-
 
 /* ===============================
    HERO
@@ -1021,59 +1053,63 @@ background-attachment: fixed;
 
 /* ===============================
    FOOTER
+   MATCHES THE SURVIVAL GUIDES FOOTER
    =============================== */
 
 .site-footer {
-    margin-top: 0;
+    width: 100%;
 
-    padding: 10px 20px;
+    margin-top: 0;
+    padding: 18px 20px 12px;
 
     background: #080808;
-
     color: #ffffff;
 
     border-top: 1px solid #292929;
+
+    text-align: center;
+    font-size: 0.88rem;
 }
 
 .footer-inner {
     width: min(100%, 1100px);
 
-    margin: auto;
+    margin: 0 auto;
 
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    gap: 0;
     text-align: center;
 }
 
 .footer-brand {
-    margin-bottom: 24px;
+    margin: 0 0 10px;
 
     color: #ffffff;
 
     font-size: 1.15rem;
-
     font-weight: 800;
-
     letter-spacing: 0.5px;
 }
 
 .footer-links {
     display: flex;
-
     justify-content: center;
-
+    align-items: center;
     flex-wrap: wrap;
 
-    gap: 10px 24px;
-
-    margin-bottom: 26px;
+    gap: 8px 22px;
+    margin: 0 0 10px;
 }
 
 .footer-links a {
     color: #dddddd;
 
     text-decoration: none;
-
     font-size: 0.92rem;
-
     font-weight: 600;
 
     transition: color 0.2s ease;
@@ -1081,16 +1117,19 @@ background-attachment: fixed;
 
 .footer-links a:hover {
     color: #ffffff;
-
     text-decoration: underline;
 }
 
 .copyright {
-    margin-top: 12px;
+    margin: 0;
 
     color: #999999;
-
     font-size: 0.8rem;
+    text-align: center;
+}
+
+.site-footer p {
+    margin: 0;
 }
 
 /* ===============================
@@ -2020,3 +2059,119 @@ background-attachment: fixed;
 .category-pagination {
     margin: 25px 0 20px;
 }
+
+/* ===============================
+   SHARED HEADER / FOOTER — MOBILE
+   =============================== */
+
+@media (max-width: 640px) {
+
+    .header-inner {
+        width: calc(100% - 24px);
+        min-height: auto;
+
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) auto;
+        grid-template-areas:
+            "brand brand"
+            "navigation menu";
+
+        align-items: center;
+        column-gap: 14px;
+        row-gap: 10px;
+
+        padding: 13px 0 15px;
+    }
+
+    .site-title,
+    .brand,
+    .site-brand {
+        grid-area: brand;
+        font-size: 1.25rem;
+    }
+
+    .site-icon {
+        width: 36px;
+        height: 36px;
+    }
+
+    .top-nav {
+        grid-area: navigation;
+        min-width: 0;
+
+        margin-left: 0;
+
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        flex-wrap: nowrap;
+        gap: 18px;
+    }
+
+    .top-nav a {
+        padding: 7px 0;
+        font-size: 0.88rem;
+    }
+
+    .menu-toggle {
+        grid-area: menu;
+        justify-self: end;
+
+        width: 44px;
+        height: 42px;
+    }
+
+    .site-menu {
+        top: 100%;
+        right: 12px;
+        left: auto;
+
+        width: min(270px, calc(100vw - 24px));
+        max-width: none;
+    }
+
+    .site-footer {
+        padding: 16px 15px 12px;
+    }
+
+    .footer-brand {
+        margin-bottom: 10px;
+        font-size: 1.05rem;
+    }
+
+    .footer-links {
+        gap: 8px 18px;
+        margin-bottom: 10px;
+    }
+
+    .footer-links a {
+        font-size: 0.88rem;
+    }
+
+    .copyright {
+        font-size: 0.75rem;
+    }
+}
+
+@media (max-width: 380px) {
+
+    .site-title,
+    .brand,
+    .site-brand {
+        font-size: 1.15rem;
+    }
+
+    .top-nav {
+        gap: 12px;
+    }
+
+    .top-nav a {
+        font-size: 0.82rem;
+    }
+
+    .menu-toggle {
+        width: 42px;
+        height: 40px;
+    }
+}
+
