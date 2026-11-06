@@ -63,7 +63,7 @@ body {
     color: var(--ink);
 
     background-color: var(--paper);
-    background-image: url("/images/parchment-bg.png");
+    background-image: url("https://apocalypsequizzes.com/images/parchment-bg.png");
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
