@@ -32,52 +32,49 @@
   <link rel="stylesheet" href="../article-common.css">
  </head>
  <body>
-  <a class="skip-link" href="#main-content">
-   Skip to article
-  </a>
-  <!-- Temporary site header. Replace with the shared Apocalypse Quizzes header later. -->
   <header class="site-header">
-   <div class="header-inner">
-    <button aria-controls="site-menu" aria-expanded="false" aria-label="Open navigation" class="menu-toggle" id="menu-toggle" type="button">
-     <span>
-     </span>
-     <span>
-     </span>
-     <span>
-     </span>
-    </button>
-    <a class="site-title" href="/">
-     APOCALYPSE QUIZZES
-    </a>
-   </div>
-   <nav aria-label="Main navigation" class="site-menu" hidden="" id="site-menu">
+  <div class="header-inner">
+
+    <!-- BRAND -->
+    <div class="brand">
+    <img src="../../favicon.png" alt="" class="site-icon">
+    <span>Apocalypse<span class="brand-accent">Quizzes</span></span>
+</div>
+
+    <!-- NAVIGATION -->
+    <nav class="top-nav" aria-label="Main navigation">
+    <a href="/survival-guides/" aria-current="page">Survival Guides</a>
+    <a href="/">Quizzes</a>
+</nav>
+<button class="menu-toggle"
+        id="menu-toggle"
+        type="button"
+        aria-label="Open menu"
+        aria-expanded="false"
+        aria-controls="site-menu">
+    <span></span>
+    <span></span>
+    <span></span>
+</button>
+  </div>
+  <nav class="site-menu" id="site-menu" aria-label="Main menu" hidden>
     <div class="menu-links">
-     <a href="/">
-      🏠 Home
-     </a>
-     <a href="/search/">
-      🔎 Search Quizzes
-     </a>
-     <a href="/categories/">
-      📂 Categories
-     </a>
-     <div class="menu-divider">
-     </div>
-     <a href="/about.html">
-      About
-     </a>
-     <a href="/privacy.html">
-      Privacy Policy
-     </a>
-     <a href="/disclaimer.html">
-      Disclaimer
-     </a>
-     <a href="/contact.html">
-      Contact
-     </a>
+        <a href="/survival-guides/">📚 Articles &amp; Guides</a>
+
+        <div class="menu-divider"></div>
+        <a href="/">🎯 Quizzes</a>
+        <a href="/search/">🔎 Search Quizzes</a>
+        <a href="/categories/">📂 Quiz Categories</a>
+
+        <div class="menu-divider"></div>
+
+        <a href="/about.html">About</a>
+        <a href="/privacy.html">Privacy Policy</a>
+        <a href="/disclaimer.html">Disclaimer</a>
+        <a href="/contact.html">Contact</a>
     </div>
-   </nav>
-  </header>
+</nav>
+</header>
   <main class="page-wrap" id="main-content">
    <nav aria-label="Breadcrumb" class="breadcrumbs">
     <a href="https://apocalypsequizzes.com/">
@@ -123,6 +120,9 @@
      <span aria-live="polite" class="share-status" id="share-status">
      </span>
     </div>
+    <figure class="article-figure">
+     <img alt="A collage of a deserted city, storm-battered coast, dry reservoir, snowy road, volcanic plume and distant spacecraft, representing different apocalypse scenarios." decoding="async" loading="lazy" src="../images/apocalypse-collage.png"/>
+    </figure>
     <p class="intro">
      When people say &ldquo;the apocalypse,&rdquo; they usually picture one huge event that changes everything: zombies in the streets, a nuclear exchange, an alien invasion, or a disaster that wipes out whole cities. But the end of normal life can also arrive gradually, through climate and environmental change, a global food crisis, or the failure of systems people depend on.
     </p>
@@ -132,9 +132,6 @@
     <p>
      This guide covers 12 major and recognisable types of apocalypse, how each could unfold, what makes it dangerous, and how movies and TV shows have imagined it. These categories can overlap: a natural disaster may trigger a food crisis, and a war can make an environmental emergency much worse.
     </p>
-    <figure class="article-figure">
-     <img alt="A collage of a deserted city, storm-battered coast, dry reservoir, snowy road, volcanic plume and distant spacecraft, representing different apocalypse scenarios." decoding="async" loading="lazy" src="../images/apocalypse-collage.png"/>
-    </figure>
     <div class="callout">
 
       Explore the different types
@@ -1009,70 +1006,31 @@
        Ready for another challenge? Try one of these apocalypse and survival quizzes.
       </p>
       <div class="suggested-quiz-grid">
-       <a class="suggested-quiz-card" href="/ultimate-zombie-survival-test/">
-        <img alt="" decoding="async" loading="lazy" src="../../images/ultimate-zombie.png"/>
-        <span>
-         Ultimate Zombie Survival Test
-        </span>
-       </a>
-       <a class="suggested-quiz-card" href="/walking-dead-knowledge/">
-        <img alt="" decoding="async" loading="lazy" src="../../images/walking-dead-knowledge.png"/>
-        <span>
-         The Walking Dead Quiz
-        </span>
-       </a>
-       <a class="suggested-quiz-card" href="/nuclear-apocalypse-quiz/">
-        <img alt="" decoding="async" loading="lazy" src="../../images/Nucleareapocalyse.png"/>
-        <span>
-         Nuclear Apocalypse Survival Quiz
-        </span>
-       </a>
-       <a class="suggested-quiz-card" href="/apocalypse-preparedness-quiz/">
-        <img alt="" decoding="async" loading="lazy" src="../../images/preparedness.png"/>
-        <span>
-         Apocalypse Preparedness Quiz
-        </span>
-       </a>
-       <a class="suggested-quiz-card" href="/the-100-knowledge/">
-        <img alt="" decoding="async" loading="lazy" src="../../images/the-100-knowledge.png"/>
-        <span>
-         The 100 Knowledge Quiz
-        </span>
-       </a>
+       <a class="suggested-quiz-card" href="/zombie-quiz/"><img alt="" decoding="async" loading="lazy" src="../../images/zombie-apocalypse.png"/><span>Zombie Apocalypse Quiz</span></a>
+       <a class="suggested-quiz-card" href="/ai-and-robot-apocalypse-survival-quiz/"><img alt="" decoding="async" loading="lazy" src="../../images/robots.png"/><span>AI and Robot Apocalypse Survival Quiz</span></a>
+       <a class="suggested-quiz-card" href="/alien-invasion-survival-quiz/"><img alt="" decoding="async" loading="lazy" src="../../images/alien.png"/><span>Alien Invasion Survival Quiz</span></a>
+       <a class="suggested-quiz-card" href="/nuclear-winter-survival-quiz/"><img alt="" decoding="async" loading="lazy" src="../../images/winter.png"/><span>Nuclear Winter Survival Quiz</span></a>
+       <a class="suggested-quiz-card" href="/plague-survival-quiz/"><img alt="" decoding="async" loading="lazy" src="../../images/plague-survival.png"/><span>Plague Outbreak Survival Quiz</span></a>
       </div>
      </div>
     </section>
    </article>
   </main>
   <footer class="site-footer">
-   <div class="footer-inner">
-    <div class="footer-brand">
-     APOCALYPSE QUIZZES
+    <div class="container footer-inner">
+      <div class="footer-brand">ApocalypseQuizzes</div>
+      <nav class="footer-links" aria-label="Footer navigation">
+        <a href="https://apocalypsequizzes.com/">Quizzes</a>
+        <a href="https://apocalypsequizzes.com/survival-guides/">Articles &amp; Guides</a>
+        <a href="/about.html">About</a>
+            <a href="/privacy.html">Privacy Policy</a>
+            <a href="/disclaimer.html">Disclaimer</a>
+            <a href="/contact.html">Contact</a>
+      </nav>
+      <p class="copyright">
+    © <span id="current-year">2026</span> Apocalypse Quizzes. All rights reserved.
+</p>
     </div>
-    <nav aria-label="Footer navigation" class="footer-links">
-     <a href="/">
-      Home
-     </a>
-     <a href="/articles/">
-      Articles &amp; Guides
-     </a>
-     <a href="/about.html">
-      About
-     </a>
-     <a href="/privacy.html">
-      Privacy Policy
-     </a>
-     <a href="/disclaimer.html">
-      Disclaimer
-     </a>
-     <a href="/contact.html">
-      Contact
-     </a>
-    </nav>
-    <div class="copyright">
-     &copy; 2026 Apocalypse Quizzes
-    </div>
-   </div>
   </footer>
   <!-- =====================================================
      JAVASCRIPT
