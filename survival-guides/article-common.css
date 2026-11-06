@@ -67,6 +67,19 @@ body {
 
   font-size: 17px;
   line-height: 1.75;
+
+  /* ===============================
+   PARCHMENT IMAGE BACKGROUND
+   =============================== */
+
+background-color: #c5ad82;
+
+background-image: url("https://apocalypsequizzes.com/images/parchment-bg.png");
+
+background-size: cover;
+background-position: center;
+background-repeat: no-repeat;
+background-attachment: fixed;
 }
 
 a {
@@ -94,6 +107,8 @@ textarea {
   outline: 3px solid var(--aq-rust);
   outline-offset: 3px;
 }
+
+
 
 
 /* =====================================================
