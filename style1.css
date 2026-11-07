@@ -54,10 +54,10 @@ body {
 }
 
 .header-inner {
-    width: min(1250px, calc(100% - 40px));
+    width: auto;
     min-height: 82px;
 
-    margin: 0 auto;
+    margin: 15px;
 
     display: flex;
     align-items: center;
@@ -241,7 +241,7 @@ body {
     position: absolute;
 
     top: 100%;
-    right: max(20px, calc((100% - 1250px) / 2));
+    right: max(20px);
     left: auto;
 
     z-index: 1000;
@@ -1354,7 +1354,7 @@ h2 {
        ------------------------------- */
 
     body {
-        padding: 10px;
+        padding: 0;
     }
 
 
@@ -1473,25 +1473,6 @@ h2 {
     }
 }
 
-
-
-    /* -------------------------------
-       Menu
-       ------------------------------- */
-
-    .menu-toggle {
-        left: 10px;
-    }
-
-    .site-menu {
-        top: 64px;
-
-        left: 10px;
-
-        width: calc(100% - 20px);
-
-        max-width: 340px;
-    }
 
 
     /* -------------------------------
@@ -1679,16 +1660,6 @@ h2 {
     /* -------------------------------
        Footer
        ------------------------------- */
-
-    .site-footer {
-        width: calc(100% + 20px);
-
-        margin-left: -10px;
-        margin-right: -10px;
-        margin-bottom: -10px;
-
-        padding: 18px 15px;
-    }
 
     .footer-brand {
         margin-bottom: 20px;
