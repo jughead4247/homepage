@@ -1561,6 +1561,10 @@ h2 {
     body {
         padding: 10px;
     }
+    .site-header {
+    width: calc(100% + 20px);
+    margin: -10px -10px 0;
+}
 
 
     /* ===============================
@@ -1583,7 +1587,7 @@ h2 {
         column-gap: 14px;
         row-gap: 10px;
 
-        padding: 13px 0 15px;
+        padding: 10px;
     }
 
     .site-title,
@@ -1637,6 +1641,16 @@ h2 {
         padding: 16px 15px 12px;
     }
 
+    .site-footer {
+        width: calc(100% + 20px);
+
+        margin-left: -10px;
+        margin-right: -10px;
+        margin-bottom: -10px;
+
+        padding: 18px 15px;
+    }
+
     .footer-brand {
         margin-bottom: 10px;
         font-size: 1.05rem;
@@ -1677,7 +1691,6 @@ h2 {
         height: 40px;
     }
 }
-
 
 
 
@@ -1969,48 +1982,6 @@ h2 {
     .more-quizzes-section p {
         font-size: 14px;
     }
-
-
-    /* -------------------------------
-       Footer
-       ------------------------------- */
-
-    .site-footer {
-        width: calc(100% + 20px);
-
-        margin-left: -10px;
-        margin-right: -10px;
-        margin-bottom: -10px;
-
-        padding: 18px 15px;
-    }
-
-
-    .footer-brand {
-        margin-bottom: 20px;
-
-        font-size: 1.05rem;
-    }
-
-
-    .footer-links {
-        gap: 10px 18px;
-
-        margin-bottom: 22px;
-    }
-
-
-    .footer-links a {
-        font-size: 0.88rem;
-    }
-
-
-    .copyright {
-        margin-top: 10px;
-
-        font-size: 0.75rem;
-    }
-
 }
 
 
