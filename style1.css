@@ -1358,123 +1358,6 @@ h2 {
     }
 
 
-    /* ===============================
-   SHARED HEADER / FOOTER — MOBILE
-   =============================== */
-
-@media (max-width: 640px) {
-
-    .header-inner {
-        width: calc(100% - 24px);
-        min-height: auto;
-
-        display: grid;
-        grid-template-columns: minmax(0, 1fr) auto;
-        grid-template-areas:
-            "brand brand"
-            "navigation menu";
-
-        align-items: center;
-        column-gap: 14px;
-        row-gap: 10px;
-
-        padding: 13px 0 15px;
-    }
-
-    .site-title,
-    .brand,
-    .site-brand {
-        grid-area: brand;
-        font-size: 1.25rem;
-    }
-
-    .site-icon {
-        width: 36px;
-        height: 36px;
-    }
-
-    .top-nav {
-        grid-area: navigation;
-        min-width: 0;
-
-        margin-left: 0;
-
-        display: flex;
-        align-items: center;
-        justify-content: flex-end;
-        flex-wrap: nowrap;
-        gap: 18px;
-    }
-
-    .top-nav a {
-        padding: 7px 0;
-        font-size: 0.88rem;
-    }
-
-    .menu-toggle {
-        grid-area: menu;
-        justify-self: end;
-
-        width: 44px;
-        height: 42px;
-    }
-
-    .site-menu {
-        top: 100%;
-        right: 12px;
-        left: auto;
-
-        width: min(270px, calc(100vw - 24px));
-        max-width: none;
-    }
-
-    .site-footer {
-        padding: 16px 15px 12px;
-    }
-
-    .footer-brand {
-        margin-bottom: 10px;
-        font-size: 1.05rem;
-    }
-
-    .footer-links {
-        gap: 8px 18px;
-        margin-bottom: 10px;
-    }
-
-    .footer-links a {
-        font-size: 0.88rem;
-    }
-
-    .copyright {
-        font-size: 0.75rem;
-    }
-}
-
-@media (max-width: 380px) {
-
-    .site-title,
-    .brand,
-    .site-brand {
-        font-size: 1.15rem;
-    }
-
-    .top-nav {
-        gap: 12px;
-    }
-
-    .top-nav a {
-        font-size: 0.82rem;
-    }
-
-    .menu-toggle {
-        width: 42px;
-        height: 40px;
-    }
-}
-
-
-
     /* -------------------------------
        Screens
        ------------------------------- */
@@ -1701,5 +1584,120 @@ h2 {
         opacity: 1;
 
         transform: translateY(0);
+    }
+}
+
+/* ===============================
+   SHARED HEADER / FOOTER — MOBILE
+   =============================== */
+
+@media (max-width: 640px) {
+
+    .header-inner {
+        width: calc(100% - 24px);
+        min-height: auto;
+
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) auto;
+        grid-template-areas:
+            "brand brand"
+            "navigation menu";
+
+        align-items: center;
+        column-gap: 14px;
+        row-gap: 10px;
+
+        padding: 13px 0 15px;
+    }
+
+    .site-title,
+    .brand,
+    .site-brand {
+        grid-area: brand;
+        font-size: 1.25rem;
+    }
+
+    .site-icon {
+        width: 36px;
+        height: 36px;
+    }
+
+    .top-nav {
+        grid-area: navigation;
+        min-width: 0;
+
+        margin-left: 0;
+
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        flex-wrap: nowrap;
+        gap: 18px;
+    }
+
+    .top-nav a {
+        padding: 7px 0;
+        font-size: 0.88rem;
+    }
+
+    .menu-toggle {
+        grid-area: menu;
+        justify-self: end;
+
+        width: 44px;
+        height: 42px;
+    }
+
+    .site-menu {
+        top: 100%;
+        right: 12px;
+        left: auto;
+
+        width: min(270px, calc(100vw - 24px));
+        max-width: none;
+    }
+
+    .site-footer {
+        padding: 16px 15px 12px;
+    }
+
+    .footer-brand {
+        margin-bottom: 10px;
+        font-size: 1.05rem;
+    }
+
+    .footer-links {
+        gap: 8px 18px;
+        margin-bottom: 10px;
+    }
+
+    .footer-links a {
+        font-size: 0.88rem;
+    }
+
+    .copyright {
+        font-size: 0.75rem;
+    }
+}
+
+@media (max-width: 380px) {
+
+    .site-title,
+    .brand,
+    .site-brand {
+        font-size: 1.15rem;
+    }
+
+    .top-nav {
+        gap: 12px;
+    }
+
+    .top-nav a {
+        font-size: 0.82rem;
+    }
+
+    .menu-toggle {
+        width: 42px;
+        height: 40px;
     }
 }
