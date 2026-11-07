@@ -55,9 +55,9 @@ body {
 
 .header-inner {
     width: auto;
-    min-height: 82px;
+    min-height: 100px;
 
-    margin: 15px;
+    margin: 0 auto;
 
     display: flex;
     align-items: center;
@@ -1354,10 +1354,15 @@ h2 {
        ------------------------------- */
 
     body {
-        padding: 10px;
-    }
+    padding: 10px;
+}
 
+.site-header {
+    width: calc(100% + 20px);
+    margin: -10px -10px 0;
+}
 
+    
     /* ===============================
    SHARED HEADER / FOOTER — MOBILE
    =============================== */
@@ -1427,6 +1432,14 @@ h2 {
         width: min(270px, calc(100vw - 24px));
         max-width: none;
     }
+
+    .site-footer {
+    width: calc(100% + 20px);
+    margin-left: -10px;
+    margin-right: -10px;
+    margin-bottom: -10px;
+}
+
 
     .site-footer {
         padding: 0;
@@ -1656,33 +1669,6 @@ h2 {
         padding: 12px;
     }
 
-
-    /* -------------------------------
-       Footer
-       ------------------------------- */
-
-    .footer-brand {
-        margin-bottom: 20px;
-
-        font-size: 1.05rem;
-    }
-
-    .footer-links {
-        gap: 10px 18px;
-
-        margin-bottom: 22px;
-    }
-
-    .footer-links a {
-        font-size: 0.88rem;
-    }
-
-    .copyright {
-        margin-top: 10px;
-
-        font-size: 0.75rem;
-    }
-}
 
 
 /* =====================================================
