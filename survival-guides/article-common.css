@@ -1,14 +1,3 @@
-
-/*
-  Apocalypse Quizzes — shared article stylesheet
-
-  Upload this file to: /css/article-common.css
-
-  All article HTML files load it with:
-  <link rel="stylesheet" href="/css/article-common.css">
-*/
-
-
 /* =====================================================
    1. COLOURS
    ===================================================== */
@@ -154,10 +143,10 @@ textarea {
 }
 
 .header-inner {
-  width: min(1250px, calc(100% - 40px));
+  width: auto;
   min-height: 82px;
 
-  margin: 0 auto;
+  margin: 15px;
 
   display: flex;
   align-items: center;
@@ -342,7 +331,7 @@ textarea {
 
   top: 100%;
 
-  right: max(20px, calc((100% - 1250px) / 2));
+  right: 15px;
 
   z-index: 1000;
 
