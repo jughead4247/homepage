@@ -1583,7 +1583,7 @@ h2 {
         column-gap: 14px;
         row-gap: 10px;
 
-        padding: 0;
+        padding: 13px 0 15px;
     }
 
     .site-title,
@@ -1679,25 +1679,6 @@ h2 {
 }
 
 
-
-    /* -------------------------------
-       Menu
-       ------------------------------- */
-
-    .menu-toggle {
-        left: 10px;
-    }
-
-
-    .site-menu {
-        top: 64px;
-
-        left: 10px;
-
-        width: calc(100% - 20px);
-
-        max-width: 340px;
-    }
 
 
     /* -------------------------------
