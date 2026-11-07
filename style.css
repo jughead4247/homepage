@@ -53,10 +53,10 @@ background-attachment: fixed;
 }
 
 .header-inner {
-    width: min(1250px, calc(100% - 40px));
+    width: auto;
     min-height: 82px;
 
-    margin: 0 auto;
+    margin: 15px;
 
     display: flex;
     align-items: center;
@@ -240,7 +240,7 @@ background-attachment: fixed;
     position: absolute;
 
     top: 100%;
-    right: max(20px, calc((100% - 1250px) / 2));
+    right: 15px;
     left: auto;
 
     z-index: 1000;
