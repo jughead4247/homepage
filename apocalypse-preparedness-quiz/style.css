@@ -1,1983 +1,2258 @@
-/* =====================================================
-GLOBAL / RESET
-===================================================== */
+<!DOCTYPE html>
+<html lang="en">
 
-* {
-  box-sizing: border-box;
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>How Prepared Are You for the Apocalypse? – Apocalypse Preparedness Quiz</title>
+
+    <meta name="description" content="Take this 50-question Apocalypse Preparedness Quiz: 40 scored questions across five categories plus 10 personal-context and survivor-profile questions. Get a fictional preparedness snapshot from 0–100%.">
+
+    <meta name="keywords"
+        content="apocalypse preparedness quiz, survival preparedness quiz, apocalypse survival test, survival quiz, preparedness test, zombie apocalypse quiz, disaster preparedness quiz">
+
+    <meta name="author" content="Apocalypse Quizzes">
+
+    <meta name="robots" content="index, follow">
+
+
+    <!-- Canonical URL -->
+
+    <link rel="canonical"
+        href="https://apocalypsequizzes.com/apocalypse-preparedness-quiz/">
+
+
+    <!-- Open Graph -->
+
+    <meta property="og:title"
+        content="How Prepared Are You for the Apocalypse?">
+
+    <meta property="og:description" content="Explore 40 scored preparedness questions across five categories, plus 10 personal-context and survivor-profile questions. Get a fictional 0–100% preparedness snapshot.">
+
+    <meta property="og:url"
+        content="https://apocalypsequizzes.com/apocalypse-preparedness-quiz/">
+
+    <meta property="og:type"
+        content="website">
+
+    <meta property="og:site_name"
+        content="Apocalypse Quizzes">
+
+    <meta property="og:image"
+        content="https://apocalypsequizzes.com/apocalypse-preparedness-quiz/preparedness.png">
+
+
+    <!-- Twitter / X -->
+
+    <meta name="twitter:card"
+        content="summary">
+
+    <meta name="twitter:title"
+        content="How Prepared Are You for the Apocalypse?">
+
+    <meta name="twitter:description" content="A 50-question apocalypse quiz with 40 scored preparedness questions and 10 survivor-profile and personal-context questions.">
+
+    <meta name="twitter:image"
+        content="https://apocalypsequizzes.com/apocalypse-preparedness-quiz/preparedness.png">
+
+
+    <!-- Favicon -->
+
+    <link rel="icon" type="image/png" href="../favicon.png">
+
+
+    <!-- Google Analytics -->
+
+    <script async
+        src="https://www.googletagmanager.com/gtag/js?id=G-YC3ERJSBST">
+    </script>
+
+    <script>
+
+        window.dataLayer = window.dataLayer || [];
+
+        function gtag(){
+            dataLayer.push(arguments);
+        }
+
+        gtag('js', new Date());
+
+        gtag('config', 'G-YC3ERJSBST');
+
+    </script>
+
+
+    <!-- Google AdSense -->
+
+    <script async
+        src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2285244517360573"
+        crossorigin="anonymous">
+    </script>
+
+
+    <!-- Stylesheet -->
+
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+
+<body>
+
+
+<!-- =====================================================
+     SITE HEADER
+     ===================================================== -->
+
+<header class="site-header">
+  <div class="header-inner">
+    <!-- BRAND -->
+    <div class="brand">
+    <img src="../favicon.png" alt="" class="site-icon">
+    <span>Apocalypse<span class="brand-accent">Quizzes</span></span>
+</div>
+    <!-- NAVIGATION -->
+    <nav class="top-nav" aria-label="Main navigation">
+        <a href="/">Quizzes</a>
+    <a href="/survival-guides/" aria-current="page">Survival Guides</a>
+</nav>
+<button class="menu-toggle"
+        id="menu-toggle"
+        type="button"
+        aria-label="Open menu"
+        aria-expanded="false"
+        aria-controls="site-menu">
+    <span></span>
+    <span></span>
+    <span></span>
+</button>
+  </div>
+  <nav class="site-menu" id="site-menu" aria-label="Main menu" hidden>
+    <div class="menu-links">
+        
+        <a href="/">🎯 Quizzes</a>
+        <a href="/search/">🔎 Search Quizzes</a>
+        <a href="/categories/">📂 Quiz Categories</a>
+        <div class="menu-divider"></div>
+        <a href="/survival-guides/">📚 Articles &amp; Guides</a>
+        <div class="menu-divider"></div>
+        <a href="/about.html">About</a>
+        <a href="/privacy.html">Privacy Policy</a>
+        <a href="/disclaimer.html">Disclaimer</a>
+        <a href="/contact.html">Contact</a>
+    </div>
+</nav>
+</header>
+
+
+<main class="container">
+
+
+<!-- =====================================================
+     START SCREEN
+     ===================================================== -->
+
+<section id="start-screen">
+
+    <div class="intro-card">
+
+
+        <!-- PREPAREDNESS IMAGE -->
+
+        <img
+            src="../images/preparedness.png"
+            class="quiz-start-image"
+            >
+
+
+        <!-- CATEGORY -->
+
+        <div class="quiz-category">
+
+            SURVIVAL • PREPAREDNESS TEST
+
+        </div>
+
+
+        <!-- TITLE -->
+
+        <h1>
+
+            How Prepared Are You for the Apocalypse?
+
+        </h1>
+
+
+        <!-- SUBTITLE -->
+
+        <p class="subtitle">
+
+            What if the apocalypse started right now?
+
+            Test your preparedness with 40 scored questions across five categories, then explore 10 questions about your survivor profile and personal context.
+
+        </p>
+
+
+        <!-- QUIZ STATS -->
+
+        <div class="info">
+
+            <span>
+                50 Questions
+            </span>
+
+            <span>
+                •
+            </span>
+
+            <span>
+                ~10 Minutes
+            </span>
+
+            <span>
+                •
+            </span>
+
+            <span>
+                Multiple Choices
+            </span>
+
+        </div>
+
+
+        <!-- START NOTE -->
+
+        <p class="start-note">
+
+            Answer honestly based on what you actually
+            have and what you can realistically do right now.
+
+        </p>
+
+
+        <!-- START BUTTON -->
+
+        <button id="start-btn">
+
+            START QUIZ
+
+        </button>
+
+
+        <!-- WARNING -->
+
+        <div class="spoiler-warning start-spoiler">
+
+            <p>
+
+                This is a fictional preparedness test for
+                entertainment. Your result is not a scientific
+                prediction of how you would perform during a
+                real disaster.
+
+            </p>
+
+        </div>
+
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     QUIZ SCREEN
+     ===================================================== -->
+
+<section id="quiz-screen" class="screen hidden">
+
+
+    <div class="quiz-header">
+
+        <span id="question-number">
+
+            Question 1 of 50
+
+        </span>
+
+
+        <span id="quiz-label">
+
+            PREPAREDNESS TEST
+
+        </span>
+
+    </div>
+
+
+    <!-- PROGRESS -->
+
+    <div class="progress">
+
+        <div id="progress-bar"></div>
+
+    </div>
+
+
+    <!-- QUESTION -->
+
+    <h2 id="question"></h2>
+
+
+    <!-- ANSWERS -->
+
+    <div id="answers"></div>
+
+
+    <!-- Navigation -->
+
+    <div class="quiz-navigation">
+
+        <button
+            id="back-btn"
+            class="nav-btn"
+            type="button"
+            disabled>
+
+            ← Back
+
+        </button>
+
+
+        <button
+            id="next-btn"
+            class="nav-btn"
+            type="button"
+            disabled>
+
+            Next →
+
+        </button>
+
+
+        <button
+            id="submit-btn"
+            class="nav-btn submit-btn hidden"
+            type="button"
+            disabled>
+
+            Answer All Questions
+
+        </button>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     UNIQUE PREPAREDNESS RESULT SCREEN
+     ===================================================== -->
+
+<section id="result-screen" class="screen hidden">
+
+
+    <p class="result-label">
+
+        YOUR PREPAREDNESS
+
+    </p>
+
+
+    <h1 id="result-title"></h1>
+
+
+    <!-- MAIN SCORE -->
+
+    <div class="result-score">
+
+        <span id="final-score">
+            0
+        </span>%
+
+    </div>
+
+
+    <p id="result-description"></p>
+
+
+    <!-- =================================================
+         IF APOCALYPSE STARTED RIGHT NOW
+         ================================================= -->
+
+    <div class="intro-warning">
+
+        <p class="highlight">
+
+            ⚠️ IF APOCALYPSE STARTED RIGHT NOW...
+
+        </p>
+
+
+        <p id="right-now-description"></p>
+
+    </div>
+
+
+    <!-- =================================================
+         SURVIVOR PROFILE
+         ================================================= -->
+
+    <div class="profile-section">
+
+        <h2>
+
+            YOUR SURVIVOR PROFILE
+
+        </h2>
+
+
+        <div class="profile-grid">
+
+
+            <!-- PHYSICAL -->
+
+            <div class="profile-item">
+
+                <span class="profile-name">
+
+                    💪 Physical
+
+                </span>
+
+
+                <span id="physical-score">
+
+                    0%
+
+                </span>
+
+            </div>
+
+
+            <!-- MEDICAL -->
+
+            <div class="profile-item">
+
+                <span class="profile-name">
+
+                    🩺 Medical
+
+                </span>
+
+
+                <span id="medical-score">
+
+                    0%
+
+                </span>
+
+            </div>
+
+
+            <!-- PRACTICAL -->
+
+            <div class="profile-item">
+
+                <span class="profile-name">
+
+                    🛠️ Practical Skills
+
+                </span>
+
+
+                <span id="practical-score">
+
+                    0%
+
+                </span>
+
+            </div>
+
+
+            <!-- RESOURCES -->
+
+            <div class="profile-item">
+
+                <span class="profile-name">
+
+                    💧 Resources
+
+                </span>
+
+
+                <span id="resources-score">
+
+                    0%
+
+                </span>
+
+            </div>
+
+
+            <!-- ENVIRONMENT -->
+
+            <div class="profile-item">
+
+                <span class="profile-name">
+
+                    🏠 Environment
+
+                </span>
+
+
+                <span id="environment-score">
+
+                    0%
+
+                </span>
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+    <!-- =================================================
+         STRENGTH / WEAKNESS
+         ================================================= -->
+
+    <div class="strength-section">
+
+
+        <div class="strength-box">
+
+            <h3>
+
+                💪 YOUR STRONGEST AREA
+
+            </h3>
+
+
+            <p id="strength-area">
+
+                —
+
+            </p>
+
+        </div>
+
+
+        <div class="weakness-box">
+
+            <h3>
+
+                ⚠️ AREA TO IMPROVE
+
+            </h3>
+
+
+            <p id="weakness-area">
+
+                —
+
+            </p>
+
+        </div>
+
+
+    </div>
+
+
+    <!-- =================================================
+         RESULT ACTIONS
+         ================================================= -->
+
+    <div class="result-actions">
+
+        <button id="restart-btn">
+
+            TRY AGAIN
+
+        </button>
+
+
+        <button id="share-btn">
+
+            📤 SHARE MY RESULT
+
+        </button>
+
+
+        <button id="challenge-btn">
+
+            🧟 CHALLENGE YOUR FRIENDS
+
+        </button>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     SUGGESTED QUIZZES
+     ===================================================== -->
+
+<section
+    id="suggestions-card"
+    class="suggestions-card hidden">
+
+
+    <div class="suggested-quizzes">
+
+
+        <h2>
+
+            Suggested Quizzes
+
+        </h2>
+
+
+        <p class="suggested-subtitle">
+
+            Enjoyed this survival challenge?
+            Try another apocalypse or survival quiz.
+
+        </p>
+
+
+        <div class="suggested-grid">
+
+
+            <!-- ULTIMATE ZOMBIE SURVIVAL TEST -->
+
+            <a href="/ultimate-zombie-survival-test/" class="suggested-card">
+
+                <img
+                    src="../images/ultimate-zombie.png"
+                    alt="Ultimate Zombie Survival Test"
+                    class="suggested-image"
+                >
+
+                <span class="suggested-title">
+                    Ultimate Zombie Survival Test
+                </span>
+
+                <span class="suggested-description">
+                    Take the Ultimate Zombie Apocalypse Survival Test with 90 decisions.
+                </span>
+
+            </a>
+
+
+            <!-- NUCLEAR APOCALYPSE SURVIVAL QUIZ -->
+
+            <a href="/nuclear-apocalypse-quiz/" class="suggested-card">
+
+                <img
+                    src="../images/Nucleareapocalyse.png"
+                    alt="Nuclear Apocalypse Survival Quiz"
+                    class="suggested-image"
+                >
+
+                <span class="suggested-title">
+                    Nuclear Apocalypse Survival Quiz
+                </span>
+
+                <span class="suggested-description">
+                    Could you survive a nuclear attack and world life in radiated apocalypse
+                </span>
+
+            </a>
+
+
+            <!-- PLAGUE SURVIVAL QUIZ -->
+
+            <a href="/plague-survival-quiz/" class="suggested-card">
+
+                <img
+                    src="../images/plague-survival.png"
+                    alt="Plague Survival Quiz"
+                    class="suggested-image"
+                >
+
+                <span class="suggested-title">
+                    Plague Survival Quiz
+                </span>
+
+                <span class="suggested-description">
+                    How well can you survive deadly outbreak or plague? Take test and find out
+                </span>
+
+            </a>
+
+
+        </div>
+
+    </div>
+
+
+    <!-- =================================================
+         EXPLORE MORE QUIZZES
+         ================================================= -->
+
+    <div class="more-quizzes-section">
+
+
+        <h3>
+            Explore More Quizzes
+        </h3>
+
+
+        <p>
+
+            Discover more apocalypse, zombie, survival,
+            science-fiction and disaster quizzes.
+
+        </p>
+
+
+        <a
+            href="/"
+            class="more-quizzes-btn">
+
+            🧟 APOCALYPSE QUIZZES
+
+        </a>
+
+    </div>
+
+
+</section>
+
+
+<!-- =====================================================
+     INFORMATION BELOW THE QUIZ
+     ===================================================== -->
+
+<div id="home-info">
+
+
+<!-- =====================================================
+     ABOUT THE QUIZ
+     ===================================================== -->
+
+<section class="home-info">
+
+    <h2>About the Apocalypse Preparedness Quiz</h2>
+
+    <p>What if the apocalypse started at this exact moment? This fictional quiz explores the advantages, limitations and preparations represented by your current situation.</p>
+
+    <p>Forty scored questions cover five categories: Environment, Physical, Medical, Resources and Practical Skills. Each category has eight questions. Ten additional profile questions cover personal context and survivor preferences without changing your preparedness percentage.</p>
+
+    <p>Your score is a playful snapshot of your answers, not a scientific assessment or a prediction of whether you would survive a real disaster.</p>
+
+</section>
+
+
+<!-- =====================================================
+     WHAT THIS QUIZ MEASURES
+     ===================================================== -->
+
+<section class="home-info">
+
+    <h2>
+
+        What This Quiz Measures
+
+    </h2>
+
+
+    <p>
+
+        The quiz looks at several different areas that
+        can influence fictional preparedness scenarios.
+        Each category represents a different type of
+        advantage or limitation.
+
+    </p>
+
+
+    <h3>
+
+        Physical Ability
+
+    </h3>
+
+
+    <p>
+
+        Questions in this category consider physical
+        capability, mobility, endurance and your ability
+        to handle physically demanding situations.
+
+    </p>
+
+
+    <h3>
+
+        Medical Preparedness
+
+    </h3>
+
+
+    <p>
+
+        This category considers access to medical supplies,
+        basic health-related preparedness and your ability
+        to deal with injuries or medical problems within
+        the fictional scenario.
+
+    </p>
+
+
+    <h3>
+
+        Practical Skills
+
+    </h3>
+
+
+    <p>
+
+        Practical skills include useful abilities such as
+        repairing equipment, handling tools, finding
+        solutions to problems and performing everyday
+        survival-related tasks.
+
+    </p>
+
+
+    <h3>
+
+        Resources
+
+    </h3>
+
+
+    <p>
+
+        Resources include useful supplies, food, water,
+        equipment and other assets that could provide
+        advantages in the fictional scenario.
+
+    </p>
+
+
+    <h3>
+
+        Environment
+
+    </h3>
+
+
+    <p>
+
+        Your surroundings can affect preparedness as well.
+        This category considers factors such as your
+        location, shelter, surroundings and access to
+        useful facilities or resources.
+
+    </p>
+
+</section>
+
+
+<!-- =====================================================
+     HOW THE QUIZ WORKS
+     ===================================================== -->
+
+<section class="home-info">
+
+    <h2>
+
+        How the Quiz Works
+
+    </h2>
+
+
+    <p>
+
+        The quiz contains 50 questions: 40 scored readiness questions and 10 profile questions. The profile covers survivor preferences and personal context, without changing your preparedness percentage.
+
+    </p>
+
+
+    <p>
+
+        Choose the answer that most closely represents
+        your actual situation, abilities or available
+        resources. The test is designed around what you
+        have and what you can realistically do now.
+
+    </p>
+
+
+    <p>Your selections contribute to an overall preparedness percentage and five category scores. Each category has eight equally weighted questions, and all five categories contribute equally to the overall result.</p>
+
+
+    <p>
+
+        The result also identifies your strongest
+        preparedness area and an area that could use
+        improvement according to the fictional scoring
+        system.
+
+    </p>
+
+</section>
+
+
+<!-- =====================================================
+     QUIZ NAVIGATION
+     ===================================================== -->
+
+<section class="home-info">
+
+    <h2>
+
+        Quiz Navigation
+
+    </h2>
+
+
+    <h3>
+
+        Starting the Quiz
+
+    </h3>
+
+
+    <p>
+
+        Select START QUIZ on the opening screen to begin.
+        The first preparedness scenario will then appear.
+
+    </p>
+
+
+    <h3>
+
+        Selecting an Answer
+
+    </h3>
+
+
+    <p>
+
+        Read each situation carefully and select the
+        choice that best represents your current
+        circumstances.
+
+    </p>
+
+
+    <h3>
+
+        Moving Through the Questions
+
+    </h3>
+
+
+    <p>
+
+        Your question number and progress are displayed
+        while you move through the test. Use the available
+        navigation controls to move between questions when
+        supported by the quiz.
+
+    </p>
+
+
+    <h3>
+
+        Completing the Quiz
+
+    </h3>
+
+
+    <p>
+
+        Continue until all 50 questions have been answered.
+        Once the quiz is complete, your preparedness
+        percentage and survivor profile will be displayed.
+
+    </p>
+
+
+    <h3>
+
+        Trying Again
+
+    </h3>
+
+
+    <p>
+
+        After viewing your result, select TRY AGAIN to
+        restart the test and explore how different choices
+        affect your fictional preparedness result.
+
+    </p>
+
+
+    <h3>
+
+        Sharing Your Result
+
+    </h3>
+
+
+    <p>
+
+        You can use SHARE MY RESULT or CHALLENGE YOUR
+        FRIENDS after completing the test to share the
+        result with others.
+
+    </p>
+
+</section>
+
+
+<!-- =====================================================
+     UNDERSTANDING YOUR RESULT
+     ===================================================== -->
+
+<section class="home-info">
+
+    <h2>
+
+        Understanding Your Preparedness Result
+
+    </h2>
+
+
+    <p>
+
+        Your final percentage represents the fictional
+        preparedness score generated from your answers.
+        It is not a measurement of real-world survival
+        ability.
+
+    </p>
+
+
+    <p>
+
+        The Survivor Profile provides additional detail
+        by separating your result into Physical, Medical,
+        Practical Skills, Resources and Environment.
+
+    </p>
+
+
+    <p>
+
+        Your strongest area identifies the category in
+        which your answers produced the highest result,
+        while the area to improve identifies a category
+        with a comparatively lower result.
+
+    </p>
+
+
+    <p>
+
+        The result is intended to make the test more
+        interesting and easier to interpret rather than
+        provide a scientific assessment of disaster
+        preparedness.
+
+    </p>
+
+</section>
+
+
+<!-- =====================================================
+     FAQ
+     ===================================================== -->
+
+<section class="home-info">
+
+    <h2>
+
+        FREQUENTLY ASKED QUESTIONS
+
+    </h2>
+
+
+    <h3>
+
+        How many questions are in the quiz?
+
+    </h3>
+
+
+    <p>
+
+        There are 50 questions in total: 40 scored questions across five balanced categories and 10 profile questions. Each category has eight scored questions. Profile questions add personal context but do not affect your preparedness percentage.
+
+    </p>
+
+
+    <h3>
+
+        What is the maximum score?
+
+    </h3>
+
+
+    <p>
+
+        Each answer is converted to a 0–100 value relative to the points available for that question. The eight question values are averaged within each category, then the five category percentages are averaged for an equally weighted overall score.
+
+    </p>
+
+
+    <h3>
+
+        What does my score mean?
+
+    </h3>
+
+
+    <p>
+
+        Your percentage is the average of five category results. Each answer is scaled between the lowest and highest points available for its question; the eight question values in each category are averaged, then all five categories contribute equally. Age, living environment, available safety options and occupation remain part of this fictional assessment; profile answers do not affect the score.
+
+    </p>
+
+
+    <h3>
+
+        What categories are included?
+
+    </h3>
+
+
+    <p>
+
+        The scored categories are Environment, Physical, Medical, Resources and Practical Skills. Ten additional profile questions cover survivor preferences and personal context.
+
+    </p>
+
+
+    <h3>
+
+        Is this a real survival test?
+
+    </h3>
+
+
+    <p>
+
+        No. This is a fictional entertainment quiz.
+        It does not scientifically predict whether
+        someone would survive an actual disaster,
+        apocalypse or emergency.
+
+    </p>
+
+
+    <h3>
+
+        Are the questions based on a specific movie
+        or television series?
+
+    </h3>
+
+
+    <p>
+
+        No. Unlike the site's movie and television trivia
+        quizzes, this test is a general fictional
+        preparedness scenario rather than a quiz about
+        one specific fictional universe.
+
+    </p>
+
+
+    <h3>
+
+        Should I answer based on what I wish I had?
+
+    </h3>
+
+
+    <p>
+
+        For the most meaningful result within the quiz's
+        fictional scoring system, answer based on what
+        you actually have and what you can realistically
+        do right now.
+
+    </p>
+
+
+    <h3>
+
+        Can I take the quiz again?
+
+    </h3>
+
+
+    <p>
+
+        Yes. Select TRY AGAIN after completing the quiz
+        to start another attempt and explore different
+        answers.
+
+    </p>
+
+
+    <h3>
+
+        Can I challenge my friends?
+
+    </h3>
+
+
+    <p>
+
+        Yes. Select CHALLENGE YOUR FRIENDS after completing
+        the quiz to share the challenge and compare
+        fictional preparedness results.
+
+    </p>
+
+</section>
+
+
+<!-- =====================================================
+     FICTIONAL DISCLAIMER
+     ===================================================== -->
+
+<section class="home-info spoiler-warning">
+
+    <h2>
+
+        Fictional Preparedness Test
+
+    </h2>
+
+
+    <p>
+
+        This quiz is designed for entertainment and
+        fictional scenario exploration. It is not a
+        professional disaster-preparedness assessment,
+        medical assessment, fitness assessment or
+        prediction of real-world survival.
+
+    </p>
+
+
+    <p>
+
+        Real emergencies can involve circumstances that
+        cannot be predicted by a quiz, including changing
+        hazards, injuries, weather, infrastructure
+        failures, emergency services and many other
+        factors.
+
+    </p>
+
+
+    <p>
+
+        The score and category results should therefore
+        be treated as part of the fictional quiz experience,
+        not as professional advice or a guarantee of how
+        someone would perform during an actual emergency.
+
+    </p>
+
+</section>
+
+
+</div>
+
+
+</main>
+
+
+<!-- =====================================================
+     FOOTER
+     ===================================================== -->
+
+<footer class="site-footer">
+    <div class="container footer-inner">
+      <div class="footer-brand">ApocalypseQuizzes</div>
+      <nav class="footer-links" aria-label="Footer navigation">
+        <a href="https://apocalypsequizzes.com/">Quizzes</a>
+        <a href="https://apocalypsequizzes.com/survival-guides/">Articles &amp; Guides</a>
+        <a href="/about.html">About</a>
+            <a href="/privacy.html">Privacy Policy</a>
+            <a href="/disclaimer.html">Disclaimer</a>
+            <a href="/contact.html">Contact</a>
+      </nav>
+      <p class="copyright">
+    © <span id="current-year">2026</span> Apocalypse Quizzes. All rights reserved.
+</p>
+    </div>
+</footer>
+
+
+<!-- =====================================================
+     INLINE QUIZ SCRIPT
+     ===================================================== -->
+
+<script>
+const questions = [
+  // ENVIRONMENT: home setting, local hazards and emergency plans
+  {
+    question: "Where do you currently live?",
+    category: "environment",
+    answers: [
+      ["🌾 Rural area, farm or isolated property", 5],
+      ["🏙️ Large city or dense urban area", 3],
+      ["🏘️ Small town or suburban neighbourhood", 4],
+      ["🏢 Apartment or high-rise building", 3],
+    ]
+  },
+  {
+    question: "A severe storm is heading your way. How ready is your household?",
+    category: "environment",
+    answers: [
+      ["🌦️ Alerts, a plan and supplies are ready", 5],
+      ["🧭 We know the plan and most supplies are ready", 4],
+      ["📱 We have a few supplies but no clear plan", 3],
+      ["😅 We would gather things after the warning", 1],
+    ]
+  },
+  {
+    question: "Your home becomes unsafe tonight. Do you have somewhere to stay?",
+    category: "environment",
+    answers: [
+      ["🏠 A confirmed place for several nights", 5],
+      ["👥 A trusted contact can host us", 4],
+      ["🗺️ Options exist, but none are confirmed", 3],
+      ["🤷 I have no backup place", 1],
+    ]
+  },
+  {
+    question: "How well can your home handle extreme weather?",
+    category: "environment",
+    answers: [
+      ["🧰 Supplies and backup options are ready", 5],
+      ["🛏️ Mostly ready, with a few weak spots", 4],
+      ["🌡️ Manageable briefly, but not for long", 3],
+      ["😬 Severe weather could cause trouble quickly", 1],
+    ]
+  },
+  {
+    question: "Could you find a safer route if your usual road were blocked?",
+    category: "environment",
+    answers: [
+      ["🗺️ I know several alternatives and have a map", 5],
+      ["📍 I know one practical alternative route", 4],
+      ["📱 I could check a downloaded or paper map", 3],
+      ["🚧 I would guess or follow the crowd", 1],
+    ]
+  },
+  {
+    question: "How would you get emergency updates if the internet failed?",
+    category: "environment",
+    answers: [
+      ["📻 A battery radio and official sources are ready", 5],
+      ["👥 We have local contacts and a check-in plan", 4],
+      ["🔋 We would use phones until batteries ran low", 3],
+      ["🤔 I have no backup for losing updates", 1],
+    ]
+  },
+  {
+    question: "How well do you know the main hazards in your area?",
+    category: "environment",
+    answers: [
+      ["🧭 I know local risks, alerts and safer locations", 5],
+      ["🌧️ I know common risks and where warnings appear", 4],
+      ["📱 I know a little but need to research more", 3],
+      ["🤷 I would learn about risks when they happen", 1],
+    ]
+  },
+  {
+    question: "If authorities advised evacuation, how ready would you be?",
+    category: "environment",
+    answers: [
+      ["🎒 Transport, route and destination are planned", 5],
+      ["📋 I have a destination and rough route", 4],
+      ["🧳 I can leave, but need to plan details", 3],
+      ["😬 I would decide after the warning", 1],
+    ]
+  },
+  // PHYSICAL: age context, mobility, endurance and adaptations
+  {
+    question: "What is your age group?",
+    category: "physical",
+    answers: [
+      ["56 or older", 3],
+      ["26–55", 5],
+      ["Under 16", 2],
+      ["16–25", 4],
+    ]
+  },
+  {
+    question: "How far could you travel on foot with a modest daypack?",
+    category: "physical",
+    answers: [
+      ["🥾 Several hours with planned breaks", 5],
+      ["🚶 A few kilometres at steady pace", 4],
+      ["🎒 A short walk before a longer rest", 3],
+      ["🛞 Accessible route or mobility support", 4],
+    ]
+  },
+  {
+    question: "Could you manage stairs if a lift stopped working?",
+    category: "physical",
+    answers: [
+      ["🪜 Several flights at a steady pace", 5],
+      ["🚶 One or two flights with rests", 4],
+      ["😮‍💨 A few steps before needing support", 3],
+      ["🧑‍🤝‍🧑 Accessible route or planned help", 4],
+    ]
+  },
+  {
+    question: "If you had to carry essential supplies, what is realistic?",
+    category: "physical",
+    answers: [
+      ["🎒 I can carry a modest pack comfortably", 5],
+      ["🧳 I can carry a light load for a while", 4],
+      ["🛍️ I need a small load and frequent rests", 3],
+      ["🛞 I would use a cart, aid or group assistance", 4],
+    ]
+  },
+  {
+    question: "After a tiring day, how well can you still handle basic tasks?",
+    category: "physical",
+    answers: [
+      ["💪 I can still do light tasks safely", 5],
+      ["🙂 I can manage essentials after a proper break", 4],
+      ["😴 I need plenty of rest before doing more", 3],
+      ["🗓️ I plan tasks around my limits and recovery", 4],
+    ]
+  },
+  {
+    question: "How ready are you for a day outdoors in rough weather?",
+    category: "physical",
+    answers: [
+      ["🥾 I have suitable gear and know my limits", 5],
+      ["🧥 I can manage mild conditions with regular breaks", 4],
+      ["🌧️ I would struggle without better clothing or gear", 2],
+      ["🧭 I would limit exposure and choose a safer option", 4],
+    ]
+  },
+  {
+    question: "How well can you move over uneven ground or low obstacles?",
+    category: "physical",
+    answers: [
+      ["🧗 I handle rough ground and simple climbs safely", 5],
+      ["🥾 I manage uneven paths with care", 4],
+      ["⏸️ I need a slower pace and frequent rests", 3],
+      ["🛞 I choose accessible routes or plan support", 4],
+    ]
+  },
+  {
+    question: "How would you manage a physically demanding day without overdoing it?",
+    category: "physical",
+    answers: [
+      ["🥤 I plan pace, breaks, food and hydration", 5],
+      ["⏸️ I take breaks and adjust tasks as needed", 4],
+      ["💪 I push through and recover later", 2],
+      ["🤔 I have not planned for pacing or recovery", 1],
+    ]
+  },
+  // MEDICAL: first aid, medication planning, allergies and hygiene
+  {
+    question: "Someone gets a small cut while helping around camp. What could you do?",
+    category: "medical",
+    answers: [
+      ["🩹 Clean, dress it and watch for warning signs", 5],
+      ["🧼 Clean and cover it; seek advice if needed", 4],
+      ["🤝 Ask someone with first-aid skills to help", 3],
+      ["😰 Feel unsure about what to do first", 1],
+    ]
+  },
+  {
+    question: "What is the state of your first-aid kit?",
+    category: "medical",
+    answers: [
+      ["🩺 Stocked, in date and easy to find", 5],
+      ["🩹 Basics are there, but need checking", 4],
+      ["🧴 A few items are scattered around home", 2],
+      ["📦 No proper first-aid kit yet", 1],
+    ]
+  },
+  {
+    question: "If you or someone at home needs regular medication, what is the plan?",
+    category: "medical",
+    answers: [
+      ["📋 Track supplies and know whom to contact", 5],
+      ["💊 We keep a safe reserve when possible", 4],
+      ["📱 Contact my usual provider if needed", 3],
+      ["🤔 No backup plan has been made yet", 1],
+    ]
+  },
+  {
+    question: "How confident are you at recognising when an injury needs urgent help?",
+    category: "medical",
+    answers: [
+      ["🚑 I know warning signs and when to get help", 5],
+      ["🩺 I know some signs and seek advice early", 4],
+      ["📞 I would contact a professional for guidance", 4],
+      ["😬 I might wait and hope it improves", 1],
+    ]
+  },
+  {
+    question: "If someone with you had a serious allergy, how prepared would you be?",
+    category: "medical",
+    answers: [
+      ["📋 Follow the action plan; keep treatment at hand", 5],
+      ["🩺 Know triggers and when to get urgent help", 4],
+      ["📱 Look up the steps with an emergency contact", 3],
+      ["🤔 No plan for allergy emergencies yet", 1],
+    ]
+  },
+  {
+    question: "How ready are you to find important medical information in an emergency?",
+    category: "medical",
+    answers: [
+      ["📋 Key details and contacts are easy to access", 5],
+      ["📱 Details are saved on my phone and backed up", 4],
+      ["🧠 I know most details but have not organised them", 3],
+      ["🤔 I would need time to gather the information", 1],
+    ]
+  },
+  {
+    question: "If clean water became limited, how would you maintain basic hygiene?",
+    category: "medical",
+    answers: [
+      ["🧼 We have hygiene supplies and a water-saving plan", 5],
+      ["🧴 We have soap, sanitiser and some backup supplies", 4],
+      ["🚿 We would improvise after normal water stopped", 2],
+      ["🤷 I have not planned for hygiene without running water", 1],
+    ]
+  },
+  {
+    question: "If someone in your group became ill, what would you do first?",
+    category: "medical",
+    answers: [
+      ["🩺 Reduce exposure; follow trusted health advice", 5],
+      ["🧼 Separate supplies and improve hand hygiene", 4],
+      ["📞 Contact a health professional for advice", 4],
+      ["🤷 Wait and see without changing much", 1],
+    ]
+  },
+  // RESOURCES: supplies, backup equipment and home safety
+  {
+    question: "What defensive tools or safety options are available at home?",
+    category: "resources",
+    answers: [
+      ["🔫 A firearm stored securely; I know safe handling", 5],
+      ["🔪 A knife or hand tool I can handle safely", 4],
+      ["🪓 An axe or outdoor tool I know how to handle", 4],
+      ["🧰 No weapon; I rely on locks and escape plans", 4],
+    ]
+  },
+  {
+    question: "How much drinking water do you have stored for a disruption?",
+    category: "resources",
+    answers: [
+      ["💧 Enough water for several days at home", 5],
+      ["🧴 Enough water for one or two days", 4],
+      ["🚰 A few bottles beyond daily use", 2],
+      ["😬 Nothing stored beyond normal use", 1],
+    ]
+  },
+  {
+    question: "If shops closed for a few days, how would your food supply look?",
+    category: "resources",
+    answers: [
+      ["🥫 Several days of meals I can prepare", 5],
+      ["🍚 Staples plus a simple meal plan", 4],
+      ["🛒 Enough food for a day or two", 3],
+      ["🍽️ Supplies would run out quickly", 1],
+    ]
+  },
+  {
+    question: "The power goes out after dark. What light can you use?",
+    category: "resources",
+    answers: [
+      ["🔦 Flashlights or lanterns with spares", 5],
+      ["🔋 Charged rechargeable lights available", 4],
+      ["📱 Mostly my phone flashlight", 2],
+      ["🕯️ Candles or improvised lighting", 1],
+    ]
+  },
+  {
+    question: "How would you keep essential devices charged during a long outage?",
+    category: "resources",
+    answers: [
+      ["🔋 Power banks and a way to recharge them", 5],
+      ["☀️ Solar charger or another backup source", 5],
+      ["📱 One power bank with limited capacity", 3],
+      ["🔌 I would rely on power returning soon", 1],
+    ]
+  },
+  {
+    question: "How ready is your household to leave quickly if needed?",
+    category: "resources",
+    answers: [
+      ["🎒 Essentials are packed and easy to grab", 5],
+      ["📋 A checklist is ready and we can pack quickly", 4],
+      ["🧳 We would need time to sort out essentials", 2],
+      ["🤷 We would start packing after the warning", 1],
+    ]
+  },
+  {
+    question: "Do you have useful supplies for staying warm, dry or protected overnight?",
+    category: "resources",
+    answers: [
+      ["🧥 Spare layers, rain protection and bedding are ready", 5],
+      ["🛏️ We have some extras but not a complete set", 4],
+      ["👕 We would use everyday clothes and bedding", 3],
+      ["😬 We would need to search for suitable items", 1],
+    ]
+  },
+  {
+    question: "If card payments or phone access failed, what backup would you have?",
+    category: "resources",
+    answers: [
+      ["💵 Cash reserve plus offline key documents", 5],
+      ["📁 Some cash or offline document copies", 4],
+      ["💳 Cards and phone remain my main options", 3],
+      ["🤔 No cash or offline documents are ready", 1],
+    ]
+  },
+  // PRACTICAL SKILLS: everyday skills and relevant experience
+  {
+    question: "What best describes your current occupation or background?",
+    category: "practical",
+    answers: [
+      ["🔧 Trades, repair or technical work", 5],
+      ["🌾 Farming, outdoor or animal work", 5],
+      ["🚑 Medical, emergency or security work", 5],
+      ["💻 Office, retail, study or other work", 3],
+    ]
+  },
+  {
+    question: "The power is out and dinner still needs to happen. What is your move?",
+    category: "practical",
+    answers: [
+      ["🍲 Prepare a meal with a safe backup method", 5],
+      ["🥪 Put together a no-cook meal from stored food", 4],
+      ["🥫 Have food but little idea how to use it", 2],
+      ["🍕 Wait for takeaway or power to return", 1],
+    ]
+  },
+  {
+    question: "How would you make sure water from an uncertain source is safe?",
+    category: "practical",
+    answers: [
+      ["💧 I use a suitable treatment method as directed", 5],
+      ["📋 I check trusted public-health guidance first", 4],
+      ["🧺 I use a filter but skip further treatment", 2],
+      ["👀 I judge it by appearance and smell", 1],
+    ]
+  },
+  {
+    question: "A useful household item breaks. How would you approach the repair?",
+    category: "practical",
+    answers: [
+      ["🛠️ Fix simple items safely with basic tools", 5],
+      ["📖 Follow a guide for straightforward repairs", 4],
+      ["🤝 Ask an experienced person and assist", 3],
+      ["😬 Abandon it or risk more damage", 1],
+    ]
+  },
+  {
+    question: "How well could you navigate if your phone map stopped working?",
+    category: "practical",
+    answers: [
+      ["🗺️ I use paper maps and landmarks confidently", 5],
+      ["🧭 I follow signs and ask reliable people", 4],
+      ["📍 I know usual routes, but little else", 3],
+      ["📱 I get lost without phone navigation", 1],
+    ]
+  },
+  {
+    question: "If your group needed to pass a message without mobile service, what could you do?",
+    category: "practical",
+    answers: [
+      ["📍 Use agreed meeting points and check-in times", 5],
+      ["📝 Leave clear messages at agreed locations", 4],
+      ["👥 Try to find one another as we go", 2],
+      ["🤔 We have no plan for reconnecting", 1],
+    ]
+  },
+  {
+    question: "How much experience do you have growing or caring for useful plants?",
+    category: "practical",
+    answers: [
+      ["🌱 Grow and maintain a small garden", 5],
+      ["🪴 Care for herbs or easy plants", 4],
+      ["📚 Know basics but need some guidance", 3],
+      ["🌿 Start from scratch with no experience", 1],
+    ]
+  },
+  {
+    question: "How would you approach making a small outdoor fire when appropriate and safe?",
+    category: "practical",
+    answers: [
+      ["🔥 Use suitable tools and follow fire-safety rules", 5],
+      ["🪵 Use matches or a lighter with a safe setup", 4],
+      ["🤝 Do it with guidance from someone experienced", 3],
+      ["🤔 I would not know how to begin safely", 1],
+    ]
+  },
+  // SURVIVOR PROFILE: preferences and personal context; zero points
+  {
+    question: "If you could pick one defensive option in a fictional apocalypse, which would you prefer?",
+    category: "profile",
+    answers: [
+      ["🛡️ Avoid fights whenever possible", 0],
+      ["🔪 Carry a knife or hand tool", 0],
+      ["🔫 Use a firearm only where lawful", 0],
+      ["🧰 Carry tools and improvise", 0],
+    ]
+  },
+  {
+    question: "How do you feel in enclosed or confined spaces?",
+    category: "profile",
+    answers: [
+      ["😌 Comfortable in enclosed spaces for a while", 0],
+      ["🙂 A little uneasy, but I can manage", 0],
+      ["😰 Very uncomfortable and eager to leave", 0],
+      ["😨 I may panic if I cannot leave", 0],
+    ]
+  },
+  {
+    question: "How well could you function without your smartphone?",
+    category: "profile",
+    answers: [
+      ["📵 I can manage daily tasks without it", 0],
+      ["🗺️ I manage most tasks with a backup plan", 0],
+      ["📱 I would struggle with maps, news or contacts", 0],
+      ["😰 I rely on it for nearly every task", 0],
+    ]
+  },
+  {
+    question: "In an emergency, would you prefer to survive alone or with others?",
+    category: "profile",
+    answers: [
+      ["👤 Alone; I work best independently", 0],
+      ["👥 A small team of trusted people", 0],
+      ["👨‍👩‍👧 A larger, coordinated group", 0],
+      ["🤷 It would depend on the situation", 0],
+    ]
+  },
+  {
+    question: "How comfortable are you around animals?",
+    category: "profile",
+    answers: [
+      ["🐾 Comfortable with pets and most farm animals", 0],
+      ["🐕 Fine with common pets, less with larger animals", 0],
+      ["🧑‍🌾 I would need guidance with unfamiliar animals", 0],
+      ["😨 I prefer to keep my distance from animals", 0],
+    ]
+  },
+  {
+    question: "Which setting would you rather spend most of your time in?",
+    category: "profile",
+    answers: [
+      ["🌳 Outdoors, exploring or working in the open", 0],
+      ["🏠 Indoors, where I feel more comfortable", 0],
+      ["⚖️ A mix of indoor and outdoor activities", 0],
+      ["🤷 It depends on the task and conditions", 0],
+    ]
+  },
+  {
+    question: "What best describes your current living situation?",
+    category: "profile",
+    answers: [
+      ["👤 I live alone most of the time", 0],
+      ["💑 I live with a partner or spouse", 0],
+      ["👨‍👩‍👧 I live with family or dependants", 0],
+      ["🏠 Other household or prefer not to say", 0],
+    ]
+  },
+  {
+    question: "How comfortable are you caring for children or babies during a crisis?",
+    category: "profile",
+    answers: [
+      ["👶 Confident with their basic and emergency needs", 0],
+      ["🙂 Able to help, but may need some guidance", 0],
+      ["😐 I would need another person to lead care", 0],
+      ["😅 I would prefer a role without childcare", 0],
+    ]
+  },
+  {
+    question: "Do you have any known allergies?",
+    category: "profile",
+    answers: [
+      ["✅ No known allergies", 0],
+      ["🤧 One known allergy", 0],
+      ["⚠️ Multiple known allergies", 0],
+      ["🤷 Unsure / prefer not to say", 0],
+    ]
+  },
+  {
+    question: "Do you take medication on a regular basis?",
+    category: "profile",
+    answers: [
+      ["✅ No regular medication", 0],
+      ["🕒 Occasional medication when needed", 0],
+      ["💊 Regular medication or ongoing treatment", 0],
+      ["🤷 Prefer not to say", 0],
+    ]
+  },
+];
+
+// ============================================================
+// SHUFFLE ANSWERS AND BALANCE HIGH-SCORING OPTIONS
+// ============================================================
+
+function shuffleArray(array) {
+    const shuffled = [...array];
+
+    for (let i = shuffled.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+
+        [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
+    }
+
+    return shuffled;
+}
+
+function getPermutations(items) {
+    const results = [];
+
+    function generate(remaining, current) {
+        if (remaining.length === 0) {
+            results.push(current);
+            return;
+        }
+
+        for (let i = 0; i < remaining.length; i++) {
+            generate(
+                remaining.filter((_, index) => index !== i),
+                [...current, remaining[i]]
+            );
+        }
+    }
+
+    generate(items, []);
+    return results;
+}
+
+function balanceAnswerOptions(questions) {
+    // Counts the positions of all highest-scoring answers.
+    // Index 0 = A, 1 = B, 2 = C, 3 = D.
+    const positionCounts = [0, 0, 0, 0];
+
+    // Random processing order prevents a predictable pattern.
+    const scoredQuestions = shuffleArray(
+        questions.filter(
+            question =>
+                question.category !== "profile" &&
+                question.answers.length === 4
+        )
+    );
+
+    for (const question of scoredQuestions) {
+        const highestScore = Math.max(
+            ...question.answers.map(answer => answer[1])
+        );
+
+        const permutations = getPermutations(question.answers);
+
+        let bestCost = Infinity;
+        let bestPermutations = [];
+
+        for (const permutation of permutations) {
+            const counts = [...positionCounts];
+
+            permutation.forEach((answer, position) => {
+                if (answer[1] === highestScore) {
+                    counts[position]++;
+                }
+            });
+
+            // Prefer the most balanced distribution.
+            const cost = counts.reduce(
+                (total, count) => total + count * count,
+                0
+            );
+
+            if (cost < bestCost) {
+                bestCost = cost;
+                bestPermutations = [permutation];
+            } else if (cost === bestCost) {
+                bestPermutations.push(permutation);
+            }
+        }
+
+        // Randomly choose among equally balanced arrangements.
+        question.answers = bestPermutations[
+            Math.floor(Math.random() * bestPermutations.length)
+        ];
+
+        question.answers.forEach((answer, position) => {
+            if (answer[1] === highestScore) {
+                positionCounts[position]++;
+            }
+        });
+    }
+
+    // Profile questions have no correct or higher-scoring answer.
+    questions
+        .filter(question => question.category === "profile")
+        .forEach(question => {
+            question.answers = shuffleArray(question.answers);
+        });
+}
+
+balanceAnswerOptions(questions);
+
+
+// ============================================================
+// DOM ELEMENTS
+// ============================================================
+const $ = id => document.getElementById(id);
+const startButton = $('start-btn');
+const restartButton = $('restart-btn');
+const shareButton = $('share-btn');
+const challengeButton = $('challenge-btn');
+const backButton = $('back-btn');
+const nextButton = $('next-btn');
+const submitButton = $('submit-btn');
+const startScreen = $('start-screen');
+const quizScreen = $('quiz-screen');
+const resultScreen = $('result-screen');
+const homeInfo = $('home-info');
+const suggestionsCard = $('suggestions-card');
+const questionNumber = $('question-number');
+const questionText = $('question');
+const answersContainer = $('answers');
+const progressBar = $('progress-bar');
+const resultTitle = $('result-title');
+const finalScore = $('final-score');
+const resultDescription = $('result-description');
+const rightNowDescription = $('right-now-description');
+const strengthArea = $('strength-area');
+const weaknessArea = $('weakness-area');
+const categories = {
+  physical: { label: '💪 Physical', element: $('physical-score') },
+  medical: { label: '🩺 Medical', element: $('medical-score') },
+  resources: { label: '💧 Resources', element: $('resources-score') },
+  practical: { label: '🛠️ Practical Skills', element: $('practical-score') },
+  environment: { label: '🏠 Environment', element: $('environment-score') }
+};
+const categoryKeys = Object.keys(categories);
+
+let currentQuestion = 0;
+let selectedAnswers = Array(questions.length).fill(null);
+let advanceTimer = null;
+
+// Convert each scored answer to a 0–100 question value.
+// Each question is weighted equally within its category.
+const questionBounds = questions.map(question => {
+  const points = question.answers.map(answer => answer[1]);
+  return { min: Math.min(...points), max: Math.max(...points) };
+});
+
+function toPercent(value, bounds) {
+  if (bounds.max <= bounds.min) return 0;
+  return Math.max(0, Math.min(100,
+    Math.round(((value - bounds.min) / (bounds.max - bounds.min)) * 100)
+  ));
+}
+
+function resetAnswers() {
+  currentQuestion = 0;
+  selectedAnswers = Array(questions.length).fill(null);
+  if (advanceTimer !== null) clearTimeout(advanceTimer);
+  advanceTimer = null;
+}
+
+function startQuiz() {
+  resetAnswers();
+  startScreen.classList.add('hidden');
+  resultScreen.classList.add('hidden');
+  quizScreen.classList.remove('hidden');
+  homeInfo?.classList.add('hidden');
+  suggestionsCard?.classList.add('hidden');
+  progressBar.style.width = '0%';
+  showQuestion();
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+function showQuestion() {
+  const question = questions[currentQuestion];
+  questionNumber.textContent = `Question ${currentQuestion + 1} of ${questions.length}`;
+  questionText.textContent = question.question;
+  answersContainer.replaceChildren();
+  progressBar.style.width = `${((currentQuestion + 1) / questions.length) * 100}%`;
+
+  question.answers.forEach(([label], index) => {
+    const button = document.createElement('button');
+    button.className = 'answer';
+    button.type = 'button';
+    button.textContent = label;
+    button.setAttribute('aria-pressed', String(selectedAnswers[currentQuestion] === index));
+    button.classList.toggle('selected', selectedAnswers[currentQuestion] === index);
+    button.addEventListener('click', () => selectAnswer(index));
+    answersContainer.appendChild(button);
+  });
+  updateNavigation();
+}
+
+function selectAnswer(answerIndex) {
+    selectedAnswers[currentQuestion] = answerIndex;
+    const buttons = answersContainer.querySelectorAll(".answer");
+    buttons.forEach((button, index) => {
+        button.classList.toggle("selected", index === answerIndex);
+    });
+    updateNavigation();
+
+    const questionAtSelection = currentQuestion;
+    setTimeout(() => {
+        if (
+            currentQuestion === questionAtSelection &&
+            selectedAnswers[questionAtSelection] === answerIndex &&
+            currentQuestion < questions.length - 1
+        ) {
+            currentQuestion++;
+            showQuestion();
+        }
+    }, 180);
+}
+
+function goNext() {
+  if (selectedAnswers[currentQuestion] === null) return;
+  if (currentQuestion === questions.length - 1) return showResult();
+  if (advanceTimer !== null) clearTimeout(advanceTimer);
+  advanceTimer = null;
+  currentQuestion++;
+  showQuestion();
+}
+
+function goBack() {
+  if (currentQuestion === 0) return;
+  if (advanceTimer !== null) clearTimeout(advanceTimer);
+  advanceTimer = null;
+  currentQuestion--;
+  showQuestion();
+  questionText.scrollIntoView({ behavior: 'smooth', block: 'start' });
+}
+
+function updateNavigation() {
+  const isFirst = currentQuestion === 0;
+  const isLast = currentQuestion === questions.length - 1;
+  const currentAnswered = selectedAnswers[currentQuestion] !== null;
+  const allAnswered = selectedAnswers.every(answer => answer !== null);
+
+  backButton.disabled = isFirst;
+  nextButton.classList.toggle('hidden', isLast);
+  submitButton.classList.toggle('hidden', !isLast);
+  nextButton.disabled = !currentAnswered;
+  submitButton.disabled = !allAnswered;
+  submitButton.textContent = allAnswered ? 'SUBMIT' : 'Answer All Questions';
+}
+
+function calculateScores() {
+  const sums = Object.fromEntries(categoryKeys.map(key => [key, 0]));
+  const counts = Object.fromEntries(categoryKeys.map(key => [key, 0]));
+
+  selectedAnswers.forEach((answerIndex, questionIndex) => {
+    if (answerIndex === null) return;
+    const question = questions[questionIndex];
+    if (!Object.prototype.hasOwnProperty.call(sums, question.category)) return;
+
+    const points = question.answers[answerIndex][1];
+    sums[question.category] += toPercent(points, questionBounds[questionIndex]);
+    counts[question.category]++;
+  });
+
+  const percentages = {};
+  for (const key of categoryKeys) {
+    percentages[key] = counts[key] ? Math.round(sums[key] / counts[key]) : 0;
+  }
+  // Each of the five categories contributes exactly one-fifth of the overall score.
+  const total = Math.round(categoryKeys.reduce((sum, key) => sum + percentages[key], 0) / categoryKeys.length);
+  return { total, categories: percentages };
+}
+
+function showResult() {
+  if (!selectedAnswers.every(answer => answer !== null)) return;
+  if (advanceTimer !== null) clearTimeout(advanceTimer);
+  advanceTimer = null;
+
+  const scores = calculateScores();
+  quizScreen.classList.add('hidden');
+  resultScreen.classList.remove('hidden');
+  homeInfo?.classList.remove('hidden');
+  suggestionsCard?.classList.remove('hidden');
+  finalScore.textContent = scores.total;
+  setResult(scores.total);
+  updateCategoryScores(scores.categories);
+  updateStrengthWeakness(scores.categories);
+progressBar.style.width = '100%';
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+function setResult(score) {
+  const results = [
+    [20, 'BARELY PREPARED',
+      'Your answers point to several gaps to work on. Start with basic supplies, a simple household plan and a few practical skills.',
+      'In this fictional scenario, you may need to improvise early. Prioritise immediate safety, reliable information, water and trusted contacts.'],
+    [40, 'UNDERPREPARED',
+      'You have a few useful advantages, but some basics need attention before a disruption lasts more than a day or two.',
+      'A longer disruption could test your supplies, plans and practical skills. Start by improving the weakest basics.'],
+    [60, 'REASONABLY PREPARED',
+      'You have a decent foundation and several useful habits. A little extra planning could make your setup more resilient.',
+      'Your answers suggest you have some options. Staying flexible and using supplies wisely would still matter.'],
+    [80, 'WELL PREPARED',
+      'You have a strong mix of useful skills, supplies and plans. Keep checking that resources are current and backup plans realistic.',
+      'Your preparations give you a solid starting point in this fictional scenario. Adapting as conditions change would still matter.'],
+    [100, 'HIGHLY PREPARED',
+      'Your answers show a strong combination of practical skills, supplies and backup plans. There is always room to review assumptions and keep learning.',
+      'Your preparation gives you a strong starting point—not a guarantee. Avoid unnecessary risks and keep plans flexible.']
+  ];
+  const result = results.find(([limit]) => score <= limit) || results[results.length - 1];
+  resultTitle.textContent = result[1];
+  resultDescription.textContent = result[2];
+  rightNowDescription.textContent = result[3];
+}
+
+function updateCategoryScores(percentages) {
+  for (const key of categoryKeys) {
+    const element = categories[key].element;
+    if (element) element.textContent = `${percentages[key]}%`;
+  }
+}
+
+function updateStrengthWeakness(percentages) {
+  const values = categoryKeys.map(key => percentages[key]);
+  const highest = Math.max(...values);
+  const lowest = Math.min(...values);
+  const strongest = categoryKeys.filter(key => percentages[key] === highest);
+  const weakest = categoryKeys.filter(key => percentages[key] === lowest);
+
+  strengthArea.textContent = strongest.length === categoryKeys.length
+    ? 'Balanced across all categories'
+    : strongest.map(key => categories[key].label).join(' · ');
+  weaknessArea.textContent = weakest.length === categoryKeys.length
+    ? 'No single weakest category'
+    : weakest.map(key => categories[key].label).join(' · ');
+}
+
+
+function restartQuiz() {
+  resetAnswers();
+  resultScreen.classList.add('hidden');
+  quizScreen.classList.add('hidden');
+  startScreen.classList.remove('hidden');
+  homeInfo?.classList.remove('hidden');
+  suggestionsCard?.classList.add('hidden');
+  progressBar.style.width = '0%';
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+async function copyOrShare(title, message, copiedNotice) {
+  const url = window.location.href;
+  const fullText = `${message}\n\n${url}`;
+  if (navigator.share) {
+    try {
+      await navigator.share({ title, text: message, url });
+      return;
+    } catch (error) {
+      if (error && error.name === 'AbortError') return; // User cancelled sharing.
+    }
   }
 
-html {
-scroll-behavior: smooth;
-}
-
-body {
-margin: 0;
-min-height: 100vh;
-font-family: Arial, Helvetica, sans-serif;
-color: #f2f2f2;
-
-background-color: #c5ad82;
-background-image: url("/images/parchment-bg.png");
-background-size: cover;
-background-position: center;
-background-repeat: no-repeat;
-background-attachment: fixed;
-
-display: flex;
-flex-direction: column;
-padding: 0;
-
-}
-
-.hidden {
-display: none !important;
-}
-
-/* ===============================
-   GLOBAL SITE HEADER
-   MATCHES THE SURVIVAL GUIDES HEADER
-   =============================== */
-
-.site-header {
-    position: relative;
-    z-index: 100;
-
-    width: 100%;
-
-    background: #080808;
-    color: #ffffff;
-
-    border-bottom: 2px solid #b51f1f;
-}
-
-.header-inner {
-    width: auto;
-    min-height: 100px;
-
-    margin: 0 auto;
-
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-
-    gap: 24px;
-}
-
-
-/* BRAND / SITE TITLE */
-
-.site-title,
-.brand,
-.site-brand {
-    display: inline-flex;
-    align-items: center;
-    gap: 12px;
-
-    margin: 0;
-
-    color: #ffffff;
-    text-decoration: none;
-
-    font-family: Georgia, "Times New Roman", serif;
-    font-size: clamp(1.2rem, 2.5vw, 1.65rem);
-    font-weight: 900;
-
-    letter-spacing: -0.5px;
-    line-height: 1.1;
-    white-space: nowrap;
-    user-select: none;
-}
-
-.site-title:hover,
-.brand:hover,
-.site-brand:hover {
-    color: #ffffff;
-}
-
-.site-icon {
-    display: block;
-    width: 42px;
-    height: 42px;
-    flex: 0 0 auto;
-    object-fit: contain;
-}
-
-.site-title > span,
-.brand-accent,
-.site-brand > span {
-    color: #d32929;
-}
-
-
-/* MAIN NAVIGATION */
-
-.top-nav {
-    display: flex;
-    align-items: center;
-    justify-content: flex-end;
-    flex-wrap: wrap;
-
-    gap: 26px;
-    margin-left: auto;
-}
-
-.top-nav a {
-    position: relative;
-    display: inline-block;
-
-    padding: 10px 0;
-
-    color: #dddddd;
-    text-decoration: none;
-
-    font-size: 0.95rem;
-    font-weight: 700;
-    white-space: nowrap;
-
-    transition: color 0.2s ease;
-}
-
-.top-nav a:hover {
-    color: #ffffff;
-}
-
-.top-nav a[aria-current="page"] {
-    color: #ffffff;
-    
-}
-
-.top-nav a[aria-current="page"]::after {
-    content: "";
-
-    position: absolute;
-    left: 0;
-    bottom: 2px;
-
-    width: 100%;
-    height: 2px;
-}
-
-
-/* HAMBURGER BUTTON */
-
-.menu-toggle {
-    display: flex;
-    flex: 0 0 auto;
-
-    width: 46px;
-    height: 44px;
-    padding: 10px;
-
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    gap: 5px;
-
-    border: 1px solid #d32929;
-    border-radius: 6px;
-
-    background: #b51f1f;
-    color: #ffffff;
-
-    box-shadow: 0 2px 7px rgba(181, 31, 31, 0.3);
-
-    cursor: pointer;
-    transform: none;
-
-    transition:
-        background 0.2s ease,
-        border-color 0.2s ease,
-        box-shadow 0.2s ease;
-}
-
-.menu-toggle span {
-    display: block;
-
-    width: 24px;
-    height: 2.5px;
-    margin: 0 auto;
-
-    border-radius: 3px;
-    background: #ffffff;
-
-    transition:
-        transform 0.2s ease,
-        opacity 0.2s ease;
-}
-
-.menu-toggle:hover {
-    background: #d32929;
-    border-color: #ff4545;
-    box-shadow: 0 3px 10px rgba(181, 31, 31, 0.45);
-}
-
-.menu-toggle:focus-visible {
-    outline: 2px solid #ffffff;
-    outline-offset: 3px;
-}
-
-
-/* HAMBURGER ANIMATION */
-
-.menu-toggle[aria-expanded="true"] span:nth-child(1) {
-    transform: translateY(7.5px) rotate(45deg);
-}
-
-.menu-toggle[aria-expanded="true"] span:nth-child(2) {
-    opacity: 0;
-}
-
-.menu-toggle[aria-expanded="true"] span:nth-child(3) {
-    transform: translateY(-7.5px) rotate(-45deg);
-}
-
-
-/* HAMBURGER DROPDOWN MENU */
-
-.site-menu {
-    position: absolute;
-
-    top: 100%;
-    right: max(20px);
-    left: auto;
-
-    z-index: 1000;
-
-    width: 270px;
-    max-width: calc(100vw - 40px);
-
-    padding: 0;
-
-    border: 1px solid #333333;
-    border-top: 2px solid #b51f1f;
-    border-radius: 0 0 6px 6px;
-
-    background: #080808;
-
-    box-shadow: 0 8px 22px rgba(0, 0, 0, 0.35);
-}
-
-.site-menu[hidden] {
-    display: none !important;
-}
-
-.menu-links {
-    display: flex;
-    flex-direction: column;
-    gap: 0;
-
-    padding: 8px 0;
-}
-
-.menu-links a {
-    display: block;
-
-    padding: 12px 18px;
-    border-radius: 0;
-
-    color: #dddddd;
-    font-size: 0.92rem;
-    font-weight: 600;
-    text-decoration: none;
-
-    transition:
-        background 0.2s ease,
-        color 0.2s ease;
-}
-
-.menu-links a:hover {
-    background: #1b1b1b;
-    color: #ffffff;
-    padding-left: 18px;
-}
-
-.menu-divider {
-    height: 1px;
-    margin: 6px 0;
-    background: #333333;
-}
-
-/* =====================================================
-MAIN CONTAINER
-===================================================== */
-
-.container {
-position: relative;
-z-index: 1;
-
-width: 100%;
-max-width: 760px;
-
-margin: 20px auto;
-
-}
-
-/* =====================================================
-COMMON SCREEN
-===================================================== */
-
-.screen {
-width: 100%;
-
-background: rgba(12, 12, 12, 0.96);
-
-border: 1px solid #3a3a3a;
-border-radius: 18px;
-
-padding: 45px;
-
-box-shadow:
-    0 25px 80px rgba(0, 0, 0, 0.8),
-    0 0 0 1px rgba(255, 255, 255, 0.02);
-
-animation: appear 0.4s ease;
-
-}
-
-/* =====================================================
-START SCREEN
-===================================================== */
-
-#start-screen {
-text-align: center;
-}
-
-.intro-card {
-background: rgba(12, 12, 12, 0.96);
-
-border: 1px solid #3a3a3a;
-border-radius: 18px;
-
-padding: 45px;
-
-box-shadow:
-    0 25px 80px rgba(0, 0, 0, 0.8),
-    0 0 0 1px rgba(255, 255, 255, 0.02);
-
-animation: appear 0.4s ease;
-
-}
-
-/* =====================================================
-START IMAGE
-===================================================== */
-
-.quiz-start-image,
-.preparedness-image {
-display: block;
-
-width: 100%;
-max-width: 670px;
-
-height: auto;
-
-aspect-ratio: 16 / 9;
-
-object-fit: cover;
-
-margin: 0 auto 25px;
-
-border-radius: 12px;
-
-}
-
-/* =====================================================
-START SCREEN TYPOGRAPHY
-===================================================== */
-
-.intro-icon {
-font-size: 60px;
-margin-bottom: 10px;
-filter: grayscale(20%);
-}
-
-.icon {
-font-size: 80px;
-margin-bottom: 10px;
-filter: grayscale(20%);
-}
-
-.quiz-category {
-margin-bottom: 12px;
-
-color: #b51f1f;
-
-font-size: 12px;
-font-weight: 800;
-
-letter-spacing: 2px;
-
-text-transform: uppercase;
-
-}
-
-h1 {
-font-size: clamp(32px, 7vw, 52px);
-
-line-height: 1.05;
-
-margin: 10px 0 22px;
-
-letter-spacing: -1px;
-
-}
-
-.subtitle {
-max-width: 560px;
-
-margin: auto;
-
-color: #aaa;
-
-font-size: 18px;
-
-line-height: 1.7;
-
-}
-
-.info {
-display: flex;
-
-justify-content: center;
-align-items: center;
-
-flex-wrap: wrap;
-
-gap: 14px;
-
-margin: 28px 0;
-
-color: #777;
-
-font-size: 14px;
-
-text-transform: uppercase;
-
-letter-spacing: 1px;
-
-}
-
-.start-note {
-max-width: 600px;
-
-margin: 0 auto 22px;
-
-color: #888;
-
-font-size: 14px;
-
-line-height: 1.6;
-
-}
-
-/* =====================================================
-START / WARNING
-===================================================== */
-
-.intro-warning {
-max-width: 620px;
-
-margin: 25px auto;
-
-padding: 20px;
-
-background: #171717;
-
-border-left: 4px solid #b51f1f;
-
-border-radius: 8px;
-
-color: #bbb;
-
-text-align: left;
-
-}
-
-.intro-warning p {
-margin: 0;
-}
-
-.intro-warning .highlight {
-margin-bottom: 8px;
-
-color: #fff;
-
-font-weight: 800;
-
-}
-
-/* =====================================================
-BUTTONS
-===================================================== */
-
-button {
-border: none;
-border-radius: 9px;
-
-padding: 17px 20px;
-
-font-size: 15px;
-font-weight: 700;
-
-letter-spacing: 0.7px;
-
-cursor: pointer;
-
-transition:
-    transform 0.15s,
-    background 0.15s,
-    border-color 0.15s;
-
-}
-
-#start-btn,
-#restart-btn,
-#share-btn,
-#challenge-btn {
-width: 100%;
-
-margin-top: 10px;
-
-background: #b51f1f;
-
-color: white;
-
-}
-
-#start-btn:hover,
-#restart-btn:hover {
-background: #d32929;
-
-transform: translateY(-2px);
-
-}
-
-#challenge-btn {
-background: #3a3a3a;
-
-border: 1px solid #555;
-
-}
-
-#challenge-btn:hover {
-background: #4a4a4a;
-
-transform: translateY(-2px);
-
-}
-
-#share-btn {
-background: #222;
-
-border: 1px solid #444;
-
-}
-
-#share-btn:hover {
-background: #303030;
-
-transform: translateY(-2px);
-
-}
-
-/* =====================================================
-QUIZ SCREEN
-===================================================== */
-
-#quiz-screen {
-min-height: 500px;
-}
-
-/* =====================================================
-QUIZ HEADER
-===================================================== */
-
-.quiz-header {
-display: flex;
-
-justify-content: space-between;
-align-items: center;
-
-gap: 15px;
-
-color: #777;
-
-font-size: 13px;
-
-text-transform: uppercase;
-
-letter-spacing: 1px;
-
-}
-
-#quiz-label {
-text-align: right;
-}
-
-/* =====================================================
-PROGRESS BAR
-===================================================== */
-
-.progress {
-width: 100%;
-
-height: 6px;
-
-margin-top: 14px;
-
-background: #292929;
-
-border-radius: 10px;
-
-overflow: hidden;
-
-}
-
-#progress-bar {
-height: 100%;
-
-width: 0%;
-
-background: #b51f1f;
-
-transition: width 0.3s ease;
-
-}
-
-/* =====================================================
-QUESTIONS
-===================================================== */
-
-#question {
-min-height: 86px;
-
-margin: 35px 0 25px;
-
-font-size: clamp(22px, 5vw, 31px);
-
-line-height: 1.4;
-
-overflow-wrap: break-word;
-
-font-weight: 700;
-
-}
-
-/* =====================================================
-ANSWERS
-===================================================== */
-
-#answers {
-min-height: 250px;
-
-display: flex;
-
-flex-direction: column;
-
-gap: 12px;
-
-}
-
-.answer,
-.answer-btn {
-display: block;
-
-width: 100%;
-
-margin: 0;
-
-padding: 19px;
-
-text-align: left;
-
-color: #ddd;
-
-background: #171717;
-
-border: 1px solid #333;
-
-border-radius: 10px;
-
-line-height: 1.45;
-
-overflow-wrap: break-word;
-
-transition:
-    background 0.15s ease,
-    border-color 0.15s ease,
-    transform 0.15s ease;
-
-}
-
-.answer:hover,
-.answer-btn:hover {
-background: #242424;
-
-border-color: #666;
-
-transform: translateX(3px);
-
-}
-
-.answer.selected,
-.answer-btn.selected {
-background: #292929;
-
-border-color: #b51f1f;
-
-box-shadow:
-    0 0 0 1px rgba(181, 31, 31, 0.25);
-
-}
-
-/* =====================================================
-QUIZ NAVIGATION
-===================================================== */
-
-.quiz-navigation {
-display: flex;
-
-justify-content: space-between;
-align-items: center;
-
-gap: 12px;
-
-width: 100%;
-
-margin-top: 28px;
-
-}
-
-.nav-btn {
-flex: 0 1 auto;
-
-min-width: 110px;
-min-height: 46px;
-
-padding: 12px 17px;
-
-border-radius: 8px;
-
-font-size: 13px;
-font-weight: 700;
-
-cursor: pointer;
-
-transition:
-    transform 0.15s ease,
-    background 0.15s ease,
-    border-color 0.15s ease;
-
-}
-
-.nav-btn:hover:not(:disabled) {
-transform: translateY(-1px);
-}
-
-.nav-btn:disabled {
-cursor: not-allowed;
-}
-
-/* =====================================================
-BACK BUTTON
-===================================================== */
-
-#back-btn {
-background: #171717;
-color: #aaa;
-}
-
-#back-btn:hover:not(:disabled) {
-background: #242424;
-color: #ddd;
-}
-
-#back-btn:disabled {
-background: #111;
-
-border-color: #292929;
-
-color: #444;
-
-cursor: not-allowed;
-
-opacity: 0.7;
-
-transform: none;
-
-}
-
-/* =====================================================
-NEXT BUTTON
-===================================================== */
-
-#next-btn {
-background: #b51f1f;
-
-border-color: #b51f1f;
-
-color: white;
-
-}
-
-#next-btn:hover:not(:disabled) {
-background: #d32929;
-
-border-color: #d32929;
-
-}
-
-/* =====================================================
-SUBMIT BUTTON
-===================================================== */
-
-#submit-btn {
-background: #b51f1f;
-
-border-color: #b51f1f;
-
-color: white;
-
-}
-
-#submit-btn:hover:not(:disabled) {
-background: #d32929;
-
-border-color: #d32929;
-
-}
-
-#submit-btn:disabled {
-background: #222;
-
-border-color: #333;
-
-color: #666;
-
-cursor: not-allowed;
-
-opacity: 0.7;
-
-transform: none;
-
-}
-
-/* =====================================================
-PREPAREDNESS RESULT SCREEN
-===================================================== */
-
-#result-screen {
-text-align: center;
-}
-
-.result-label {
-margin: 0 0 8px;
-
-color: #777;
-
-font-size: 13px;
-font-weight: 800;
-
-letter-spacing: 3px;
-
-text-transform: uppercase;
-
-}
-
-#result-title {
-margin-top: 10px;
-margin-bottom: 10px;
-
-font-size: clamp(30px, 7vw, 46px);
-
-text-align: center;
-
-}
-
-.result-score {
-margin: 20px 0;
-
-font-size: 56px;
-font-weight: 800;
-
-line-height: 1;
-
-text-align: center;
-
-}
-
-#result-description {
-max-width: 600px;
-
-margin: 0 auto 25px;
-
-color: #bbb;
-
-font-size: 17px;
-
-line-height: 1.7;
-
-text-align: center;
-
-}
-
-
-/* =================================================
-   APOCALYPSE SURVIVAL BRIEFING
-   ================================================= */
-
-.intro-warning {
-    background: linear-gradient(135deg, #202923 0%, #29352b 100%);
-    border: 1px solid #536c51;
-    border-left: 5px solid #a8ca78;
-    border-radius: 8px;
-    padding: 22px 24px;
-    margin: 24px 0;
-    box-shadow: 0 5px 16px rgba(0, 0, 0, 0.14);
-    text-align: center;
-}
-
-/* Tactical briefing label */
-.intro-warning .highlight {
-    display: flex;
-    gap: 9px;
-    color: #b6d78d;
-    font-size: 0.78rem;
-    font-weight: 800;
-    letter-spacing: 1.4px;
-    text-transform: uppercase;
-    margin: 0 0 14px;
-    text-align: center;
-}
-
-/* Dynamic result description */
-#right-now-description {
-    color: #e0e8dc;
-    font-size: 1rem;
-    line-height: 1.75;
-    margin: 0;
-    text-align: center;
-}
-
-/* Mobile adjustments */
-@media (max-width: 600px) {
-    .intro-warning {
-        padding: 18px;
-        margin: 18px 0;
+  try {
+    if (navigator.clipboard?.writeText) {
+      await navigator.clipboard.writeText(fullText);
+      alert(copiedNotice);
+      return;
     }
+  } catch (_) {
+    // Use the legacy copy method below if clipboard access is unavailable.
+  }
 
-    .intro-warning .highlight {
-        font-size: 0.7rem;
-        letter-spacing: 1px;
-        text-align: center;
+  if (fallbackCopy(fullText)) alert(copiedNotice);
+  else window.prompt('Copy your message below:', fullText);
+}
+
+function fallbackCopy(text) {
+  const textarea = document.createElement('textarea');
+  textarea.value = text;
+  Object.assign(textarea.style, { position: 'fixed', left: '-9999px', top: '0' });
+  document.body.appendChild(textarea);
+  textarea.select();
+  let copied = false;
+  try { copied = document.execCommand('copy'); } catch (_) { copied = false; }
+  textarea.remove();
+  return copied;
+}
+
+function shareResult() {
+  const score = finalScore.textContent;
+  const title = 'How Prepared Are You for the Apocalypse?';
+  return copyOrShare(title,
+    `🧟 I scored ${score}% on the Apocalypse Preparedness Quiz!\n\n${resultTitle.textContent}\nHow prepared are YOU?`,
+    'Your result was copied. You can paste it anywhere.');
+}
+
+function challengeFriends() {
+  const score = finalScore.textContent;
+  return copyOrShare('Apocalypse Preparedness Challenge',
+    `🧟 I scored ${score}% on the Apocalypse Preparedness Quiz!\n\nHow prepared are YOU?`,
+    'Challenge copied. You can now send it to your friends.');
+}
+
+startButton.addEventListener('click', startQuiz);
+restartButton.addEventListener('click', restartQuiz);
+shareButton.addEventListener('click', shareResult);
+challengeButton.addEventListener('click', challengeFriends);
+backButton.addEventListener('click', goBack);
+nextButton.addEventListener('click', goNext);
+submitButton.addEventListener('click', showResult);
+</script>
+
+<script>
+// The site's navigation menu is separate from the quiz logic.
+(() => {
+  const toggle = document.getElementById('menu-toggle');
+  const menu = document.getElementById('site-menu');
+  if (!toggle || !menu) return;
+
+  function setMenuOpen(open) {
+    menu.hidden = !open;
+    toggle.setAttribute('aria-expanded', String(open));
+    toggle.setAttribute('aria-label', open ? 'Close navigation' : 'Open navigation');
+  }
+
+  toggle.addEventListener('click', event => {
+    event.stopPropagation();
+    setMenuOpen(toggle.getAttribute('aria-expanded') !== 'true');
+  });
+  document.addEventListener('click', event => {
+    if (!menu.hidden && !menu.contains(event.target) && !toggle.contains(event.target)) {
+      setMenuOpen(false);
     }
+  });
+  menu.querySelectorAll('a').forEach(link => link.addEventListener('click', () => setMenuOpen(false)));
+})();
+</script>
 
-    #right-now-description {
-        font-size: 0.94rem;
-        line-height: 1.65;
-        text-align: center;
-    }
-}
 
+</body>
 
-/* =====================================================
-PREPAREDNESS — PROFILE
-===================================================== */
-
-.profile-section {
-width: 100%;
-
-margin-top: 35px;
-
-text-align: left;
-
-}
-
-.profile-section h2 {
-min-height: 0;
-
-margin: 0 0 18px;
-
-color: #eee;
-
-font-size: 22px;
-
-line-height: 1.3;
-
-text-align: center;
-
-}
-
-.profile-grid {
-display: grid;
-
-grid-template-columns: repeat(2, 1fr);
-
-gap: 12px;
-
-}
-
-.profile-item {
-display: flex;
-
-justify-content: space-between;
-align-items: center;
-
-gap: 15px;
-
-min-height: 60px;
-
-padding: 16px;
-
-background: #171717;
-
-border: 1px solid #333;
-
-border-radius: 10px;
-
-color: #ddd;
-
-transition:
-    background 0.2s ease,
-    border-color 0.2s ease,
-    transform 0.2s ease;
-
-}
-
-.profile-item:hover {
-background: #1d1d1d;
-
-border-color: #4a4a4a;
-
-transform: translateY(-2px);
-
-}
-
-.profile-name {
-color: #bbb;
-
-font-weight: 700;
-
-}
-
-.profile-item span:last-child {
-color: #eee;
-
-font-weight: 900;
-
-}
-
-/* =====================================================
-PREPAREDNESS — STRENGTH / WEAKNESS
-===================================================== */
-
-.strength-section {
-display: grid;
-
-grid-template-columns: 1fr 1fr;
-
-gap: 15px;
-
-margin-top: 25px;
-
-text-align: left;
-
-}
-
-.strength-box,
-.weakness-box {
-min-height: 120px;
-
-padding: 20px;
-
-border-radius: 10px;
-
-}
-
-.strength-box {
-background: #171717;
-
-border: 1px solid #333;
-
-color: #fff;
-
-}
-
-.weakness-box {
-background: #151515;
-
-border: 1px solid #333;
-
-color: #fff;
-
-}
-
-.strength-box h3,
-.weakness-box h3 {
-margin: 0 0 8px;
-
-color: #fff;
-
-font-size: 15px;
-
-}
-
-.strength-box p,
-.weakness-box p {
-margin: 0;
-
-color: #ccc;
-
-font-weight: 700;
-
-line-height: 1.5;
-
-}
-
-/* =====================================================
-RESULT ACTION AREA
-===================================================== */
-
-#restart-btn {
-margin-top: 30px;
-}
-
-#share-btn,
-#challenge-btn {
-margin-top: 10px;
-}
-
-/* =====================================================
-HOMEPAGE / QUIZ INFORMATION
-===================================================== */
-
-#home-info {
-display: grid;
-
-grid-template-columns: 1fr;
-
-gap: 20px;
-
-margin-top: 30px;
-
-}
-
-.home-info {
-margin-top: 0;
-
-padding: 30px;
-
-background: rgba(12, 12, 12, 0.96);
-
-border: 1px solid #3a3a3a;
-
-border-radius: 18px;
-
-}
-
-.home-info h2 {
-min-height: 0;
-
-margin: 0 0 12px;
-
-color: #eee;
-
-font-size: 26px;
-
-line-height: 1.25;
-
-}
-
-.home-info p {
-margin: 0 0 15px;
-
-color: #aaa;
-
-font-size: 15px;
-
-line-height: 1.7;
-
-}
-
-.home-info h3 {
-margin-top: 28px;
-margin-bottom: 8px;
-
-color: #ddd;
-
-font-size: 18px;
-
-line-height: 1.35;
-
-}
-
-.home-info h3:first-of-type {
-margin-top: 20px;
-}
-
-/* =====================================================
-SUGGESTED QUIZZES
-===================================================== */
-
-.suggestions-card {
-margin-top: 20px;
-
-padding: 30px;
-
-background: rgba(12, 12, 12, 0.96);
-
-border: 1px solid #3a3a3a;
-
-border-radius: 18px;
-
-box-shadow:
-    0 25px 80px rgba(0, 0, 0, 0.8),
-    0 0 0 1px rgba(255, 255, 255, 0.02);
-
-animation: appear 0.4s ease;
-
-}
-
-.suggested-quizzes {
-margin: 0;
-
-padding: 0;
-
-border: none;
-
-}
-
-.suggested-quizzes h2 {
-min-height: 0;
-
-margin: 0 0 8px;
-
-text-align: center;
-
-font-size: 26px;
-
-}
-
-.suggested-subtitle {
-margin: 0 0 25px;
-
-color: #888;
-
-font-size: 14px;
-
-text-align: center;
-
-line-height: 1.6;
-
-}
-
-.suggested-grid {
-display: grid;
-
-grid-template-columns: repeat(3, 1fr);
-
-gap: 14px;
-
-}
-
-.suggested-card {
-display: flex;
-
-flex-direction: column;
-
-align-items: stretch;
-justify-content: flex-start;
-
-min-height: 260px;
-
-padding: 12px;
-
-background: #171717;
-
-border: 1px solid #333;
-
-border-radius: 12px;
-
-color: #ddd;
-
-text-decoration: none;
-
-text-align: center;
-
-overflow: hidden;
-
-transition:
-    transform 0.2s ease,
-    background 0.2s ease,
-    border-color 0.2s ease;
-
-}
-
-.suggested-image {
-display: block;
-
-width: 100%;
-
-aspect-ratio: 16 / 9;
-
-object-fit: cover;
-
-margin-bottom: 14px;
-
-border-radius: 8px;
-
-}
-
-.suggested-card:hover {
-background: #222;
-
-border-color: #666;
-
-transform: translateY(-4px);
-
-}
-
-.suggested-title {
-display: block;
-
-margin-bottom: 9px;
-
-color: #fff;
-
-font-size: 16px;
-font-weight: 700;
-
-line-height: 1.3;
-
-}
-
-.suggested-description {
-display: block;
-
-color: #999;
-
-font-size: 13px;
-
-line-height: 1.5;
-
-}
-
-/* =====================================================
-MORE QUIZZES CTA
-===================================================== */
-
-.more-quizzes-section {
-width: 100%;
-
-margin: 30px 0 0;
-
-padding-top: 28px;
-
-border-top: 1px solid #303030;
-
-text-align: center;
-
-}
-
-.more-quizzes-section h3 {
-margin: 0 0 8px;
-
-text-align: center;
-
-font-size: 1.25rem;
-
-}
-
-.more-quizzes-section p {
-max-width: 550px;
-
-margin: 0 auto 18px;
-
-color: #bbb;
-
-line-height: 1.5;
-
-text-align: center;
-
-opacity: 0.9;
-
-}
-
-.more-quizzes-section .more-quizzes-btn {
-display: block;
-
-width: fit-content;
-
-margin: 0 auto;
-
-padding: 12px 24px;
-
-background: #22c55e;
-
-color: #ffffff;
-
-text-decoration: none;
-
-font-size: 0.95rem;
-font-weight: 700;
-
-border-radius: 8px;
-
-box-shadow:
-    0 3px 10px rgba(34, 197, 94, 0.25);
-
-transition:
-    background 0.2s ease,
-    transform 0.2s ease,
-    box-shadow 0.2s ease;
-
-}
-
-.more-quizzes-section .more-quizzes-btn:hover {
-background: #16a34a;
-
-transform: translateY(-2px);
-
-box-shadow:
-    0 5px 14px rgba(34, 197, 94, 0.35);
-
-}
-
-/* =====================================================
-STANDALONE INFORMATION PAGES
-===================================================== */
-
-.info-page {
-width: 100%;
-max-width: 760px;
-
-margin: 40px auto;
-
-padding: 45px;
-
-background: rgba(12, 12, 12, 0.96);
-
-border: 1px solid #3a3a3a;
-
-border-radius: 18px;
-
-box-shadow:
-    0 25px 80px rgba(0, 0, 0, 0.8),
-    0 0 0 1px rgba(255, 255, 255, 0.02);
-
-}
-
-.info-page h1 {
-text-align: center;
-}
-
-.info-page h2 {
-min-height: 0;
-
-margin: 35px 0 12px;
-
-font-size: 24px;
-
-line-height: 1.3;
-
-}
-
-.info-page p {
-color: #bbb;
-
-font-size: 16px;
-
-line-height: 1.7;
-
-}
-
-.info-page a {
-color: #d32929;
-
-text-decoration: none;
-
-}
-
-.info-page a:hover {
-text-decoration: underline;
-}
-
-/* =====================================================
-SITE FOOTER
-===================================================== */
-
-.site-footer {
-width: 100%;
-
-margin-top: auto;
-
-padding: 10px 20px;
-
-background: #080808;
-
-color: #ffffff;
-
-border-top: 1px solid #292929;
-
-}
-
-.footer-inner {
-width: min(100%, 1100px);
-
-margin: auto;
-
-text-align: center;
-
-}
-
-.footer-brand {
-margin-bottom: 24px;
-
-color: #ffffff;
-
-font-size: 1.15rem;
-font-weight: 800;
-
-letter-spacing: 0.5px;
-
-text-align: center;
-
-}
-
-.footer-links {
-display: flex;
-
-justify-content: center;
-
-flex-wrap: wrap;
-
-gap: 10px 24px;
-
-margin-bottom: 26px;
-
-}
-
-.footer-links a {
-color: #dddddd;
-
-text-decoration: none;
-
-font-size: 0.92rem;
-font-weight: 600;
-
-transition: color 0.2s ease;
-
-}
-
-.footer-links a:hover {
-color: #ffffff;
-
-text-decoration: underline;
-
-}
-
-.copyright {
-margin-top: 12px;
-
-color: #999999;
-
-font-size: 0.8rem;
-
-}
-
-/* =====================================================
-   MOBILE
-   ===================================================== */
-
-@media (max-width: 600px) {
-
-    /* -------------------------------
-       Body
-       ------------------------------- */
-
-    body {
-    padding: 10px;
-}
-
-.site-header {
-    width: calc(100% + 20px);
-    margin: -10px -10px 0;
-}
-
-    
-    /* ===============================
-   SHARED HEADER / FOOTER — MOBILE
-   =============================== */
-
-@media (max-width: 640px) {
-
-    .header-inner {
-        width: calc(100% - 24px);
-        min-height: auto;
-
-        display: grid;
-        grid-template-columns: minmax(0, 1fr) auto;
-        grid-template-areas:
-            "brand brand"
-            "navigation menu";
-
-        align-items: center;
-        column-gap: 14px;
-        row-gap: 10px;
-
-        padding: 10px;
-    }
-
-    .site-title,
-    .brand,
-    .site-brand {
-        grid-area: brand;
-        font-size: 1.25rem;
-    }
-
-    .site-icon {
-        width: 36px;
-        height: 36px;
-    }
-
-    .top-nav {
-        grid-area: navigation;
-        min-width: 0;
-
-        margin-left: 0;
-
-        display: flex;
-        align-items: center;
-        justify-content: flex-end;
-        flex-wrap: nowrap;
-        gap: 18px;
-    }
-
-    .top-nav a {
-        padding: 7px 0;
-        font-size: 0.88rem;
-    }
-
-    .menu-toggle {
-        grid-area: menu;
-        justify-self: end;
-
-        width: 44px;
-        height: 42px;
-    }
-
-    .site-menu {
-        top: 100%;
-        right: 12px;
-        left: auto;
-
-        width: min(270px, calc(100vw - 24px));
-        max-width: none;
-    }
-
-    .site-footer {
-    width: calc(100% + 20px);
-    margin-left: -10px;
-    margin-right: -10px;
-    margin-bottom: -10px;
-}
-
-
-    .site-footer {
-        padding: 0;
-    }
-
-    .footer-brand {
-        margin-bottom: 10px;
-        font-size: 1.05rem;
-    }
-
-    .footer-links {
-        gap: 8px 18px;
-        margin-bottom: 10px;
-    }
-
-    .footer-links a {
-        font-size: 0.88rem;
-    }
-
-    .copyright {
-        font-size: 0.75rem;
-    }
-}
-
-@media (max-width: 380px) {
-
-    .site-title,
-    .brand,
-    .site-brand {
-        font-size: 1.15rem;
-    }
-
-    .top-nav {
-        gap: 12px;
-    }
-
-    .top-nav a {
-        font-size: 0.82rem;
-    }
-
-    .menu-toggle {
-        width: 42px;
-        height: 40px;
-    }
-}
-
-
-/* Container */
-
-.container {
-    margin: 15px auto;
-}
-
-
-/* Screens */
-
-.screen,
-.intro-card {
-    padding: 30px 20px;
-
-    border-radius: 14px;
-}
-
-
-/* Start */
-
-.quiz-start-image,
-.preparedness-image {
-    margin-bottom: 20px;
-
-    border-radius: 10px;
-}
-
-.intro-icon {
-    font-size: 50px;
-}
-
-.icon {
-    font-size: 60px;
-}
-
-.quiz-category {
-    font-size: 10px;
-
-    letter-spacing: 1.6px;
-}
-
-h1 {
-    font-size: clamp(29px, 8vw, 40px);
-}
-
-.subtitle {
-    font-size: 16px;
-}
-
-.info {
-    gap: 8px;
-
-    font-size: 11px;
-}
-
-.start-note {
-    font-size: 13px;
-}
-
-.spoiler-warning,
-.intro-warning {
-    padding: 15px;
-
-    font-size: 12px;
-}
-
-
-/* Quiz */
-
-.quiz-header {
-    font-size: 11px;
-}
-
-#question {
-    min-height: 0;
-
-    margin-top: 28px;
-
-    font-size: 23px;
-}
-
-.answer,
-.answer-btn {
-    padding: 17px 15px;
-
-    font-size: 15px;
-}
-
-
-/* Navigation */
-
-.quiz-navigation {
-    gap: 10px;
-
-    margin-top: 24px;
-}
-
-.nav-btn {
-    flex: 1;
-
-    min-width: 0;
-    min-height: 48px;
-
-    padding: 12px 10px;
-
-    font-size: 12px;
-}
-
-
-/* Results */
-
-.result-score {
-    font-size: 48px;
-}
-
-#result-title {
-    font-size: 32px;
-}
-
-#result-description {
-    font-size: 16px;
-}
-
-#right-now-description {
-    padding: 17px 15px;
-
-    font-size: 14px;
-}
-
-
-/* Preparedness Profile */
-
-.profile-section {
-    margin-top: 28px;
-}
-
-.profile-section h2 {
-    font-size: 21px;
-}
-
-.profile-grid {
-    grid-template-columns: 1fr;
-
-    gap: 10px;
-}
-
-.profile-item {
-    min-height: 56px;
-
-    padding: 14px;
-}
-
-
-/* Strength / Weakness */
-
-.strength-section {
-    grid-template-columns: 1fr;
-
-    gap: 12px;
-
-    margin-top: 20px;
-}
-
-.strength-box,
-.weakness-box {
-    min-height: 0;
-
-    padding: 18px;
-}
-
-
-/* Information */
-
-.home-info {
-    padding: 25px 20px;
-}
-
-.home-info h2 {
-    font-size: 23px;
-}
-
-.home-info h3 {
-    font-size: 17px;
-}
-
-
-/* Suggested Quizzes */
-
-.suggestions-card {
-    padding: 25px 20px;
-}
-
-.suggested-quizzes h2 {
-    font-size: 23px;
-}
-
-.suggested-grid {
-    grid-template-columns: 1fr;
-
-    gap: 12px;
-}
-
-.suggested-card {
-    min-height: auto;
-
-    padding: 12px;
-}
-
-
-/* Information Pages */
-
-.info-page {
-    margin: 20px auto;
-
-    padding: 30px 20px;
-
-    border-radius: 14px;
-}
-
-.info-page h1 {
-    font-size: 34px;
-}
-
-.info-page h2 {
-    font-size: 22px;
-}
-
-.info-page p {
-    font-size: 15px;
-}
-
-
-}
-
-/* =====================================================
-ANIMATIONS
-===================================================== */
-
-@keyframes appear {
-
-from {
-    opacity: 0;
-
-    transform: translateY(12px);
-}
-
-to {
-    opacity: 1;
-
-    transform: translateY(0);
-}
-
-}
+</html>
