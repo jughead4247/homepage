@@ -99,73 +99,44 @@ gtag('config', 'G-YC3ERJSBST');
      ===================================================== -->
 
 <header class="site-header">
-
-<button
-    class="menu-toggle"
-    id="menu-toggle"
-    type="button"
-    aria-label="Open navigation"
-    aria-expanded="false"
-    aria-controls="site-menu">
-
-<span></span>
-<span></span>
-<span></span>
-
-</button>
-
-<div class="site-title">
-    APOCALYPSE QUIZZES
+  <div class="header-inner">
+    <!-- BRAND -->
+    <div class="brand">
+    <img src="../favicon.png" alt="" class="site-icon">
+    <span>Apocalypse<span class="brand-accent">Quizzes</span></span>
 </div>
-
-</header>
-
-
-<!-- =====================================================
-     NAVIGATION
-     ===================================================== -->
-
-<nav
-    class="site-menu"
-    id="site-menu"
-    aria-label="Main navigation"
-    hidden>
-
-<div class="menu-links">
-
-<a href="/">
-    🏠 Home
-</a>
-
-<a href="/search/">
-    🔎 Search Quizzes
-</a>
-
-<a href="/categories/">
-    📂 Categories
-</a>
-
-<div class="menu-divider"></div>
-
-<a href="/about.html">
-    About
-</a>
-
-<a href="/privacy.html">
-    Privacy Policy
-</a>
-
-<a href="/disclaimer.html">
-    Disclaimer
-</a>
-
-<a href="/contact.html">
-    Contact
-</a>
-
-</div>
-
+    <!-- NAVIGATION -->
+    <nav class="top-nav" aria-label="Main navigation">
+        <a href="/">Quizzes</a>
+    <a href="/survival-guides/" aria-current="page">Survival Guides</a>
 </nav>
+<button class="menu-toggle"
+        id="menu-toggle"
+        type="button"
+        aria-label="Open menu"
+        aria-expanded="false"
+        aria-controls="site-menu">
+    <span></span>
+    <span></span>
+    <span></span>
+</button>
+  </div>
+  <nav class="site-menu" id="site-menu" aria-label="Main menu" hidden>
+    <div class="menu-links">
+        
+        <a href="/">🎯 Quizzes</a>
+        <a href="/search/">🔎 Search Quizzes</a>
+        <a href="/categories/">📂 Quiz Categories</a>
+        <div class="menu-divider"></div>
+        <a href="/survival-guides/">📚 Articles &amp; Guides</a>
+        <div class="menu-divider"></div>
+        <a href="/about.html">About</a>
+        <a href="/privacy.html">Privacy Policy</a>
+        <a href="/disclaimer.html">Disclaimer</a>
+        <a href="/contact.html">Contact</a>
+    </div>
+</nav>
+</header>
 
 
 <main class="container">
@@ -990,41 +961,20 @@ gtag('config', 'G-YC3ERJSBST');
      ===================================================== -->
 
 <footer class="site-footer">
-
-<div class="footer-inner">
-
-<div class="footer-brand">
-    APOCALYPSE QUIZZES
-</div>
-
-
-<div class="footer-links">
-
-<a href="/about.html">
-    About
-</a>
-
-<a href="/privacy.html">
-    Privacy Policy
-</a>
-
-<a href="/disclaimer.html">
-    Disclaimer
-</a>
-
-<a href="/contact.html">
-    Contact
-</a>
-
-</div>
-
-
-<div class="copyright">
-    © 2026 Apocalypse Quizzes
-</div>
-
-</div>
-
+    <div class="container footer-inner">
+      <div class="footer-brand">ApocalypseQuizzes</div>
+      <nav class="footer-links" aria-label="Footer navigation">
+        <a href="https://apocalypsequizzes.com/">Quizzes</a>
+        <a href="https://apocalypsequizzes.com/survival-guides/">Articles &amp; Guides</a>
+        <a href="/about.html">About</a>
+            <a href="/privacy.html">Privacy Policy</a>
+            <a href="/disclaimer.html">Disclaimer</a>
+            <a href="/contact.html">Contact</a>
+      </nav>
+      <p class="copyright">
+    © <span id="current-year">2026</span> Apocalypse Quizzes. All rights reserved.
+</p>
+    </div>
 </footer>
 
 
