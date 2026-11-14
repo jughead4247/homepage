@@ -1056,13 +1056,14 @@ h2 {
 }
 
 
+
+
 /* =====================================================
    SUGGESTED QUIZZES
    ===================================================== */
 
 .suggestions-card {
     margin-top: 20px;
-
     padding: 30px;
 
     background: rgba(12, 12, 12, 0.96);
@@ -1079,114 +1080,97 @@ h2 {
 
 .suggested-quizzes {
     margin: 0;
-
     padding: 0;
-
     border: none;
 }
 
+/* Heading */
+
 .suggested-quizzes h2 {
-    margin: 0 0 8px;
+    margin: 0 0 3px;
+
+    color: #ffffff;
+    font-size: 26px;
 
     text-align: center;
-
-    font-size: 26px;
 }
+
+/* Subtitle */
 
 .suggested-subtitle {
-    margin: 0 0 25px;
+    display: block;
 
-    color: #888;
+    margin: 0 0 14px;
 
-    font-size: 14px;
+    color: #ffffff;
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 1.3;
 
     text-align: center;
-
-    line-height: 1.6;
 }
+
+/* Quiz grid */
 
 .suggested-grid {
     display: grid;
 
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(5, minmax(0, 1fr));
 
     gap: 14px;
 }
 
-.suggested-card {
+/* Quiz cards */
+
+.suggested-quiz-card {
     display: flex;
 
+    min-width: 0;
+
     flex-direction: column;
+    gap: 7px;
 
-    align-items: stretch;
-    justify-content: flex-start;
-
-    min-height: 260px;
-
-    padding: 12px;
-
-    background: #171717;
-
-    border: 1px solid #333;
-    border-radius: 12px;
-
-    color: #ddd;
+    color: #ffffff !important;
+    font-size: .92rem;
+    font-weight: 650;
+    line-height: 1.35;
 
     text-decoration: none;
-
     text-align: center;
-
-    overflow: hidden;
-
-    transition:
-        transform 0.2s ease,
-        background 0.2s ease,
-        border-color 0.2s ease;
 }
 
-.suggested-image {
+.suggested-quiz-card:visited,
+.suggested-quiz-card:active {
+    color: #ffffff !important;
+}
+
+.suggested-quiz-card span {
+    color: #ffffff !important;
+}
+
+.suggested-quiz-card img {
     display: block;
 
     width: 100%;
+    aspect-ratio: 5 / 3;
 
-    aspect-ratio: 16 / 9;
+    border: 1px solid var(--aq-line);
+    border-radius: 8px;
+
+    background: #171717;
 
     object-fit: cover;
-
-    margin-bottom: 14px;
-
-    border-radius: 8px;
 }
 
-.suggested-card:hover {
-    background: #222;
-
-    border-color: #666;
-
-    transform: translateY(-4px);
+.suggested-quiz-card:hover span {
+    text-decoration: underline;
 }
 
-.suggested-title {
-    display: block;
+.suggested-quiz-card:focus-visible {
+    outline: 3px solid var(--aq-rust);
+    outline-offset: 4px;
 
-    margin-bottom: 9px;
-
-    color: #fff;
-
-    font-size: 16px;
-    font-weight: 700;
-
-    line-height: 1.3;
-}
-
-.suggested-description {
-    display: block;
-
-    color: #999;
-
-    font-size: 13px;
-
-    line-height: 1.5;
+    border-radius: 5px;
 }
 
 
@@ -1198,7 +1182,6 @@ h2 {
     width: 100%;
 
     margin: 30px 0 0;
-
     padding-top: 28px;
 
     border-top: 1px solid #303030;
@@ -1207,11 +1190,12 @@ h2 {
 }
 
 .more-quizzes-section h3 {
-    margin: 0 0 8px;
+    margin: 0 0 5px;
+
+    color: #ffffff;
+    font-size: 1.25rem;
 
     text-align: center;
-
-    font-size: 1.25rem;
 }
 
 .more-quizzes-section p {
@@ -1219,13 +1203,12 @@ h2 {
 
     margin: 0 auto 18px;
 
-    color: #bbb;
+    color: #cccccc;
 
     line-height: 1.5;
-
     text-align: center;
 
-    opacity: 0.9;
+    opacity: 0.95;
 }
 
 .more-quizzes-section .more-quizzes-btn {
@@ -1234,12 +1217,11 @@ h2 {
     width: fit-content;
 
     margin: 0 auto;
-
     padding: 12px 24px;
 
     background: #22c55e;
 
-    color: #ffffff;
+    color: #ffffff !important;
 
     text-decoration: none;
 
@@ -1265,6 +1247,34 @@ h2 {
     box-shadow:
         0 5px 14px rgba(34, 197, 94, 0.35);
 }
+
+
+/* =====================================================
+   RESPONSIVE DESIGN
+   ===================================================== */
+
+@media (max-width: 900px) {
+    .suggested-grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+}
+
+@media (max-width: 600px) {
+    .suggestions-card {
+        padding: 18px;
+    }
+
+    .suggested-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 10px;
+    }
+
+    .suggested-quizzes h2 {
+        font-size: 22px;
+    }
+}
+
+
 
 
 /* =====================================================
