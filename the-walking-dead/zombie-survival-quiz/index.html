@@ -1,0 +1,1680 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>The Walking Dead Zombie Survival Quiz – 30 Questions | Apocalypse Quizzes</title>
+
+<meta name="description" content="Could you survive The Walking Dead? Take this 30-question zombie survival quiz covering walker behavior, dangerous herds, communities, survival decisions and apocalypse preparedness.">
+
+<meta name="keywords" content="The Walking Dead survival quiz, The Walking Dead zombie survival quiz, zombie survival quiz, walker quiz, The Walking Dead trivia, zombie apocalypse survival, walker behavior, Alexandria, Terminus, Whisperers">
+
+<meta name="author" content="Apocalypse Quizzes">
+<meta name="robots" content="index, follow">
+
+<link rel="canonical" href="https://apocalypsequizzes.com/the-walking-dead/zombie-survival-quiz/">
+
+<meta property="og:title" content="The Walking Dead Zombie Survival Quiz – 30 Questions">
+<meta property="og:description" content="Could you survive The Walking Dead? Test your walker knowledge and survival instincts with 30 questions.">
+<meta property="og:url" content="https://apocalypsequizzes.com/the-walking-dead/zombie-survival-quiz/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Apocalypse Quizzes">
+
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="The Walking Dead Zombie Survival Quiz">
+<meta name="twitter:description" content="Could you survive The Walking Dead? Take 30 questions about walkers, communities and real-world apocalypse survival.">
+
+<link rel="icon" type="image/png" href="../../favicon.png">
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-YC3ERJSBST"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+
+function gtag() {
+    dataLayer.push(arguments);
+}
+
+gtag('js', new Date());
+gtag('config', 'G-YC3ERJSBST');
+</script>
+
+<!-- Google AdSense -->
+<script async
+    src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2285244517360573"
+    crossorigin="anonymous"></script>
+
+<link rel="stylesheet" href="../../style1.css">
+
+</head>
+
+<body>
+
+<header class="site-header">
+  <div class="header-inner">
+    <!-- BRAND -->
+    <div class="brand">
+    <img src="../../favicon.png" alt="" class="site-icon">
+    <span>Apocalypse<span class="brand-accent">Quizzes</span></span>
+</div>
+    <!-- NAVIGATION -->
+    <nav class="top-nav" aria-label="Main navigation">
+        <a href="/">Quizzes</a>
+    <a href="/survival-guides/" aria-current="page">Survival Guides</a>
+</nav>
+<button class="menu-toggle"
+        id="menu-toggle"
+        type="button"
+        aria-label="Open menu"
+        aria-expanded="false"
+        aria-controls="site-menu">
+    <span></span>
+    <span></span>
+    <span></span>
+</button>
+  </div>
+  <nav class="site-menu" id="site-menu" aria-label="Main menu" hidden>
+    <div class="menu-links">
+        
+        <a href="/">🎯 Quizzes</a>
+        <a href="/search/">🔎 Search Quizzes</a>
+        <a href="/categories/">📂 Quiz Categories</a>
+        <div class="menu-divider"></div>
+        <a href="/survival-guides/">📚 Articles &amp; Guides</a>
+        <div class="menu-divider"></div>
+        <a href="/about.html">About</a>
+        <a href="/privacy.html">Privacy Policy</a>
+        <a href="/disclaimer.html">Disclaimer</a>
+        <a href="/contact.html">Contact</a>
+    </div>
+</nav>
+</header>
+
+<main class="container">
+
+<!-- =====================================================
+     START SCREEN
+===================================================== -->
+
+<section id="start-screen">
+
+    <div class="intro-card">
+
+        <img
+            src="../../images/twd-survival.png"
+            class="quiz-start-image"
+             >
+
+        <p class="quiz-category">
+            THE WALKING DEAD • ZOMBIE SURVIVAL • TV SERIES
+        </p>
+
+        <h1>Could You Survive The Walking Dead?</h1>
+
+        <p class="subtitle">
+            Think you could survive the world of <em>The Walking Dead</em>?
+            Test your knowledge of walker behavior, dangerous herds,
+            hostile groups, survivor communities and the decisions
+            that could keep you alive during a zombie apocalypse.
+        </p>
+
+        <div class="info">
+            <span>30 Questions</span>
+            <span>•</span>
+            <span>~5 Minutes</span>
+            <span>•</span>
+            <span>4 Choices</span>
+        </div>
+
+        <button id="start-btn" type="button">
+            START QUIZ
+        </button>
+
+        <div class="spoiler-warning start-spoiler">
+            <p>
+                This quiz contains story details and spoilers from
+                <em>The Walking Dead</em>, including events through Season 11.
+            </p>
+        </div>
+
+    </div>
+
+</section>
+
+<!-- =====================================================
+     QUIZ SCREEN
+===================================================== -->
+
+<section id="quiz-screen" class="screen hidden">
+
+    <div class="quiz-header">
+
+        <span id="question-number">
+            Question 1 of 30
+        </span>
+
+        <span id="score-display">
+           Survival Trivia
+        </span>
+
+    </div>
+
+    <div class="progress">
+        <div id="progress-bar"></div>
+    </div>
+
+    <h2 id="question"></h2>
+
+    <div id="answers"></div>
+
+    <div class="quiz-navigation">
+
+        <button
+            id="back-btn"
+            class="nav-btn"
+            type="button"
+            disabled>
+            ← Back
+        </button>
+
+        <button
+            id="next-btn"
+            class="nav-btn"
+            type="button"
+            disabled>
+            Next →
+        </button>
+
+        <button
+            id="submit-btn"
+            class="nav-btn submit-btn hidden"
+            type="button"
+            disabled>
+            Answer All Questions
+        </button>
+
+    </div>
+
+</section>
+
+<!-- =====================================================
+     RESULT SCREEN
+===================================================== -->
+
+<section id="result-screen" class="screen hidden">
+
+    <p class="result-label">
+        YOUR RESULT
+    </p>
+
+    <h1 id="result-title"></h1>
+
+    <div class="result-score">
+        <span id="final-score"></span>
+    </div>
+
+    <p id="result-description"></p>
+
+    <div class="survival-box">
+
+        <strong>The Walking Dead Survival Skills</strong>
+
+        <span id="knowledge-level"></span>
+
+    </div>
+
+    <!-- RESULT BREAKDOWN -->
+
+    <div class="result-breakdown">
+
+        <div class="result-stat">
+
+            <span id="correct-count" class="result-stat-value">
+                0
+            </span>
+
+            <span class="result-stat-label">
+                Correct
+            </span>
+
+        </div>
+
+        <div class="result-stat">
+
+            <span id="incorrect-count" class="result-stat-value">
+                0
+            </span>
+
+            <span class="result-stat-label">
+                Incorrect
+            </span>
+
+        </div>
+
+        <div class="result-stat">
+
+            <span id="total-count" class="result-stat-value">
+                30
+            </span>
+
+            <span class="result-stat-label">
+                Total
+            </span>
+
+        </div>
+
+        <div class="result-stat">
+
+            <span id="accuracy-percent" class="result-stat-value">
+                0%
+            </span>
+
+            <span class="result-stat-label">
+                Accuracy
+            </span>
+
+        </div>
+
+    </div>
+
+    <button id="restart-btn" type="button">
+        TRY AGAIN
+    </button>
+
+    <button id="share-btn" type="button">
+        📤 SHARE MY RESULT
+    </button>
+
+    <button id="challenge-btn" type="button">
+        ⚔️ CHALLENGE YOUR FRIENDS
+    </button>
+
+</section>
+
+<!-- =====================================================
+     SUGGESTED QUIZZES
+===================================================== -->
+
+<section
+    id="suggestions-card"
+    class="suggestions-card hidden">
+
+    <div class="suggested-quizzes">
+
+        <h2>Suggested Quizzes</h2>
+
+        <p class="suggested-subtitle">
+            Finished testing your survival instincts?
+            Explore more apocalyptic worlds, dangerous mysteries
+            and survival challenges.
+        </p>
+
+        <div class="suggested-grid">
+
+            <!-- WALKING DEAD KNOWLEDGE -->
+            <a href="/walking-dead-knowledge/" class="suggested-card">
+
+                <img
+                    src="../../images/walking-dead-knowledge.png"
+                    alt="The Walking Dead Knowledge Quiz"
+                    class="suggested-image">
+
+                <span class="suggested-title">
+                    The Walking Dead Knowledge Quiz
+                </span>
+
+                <span class="suggested-description">
+                    Test your knowledge of The Walking Dead,
+                    Rick and his group, and surviving a
+                    zombie apocalypse.
+                </span>
+
+            </a>
+
+            <!-- SILO QUIZ -->
+            <a href="/silo-quiz/" class="suggested-card">
+
+                <img
+                    src="../../images/silo-quiz.png"
+                    alt="Silo Quiz"
+                    class="suggested-image">
+
+                <span class="suggested-title">
+                    Silo Quiz
+                </span>
+
+                <span class="suggested-description">
+                    Explore the underground world of Silo
+                    and test your knowledge of its mysteries.
+                </span>
+
+            </a>
+
+            <!-- THE LAST OF US QUIZ -->
+            <a href="/last-of-us-quiz/" class="suggested-card">
+
+                <img
+                    src="../../images/last-of-us-quiz.png"
+                    alt="The Last of Us Quiz"
+                    class="suggested-image">
+
+                <span class="suggested-title">
+                    The Last of Us Quiz
+                </span>
+
+                <span class="suggested-description">
+                    Follow Joel and Ellie's journey and
+                    test your knowledge of The Last of Us.
+                </span>
+
+            </a>
+
+        </div>
+
+    </div>
+
+    <!-- MORE QUIZZES CTA -->
+
+    <div class="more-quizzes-section">
+
+        <h3>Explore More Quizzes</h3>
+
+        <p>
+            Discover more apocalypse, survival, mystery
+            and disaster TV and movie quizzes.
+        </p>
+
+        <a href="/" class="more-quizzes-btn">
+            🧟 APOCALYPSE QUIZZES
+        </a>
+
+    </div>
+
+</section>
+
+<!-- =====================================================
+     INFORMATION SECTIONS
+===================================================== -->
+
+<div id="home-info">
+
+    <!-- ABOUT THE QUIZ -->
+
+    <section class="home-info">
+
+        <h2>ABOUT THE QUIZ</h2>
+
+        <p>
+            <em>Could You Survive The Walking Dead?</em> is a 30-question
+            zombie survival quiz inspired by the television series.
+            It combines questions about walker behavior and familiar
+            communities with practical decisions that could matter
+            during a large-scale outbreak.
+        </p>
+
+        <p>
+            The quiz covers how walkers behave, what can make them
+            dangerous, how herds and unusual variants may affect a
+            survivor group, and how to approach encounters with other
+            people and settlements.
+        </p>
+
+        <p>
+            It also includes general apocalypse survival topics such as
+            choosing a long-term base, planning supply runs, maintaining
+            food and water sources, and using fuel-powered generators safely.
+        </p>
+
+    </section>
+
+    <!-- SERIES DETAILS -->
+
+    <section class="home-info">
+
+        <h2>The Walking Dead Details</h2>
+
+        <p>
+            <strong>Series:</strong>
+            <em>The Walking Dead</em>
+        </p>
+
+        <p>
+            <strong>Coverage:</strong>
+            Main television series, including events through Season 11
+        </p>
+
+        <p>
+            <strong>Seasons:</strong>
+            11
+        </p>
+
+        <p>
+            <strong>Genre:</strong>
+            Post-apocalyptic horror, survival, drama and thriller
+        </p>
+
+        <p>
+            <strong>Central Conflict:</strong>
+            Survivors must contend with the dead, scarce resources,
+            dangerous groups and the difficult choices involved in
+            building communities after civilization collapses.
+        </p>
+
+        <p>
+            <strong>Major Story Elements:</strong>
+            Walker behavior, herds, variant walkers, the Whisperers,
+            the Saviors, Terminus, Alexandria, the Commonwealth and
+            other communities encountered throughout the series.
+        </p>
+
+    </section>
+
+    <!-- WHAT THIS QUIZ COVERS -->
+
+    <section class="home-info">
+
+        <h2>WHAT THIS QUIZ COVERS</h2>
+
+        <p>
+            The questions combine <em>The Walking Dead</em> story details
+            with practical survival situations. They test both your
+            familiarity with the series and your ability to think through
+            common problems in a zombie apocalypse.
+        </p>
+
+        <h3>Walker Behavior</h3>
+
+        <p>
+            Consider how walkers react to living prey, sounds, injuries,
+            weather and their surroundings. The quiz also touches on
+            walker camouflage, severed heads and unusual climbing behavior.
+        </p>
+
+        <h3>Survival Decisions</h3>
+
+        <p>
+            Make choices about selecting a long-term base, escaping an
+            approaching herd, searching unfamiliar buildings, assessing
+            strangers and organizing supply runs.
+        </p>
+
+        <h3>Communities and Factions</h3>
+
+        <p>
+            Identify groups and settlements from the series, including
+            Terminus, the Saviors, Alexandria, Woodbury, the Commonwealth,
+            the Wolves and the Claimers.
+        </p>
+
+        <h3>Food, Water and Preparedness</h3>
+
+        <p>
+            The quiz considers long-term food production, illness reporting,
+            water treatment and the safe placement of portable fuel-powered
+            generators.
+        </p>
+
+        <h3>General Apocalypse Survival</h3>
+
+        <p>
+            A zombie outbreak would create problems beyond the walkers
+            themselves. Planning, reliable resources, safe shelter and
+            community cooperation would all influence the chances of survival.
+        </p>
+
+    </section>
+
+    <!-- HOW THE QUIZ WORKS -->
+
+    <section class="home-info">
+
+        <h2>HOW THE QUIZ WORKS</h2>
+
+        <p>
+            The quiz contains 30 questions. Every question has four
+            possible choices, but only one answer is correct. Read each
+            question carefully and select the answer you believe is correct.
+        </p>
+
+        <p>
+            Each correct answer gives you 1 point, while an incorrect
+            answer gives you 0 points. Your final score is converted
+            into a percentage out of 100%.
+        </p>
+
+        <p>
+            Your result reflects how well you know the series' walkers
+            and communities, along with your choices in general survival
+            situations.
+        </p>
+
+    </section>
+
+    <!-- QUIZ NAVIGATION -->
+
+    <section class="home-info">
+
+        <h2>Quiz Navigation</h2>
+
+        <h3>Starting the Quiz</h3>
+
+        <p>
+            Select START QUIZ on the opening screen to begin. The first
+            question will appear with four possible answers.
+        </p>
+
+        <h3>Selecting an Answer</h3>
+
+        <p>
+            Read all four choices before making your decision. Select
+            the answer you believe is correct. The quiz automatically
+            moves to the next question shortly after you select an answer.
+        </p>
+
+        <h3>Next and Back Buttons</h3>
+
+        <p>
+            Use Next to move forward and Back to revisit an earlier
+            question. Your previous answer remains selected when you
+            return to a question.
+        </p>
+
+        <h3>Finishing the Quiz</h3>
+
+        <p>
+            Answer all 30 questions to complete the quiz. Submit your
+            answers on the final question to see your score, accuracy
+            and survival level.
+        </p>
+
+        <h3>Try Again and Challenge Friends</h3>
+
+        <p>
+            Select TRY AGAIN to replay the quiz. You can also share
+            your result or challenge friends to see who has the better
+            knowledge and survival instincts.
+        </p>
+
+    </section>
+
+    <!-- FAQ -->
+
+    <section class="home-info">
+
+        <h2>FAQ</h2>
+
+        <h3>How many questions are in the quiz?</h3>
+
+        <p>
+            There are 30 questions in total, and every question has
+            four possible choices.
+        </p>
+
+        <h3>What is the maximum score?</h3>
+
+        <p>
+            The maximum result is 100%. Each correct answer contributes
+            one point before the score is converted into a percentage.
+        </p>
+
+        <h3>What topics are covered?</h3>
+
+        <p>
+            The quiz covers walker behavior, factions and communities
+            from <em>The Walking Dead</em>, practical survival decisions,
+            and general apocalypse preparedness.
+        </p>
+
+        <h3>Does the quiz contain spoilers?</h3>
+
+        <p>
+            Yes. It includes story details from the main television
+            series through Season 11.
+        </p>
+
+        <h3>Can I take the quiz again?</h3>
+
+        <p>
+            Yes. Select TRY AGAIN after completing the quiz to start
+            another attempt and improve your score.
+        </p>
+
+        <h3>Can I challenge my friends?</h3>
+
+        <p>
+            Yes. Select CHALLENGE YOUR FRIENDS after completing the
+            quiz to share the challenge.
+        </p>
+
+    </section>
+
+    <!-- SPOILER WARNING -->
+
+    <section class="home-info spoiler-warning">
+
+        <h2>Spoiler Warning</h2>
+
+        <p>
+            This quiz contains spoilers for <em>The Walking Dead</em>,
+            including characters, factions, communities, walker behavior
+            and major developments from the television series through
+            Season 11.
+        </p>
+
+        <p>
+            Consider watching the series before taking the quiz if you
+            want to avoid learning important story details in advance.
+        </p>
+
+    </section>
+
+</div>
+
+</main>
+
+<!-- =====================================================
+     FOOTER
+===================================================== -->
+
+<footer class="site-footer">
+    <div class="container footer-inner">
+      <div class="footer-brand">ApocalypseQuizzes</div>
+      <nav class="footer-links" aria-label="Footer navigation">
+        <a href="https://apocalypsequizzes.com/">Quizzes</a>
+        <a href="https://apocalypsequizzes.com/survival-guides/">Articles &amp; Guides</a>
+        <a href="/about.html">About</a>
+            <a href="/privacy.html">Privacy Policy</a>
+            <a href="/disclaimer.html">Disclaimer</a>
+            <a href="/contact.html">Contact</a>
+      </nav>
+      <p class="copyright">
+    © <span id="current-year">2026</span> Apocalypse Quizzes. All rights reserved.
+</p>
+    </div>
+</footer>
+
+<script>
+
+/* =====================================================
+   THE WALKING DEAD ZOMBIE SURVIVAL QUIZ QUESTIONS
+   Each answer is stored as [answerText, score].
+   Correct answer = 1; incorrect answer = 0.
+===================================================== */
+
+const questions = [
+
+    {
+        question: "Someone in your group dies of natural causes without being bitten. What should you expect?",
+        answers: [
+            ["They cannot turn", 0],
+            ["They may reanimate because they were already infected", 1],
+            ["They turn only after sunset", 0],
+            ["They turn only if a walker touches them", 0]
+        ]
+    },
+
+    {
+        question: "What reliably stops an ordinary walker permanently?",
+        answers: [
+            ["Breaking its arm", 0],
+            ["Leaving it without food", 0],
+            ["Destroying its brain", 1],
+            ["Exposing it to sunlight", 0]
+        ]
+    },
+
+    {
+        question: "Rain starts falling while you are disguised with walker remains. What is the main danger?",
+        answers: [
+            ["Rain makes every walker sprint", 0],
+            ["Walkers become immune to injury", 0],
+            ["Rain immediately blinds you", 0],
+            ["Your camouflage may wash away", 1]
+        ]
+    },
+
+    {
+        question: "A walker lies motionless on a supermarket floor. What should you assume?",
+        answers: [
+            ["Indoor walkers are harmless", 0],
+            ["It may still be active", 1],
+            ["It cannot move unless another walker wakes it", 0],
+            ["It has permanently starved", 0]
+        ]
+    },
+
+    {
+        question: "A walker has lost the lower half of its body. Is it necessarily harmless?",
+        answers: [
+            ["Yes, because walkers need to stand", 0],
+            ["Yes, because it can no longer digest food", 0],
+            ["No, it may still bite", 1],
+            ["Only during daylight", 0]
+        ]
+    },
+
+    {
+        question: "You are choosing a long-term base. Which feature matters most?",
+        answers: [
+            ["Defensible shelter with reliable water and room for food production", 1],
+            ["A luxurious interior with no working exits", 0],
+            ["A busy road that makes you easy to find", 0],
+            ["A large television collection", 0]
+        ]
+    },
+
+    {
+        question: "A herd approaches your camp, and a clear escape route is available. What is the best move?",
+        answers: [
+            ["Stand outside and shout warnings at the herd", 0],
+            ["Split up without telling anyone", 0],
+            ["Wait until walkers reach the tents", 0],
+            ["Leave early using your agreed evacuation plan", 1]
+        ]
+    },
+
+    {
+        question: "You must search an unfamiliar building. What should you prioritize before going deep inside?",
+        answers: [
+            ["Finding the most valuable-looking room", 0],
+            ["Identifying exits and checking accessible areas cautiously", 1],
+            ["Closing every escape route behind you", 0],
+            ["Sending everyone into separate rooms", 0]
+        ]
+    },
+
+    {
+        question: "A stranger offers food but insists that you surrender all equipment and separate from your group first. What is the wisest response?",
+        answers: [
+            ["Agree immediately because food proves goodwill", 0],
+            ["Send your least experienced member alone", 0],
+            ["Treat the conditions as warning signs and assess from a safe position", 1],
+            ["Tell them where every member of your group sleeps", 0]
+        ]
+    },
+
+    {
+        question: "Your community’s only doctor wants to train two assistants. What is the strongest survival argument for allowing it?",
+        answers: [
+            ["Essential knowledge should not depend on one person", 1],
+            ["Training makes medical supplies unnecessary", 0],
+            ["Assistants never need supervision", 0],
+            ["More medical workers eliminate all disease", 0]
+        ]
+    },
+
+    {
+        question: "Your group discovers a neglected garden and a warehouse of packaged food. What is the best long-term approach?",
+        answers: [
+            ["Ignore the garden forever", 0],
+            ["Use safe stored food while developing renewable food sources", 1],
+            ["Eat everything immediately", 0],
+            ["Assume all packaged food remains safe indefinitely", 0]
+        ]
+    },
+
+    {
+        question: "Someone conceals a serious illness because they fear being expelled. Which community policy would best reduce this risk?",
+        answers: [
+            ["Encourage early reporting and provide care with appropriate precautions", 1],
+            ["Punish anyone who admits feeling unwell", 0],
+            ["Ban all medical discussions", 0],
+            ["Make sick people responsible for communal food preparation", 0]
+        ]
+    },
+
+    {
+        question: "You are planning a supply run. Which plan is strongest?",
+        answers: [
+            ["We will work it out when we get there", 0],
+            ["Everyone goes, including all guards", 0],
+            ["Nobody needs to know our route", 0],
+            ["Define the objective, route, return time, and fallback meeting point", 1]
+        ]
+    },
+
+    {
+        question: "An impressive perimeter wall has one gate that frequently jams. What should you do?",
+        answers: [
+            ["Assume the wall makes the gate irrelevant", 0],
+            ["Repair the gate and maintain another emergency exit", 1],
+            ["Decorate the gate to improve morale", 0],
+            ["Remove all evacuation supplies", 0]
+        ]
+    },
+
+    {
+        question: "Clear-looking stream water is available, but its safety is unknown. What should you do?",
+        answers: [
+            ["Assume moving water is always safe", 0],
+            ["Taste it to check for germs", 0],
+            ["Treat it using an appropriate method before drinking", 1],
+            ["Add salt and drink immediately", 0]
+        ]
+    },
+
+    {
+        question: "Can boiling reliably make water contaminated with fuel or toxic chemicals safe to drink?",
+        answers: [
+            ["Yes, if you boil it twice", 0],
+            ["Yes, if the smell disappears", 0],
+            ["Yes, if you strain it through cloth first", 0],
+            ["No—use a different safe water source", 1]
+        ]
+    },
+
+    {
+        question: "Where should a portable fuel-powered generator operate?",
+        answers: [
+            ["Inside your bedroom with a window open", 0],
+            ["Outdoors, at least 20 feet from doors, windows, and vents, with exhaust directed away", 1],
+            ["In an attached garage with its main door open", 0],
+            ["In a basement beside a fan", 0]
+        ]
+    },
+
+    {
+        question: "You follow railway signs promising ‘Sanctuary for all. Community for all.’ Where are you heading?",
+        answers: [
+            ["Alexandria", 0],
+            ["Hilltop", 0],
+            ["The Kingdom", 0],
+            ["Terminus", 1]
+        ]
+    },
+
+    {
+        question: "A group demands a large share of your supplies and says its members are all ‘Negan.’ Who are they?",
+        answers: [
+            ["The Commonwealth", 0],
+            ["The Whisperers", 0],
+            ["The Saviors", 1],
+            ["The Wolves", 0]
+        ]
+    },
+
+    {
+        question: "Deanna Monroe interviews your group before deciding whether to admit you. Where are you?",
+        answers: [
+            ["Woodbury", 0],
+            ["Oceanside", 0],
+            ["Alexandria Safe-Zone", 1],
+            ["The Kingdom", 0]
+        ]
+    },
+
+    {
+        question: "A seemingly orderly town is ruled by the Governor. Which settlement is it?",
+        answers: [
+            ["Woodbury", 1],
+            ["Hilltop", 0],
+            ["Terminus", 0],
+            ["The Commonwealth", 0]
+        ]
+    },
+
+    {
+        question: "You encounter soldiers wearing distinctive white armor and learn of a large, socially stratified settlement. Which community fits?",
+        answers: [
+            ["The Commonwealth", 1],
+            ["The Kingdom", 0],
+            ["Hilltop", 0],
+            ["Alexandria", 0]
+        ]
+    },
+
+    {
+        question: "Attackers marked with a ‘W’ appear near your community. Which group should you suspect?",
+        answers: [
+            ["The Saviors", 0],
+            ["The Wolves", 1],
+            ["The Commonwealth", 0],
+            ["The Reapers", 0]
+        ]
+    },
+
+    {
+        question: "A group enforces the rule that saying ‘claimed’ establishes ownership of an item. Who are they?",
+        answers: [
+            ["The Whisperers", 0],
+            ["The Scavengers", 0],
+            ["The Claimers", 1],
+            ["The Kingdom", 0]
+        ]
+    },
+
+    {
+        question: "Which statement about ordinary walkers is generally true?",
+        answers: [
+            ["They are attracted to sounds and signs of living prey", 1],
+            ["They need eight hours of sleep", 0],
+            ["They avoid every building", 0],
+            ["They obey whoever infected them", 0]
+        ]
+    },
+
+    {
+        question: "You hear what sounds like whispering inside a herd. What should you suspect?",
+        answers: [
+            ["Walkers are universally recovering their memories", 0],
+            ["The herd is asking for help", 0],
+            ["Cold weather has changed their voices", 0],
+            ["Living people may be hiding among them", 1]
+        ]
+    },
+
+    {
+        question: "A severed walker head is lying nearby. What is the danger?",
+        answers: [
+            ["It can grow another body", 0],
+            ["It may still bite if its brain remains intact", 1],
+            ["It releases a guaranteed airborne infection", 0],
+            ["It can move faster than a whole walker", 0]
+        ]
+    },
+
+    {
+        question: "A friend says, ‘Winter will kill every walker permanently.’ What is the best response?",
+        answers: [
+            ["Cold can slow or immobilize walkers, but it is not a dependable permanent solution", 1],
+            ["Correct—one freezing night ends the outbreak", 0],
+            ["Correct—but only in cities", 0],
+            ["Incorrect—walkers become warm-blooded in winter", 0]
+        ]
+    },
+
+    {
+        question: "Which walker behavior should you NOT rely on?",
+        answers: [
+            ["Following a loud sound", 0],
+            ["Gathering around accessible prey", 0],
+            ["Respecting property boundaries", 1],
+            ["Continuing to move despite severe injuries", 0]
+        ]
+    },
+
+    {
+        question: "A group of walkers approaches your community. One suddenly climbs over a wall. What should you suspect?",
+        answers: [
+            ["They are ordinary walkers behaving normally.", 0],
+            ["Whisperers are hiding among the herd.", 0],
+            ["You may be dealing with Variant Walkers, known as Climbers.", 1],
+            ["The walkers have been deliberately controlled by another community.", 0]
+        ]
+    }
+
+];
+
+
+/* =====================================================
+   QUIZ STATE
+===================================================== */
+
+let currentQuestion = 0;
+
+let selectedAnswers =
+    new Array(questions.length).fill(null);
+
+
+/* =====================================================
+   DOM ELEMENTS
+===================================================== */
+
+const startScreen =
+    document.getElementById("start-screen");
+
+const quizScreen =
+    document.getElementById("quiz-screen");
+
+const resultScreen =
+    document.getElementById("result-screen");
+
+const homeInfo =
+    document.getElementById("home-info");
+
+const suggestionsCard =
+    document.getElementById("suggestions-card");
+
+const startButton =
+    document.getElementById("start-btn");
+
+const restartButton =
+    document.getElementById("restart-btn");
+
+const shareButton =
+    document.getElementById("share-btn");
+
+const challengeButton =
+    document.getElementById("challenge-btn");
+
+const backButton =
+    document.getElementById("back-btn");
+
+const nextButton =
+    document.getElementById("next-btn");
+
+const submitButton =
+    document.getElementById("submit-btn");
+
+const questionNumber =
+    document.getElementById("question-number");
+
+const questionText =
+    document.getElementById("question");
+
+const answersContainer =
+    document.getElementById("answers");
+
+const progressBar =
+    document.getElementById("progress-bar");
+
+
+/* =====================================================
+   EVENT LISTENERS
+===================================================== */
+
+startButton.addEventListener("click", startQuiz);
+
+restartButton.addEventListener("click", restartQuiz);
+
+shareButton.addEventListener("click", shareResult);
+
+challengeButton.addEventListener("click", shareResult);
+
+backButton.addEventListener("click", goBack);
+
+nextButton.addEventListener("click", goNext);
+
+submitButton.addEventListener("click", showResult);
+
+
+/* =====================================================
+   START QUIZ
+===================================================== */
+
+function startQuiz() {
+
+    currentQuestion = 0;
+
+    selectedAnswers =
+        new Array(questions.length).fill(null);
+
+    startScreen.classList.add("hidden");
+
+    resultScreen.classList.add("hidden");
+
+    quizScreen.classList.remove("hidden");
+
+    homeInfo.classList.add("hidden");
+
+    suggestionsCard.classList.add("hidden");
+
+    progressBar.style.width = "0%";
+
+    showQuestion();
+
+}
+
+
+/* =====================================================
+   SHOW QUESTION
+===================================================== */
+
+function showQuestion() {
+
+    const current = questions[currentQuestion];
+
+    questionNumber.textContent =
+        `Question ${currentQuestion + 1} of ${questions.length}`;
+
+    questionText.textContent = current.question;
+
+    answersContainer.innerHTML = "";
+
+    const progress =
+        ((currentQuestion + 1) / questions.length) * 100;
+
+    progressBar.style.width = `${progress}%`;
+
+    current.answers.forEach((answer, index) => {
+
+        const button = document.createElement("button");
+
+        button.className = "answer";
+
+        button.type = "button";
+
+        button.textContent = answer[0];
+
+        if (selectedAnswers[currentQuestion] === index) {
+            button.classList.add("selected");
+        }
+
+        button.addEventListener("click", () => {
+            selectAnswer(index);
+        });
+
+        answersContainer.appendChild(button);
+
+    });
+
+    updateNavigation();
+
+}
+
+
+/* =====================================================
+   SELECT ANSWER
+===================================================== */
+
+function selectAnswer(answerIndex) {
+
+    selectedAnswers[currentQuestion] = answerIndex;
+
+    const buttons =
+        answersContainer.querySelectorAll(".answer");
+
+    buttons.forEach((button, index) => {
+
+        button.classList.toggle(
+            "selected",
+            index === answerIndex
+        );
+
+    });
+
+    updateNavigation();
+
+    const questionAtSelection = currentQuestion;
+
+    setTimeout(() => {
+
+        if (
+            currentQuestion === questionAtSelection &&
+            selectedAnswers[questionAtSelection] === answerIndex &&
+            currentQuestion < questions.length - 1
+        ) {
+
+            currentQuestion++;
+
+            showQuestion();
+
+        }
+
+    }, 180);
+
+}
+
+
+/* =====================================================
+   NEXT
+===================================================== */
+
+function goNext() {
+
+    if (selectedAnswers[currentQuestion] === null) {
+        return;
+    }
+
+    if (currentQuestion === questions.length - 1) {
+
+        if (
+            selectedAnswers.every(
+                answer => answer !== null
+            )
+        ) {
+            showResult();
+        }
+
+        return;
+    }
+
+    currentQuestion++;
+
+    showQuestion();
+
+}
+
+
+/* =====================================================
+   BACK
+===================================================== */
+
+function goBack() {
+
+    if (currentQuestion > 0) {
+
+        currentQuestion--;
+
+        showQuestion();
+
+    }
+
+}
+
+
+/* =====================================================
+   NAVIGATION
+===================================================== */
+
+function updateNavigation() {
+
+    const isFirst = currentQuestion === 0;
+
+    const isLast =
+        currentQuestion === questions.length - 1;
+
+    const currentAnswered =
+        selectedAnswers[currentQuestion] !== null;
+
+    const allAnswered =
+        selectedAnswers.every(
+            answer => answer !== null
+        );
+
+    backButton.disabled = isFirst;
+
+    if (isLast) {
+
+        nextButton.classList.add("hidden");
+
+        submitButton.classList.remove("hidden");
+
+        submitButton.disabled = !allAnswered;
+
+        submitButton.textContent =
+            allAnswered
+                ? "SUBMIT"
+                : "Answer All Questions";
+
+    } else {
+
+        submitButton.classList.add("hidden");
+
+        nextButton.classList.remove("hidden");
+
+        nextButton.textContent = "Next →";
+
+        nextButton.disabled = !currentAnswered;
+
+    }
+
+}
+
+
+/* =====================================================
+   CALCULATE SCORE
+===================================================== */
+
+function calculateScore() {
+
+    let score = 0;
+
+    selectedAnswers.forEach(
+        (answerIndex, questionIndex) => {
+
+            if (answerIndex !== null) {
+
+                score +=
+                    questions[questionIndex]
+                        .answers[answerIndex][1];
+
+            }
+
+        }
+    );
+
+    return score;
+
+}
+
+
+/* =====================================================
+   SHOW RESULT
+===================================================== */
+
+function showResult() {
+
+    // Prevent submitting an incomplete quiz.
+
+    if (
+        !selectedAnswers.every(
+            answer => answer !== null
+        )
+    ) {
+        return;
+    }
+
+    const correctAnswers = calculateScore();
+
+    const totalQuestions = questions.length;
+
+    const incorrectAnswers =
+        totalQuestions - correctAnswers;
+
+    const score =
+        Math.round(
+            (correctAnswers / totalQuestions) * 100
+        );
+
+    const accuracy = score;
+
+
+    /* SCREEN VISIBILITY */
+
+    homeInfo.classList.remove("hidden");
+
+    quizScreen.classList.add("hidden");
+
+    resultScreen.classList.remove("hidden");
+
+    suggestionsCard.classList.remove("hidden");
+
+
+    /* SCORE */
+
+    document.getElementById("final-score").textContent =
+        `${score}%`;
+
+
+    /* RESULT BREAKDOWN */
+
+    document.getElementById("correct-count").textContent =
+        correctAnswers;
+
+    document.getElementById("incorrect-count").textContent =
+        incorrectAnswers;
+
+    document.getElementById("total-count").textContent =
+        totalQuestions;
+
+    document.getElementById("accuracy-percent").textContent =
+        `${accuracy}%`;
+
+
+    /* RESULT CLASSIFICATION */
+
+    let title;
+    let description;
+    let knowledge;
+    let icon;
+
+    if (score <= 20) {
+
+        title = "🌑 The First to Fall";
+
+        description =
+            "The walkers and the dangers of this world would likely overwhelm you. Review the basics of walker behavior and survival planning before heading out.";
+
+        knowledge = "Unprepared Survivor";
+
+        icon = "🌑";
+
+    }
+
+    else if (score <= 40) {
+
+        title = "🧟 Newcomer to the Apocalypse";
+
+        description =
+            "You know a few useful things, but some important survival decisions and details about the world of the walkers still need work.";
+
+        knowledge = "Beginner Survivor";
+
+        icon = "🧟";
+
+    }
+
+    else if (score <= 60) {
+
+        title = "🛡️ Resourceful Survivor";
+
+        description =
+            "Not bad! You understand several important walker behaviors and made sensible choices in a range of difficult survival situations.";
+
+        knowledge = "Capable Survivor";
+
+        icon = "🛡️";
+
+    }
+
+    else if (score <= 80) {
+
+        title = "⚡ Community Defender";
+
+        description =
+            "Impressive! You have a strong grasp of walker threats, community risks and the planning needed to keep a group alive.";
+
+        knowledge = "Experienced Survivor";
+
+        icon = "⚡";
+
+    }
+
+    else if (score < 100) {
+
+        title = "🔥 Seasoned Apocalypse Survivor";
+
+        description =
+            "Excellent! Your knowledge of walkers and survival strategy is strong. You would have a good chance of helping a community prepare for difficult situations.";
+
+        knowledge = "Expert Survivor";
+
+        icon = "🔥";
+
+    }
+
+    else {
+
+        title = "🦅 Legendary Survivor";
+
+        description =
+            "Perfect score! You answered every question correctly. You know the walkers, communities and survival fundamentals inside out. Stay alert—this world is still unforgiving.";
+
+        knowledge = "Ultimate Survivor";
+
+        icon = "🦅";
+
+    }
+
+
+    document.getElementById("result-title").textContent =
+        title;
+
+    document.getElementById("result-description").textContent =
+        description;
+
+    document.getElementById("knowledge-level").textContent =
+        knowledge;
+
+    const resultIcon =
+        document.getElementById("result-icon");
+
+    if (resultIcon) {
+        resultIcon.textContent = icon;
+    }
+
+    progressBar.style.width = "100%";
+
+}
+
+
+/* =====================================================
+   RESTART QUIZ
+===================================================== */
+
+function restartQuiz() {
+
+    currentQuestion = 0;
+
+    selectedAnswers =
+        new Array(questions.length).fill(null);
+
+    resultScreen.classList.add("hidden");
+
+    quizScreen.classList.add("hidden");
+
+    startScreen.classList.remove("hidden");
+
+    homeInfo.classList.remove("hidden");
+
+    suggestionsCard.classList.add("hidden");
+
+    progressBar.style.width = "0%";
+
+}
+
+
+/* =====================================================
+   SHARE RESULT
+===================================================== */
+
+async function shareResult() {
+
+    const title =
+        document.getElementById("result-title").textContent;
+
+    const knowledge =
+        document.getElementById("knowledge-level").textContent;
+
+    const finalScore =
+        document.getElementById("final-score").textContent;
+
+    const quizUrl =
+        "https://apocalypsequizzes.com/the-walking-dead/zombie-survival-quiz/";
+
+    const shareText =
+        `🧟 I scored ${finalScore} on the Walking Dead Survival Quiz!\n\n` +
+        `${title}\n` +
+        `Knowledge level: ${knowledge}\n\n` +
+        `Could YOU survive The Walking Dead?`;
+
+    const shareData = {
+        title: "Could You Survive The Walking Dead?",
+        text: shareText,
+        url: quizUrl
+    };
+
+    try {
+
+        if (navigator.share) {
+
+            await navigator.share(shareData);
+
+        } else if (navigator.clipboard && window.isSecureContext) {
+
+            await navigator.clipboard.writeText(
+                shareText + "\n\n" + quizUrl
+            );
+
+            alert(
+                "Your result has been copied! You can paste it anywhere."
+            );
+
+        } else {
+
+            window.prompt(
+                "Copy your result and share it:",
+                shareText + "\n\n" + quizUrl
+            );
+
+        }
+
+    } catch (error) {
+
+        if (error.name !== "AbortError") {
+            console.error("Sharing failed:", error);
+        }
+
+    }
+
+}
+
+
+/* =====================================================
+   GLOBAL SITE MENU
+===================================================== */
+
+const menuToggle =
+    document.getElementById("menu-toggle");
+
+const siteMenu =
+    document.getElementById("site-menu");
+
+
+if (menuToggle && siteMenu) {
+
+    /* OPEN / CLOSE WITH HAMBURGER */
+
+    menuToggle.addEventListener("click", function(event) {
+
+        event.stopPropagation();
+
+        const isOpen =
+            menuToggle.getAttribute("aria-expanded") === "true";
+
+        siteMenu.hidden = isOpen;
+
+        menuToggle.setAttribute(
+            "aria-expanded",
+            String(!isOpen)
+        );
+
+        menuToggle.setAttribute(
+            "aria-label",
+            isOpen ? "Open navigation" : "Close navigation"
+        );
+
+    });
+
+
+    /* CLOSE WHEN CLICKING OUTSIDE */
+
+    document.addEventListener("click", function(event) {
+
+        if (
+            !siteMenu.hidden &&
+            !siteMenu.contains(event.target) &&
+            !menuToggle.contains(event.target)
+        ) {
+
+            siteMenu.hidden = true;
+
+            menuToggle.setAttribute("aria-expanded", "false");
+
+            menuToggle.setAttribute(
+                "aria-label",
+                "Open navigation"
+            );
+
+        }
+
+    });
+
+
+    /* CLOSE AFTER CLICKING MENU LINK */
+
+    siteMenu.querySelectorAll("a").forEach(function(link) {
+
+        link.addEventListener("click", function() {
+
+            siteMenu.hidden = true;
+
+            menuToggle.setAttribute("aria-expanded", "false");
+
+            menuToggle.setAttribute(
+                "aria-label",
+                "Open navigation"
+            );
+
+        });
+
+    });
+
+}
+
+</script>
+
+</body>
+</html>
